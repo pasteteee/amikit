@@ -632,6 +632,9 @@ def _bend_info(inst):
         drape["_twist"] = float(tw[1]) if tw else None
     return {"deg": deg, "at": at, "over": over, "rounds": [a0, a1], "take_rounds": round(take, 1),
             "coil": coil, "drape": drape, "pitch_mm": b.get("pitch_mm"),
+            # which end is free (piece.py): sewn by its opening -> the part before `at` bends (toward round 1);
+            # a root or a piece sewn by its start -> the part after `at` bends (toward the last round)
+            "free_start": bool(inst.lp.get("bend_free_start", False)), "n_rounds": int(p.N),
             "inner": _dominant(inner_world), "inner_pos": position(inst, ra, az),
             "width_st": max(2, int(round(n_at / 4)))}
 
@@ -2281,26 +2284,48 @@ def _stuff_note(part, lang):
 
 
 def _coil_text(part, lang):
-    """A spiral (a seahorse tail): rolled up from the tip and tacked - the way designers make it."""
+    """A spiral (a seahorse tail, a coiled snake): rolled up from its free end and tacked - the way designers make
+    it. The free end is the one piece.py curls: round 1 for a piece sewn on by its opening, the last round for the
+    base piece or a piece sewn on by its start."""
     ru = lang == "ru"
     bi = part["bend_info"]
-    turns = abs(bi["deg"]) / 360.0
-    a0 = int(round(bi["at"]))          # the spiral runs from the tip up to where the bend starts
+    turns = round(abs(bi["deg"]) / 360.0, 1)
+    a0 = int(round(bi["at"]))          # the spiral runs from where the bend starts to the free end
+    n = int(bi.get("n_rounds") or len(part["rounds"]))
+    tip = bool(bi.get("free_start", True))
     hid = f"<!-- coil {_num(bi['coil'], 'en')}" + (f" pitch {_num(bi['pitch_mm'], 'en')}" if bi.get("pitch_mm") else "") + " -->"
-    tw = (f"{_num(round(turns, 1), lang)} оборота" if ru else f"{_num(round(turns, 1), lang)} turns")
     if ru:
+        tw = (f"{_num(turns, lang)} " + (_plural_ru(int(turns), "оборот", "оборота", "оборотов")
+                                          if turns == int(turns) else "оборота"))
+        if tip:
+            span = f"от {a0}-го ряда до кончика"
+            start = "с кончика (ряд 1)"
+            tack = f"От кончика до {a0}-го ряда"
+        else:
+            span = f"от {a0}-го ряда до конца"
+            start = f"с последнего ряда (ряд {n})"
+            tack = f"От последнего ряда до {a0}-го"
         return (f"Изгиб ≈ {_num(abs(bi['deg']), lang, 0)}° около {_num(bi['at'], lang)}-го ряда"
                 f"<!-- изгиб занимает {_num(bi['over'], lang)} р. -->{hid}. "
-                f"Хвост закручивается спиралью (≈ {tw}): после набивки сверните его, начиная с кончика (ряд 1), "
+                f"Деталь закручивается спиралью (≈ {tw}) {span}: после набивки сверните её, начиная {start}, "
                 f"внутрь — к стороне, которая на готовой игрушке смотрит {DIR_RU[bi['inner']]}; витки ложатся "
-                f"плотно, каждый следующий шире. От кончика до {a0}-го ряда прихватите соседние витки друг к другу "
+                f"плотно, каждый следующий шире. {tack} прихватите соседние витки друг к другу "
                 "2–3 стежками нитью цвета детали через каждые 3–4 ряда и спрячьте нить внутри.")
+    tw = f"{_num(turns, lang)} turn" + ("" if turns == 1 else "s")
+    if tip:
+        span = f"from round {a0} to its tip"
+        start = "from the tip (round 1)"
+        tack = f"From the tip to round {a0}"
+    else:
+        span = f"from round {a0} to its end"
+        start = f"from the last round (round {n})"
+        tack = f"From the last round back to round {a0}"
     return (f"Bend ≈ {_num(abs(bi['deg']), lang, 0)}° around round {_num(bi['at'], lang)}"
             f"<!-- the bend spreads over {_num(bi['over'], lang)} rounds -->{hid}. "
-            f"The tail rolls up into a spiral (about {tw}): after stuffing, roll it up from the tip (round 1) toward "
-            f"the side that faces {DIR_EN[bi['inner']]} on the finished toy; the turns lie close, each wider than "
-            f"the last. From the tip to round {a0} tack neighbouring turns together with 2–3 stitches of matching "
-            "yarn every 3–4 rounds and hide the yarn inside.")
+            f"The piece rolls up into a spiral (about {tw}) {span}: after stuffing, roll it up starting {start} "
+            f"toward the side that faces {DIR_EN[bi['inner']]} on the finished toy; the turns lie close, each wider "
+            f"than the last. {tack} tack neighbouring turns together with 2–3 stitches of matching yarn every 3–4 "
+            "rounds and hide the yarn inside.")
 
 
 def _bend_text(part, lang):

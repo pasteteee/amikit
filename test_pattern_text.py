@@ -423,5 +423,46 @@ class RussianDeclensionTests(unittest.TestCase):
         self.assertEqual(row_text(r, "ru"), "1 цеп. п. подъёма, поверните работу (в счёт не входит); 1 сбн")
 
 
+YARN = {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9}
+
+
+def _write(spec):
+    """(model, RU text, EN text) of a spec's written pattern."""
+    with tempfile.TemporaryDirectory() as d:
+        model = write_patterns(Toy(spec), Path(d))
+        return (model, (Path(d) / "PATTERN_RU.md").read_text(encoding="utf8"),
+                (Path(d) / "PATTERN_EN.md").read_text(encoding="utf8"))
+
+
+class SeoBatchBugTests(unittest.TestCase):
+    """Pattern-text bugs found by the SEO-100 batch (run-notes/2026-10-12-engine-seo100-fixes.md)."""
+
+    def test_coil_rolls_from_the_free_end(self):
+        # a root coils from `at` to its LAST round (piece.py: bend_free_start is False); a piece sewn on by its
+        # opening coils from `at` to its tip (round 1)
+        spec = {"name": "coily", "title": "Coil test", "yarn": YARN, "colours": {"green": "#7cc25a"},
+                "parts": [{"id": "body", "rounds": ["mr 6", "inc 6 to 12", "even 30", "dec 6 to 6"],
+                           "colour": "green", "end": "closed", "stuff": "firm",
+                           "bend": {"deg": 400, "at": 8, "over": 2, "coil": 2}},
+                          {"id": "spout", "rounds": ["mr 4", "6", "even 10"], "colour": "green", "end": "open",
+                           "stuff": "none", "bend": {"deg": 300, "at": 6, "over": 2, "coil": 2}}],
+                "assembly": [{"part": "body", "axis": [1, 0, 0]},
+                             {"part": "spout", "on": "body", "at": {"round": 20, "az": 0}, "dir": [0, 1, 0]}]}
+        model, ru, en = _write(spec)
+        n = len(model["parts"][0]["rounds"])
+        body_en = "\n".join(_sections(en)["Body"])
+        spout_en = "\n".join(_sections(en)["Spout"])
+        self.assertIn(f"starting from the last round (round {n})", body_en)
+        self.assertIn("From the last round back to round 8 tack", body_en)
+        self.assertNotIn("round 1)", body_en)
+        self.assertIn("starting from the tip (round 1)", spout_en)
+        self.assertIn("From the tip to round 6 tack", spout_en)
+        self.assertNotIn("The tail rolls up", en)
+        body_ru = "\n".join(next(v for k, v in _sections(ru).items() if k.startswith("Тело")))
+        self.assertIn(f"начиная с последнего ряда (ряд {n})", body_ru)
+        self.assertIn("От последнего ряда до 8-го прихватите", body_ru)
+        self.assertNotIn("Хвост закручивается", ru)
+
+
 if __name__ == "__main__":
     unittest.main()
