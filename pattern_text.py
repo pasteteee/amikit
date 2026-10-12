@@ -1923,7 +1923,8 @@ def _round_lines(part, lang, breaks=()):
                          f"of R{a - 1}).")
         tail = ""
         if b != a:
-            tail = f" — {_rounds_ru(b - a + 1)}" if lang == "ru" else f" — {b - a + 1} rounds"
+            tail = (f" — {_rounds_ru(b - a + 1)}" if lang == "ru" else
+                    f" — {b - a + 1} {'rows' if r.get('turned') else 'rounds'}")
         lines.append(f"{lab}: {pre}{r[key]} ({r['n']}){tail}")
         k = j + 1
     return lines
@@ -3536,16 +3537,20 @@ def self_check(model):
     for part in model["parts"]:
         errs = []
         prev = None
+        op = part.get("opening")
         for r in part["rounds"]:
             if part.get("motif"):              # motif rows: checked by amikit.motif.check_rows
                 break
             if sum(c for _, c in r["colour_runs"]) != r["n"]:
                 errs.append(f"R{r['round']}: colour runs sum to {sum(c for _, c in r['colour_runs'])}, not {r['n']}")
             if r["round"] > 1 and r.get("loop") not in ("rib", "shell"):
+                # the first turned row of a front opening leaves the window's stitches of the last full round
+                # unworked: it works only the rest
+                want = prev - op["stitches"] if op and r.get("turned") and r["round"] == op["from"] + 1 else prev
                 for lang in ("ru", "en"):
                     c, p = parse_count(r["text_" + lang])
-                    if p != r["n"] or c != prev:
-                        errs.append(f"R{r['round']} ({lang}): text makes {p} from {c}, expected {r['n']} from {prev}")
+                    if p != r["n"] or c != want:
+                        errs.append(f"R{r['round']} ({lang}): text makes {p} from {c}, expected {r['n']} from {want}")
             prev = r["n"]
         part["self_check"] = errs
     return model

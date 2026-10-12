@@ -283,7 +283,7 @@ def parse_round(body, prev, colours=()):
 
     runs: [[colour, stitches made], ...] in working order when the round changes colour, else None."""
     s = _clean(body)
-    s = re.sub(r"\s*-\s*\d+\s*(rounds|рядов|ряда)\s*$", "", s)        # our "— 7 rounds"
+    s = re.sub(r"\s*-\s*\d+\s*(rounds|rows|рядов|ряда)\s*$", "", s)        # our "— 7 rounds" / "— 7 rows" (turned rows)
     s = re.sub(r"\s*\((?:\d+\s*(?:rounds|rnds|рядов|ряда))\)\s*$", "", s, flags=re.I)
     s = _strip_md(s)
     res = {"ops": None, "stated": None, "loop": "both", "start": None, "chain": 0, "colour": None,
