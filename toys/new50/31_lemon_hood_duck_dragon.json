@@ -1,0 +1,462 @@
+{
+ "name": "31_lemon_hood_duck_dragon",
+ "title": "Lemon Duck Dragon",
+ "title_ru": "Уткодракон Лимонный вихрь",
+ "subject": "duck",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "lemon": "#f7d24a",
+  "orange": "#f47a1f",
+  "cream": "#f4e7cc",
+  "mint": "#7fd3a6",
+  "pink": "#f2a3ad",
+  "black": "#141213",
+  "white": "#f6f4ef",
+  "apricot": "#f9a556",
+  "rust": "#c95a12"
+ },
+ "colour_names_ru": {
+  "lemon": "лимонно-жёлтый",
+  "orange": "оранжевый",
+  "cream": "сливочный",
+  "mint": "мятный",
+  "pink": "розовый",
+  "apricot": "светло-оранжевый",
+  "rust": "тёмно-оранжевый"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "туловище",
+   "name_en": "body",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 38",
+    "44",
+    "44",
+    "50",
+    "even 6",
+    "dec 6 to 38 every 2"
+   ],
+   "colour": "lemon",
+   "end": "open",
+   "stuff": "firm",
+   "oval_axis": "front"
+  },
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 66 every 2",
+    "even 3",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "lemon",
+   "stuff": "firm"
+  },
+  {
+   "id": "tuft",
+   "name_ru": "хохолок",
+   "name_en": "tuft",
+   "rounds": [
+    "mr 5",
+    "8",
+    "even 1"
+   ],
+   "colour": "lemon",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "beak",
+   "name_ru": "клюв",
+   "name_en": "beak",
+   "rounds": [
+    "ch 4",
+    "14",
+    "20",
+    "22",
+    "even 3"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.3
+  },
+  {
+   "id": "belly",
+   "name_ru": "животик",
+   "name_en": "belly patch",
+   "rounds": [
+    "ch 5",
+    "inc 6 to 46"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "wing",
+   "name_ru": "крылышко дракона",
+   "name_en": "dragon wing",
+   "colour": "apricot",
+   "motif": {
+    "kind": "triangle",
+    "width": 9,
+    "stitch": "hdc",
+    "ends": "both",
+    "every": 2,
+    "sew": "base"
+   }
+  },
+  {
+   "id": "foot",
+   "name_ru": "лапка",
+   "name_en": "foot",
+   "rounds": [
+    "ch 5",
+    "16",
+    "20",
+    "even 5",
+    "16"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.55
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвост дракона",
+   "name_en": "dragon tail",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "18",
+    "even 2",
+    "inc 3 to 30 every 2"
+   ],
+   "colour": "mint",
+   "end": "open",
+   "stuff": "firm",
+   "bend": {
+    "deg": 30,
+    "at": 5,
+    "over": 3
+   },
+   "flatten": 0.3
+  },
+  {
+   "id": "nub",
+   "name_ru": "бугорок",
+   "name_en": "tail nub",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "6"
+   ],
+   "colour": "lemon",
+   "end": "closed",
+   "stuff": "medium"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0.18
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0.12
+   ],
+   "sink": 7
+  },
+  {
+   "part": "tuft",
+   "on": "head",
+   "at": {
+    "round": 1.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "beak",
+   "on": "head",
+   "at": {
+    "round": 17.9,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.15,
+    1
+   ],
+   "front": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 20.0,
+    "az": 47
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "belly",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 0
+   },
+   "applique": true,
+   "roll": 90,
+   "inset": 1.0
+  },
+  {
+   "part": "wing",
+   "on": "body",
+   "at": {
+    "round": 15.5,
+    "az": 80
+   },
+   "dir": [
+    1,
+    0.45,
+    -0.5
+   ],
+   "mirror": true,
+   "attach": "edge",
+   "face": [
+    0.5,
+    0.1,
+    1
+   ],
+   "sink": 1
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 4.5,
+    "az": 62
+   },
+   "dir": [
+    0.6,
+    -0.3,
+    1
+   ],
+   "front": [
+    0,
+    1,
+    0
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 7,
+    "az": 166
+   },
+   "dir": [
+    0.3,
+    0.2,
+    -1
+   ],
+   "front": [
+    1,
+    0,
+    0
+   ],
+   "bend_toward": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "nub",
+   "name": "nub_a",
+   "on": "tail",
+   "at": {
+    "round": 2.5,
+    "az": -90
+   },
+   "dir": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "nub",
+   "name": "nub_b",
+   "on": "tail",
+   "at": {
+    "round": 8.5,
+    "az": -90
+   },
+   "dir": [
+    0,
+    1,
+    0
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 16.3,
+    "az": 33
+   },
+   "size_mm": 15,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "stitch",
+   "on": "wing",
+   "points": [
+    [
+     0.6,
+     22
+    ],
+    [
+     7.6,
+     160
+    ]
+   ],
+   "colour": "orange",
+   "thickness_mm": 2.2,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "wing",
+   "points": [
+    [
+     0.6,
+     22
+    ],
+    [
+     3,
+     140
+    ],
+    [
+     5,
+     250
+    ],
+    [
+     5.6,
+     342
+    ]
+   ],
+   "colour": "orange",
+   "thickness_mm": 2.2,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "wing",
+   "points": [
+    [
+     0.6,
+     22
+    ],
+    [
+     1.6,
+     140
+    ],
+    [
+     2.6,
+     250
+    ],
+    [
+     3.2,
+     342
+    ]
+   ],
+   "colour": "orange",
+   "thickness_mm": 2.2,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "beak",
+   "points": [
+    [
+     3,
+     110
+    ],
+    [
+     1.6,
+     150
+    ],
+    [
+     1.4,
+     180
+    ],
+    [
+     1.6,
+     210
+    ],
+    [
+     3,
+     250
+    ]
+   ],
+   "colour": "rust",
+   "thickness_mm": 1.4
+  }
+ ]
+}

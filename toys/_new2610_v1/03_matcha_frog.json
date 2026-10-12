@@ -1,0 +1,471 @@
+{
+ "name": "03_matcha_frog",
+ "title": "Matcha Pond Frog",
+ "title_ru": "Лягушонок Матча",
+ "subject": "frog",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "mint": "#a9c79a",
+  "cream": "#f6efe0",
+  "matcha": "#4e7a46",
+  "pink": "#f2a3b3",
+  "yellow": "#f3d77a",
+  "brown": "#5a2a1c",
+  "white": "#f6f4ef",
+  "black": "#141213"
+ },
+ "colour_names_ru": {
+  "mint": "мятно-зелёный",
+  "cream": "молочный",
+  "matcha": "тёмно-зелёный (матча)",
+  "pink": "розовый",
+  "yellow": "жёлтый",
+  "brown": "коричневый (вышивка)"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "туловище",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 4",
+    "dec 6 to 48",
+    "even 1",
+    "dec 6 to 42",
+    "dec 6 to 36"
+   ],
+   "colour": "mint",
+   "end": "open",
+   "stuff": "firm",
+   "name_en": "body"
+  },
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "rounds": [
+    "ch 7",
+    "inc 6 to 44",
+    "inc 6 to 62 every 2",
+    "even 2",
+    "dec 6 to 44 every 2",
+    "dec 6 to 14"
+   ],
+   "colour": "mint",
+   "end": "closed",
+   "stuff": "firm",
+   "name_en": "head"
+  },
+  {
+   "id": "collar",
+   "name_ru": "воротник-лист",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 60",
+    "inc 6 to 72 every 2"
+   ],
+   "colour": "matcha",
+   "end": "open",
+   "stuff": "none",
+   "name_en": "lily-pad collar"
+  },
+  {
+   "id": "belly",
+   "name_ru": "животик",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none",
+   "name_en": "belly patch"
+  },
+  {
+   "id": "eyebump",
+   "name_ru": "глазной бугорок",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 4",
+    "dec 6 to 18"
+   ],
+   "colour": "mint",
+   "end": "open",
+   "stuff": "firm",
+   "name_en": "eye bump"
+  },
+  {
+   "id": "eyewhite",
+   "name_ru": "белок глаза",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none",
+   "name_en": "eye white"
+  },
+  {
+   "id": "arm",
+   "name_ru": "ручка",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 2",
+    "15",
+    "12",
+    "even 2"
+   ],
+   "colour": "mint",
+   "end": "open",
+   "stuff": "light",
+   "name_en": "arm"
+  },
+  {
+   "id": "leg",
+   "name_ru": "ножка",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 3",
+    "20",
+    "even 1",
+    "16"
+   ],
+   "colour": "mint",
+   "end": "open",
+   "stuff": "firm",
+   "name_en": "leg"
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвостик",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 1",
+    "6"
+   ],
+   "colour": "mint",
+   "end": "closed",
+   "stuff": "medium",
+   "name_en": "tail"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "rounds": [
+    "mr 7",
+    "14"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none",
+   "name_en": "cheek"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 13
+  },
+  {
+   "part": "collar",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "start",
+   "dir": [
+    0,
+    -1,
+    0
+   ],
+   "sink": 0,
+   "conform_parent": false
+  },
+  {
+   "part": "belly",
+   "on": "body",
+   "at": {
+    "round": 9,
+    "az": 0
+   },
+   "applique": true,
+   "inset": 1.0
+  },
+  {
+   "part": "eyebump",
+   "on": "head",
+   "at": {
+    "round": 5,
+    "az": 53
+   },
+   "dir": [
+    0.4,
+    0.9,
+    0.5
+   ],
+   "mirror": true
+  },
+  {
+   "part": "eyewhite",
+   "on": "eyebump",
+   "at": {
+    "round": 2.3,
+    "az": 0
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 15,
+    "az": 42
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 10,
+    "az": 80
+   },
+   "dir": [
+    0.65,
+    -1,
+    0.35
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 4.5,
+    "az": 58
+   },
+   "dir": [
+    0.6,
+    -0.1,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.2,
+    -1
+   ],
+   "sink": 3
+  }
+ ],
+ "face": [
+  {
+   "type": "satin",
+   "role": "eye",
+   "on": "eyewhite",
+   "at": {
+    "round": 1,
+    "az": 0
+   },
+   "width_mm": 11,
+   "height_mm": 11,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.2,
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "eyewhite",
+   "at": {
+    "round": 1,
+    "az": 0
+   },
+   "width_mm": 3,
+   "height_mm": 3,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 1.0,
+   "offset_mm": [
+    1.8,
+    2.2
+   ],
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     13.5,
+     10
+    ],
+    [
+     14.5,
+     5
+    ],
+    [
+     14.8,
+     0
+    ],
+    [
+     14.5,
+     -5
+    ],
+    [
+     13.5,
+     -10
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 1.4
+  },
+  {
+   "type": "satin",
+   "on": "collar",
+   "at": {
+    "round": 10.5,
+    "az": 52
+   },
+   "width_mm": 5,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "pink",
+   "thickness_mm": 1.2,
+   "lift_mm": 1.0,
+   "offset_mm": [
+    0.0,
+    4.2
+   ]
+  },
+  {
+   "type": "satin",
+   "on": "collar",
+   "at": {
+    "round": 10.5,
+    "az": 52
+   },
+   "width_mm": 5,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "pink",
+   "thickness_mm": 1.2,
+   "lift_mm": 1.0,
+   "offset_mm": [
+    -3.99,
+    1.3
+   ]
+  },
+  {
+   "type": "satin",
+   "on": "collar",
+   "at": {
+    "round": 10.5,
+    "az": 52
+   },
+   "width_mm": 5,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "pink",
+   "thickness_mm": 1.2,
+   "lift_mm": 1.0,
+   "offset_mm": [
+    -2.47,
+    -3.4
+   ]
+  },
+  {
+   "type": "satin",
+   "on": "collar",
+   "at": {
+    "round": 10.5,
+    "az": 52
+   },
+   "width_mm": 5,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "pink",
+   "thickness_mm": 1.2,
+   "lift_mm": 1.0,
+   "offset_mm": [
+    2.47,
+    -3.4
+   ]
+  },
+  {
+   "type": "satin",
+   "on": "collar",
+   "at": {
+    "round": 10.5,
+    "az": 52
+   },
+   "width_mm": 5,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "pink",
+   "thickness_mm": 1.2,
+   "lift_mm": 1.0,
+   "offset_mm": [
+    3.99,
+    1.3
+   ]
+  },
+  {
+   "type": "satin",
+   "on": "collar",
+   "at": {
+    "round": 10.5,
+    "az": 52
+   },
+   "width_mm": 3.2,
+   "height_mm": 3.2,
+   "shape": "oval",
+   "colour": "yellow",
+   "thickness_mm": 1.2,
+   "lift_mm": 1.8
+  }
+ ]
+}

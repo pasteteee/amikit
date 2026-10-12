@@ -1,0 +1,359 @@
+{
+ "name": "fox",
+ "title": "Chibi fox",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "orange": "#ec6428",
+  "white": "#efeae5",
+  "black": "#121213"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 9",
+    "dec 6 to 6"
+   ],
+   "colour": "orange",
+   "stuff": "firm",
+   "colours": [
+    {
+     "shape": [
+      [
+       17.6,
+       0
+      ],
+      [
+       16.7,
+       25
+      ],
+      [
+       16.1,
+       60
+      ],
+      [
+       16,
+       115
+      ],
+      [
+       24.5,
+       115
+      ],
+      [
+       24.5,
+       -115
+      ],
+      [
+       16,
+       -115
+      ],
+      [
+       16.1,
+       -60
+      ],
+      [
+       16.7,
+       -25
+      ]
+     ],
+     "colour": "white"
+    }
+   ]
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "even 4",
+    "dec 6 to 36",
+    "even 2",
+    "dec 6 to 30",
+    "even 2",
+    "dec 6 to 24",
+    "even 2"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "shape": [
+      [
+       20.6,
+       -52
+      ],
+      [
+       20.6,
+       52
+      ],
+      [
+       17,
+       40
+      ],
+      [
+       11.6,
+       0
+      ],
+      [
+       17,
+       -40
+      ]
+     ],
+     "colour": "white"
+    }
+   ]
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "mr 6",
+    "inc 3 to 12",
+    "even 1",
+    "inc 3 to 18",
+    "even 2"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "light",
+   "colours": [
+    {
+     "shape": [
+      [
+       1.6,
+       -30
+      ],
+      [
+       1.6,
+       30
+      ],
+      [
+       7.5,
+       60
+      ],
+      [
+       7.5,
+       -60
+      ]
+     ],
+     "colour": "orange"
+    }
+   ]
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 4",
+    "inc 2 to 20",
+    "even 1"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.85,
+   "colours": [
+    {
+     "rounds": [
+      1,
+      3
+     ],
+     "colour": "black"
+    }
+   ]
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 1",
+    "12",
+    "even 3"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "light",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      3
+     ],
+     "colour": "black"
+    }
+   ]
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 4",
+    "dec 6 to 12"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      3
+     ],
+     "colour": "black"
+    }
+   ]
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 6",
+    "inc 3 to 24",
+    "even 8",
+    "dec 3 to 15",
+    "even 1"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "medium",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      6
+     ],
+     "colour": "white"
+    }
+   ]
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 18,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.05,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 5.5,
+    "az": 62
+   },
+   "dir": [
+    0.45,
+    1,
+    0.1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 17.5,
+    "az": 78
+   },
+   "dir": [
+    0.45,
+    -1,
+    0.3
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.8
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 6.5,
+    "az": 52
+   },
+   "dir": [
+    0.65,
+    -0.1,
+    0.8
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 9,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.04,
+    -1
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 15,
+    "az": 30
+   },
+   "size_mm": 10,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "safety_nose",
+   "on": "muzzle",
+   "at": {
+    "round": 1.3,
+    "az": 0
+   },
+   "size_mm": [
+    7,
+    5.5
+   ],
+   "shape": "oval"
+  }
+ ]
+}

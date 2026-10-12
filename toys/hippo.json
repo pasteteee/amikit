@@ -1,0 +1,207 @@
+{
+ "name": "hippo",
+ "title": "Little hope hippo",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "lavender": "#7a7092",
+  "peach": "#f6c4ab",
+  "black": "#141416"
+ },
+ "colour_names_ru": {
+  "lavender": "серо-сиреневый",
+  "peach": "персиковый"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 66",
+    "even 10",
+    "dec 6 to 60",
+    "even 3",
+    "dec 6 to 54",
+    "even 3",
+    "dec 6 to 6"
+   ],
+   "colour": "lavender",
+   "stuff": "firm",
+   "name_en": "head and body",
+   "name_ru": "голова-тело"
+  },
+  {
+   "id": "snout",
+   "rounds": [
+    "ch 5",
+    "inc 6 to 34",
+    "even 2"
+   ],
+   "colour": "peach",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 4"
+   ],
+   "colour": "lavender",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.85,
+   "squash": 0.3
+  },
+  {
+   "id": "inner_ear",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12"
+   ],
+   "colour": "peach",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 2",
+    "13",
+    "even 4",
+    "12",
+    "even 1"
+   ],
+   "colour": "lavender",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "foot",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "21",
+    "even 4"
+   ],
+   "colour": "lavender",
+   "end": "open",
+   "stuff": "firm"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "snout",
+   "on": "body",
+   "at": {
+    "round": 24.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "body",
+   "at": {
+    "round": 32.5,
+    "az": 64
+   },
+   "dir": [
+    0.6,
+    1,
+    0.15
+   ],
+   "mirror": true
+  },
+  {
+   "part": "inner_ear",
+   "on": "ear",
+   "at": {
+    "round": 2.5,
+    "az": 0
+   },
+   "applique": true,
+   "mirror": true,
+   "inset": 1.2
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 16,
+    "az": 70
+   },
+   "dir": [
+    -0.15,
+    -0.2,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "avoid": true,
+   "contact": 0.6
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 6,
+    "az": 34
+   },
+   "dir": [
+    0.3,
+    -0.15,
+    1
+   ],
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 29,
+    "az": 28
+   },
+   "size_mm": 12,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "satin",
+   "on": "snout",
+   "at": {
+    "round": 3,
+    "az": 52
+   },
+   "width_mm": 3.2,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.7,
+   "mirror": true
+  }
+ ]
+}

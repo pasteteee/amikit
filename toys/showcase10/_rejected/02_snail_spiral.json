@@ -1,0 +1,492 @@
+{
+ "name": "02_snail_spiral",
+ "title": "Swirly the Snail",
+ "title_ru": "Улитка Спиралька",
+ "subject": "snail",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "skin": "#ffe7c2",
+  "shell": "#f6a6b9",
+  "stripe": "#fbd0a2",
+  "tip": "#c28fd9",
+  "blush": "#ff9e9e",
+  "mouth": "#5a3328"
+ },
+ "colour_names_ru": {
+  "skin": "персиково-молочный",
+  "shell": "розовый",
+  "stripe": "абрикосовый",
+  "tip": "сиреневый",
+  "blush": "коралловый (щёчки)",
+  "mouth": "тёмно-коричневый"
+ },
+ "parts": [
+  {
+   "id": "foot",
+   "name_ru": "тельце-ножка",
+   "name_en": "foot",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "inc 6 to 36 every 2",
+    "even 16",
+    "dec 6 to 6"
+   ],
+   "colour": "skin",
+   "stuff": "medium",
+   "flatten": 0.45
+  },
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "inc 6 to 48 every 2",
+    "even 5",
+    "dec 6 to 36 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "skin",
+   "stuff": "firm"
+  },
+  {
+   "id": "shell",
+   "name_ru": "домик-ракушка",
+   "name_en": "spiral shell",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 3",
+    "dec 6 to 6"
+   ],
+   "colour": "shell",
+   "end": "closed",
+   "stuff": "medium",
+   "colours": [
+    {
+     "rounds": [
+      10,
+      12
+     ],
+     "colour": "stripe"
+    }
+   ]
+  },
+  {
+   "id": "stalk",
+   "name_ru": "рожка",
+   "name_en": "eye stalk",
+   "rounds": [
+    "mr 6",
+    "8",
+    "even 4"
+   ],
+   "colour": "skin",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "bobble",
+   "name_ru": "шарик на рожке",
+   "name_en": "stalk tip",
+   "rounds": [
+    "mr 6",
+    "10",
+    "6"
+   ],
+   "colour": "tip",
+   "stuff": "firm"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "foot",
+   "axis": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "head",
+   "on": "foot",
+   "at": {
+    "round": 24,
+    "az": 0
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0.1
+   ],
+   "sink": 11
+  },
+  {
+   "part": "shell",
+   "on": "foot",
+   "at": {
+    "round": 10,
+    "az": -20
+   },
+   "attach": "edge",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "face": [
+    1,
+    0,
+    0
+   ],
+   "sink": 0
+  },
+  {
+   "part": "stalk",
+   "on": "head",
+   "at": {
+    "round": 4,
+    "az": 35
+   },
+   "dir": [
+    0.35,
+    1,
+    0.1
+   ],
+   "mirror": true,
+   "sink": 1
+  },
+  {
+   "part": "bobble",
+   "on": "stalk",
+   "at": {
+    "round": "start"
+   },
+   "attach": "end",
+   "dir": [
+    0.3,
+    1,
+    0.1
+   ],
+   "mirror": true,
+   "sink": 3
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 15.5,
+    "az": 44
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.0
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 14,
+    "az": 26
+   },
+   "size_mm": 13,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     16.0,
+     -5
+    ],
+    [
+     16.6,
+     -2.5
+    ],
+    [
+     16.8,
+     0
+    ],
+    [
+     16.6,
+     2.5
+    ],
+    [
+     16.0,
+     5
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 1.1,
+   "id": "smile"
+  },
+  {
+   "type": "stitch",
+   "on": "shell",
+   "points": [
+    [
+     1.2,
+     0.0
+    ],
+    [
+     1.47,
+     23.3
+    ],
+    [
+     1.73,
+     46.7
+    ],
+    [
+     2.0,
+     70.0
+    ],
+    [
+     2.27,
+     93.3
+    ],
+    [
+     2.53,
+     116.7
+    ],
+    [
+     2.8,
+     140.0
+    ],
+    [
+     3.07,
+     163.3
+    ],
+    [
+     3.33,
+     186.7
+    ],
+    [
+     3.6,
+     210.0
+    ],
+    [
+     3.87,
+     233.3
+    ],
+    [
+     4.13,
+     256.7
+    ],
+    [
+     4.4,
+     280.0
+    ],
+    [
+     4.67,
+     303.3
+    ],
+    [
+     4.93,
+     326.7
+    ],
+    [
+     5.2,
+     350.0
+    ],
+    [
+     5.47,
+     373.3
+    ],
+    [
+     5.73,
+     396.7
+    ],
+    [
+     6.0,
+     420.0
+    ],
+    [
+     6.27,
+     443.3
+    ],
+    [
+     6.53,
+     466.7
+    ],
+    [
+     6.8,
+     490.0
+    ],
+    [
+     7.07,
+     513.3
+    ],
+    [
+     7.33,
+     536.7
+    ],
+    [
+     7.6,
+     560.0
+    ],
+    [
+     7.87,
+     583.3
+    ],
+    [
+     8.13,
+     606.7
+    ],
+    [
+     8.4,
+     630.0
+    ]
+   ],
+   "colour": "tip",
+   "thickness_mm": 2.6,
+   "id": "swirl_L"
+  },
+  {
+   "type": "stitch",
+   "on": "shell",
+   "points": [
+    [
+     19.8,
+     0.0
+    ],
+    [
+     19.53,
+     23.3
+    ],
+    [
+     19.27,
+     46.7
+    ],
+    [
+     19.0,
+     70.0
+    ],
+    [
+     18.73,
+     93.3
+    ],
+    [
+     18.47,
+     116.7
+    ],
+    [
+     18.2,
+     140.0
+    ],
+    [
+     17.93,
+     163.3
+    ],
+    [
+     17.67,
+     186.7
+    ],
+    [
+     17.4,
+     210.0
+    ],
+    [
+     17.13,
+     233.3
+    ],
+    [
+     16.87,
+     256.7
+    ],
+    [
+     16.6,
+     280.0
+    ],
+    [
+     16.33,
+     303.3
+    ],
+    [
+     16.07,
+     326.7
+    ],
+    [
+     15.8,
+     350.0
+    ],
+    [
+     15.53,
+     373.3
+    ],
+    [
+     15.27,
+     396.7
+    ],
+    [
+     15.0,
+     420.0
+    ],
+    [
+     14.73,
+     443.3
+    ],
+    [
+     14.47,
+     466.7
+    ],
+    [
+     14.2,
+     490.0
+    ],
+    [
+     13.93,
+     513.3
+    ],
+    [
+     13.67,
+     536.7
+    ],
+    [
+     13.4,
+     560.0
+    ],
+    [
+     13.13,
+     583.3
+    ],
+    [
+     12.87,
+     606.7
+    ],
+    [
+     12.6,
+     630.0
+    ]
+   ],
+   "colour": "tip",
+   "thickness_mm": 2.6,
+   "id": "swirl_R"
+  }
+ ]
+}

@@ -1,0 +1,387 @@
+{
+ "name": "d_pineapple_sunny",
+ "title": "Sunny Pineapple",
+ "title_ru": "Ананасик Солнышко",
+ "subject": "pineapple",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "yellow": "#ffd23f",
+  "leaf": "#5fbf5a",
+  "leaf2": "#8fd16a",
+  "feet": "#f2a93b",
+  "blush": "#ff9e9e",
+  "mouth": "#5a3a1e"
+ },
+ "colour_names_ru": {
+  "yellow": "жёлтый",
+  "leaf": "зелёный",
+  "leaf2": "салатовый",
+  "feet": "оранжевый",
+  "blush": "розовый (щёчки)",
+  "mouth": "коричневый"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "ананасик",
+   "name_en": "pineapple body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 48 every 2",
+    "popcorns every 4",
+    "even 1",
+    "popcorns every 4 from 2",
+    "even 1",
+    "popcorns every 4",
+    "even 1",
+    "even 6",
+    "popcorns every 4 from 2",
+    "even 1",
+    "popcorns every 4",
+    "even 1",
+    "dec 6 to 36 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "yellow",
+   "stuff": "firm"
+  },
+  {
+   "id": "leaf",
+   "name_ru": "листик",
+   "name_en": "crown leaf",
+   "colour": "leaf",
+   "motif": {
+    "kind": "leaf",
+    "chain": 9,
+    "tall": "tr",
+    "tip": "picot"
+   }
+  },
+  {
+   "id": "leaf_small",
+   "name_ru": "листик маленький",
+   "name_en": "small crown leaf",
+   "colour": "leaf2",
+   "motif": {
+    "kind": "leaf",
+    "chain": 6,
+    "tall": "tr",
+    "tip": "picot"
+   }
+  },
+  {
+   "id": "foot",
+   "name_ru": "ножка",
+   "name_en": "foot",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 1",
+    "10"
+   ],
+   "colour": "feet",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.5
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "leaf",
+   "name": "leaf1",
+   "on": "body",
+   "at": {
+    "round": 31,
+    "az": 0
+   },
+   "attach": "edge",
+   "dir": [
+    0.0,
+    1,
+    0.55
+   ],
+   "face": [
+    0.0,
+    -0.55,
+    1.0
+   ],
+   "sink": 1
+  },
+  {
+   "part": "leaf",
+   "name": "leaf2",
+   "on": "body",
+   "at": {
+    "round": 31,
+    "az": 72
+   },
+   "attach": "edge",
+   "dir": [
+    0.52,
+    1,
+    0.17
+   ],
+   "face": [
+    0.95,
+    -0.55,
+    0.31
+   ],
+   "sink": 1
+  },
+  {
+   "part": "leaf",
+   "name": "leaf3",
+   "on": "body",
+   "at": {
+    "round": 31,
+    "az": 144
+   },
+   "attach": "edge",
+   "dir": [
+    0.32,
+    1,
+    -0.44
+   ],
+   "face": [
+    0.59,
+    -0.55,
+    -0.81
+   ],
+   "sink": 1
+  },
+  {
+   "part": "leaf",
+   "name": "leaf4",
+   "on": "body",
+   "at": {
+    "round": 31,
+    "az": 216
+   },
+   "attach": "edge",
+   "dir": [
+    -0.32,
+    1,
+    -0.44
+   ],
+   "face": [
+    -0.59,
+    -0.55,
+    -0.81
+   ],
+   "sink": 1
+  },
+  {
+   "part": "leaf",
+   "name": "leaf5",
+   "on": "body",
+   "at": {
+    "round": 31,
+    "az": 288
+   },
+   "attach": "edge",
+   "dir": [
+    -0.52,
+    1,
+    0.17
+   ],
+   "face": [
+    -0.95,
+    -0.55,
+    0.31
+   ],
+   "sink": 1
+  },
+  {
+   "part": "leaf_small",
+   "name": "sleaf1",
+   "on": "body",
+   "at": {
+    "round": 29.5,
+    "az": 36
+   },
+   "attach": "edge",
+   "dir": [
+    0.71,
+    1,
+    0.97
+   ],
+   "face": [
+    0.59,
+    -1.2,
+    0.81
+   ],
+   "sink": 1
+  },
+  {
+   "part": "leaf_small",
+   "name": "sleaf2",
+   "on": "body",
+   "at": {
+    "round": 29.5,
+    "az": 108
+   },
+   "attach": "edge",
+   "dir": [
+    1.14,
+    1,
+    -0.37
+   ],
+   "face": [
+    0.95,
+    -1.2,
+    -0.31
+   ],
+   "sink": 1
+  },
+  {
+   "part": "leaf_small",
+   "name": "sleaf3",
+   "on": "body",
+   "at": {
+    "round": 29.5,
+    "az": 180
+   },
+   "attach": "edge",
+   "dir": [
+    0.0,
+    1,
+    -1.2
+   ],
+   "face": [
+    0.0,
+    -1.2,
+    -1.0
+   ],
+   "sink": 1
+  },
+  {
+   "part": "leaf_small",
+   "name": "sleaf4",
+   "on": "body",
+   "at": {
+    "round": 29.5,
+    "az": 252
+   },
+   "attach": "edge",
+   "dir": [
+    -1.14,
+    1,
+    -0.37
+   ],
+   "face": [
+    -0.95,
+    -1.2,
+    -0.31
+   ],
+   "sink": 1
+  },
+  {
+   "part": "leaf_small",
+   "name": "sleaf5",
+   "on": "body",
+   "at": {
+    "round": 29.5,
+    "az": 324
+   },
+   "attach": "edge",
+   "dir": [
+    -0.71,
+    1,
+    0.97
+   ],
+   "face": [
+    -0.59,
+    -1.2,
+    0.81
+   ],
+   "sink": 1
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 3,
+    "az": 30
+   },
+   "dir": [
+    0.3,
+    -0.35,
+    1
+   ],
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 19.5,
+    "az": 19
+   },
+   "size_mm": 13,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     17.8,
+     -6
+    ],
+    [
+     17.41,
+     -3.0
+    ],
+    [
+     17.2,
+     0
+    ],
+    [
+     17.41,
+     3.0
+    ],
+    [
+     17.8,
+     6
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 1.1,
+   "id": "smile"
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 17.5,
+    "az": 36
+   },
+   "width_mm": 8,
+   "height_mm": 5.5,
+   "shape": "oval",
+   "colour": "blush",
+   "thickness_mm": 1.1,
+   "mirror": true,
+   "id": "blush"
+  }
+ ]
+}

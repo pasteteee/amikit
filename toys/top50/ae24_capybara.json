@@ -1,0 +1,251 @@
+{
+ "name": "ae24_capybara",
+ "title": "Capybara keychain (plain, sitting)",
+ "subject": "capybara",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "tan": "#b07b48",
+  "brown": "#5e3a22",
+  "black": "#141213",
+  "snout": "#9a6233",
+  "dark": "#3a2414"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "ch 6",
+    "inc 6 to 42",
+    "even 7",
+    "dec 6 to 12"
+   ],
+   "colour": "tan",
+   "end": "closed",
+   "stuff": "firm",
+   "oval_axis": "front"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 38",
+    "even 5",
+    "dec 6 to 32",
+    "even 2",
+    "dec 6 to 26",
+    "even 1"
+   ],
+   "colour": "tan",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 7",
+    "inc 6 to 26",
+    "even 3"
+   ],
+   "colour": "snout",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "even 1"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.7
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "even 2",
+    "10",
+    "even 3"
+   ],
+   "colour": "tan",
+   "end": "open",
+   "stuff": "light",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      3
+     ],
+     "colour": "brown"
+    }
+   ]
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 2",
+    "15",
+    "even 2"
+   ],
+   "colour": "tan",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "colour": "brown"
+    }
+   ]
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "start",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 7.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 15,
+    "az": 68
+   },
+   "dir": [
+    0.7,
+    1,
+    -0.1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 60
+   },
+   "dir": [
+    0.2,
+    -0.6,
+    1
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.6,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 35
+   },
+   "dir": [
+    0.25,
+    -0.15,
+    1
+   ],
+   "mirror": true
+  }
+ ],
+ "colour_names_ru": {
+  "snout": "\u0441\u0432\u0435\u0442\u043b\u043e-\u043a\u043e\u0440\u0438\u0447\u043d\u0435\u0432\u044b\u0439 (\u043c\u043e\u0440\u0434\u043e\u0447\u043a\u0430)",
+  "dark": "\u0442\u0451\u043c\u043d\u043e-\u043a\u043e\u0440\u0438\u0447\u043d\u0435\u0432\u044b\u0439"
+ },
+ "face": [
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     11.5,
+     19
+    ],
+    [
+     11.5,
+     31
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.6,
+   "mirror": true
+  },
+  {
+   "type": "felt",
+   "on": "muzzle",
+   "at": {
+    "round": 1.5,
+    "az": 35
+   },
+   "size_mm": [
+    3,
+    4
+   ],
+   "colour": "dark",
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.0,
+     180
+    ],
+    [
+     2.2,
+     180
+    ]
+   ],
+   "colour": "dark",
+   "thickness_mm": 1.2
+  }
+ ]
+}

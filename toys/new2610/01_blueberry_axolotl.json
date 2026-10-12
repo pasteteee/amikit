@@ -1,0 +1,489 @@
+{
+ "name": "01_blueberry_axolotl",
+ "title": "Blueberry Axolotl",
+ "title_ru": "Аксолотль Черничка",
+ "subject": "axolotl",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "blue": "#a9c4e8",
+  "cream": "#eee2d0",
+  "lilac": "#b497cf",
+  "navy": "#3f4f8a",
+  "leaf": "#7d9a4c",
+  "pink": "#f29aac",
+  "white": "#f6f4ef",
+  "black": "#141213"
+ },
+ "colour_names_ru": {
+  "blue": "голубой",
+  "cream": "молочный",
+  "lilac": "сиреневый",
+  "navy": "тёмно-синий (черника)",
+  "leaf": "зелёный (листики)",
+  "pink": "розовый"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "inc 6 to 60 every 2",
+    "even 3",
+    "dec 6 to 48 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "blue",
+   "end": "closed",
+   "stuff": "firm",
+   "name_en": "head"
+  },
+  {
+   "id": "body",
+   "name_ru": "туловище",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "even 5",
+    "dec 6 to 36",
+    "even 2",
+    "dec 6 to 30",
+    "even 1",
+    "dec 6 to 24"
+   ],
+   "colour": "blue",
+   "end": "open",
+   "stuff": "firm",
+   "name_en": "body"
+  },
+  {
+   "id": "belly",
+   "name_ru": "животик",
+   "rounds": [
+    "ch 6",
+    "inc 6 to 36"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none",
+   "name_en": "belly patch"
+  },
+  {
+   "id": "gill",
+   "name_ru": "жаберный отросток",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "16",
+    "even 4",
+    "13"
+   ],
+   "colour": "lilac",
+   "end": "open",
+   "stuff": "light",
+   "name_en": "gill lobe"
+  },
+  {
+   "id": "arm",
+   "name_ru": "ручка",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 2",
+    "12",
+    "even 4"
+   ],
+   "colour": "blue",
+   "end": "open",
+   "stuff": "light",
+   "name_en": "arm"
+  },
+  {
+   "id": "leg",
+   "name_ru": "ножка",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 3",
+    "20",
+    "even 1",
+    "16"
+   ],
+   "colour": "blue",
+   "end": "open",
+   "stuff": "firm",
+   "name_en": "leg"
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвост",
+   "rounds": [
+    "mr 4",
+    "7",
+    "10",
+    "13",
+    "16",
+    "19",
+    "22",
+    "24",
+    "26",
+    "even 4"
+   ],
+   "colour": "blue",
+   "end": "open",
+   "stuff": "medium",
+   "name_en": "tail"
+  },
+  {
+   "id": "berry",
+   "name_ru": "черника",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 2",
+    "dec 6 to 6"
+   ],
+   "colour": "navy",
+   "end": "closed",
+   "stuff": "firm",
+   "name_en": "blueberry"
+  },
+  {
+   "id": "leaf",
+   "name_ru": "листик",
+   "rounds": [
+    "mr 4",
+    "8",
+    "10",
+    "even 1",
+    "8",
+    "6",
+    "4"
+   ],
+   "colour": "leaf",
+   "end": "closed",
+   "stuff": "none",
+   "flatten": 0.85,
+   "name_en": "leaf"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "rounds": [
+    "mr 7",
+    "14"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none",
+   "name_en": "cheek"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 4
+  },
+  {
+   "part": "belly",
+   "on": "body",
+   "at": {
+    "round": 10,
+    "az": 0
+   },
+   "applique": true,
+   "roll": 90,
+   "inset": 1.0
+  },
+  {
+   "part": "gill",
+   "name": "gill_top",
+   "on": "head",
+   "at": {
+    "round": 11,
+    "az": 88
+   },
+   "dir": [
+    1,
+    0.65,
+    -0.1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "gill",
+   "name": "gill_mid",
+   "on": "head",
+   "at": {
+    "round": 15.5,
+    "az": 90
+   },
+   "dir": [
+    1,
+    0.02,
+    -0.1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "gill",
+   "name": "gill_low",
+   "on": "head",
+   "at": {
+    "round": 20,
+    "az": 86
+   },
+   "dir": [
+    1,
+    -0.6,
+    -0.05
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 70
+   },
+   "dir": [
+    0.3,
+    -1,
+    0.35
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.6,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 58
+   },
+   "dir": [
+    0.5,
+    -0.1,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 6.5,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.32,
+    -1
+   ]
+  },
+  {
+   "part": "berry",
+   "on": "head",
+   "at": {
+    "round": "start"
+   },
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 2
+  },
+  {
+   "part": "leaf",
+   "on": "head",
+   "at": {
+    "round": 1.2,
+    "az": 90
+   },
+   "dir": [
+    1,
+    0.4,
+    0.15
+   ],
+   "mirror": true,
+   "sink": 1.5,
+   "attach": "start",
+   "front": [
+    0,
+    0.6,
+    0.8
+   ]
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 15.5,
+    "az": 46
+   },
+   "applique": true,
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "satin",
+   "role": "eye",
+   "on": "head",
+   "at": {
+    "round": 13.0,
+    "az": 35
+   },
+   "width_mm": 10.5,
+   "height_mm": 11.5,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.1,
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 13.0,
+    "az": 35
+   },
+   "width_mm": 3,
+   "height_mm": 3,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 0.9,
+   "offset_mm": [
+    1.8,
+    2.2
+   ]
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 13.0,
+    "az": -35
+   },
+   "width_mm": 3,
+   "height_mm": 3,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 0.9,
+   "offset_mm": [
+    1.8,
+    2.2
+   ]
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     13.1,
+     11
+    ],
+    [
+     14.3,
+     6
+    ],
+    [
+     14.7,
+     0
+    ],
+    [
+     14.3,
+     -6
+    ],
+    [
+     13.1,
+     -11
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.3
+  },
+  {
+   "type": "strap",
+   "on": "body",
+   "points": [
+    [
+     18,
+     180
+    ],
+    [
+     13,
+     180
+    ],
+    [
+     9.5,
+     180
+    ]
+   ],
+   "colour": "lilac",
+   "thickness_mm": 5.5
+  },
+  {
+   "type": "strap",
+   "on": "tail",
+   "points": [
+    [
+     13,
+     0
+    ],
+    [
+     9,
+     0
+    ],
+    [
+     5,
+     0
+    ],
+    [
+     1.5,
+     0
+    ]
+   ],
+   "colour": "lilac",
+   "thickness_mm": 5.5
+  }
+ ]
+}

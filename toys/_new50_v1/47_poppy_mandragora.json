@@ -1,0 +1,38 @@
+{
+ "name": "47_poppy_mandragora",
+ "title": "Poppy Root Mandrake",
+ "title_ru": "Мандрагора Маковый малыш",
+ "subject": "doll",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {"lilac": "#c08dc0", "emerald": "#1f7550", "coral": "#fb6c63", "yellow": "#f7c43c", "pink": "#f4a0a8", "black": "#151313"},
+ "colour_names_ru": {"lilac": "сиреневый", "emerald": "изумрудно-зелёный", "coral": "коралловый", "yellow": "жёлтый", "pink": "розовый", "black": "чёрный"},
+ "parts": [
+  {"id": "head", "colour": "lilac", "stuff": "firm", "name_ru": "Голова", "name_en": "Head", "rounds": ["mr 6", "inc 6 to 42", "inc 6 to 60 every 2", "even 3", "dec 6 to 48 every 2", "dec 6 to 6"]},
+  {"id": "body", "rounds": ["ch 6", "inc 6 to 48", "blo 48", "even 4", "dec 6 to 42", "even 1", "dec 6 to 36"], "colour": "lilac", "end": "open", "stuff": "firm", "name_ru": "Тело-корешок", "name_en": "Root body"},
+  {"id": "leg", "rounds": ["mr 6", "12", "18", "24", "blo 24", "even 2"], "colour": "lilac", "end": "open", "stuff": "firm", "name_ru": "Ножка-корешок", "name_en": "Root leg"},
+  {"id": "arm", "rounds": ["mr 6", "12", "15", "even 2", "12", "even 1"], "colour": "lilac", "end": "open", "stuff": "light", "name_ru": "Ручка-корешок", "name_en": "Root arm"},
+  {"id": "cheek", "rounds": ["mr 6", "12"], "colour": "pink", "end": "open", "stuff": "none", "name_ru": "Щёчка", "name_en": "Cheek"},
+  {"id": "leaf", "colour": "emerald", "name_ru": "Листок", "name_en": "Leaf", "rounds": ["mr 4", "6", "8", "10", "12", "14", "even 3", "12", "10", "8"], "end": "closed", "stuff": "none", "flatten": 0.9},
+  {"id": "petal", "rounds": ["mr 6", "12"], "colour": "coral", "end": "open", "stuff": "none", "name_ru": "Лепесток", "name_en": "Petal"},
+  {"id": "flower_centre", "rounds": ["mr 5", "10"], "colour": "yellow", "end": "open", "stuff": "none", "name_ru": "Серединка цветка", "name_en": "Flower centre"}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 1, 0]},
+  {"part": "head", "on": "body", "at": {"round": "end"}, "attach": "end", "dir": [0, 1, 0], "sink": 9},
+  {"part": "cheek", "on": "head", "at": {"round": 16, "az": 50}, "applique": true, "mirror": true},
+  {"part": "leg", "on": "body", "at": {"round": 2.5, "az": 40}, "dir": [0.25, -1, 0.15], "mirror": true},
+  {"part": "arm", "on": "body", "at": {"round": 12, "az": 85}, "dir": [0.4, -1, 0.15], "mirror": true, "seam": "flat", "avoid": true, "contact": 0.6},
+  {"part": "leaf", "name": "leaf_side", "on": "head", "at": {"round": 7, "az": 78}, "dir": [1, 0.5, 0.1], "mirror": true, "sink": 2, "front": [0.4, 0.6, 0.7]},
+  {"part": "leaf", "name": "leaf_back", "on": "head", "at": {"round": 4, "az": 180}, "dir": [0, 0.9, -0.6], "sink": 2, "front": [0.6, 0.3, -0.8]},
+  {"part": "flower_centre", "on": "head", "at": {"round": 8, "az": 0}, "applique": true, "pad": 3, "lift": 1.6},
+  {"part": "petal", "name": "petal1", "on": "head", "at": {"round": 8, "az": 0}, "applique": true, "offset_mm": [0, 9], "pad": 2, "lift": 1.0},
+  {"part": "petal", "name": "petal2", "on": "head", "at": {"round": 8, "az": 0}, "applique": true, "offset_mm": [8.6, 2.8], "pad": 2, "lift": 1.0},
+  {"part": "petal", "name": "petal3", "on": "head", "at": {"round": 8, "az": 0}, "applique": true, "offset_mm": [5.3, -7.3], "pad": 2, "lift": 1.0},
+  {"part": "petal", "name": "petal4", "on": "head", "at": {"round": 8, "az": 0}, "applique": true, "offset_mm": [-5.3, -7.3], "pad": 2, "lift": 1.0},
+  {"part": "petal", "name": "petal5", "on": "head", "at": {"round": 8, "az": 0}, "applique": true, "offset_mm": [-8.6, 2.8], "pad": 2, "lift": 1.0}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "head", "at": {"round": 14, "az": 30}, "size_mm": 12, "mirror": true, "highlight": true},
+  {"type": "stitch", "on": "head", "points": [[15.5, -10], [16.3, -5], [16.5, 0], [16.3, 5], [15.5, 10]], "colour": "black", "thickness_mm": 1.1}
+ ]
+}

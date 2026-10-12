@@ -1,0 +1,390 @@
+{
+ "name": "az26_foxy",
+ "title": "Pirate fox (Foxy)",
+ "subject": "fox",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "red": "#d8402c",
+  "peach": "#f49070",
+  "darkred": "#8c2a2a",
+  "yellow": "#f0a020",
+  "white": "#f4f0ea",
+  "black": "#121213"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 54 every 2",
+    "even 7",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "red",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "even 4",
+    "dec 6 to 36",
+    "even 3",
+    "dec 6 to 30",
+    "even 2",
+    "dec 6 to 24"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "ellipse": {
+      "center": [
+       12,
+       0
+      ],
+      "radii": [
+       7,
+       45
+      ]
+     },
+     "colour": "peach"
+    }
+   ]
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 3",
+    "27",
+    "even 1",
+    "30",
+    "even 2",
+    "33"
+   ],
+   "colour": "peach",
+   "end": "open",
+   "stuff": "medium"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 4",
+    "inc 2 to 26",
+    "even 4"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.85
+  },
+  {
+   "id": "inner_ear",
+   "rounds": [
+    "mr 4",
+    "inc 2 to 12"
+   ],
+   "colour": "darkred",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "tuft",
+   "rounds": [
+    "mr 4",
+    "inc 2 to 10",
+    "even 2"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.85
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "21",
+    "even 2",
+    "18",
+    "even 2",
+    "15",
+    "even 3"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "light",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      2
+     ],
+     "colour": "peach"
+    }
+   ]
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "blo 24",
+    "even 3",
+    "21",
+    "18",
+    "even 1"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "colour": "peach"
+    }
+   ]
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 21,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.2,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 7.5,
+    "az": 58
+   },
+   "dir": [
+    0.9,
+    1,
+    0.1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "inner_ear",
+   "on": "ear",
+   "at": {
+    "round": 8,
+    "az": 0
+   },
+   "applique": true,
+   "mirror": true,
+   "inset": 1.2,
+   "along": "parent"
+  },
+  {
+   "part": "tuft",
+   "on": "head",
+   "at": {
+    "round": 18,
+    "az": 85
+   },
+   "dir": [
+    1,
+    -0.1,
+    0
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 17,
+    "az": 80
+   },
+   "dir": [
+    0.9,
+    -0.4,
+    0.4
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.6,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 6,
+    "az": 38
+   },
+   "dir": [
+    0.25,
+    -0.1,
+    1
+   ],
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "felt",
+   "on": "head",
+   "at": {
+    "round": 13.5,
+    "az": 33
+   },
+   "size_mm": [
+    17,
+    17
+   ],
+   "colour": "white"
+  },
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 13.5,
+    "az": 33
+   },
+   "size_mm": 12,
+   "iris": "yellow",
+   "pupil": 0.45,
+   "sink": 0.3
+  },
+  {
+   "type": "felt",
+   "on": "head",
+   "at": {
+    "round": 13,
+    "az": -33
+   },
+   "size_mm": [
+    24,
+    17
+   ],
+   "rotate": 10,
+   "colour": "black"
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     9.5,
+     23
+    ],
+    [
+     9,
+     33
+    ],
+    [
+     9.5,
+     43
+    ]
+   ],
+   "colour": "darkred",
+   "thickness_mm": 1.4
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     9.5,
+     -23
+    ],
+    [
+     9,
+     -33
+    ],
+    [
+     9.5,
+     -43
+    ]
+   ],
+   "colour": "darkred",
+   "thickness_mm": 1.4
+  },
+  {
+   "type": "safety_nose",
+   "on": "muzzle",
+   "at": {
+    "round": 2,
+    "az": 0
+   },
+   "size_mm": [
+    10,
+    7.5
+   ],
+   "shape": "oval"
+  },
+  {
+   "type": "fringe",
+   "on": "head",
+   "points": [
+    [
+     2,
+     0
+    ],
+    [
+     4,
+     0
+    ]
+   ],
+   "count": 5,
+   "length_mm": 14,
+   "colours": [
+    "red"
+   ],
+   "droop": 0.1,
+   "spread": 0.4
+  }
+ ]
+}

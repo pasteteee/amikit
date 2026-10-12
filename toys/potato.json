@@ -1,0 +1,207 @@
+{
+ "name": "potato",
+ "title": "Positive potato",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "potato": "#9e5016",
+  "freckle": "#5e2a0c",
+  "phones": "#2e2a29",
+  "black": "#1c1a1a"
+ },
+ "colour_names_ru": {
+  "potato": "светло-коричневый",
+  "freckle": "тёмно-коричневый",
+  "phones": "чёрный"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "even 8",
+    "dec 6 to 36",
+    "even 5",
+    "dec 6 to 30",
+    "even 1",
+    "dec 6 to 6"
+   ],
+   "colour": "potato",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      21,
+      27
+     ],
+     "az": [
+      80,
+      100
+     ],
+     "colour": "phones"
+    },
+    {
+     "rounds": [
+      21,
+      27
+     ],
+     "az": [
+      -100,
+      -80
+     ],
+     "colour": "phones"
+    }
+   ]
+  },
+  {
+   "id": "earcup",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "even 1"
+   ],
+   "colour": "phones",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.3
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "10",
+    "even 2",
+    "8",
+    "even 4"
+   ],
+   "colour": "potato",
+   "end": "open",
+   "stuff": "light",
+   "bend": {
+    "deg": 70,
+    "at": 5,
+    "over": 3
+   }
+  },
+  {
+   "id": "band",
+   "flat": {
+    "width_st": 20,
+    "rows": 2
+   },
+   "colour": "phones"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "earcup",
+   "on": "body",
+   "at": {
+    "round": 21.8,
+    "az": 90
+   },
+   "dir": [
+    1,
+    0,
+    0
+   ],
+   "mirror": true
+  },
+  {
+   "part": "arm",
+   "name": "arm_L",
+   "on": "body",
+   "at": {
+    "round": 14,
+    "az": 72
+   },
+   "dir": [
+    0.15,
+    -1,
+    0.45
+   ],
+   "seam": "flat",
+   "bend_toward": [
+    -1,
+    0,
+    0.7
+   ]
+  },
+  {
+   "part": "arm",
+   "name": "arm_R",
+   "on": "body",
+   "at": {
+    "round": 14,
+    "az": -72
+   },
+   "dir": [
+    -0.15,
+    -1,
+    0.45
+   ],
+   "seam": "flat",
+   "bend_toward": [
+    1,
+    0,
+    0.7
+   ]
+  },
+  {
+   "part": "band",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "lift": 0.4,
+   "conform": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 20.3,
+    "az": 21
+   },
+   "size_mm": 8,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     18.8,
+     -11
+    ],
+    [
+     17.9,
+     0
+    ],
+    [
+     18.8,
+     11
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.2
+  }
+ ]
+}

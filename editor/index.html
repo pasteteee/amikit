@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>amikit — редактор игрушки</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{"imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+}}
+</script>
+</head>
+<body>
+<header id="top">
+  <span class="logo">amikit</span>
+  <select id="toySelect" title="Открыть игрушку"></select>
+  <button id="undoBtn" title="Отменить (Ctrl+Z)">↶</button>
+  <button id="redoBtn" title="Вернуть (Ctrl+Y)">↷</button>
+  <span class="sep"></span>
+  <input id="saveName" placeholder="имя_файла" size="14" title="Имя для сохранения (латиница, цифры, _ -)">
+  <button id="saveBtn">Сохранить</button>
+  <span class="sep"></span>
+  <button id="renderBtn" title="Четыре вида в полном качестве">4 вида</button>
+  <button id="patternBtn" title="Текстовая схема вязания">Схема</button>
+  <span id="status" class="status"></span>
+</header>
+<main>
+  <section id="view">
+    <canvas id="c3d"></canvas>
+    <div id="busy" class="busy hidden">сборка…</div>
+    <div id="flags" class="flags"></div>
+    <div id="pick" class="pick"></div>
+  </section>
+  <aside id="panel">
+    <div id="cmd">
+      <textarea id="cmdText" rows="2" placeholder="Опишите правку… (например: «уши побольше и чуть ниже», «сделай медведя серым»)"></textarea>
+      <div class="row"><button id="cmdBtn" class="primary">Выполнить</button><span id="cmdStatus" class="muted"></span></div>
+      <div id="cmdResult" class="hidden">
+        <div id="cmdExplain"></div>
+        <pre id="cmdOps"></pre>
+        <div class="row"><button id="cmdApply" class="primary">Применить</button><button id="cmdCancel">Отмена</button></div>
+      </div>
+    </div>
+    <nav id="tabs">
+      <button data-tab="parts" class="on">Детали</button>
+      <button data-tab="asm">Сборка</button>
+      <button data-tab="face">Лицо</button>
+      <button data-tab="colours">Цвета</button>
+      <button data-tab="json">JSON</button>
+    </nav>
+    <div id="tabBody"></div>
+    <div id="err" class="err hidden"></div>
+  </aside>
+</main>
+<div id="modal" class="modal hidden"><div class="modalBox"><button id="modalClose" class="close">✕</button><div id="modalBody"></div></div></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

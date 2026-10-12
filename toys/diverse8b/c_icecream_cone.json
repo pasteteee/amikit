@@ -1,0 +1,974 @@
+{
+ "name": "c_icecream_cone",
+ "title": "Ice Cream Cone",
+ "title_ru": "Мороженка Пломбирчик",
+ "subject": "ice cream",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "waffle": "#e8b679",
+  "waffle2": "#c98a4a",
+  "mint": "#a8e6cf",
+  "berry": "#ffb3c8",
+  "cherry": "#e8414f",
+  "stem": "#5f8f3a",
+  "sp1": "#ffe066",
+  "sp2": "#8fc6ff",
+  "sp3": "#ffffff",
+  "blush": "#ff9eb5",
+  "mouth": "#3d4a45",
+  "sp4": "#c9a6f0"
+ },
+ "colour_names_ru": {
+  "waffle": "бежевый (вафля)",
+  "waffle2": "карамельный",
+  "mint": "мятный",
+  "berry": "клубнично-розовый",
+  "cherry": "красный",
+  "stem": "зелёный",
+  "sp1": "жёлтый",
+  "sp2": "голубой",
+  "sp3": "белый",
+  "blush": "розовый (щёчки)",
+  "mouth": "тёмно-серый",
+  "sp4": "сиреневый"
+ },
+ "parts": [
+  {
+   "id": "cone",
+   "name_ru": "вафельный рожок",
+   "name_en": "waffle cone",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "blo 18",
+    "inc 2 to 42",
+    "even 3"
+   ],
+   "colour": "waffle",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "scoop",
+   "name_ru": "мятный шарик",
+   "name_en": "mint scoop",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 5",
+    "dec 6 to 42"
+   ],
+   "colour": "mint",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "drip",
+   "name_ru": "подтаявший край",
+   "name_en": "melting drip",
+   "rounds": [
+    "ring 54",
+    "60",
+    "shells 7 every 6"
+   ],
+   "colour": "mint",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "scoop2",
+   "name_ru": "клубничный шарик",
+   "name_en": "strawberry scoop",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "even 4",
+    "dec 6 to 24"
+   ],
+   "colour": "berry",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "cherry",
+   "name_ru": "вишенка",
+   "name_en": "cherry",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "even 2",
+    "12",
+    "6"
+   ],
+   "colour": "cherry",
+   "stuff": "firm"
+  },
+  {
+   "id": "stalk",
+   "name_ru": "черешок",
+   "name_en": "cherry stalk",
+   "colour": "stem",
+   "cord": {
+    "length_mm": 15,
+    "thickness_mm": 3.2,
+    "curl_deg": 70,
+    "slip_back": true
+   }
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "cone",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "scoop",
+   "on": "cone",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 4
+  },
+  {
+   "part": "drip",
+   "on": "scoop",
+   "at": {
+    "round": 13
+   },
+   "around": true,
+   "fall": true
+  },
+  {
+   "part": "scoop2",
+   "on": "scoop",
+   "at": {
+    "round": "start"
+   },
+   "attach": "end",
+   "dir": [
+    0.05,
+    1,
+    -0.05
+   ],
+   "sink": 12
+  },
+  {
+   "part": "cherry",
+   "on": "scoop2",
+   "at": {
+    "round": "start"
+   },
+   "attach": "end",
+   "dir": [
+    0.1,
+    1,
+    0
+   ],
+   "sink": 4
+  },
+  {
+   "part": "stalk",
+   "on": "cherry",
+   "at": {
+    "round": "start"
+   },
+   "dir": [
+    0.2,
+    1,
+    0
+   ],
+   "toward": [
+    1,
+    0,
+    0
+   ]
+  },
+  {
+   "part": "cheek",
+   "on": "scoop",
+   "at": {
+    "round": 11.5,
+    "az": 42
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.0
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "scoop",
+   "at": {
+    "round": 10,
+    "az": 19
+   },
+   "size_mm": 13,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye",
+   "sink": 0.6
+  },
+  {
+   "type": "stitch",
+   "on": "scoop",
+   "points": [
+    [
+     11.4,
+     -6
+    ],
+    [
+     11.79,
+     -3.0
+    ],
+    [
+     12,
+     0
+    ],
+    [
+     11.79,
+     3.0
+    ],
+    [
+     11.4,
+     6
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 1.1,
+   "id": "smile"
+  },
+  {
+   "type": "stitch",
+   "on": "cone",
+   "points": [
+    [
+     5,
+     0
+    ],
+    [
+     7,
+     20
+    ],
+    [
+     9,
+     40
+    ],
+    [
+     11,
+     60
+    ],
+    [
+     13,
+     80
+    ],
+    [
+     15,
+     100
+    ],
+    [
+     17,
+     120
+    ],
+    [
+     19,
+     140
+    ]
+   ],
+   "colour": "waffle2",
+   "thickness_mm": 1.2,
+   "id": "waffle0a"
+  },
+  {
+   "type": "stitch",
+   "on": "cone",
+   "points": [
+    [
+     5,
+     0
+    ],
+    [
+     7,
+     -20
+    ],
+    [
+     9,
+     -40
+    ],
+    [
+     11,
+     -60
+    ],
+    [
+     13,
+     -80
+    ],
+    [
+     15,
+     -100
+    ],
+    [
+     17,
+     -120
+    ],
+    [
+     19,
+     -140
+    ]
+   ],
+   "colour": "waffle2",
+   "thickness_mm": 1.2,
+   "id": "waffle0b"
+  },
+  {
+   "type": "stitch",
+   "on": "cone",
+   "points": [
+    [
+     5,
+     60
+    ],
+    [
+     7,
+     80
+    ],
+    [
+     9,
+     100
+    ],
+    [
+     11,
+     120
+    ],
+    [
+     13,
+     140
+    ],
+    [
+     15,
+     160
+    ],
+    [
+     17,
+     180
+    ],
+    [
+     19,
+     200
+    ]
+   ],
+   "colour": "waffle2",
+   "thickness_mm": 1.2,
+   "id": "waffle1a"
+  },
+  {
+   "type": "stitch",
+   "on": "cone",
+   "points": [
+    [
+     5,
+     60
+    ],
+    [
+     7,
+     40
+    ],
+    [
+     9,
+     20
+    ],
+    [
+     11,
+     0
+    ],
+    [
+     13,
+     -20
+    ],
+    [
+     15,
+     -40
+    ],
+    [
+     17,
+     -60
+    ],
+    [
+     19,
+     -80
+    ]
+   ],
+   "colour": "waffle2",
+   "thickness_mm": 1.2,
+   "id": "waffle1b"
+  },
+  {
+   "type": "stitch",
+   "on": "cone",
+   "points": [
+    [
+     5,
+     120
+    ],
+    [
+     7,
+     140
+    ],
+    [
+     9,
+     160
+    ],
+    [
+     11,
+     180
+    ],
+    [
+     13,
+     200
+    ],
+    [
+     15,
+     220
+    ],
+    [
+     17,
+     240
+    ],
+    [
+     19,
+     260
+    ]
+   ],
+   "colour": "waffle2",
+   "thickness_mm": 1.2,
+   "id": "waffle2a"
+  },
+  {
+   "type": "stitch",
+   "on": "cone",
+   "points": [
+    [
+     5,
+     120
+    ],
+    [
+     7,
+     100
+    ],
+    [
+     9,
+     80
+    ],
+    [
+     11,
+     60
+    ],
+    [
+     13,
+     40
+    ],
+    [
+     15,
+     20
+    ],
+    [
+     17,
+     0
+    ],
+    [
+     19,
+     -20
+    ]
+   ],
+   "colour": "waffle2",
+   "thickness_mm": 1.2,
+   "id": "waffle2b"
+  },
+  {
+   "type": "stitch",
+   "on": "cone",
+   "points": [
+    [
+     5,
+     180
+    ],
+    [
+     7,
+     200
+    ],
+    [
+     9,
+     220
+    ],
+    [
+     11,
+     240
+    ],
+    [
+     13,
+     260
+    ],
+    [
+     15,
+     280
+    ],
+    [
+     17,
+     300
+    ],
+    [
+     19,
+     320
+    ]
+   ],
+   "colour": "waffle2",
+   "thickness_mm": 1.2,
+   "id": "waffle3a"
+  },
+  {
+   "type": "stitch",
+   "on": "cone",
+   "points": [
+    [
+     5,
+     180
+    ],
+    [
+     7,
+     160
+    ],
+    [
+     9,
+     140
+    ],
+    [
+     11,
+     120
+    ],
+    [
+     13,
+     100
+    ],
+    [
+     15,
+     80
+    ],
+    [
+     17,
+     60
+    ],
+    [
+     19,
+     40
+    ]
+   ],
+   "colour": "waffle2",
+   "thickness_mm": 1.2,
+   "id": "waffle3b"
+  },
+  {
+   "type": "stitch",
+   "on": "cone",
+   "points": [
+    [
+     5,
+     240
+    ],
+    [
+     7,
+     260
+    ],
+    [
+     9,
+     280
+    ],
+    [
+     11,
+     300
+    ],
+    [
+     13,
+     320
+    ],
+    [
+     15,
+     340
+    ],
+    [
+     17,
+     360
+    ],
+    [
+     19,
+     380
+    ]
+   ],
+   "colour": "waffle2",
+   "thickness_mm": 1.2,
+   "id": "waffle4a"
+  },
+  {
+   "type": "stitch",
+   "on": "cone",
+   "points": [
+    [
+     5,
+     240
+    ],
+    [
+     7,
+     220
+    ],
+    [
+     9,
+     200
+    ],
+    [
+     11,
+     180
+    ],
+    [
+     13,
+     160
+    ],
+    [
+     15,
+     140
+    ],
+    [
+     17,
+     120
+    ],
+    [
+     19,
+     100
+    ]
+   ],
+   "colour": "waffle2",
+   "thickness_mm": 1.2,
+   "id": "waffle4b"
+  },
+  {
+   "type": "stitch",
+   "on": "cone",
+   "points": [
+    [
+     5,
+     300
+    ],
+    [
+     7,
+     320
+    ],
+    [
+     9,
+     340
+    ],
+    [
+     11,
+     360
+    ],
+    [
+     13,
+     380
+    ],
+    [
+     15,
+     400
+    ],
+    [
+     17,
+     420
+    ],
+    [
+     19,
+     440
+    ]
+   ],
+   "colour": "waffle2",
+   "thickness_mm": 1.2,
+   "id": "waffle5a"
+  },
+  {
+   "type": "stitch",
+   "on": "cone",
+   "points": [
+    [
+     5,
+     300
+    ],
+    [
+     7,
+     280
+    ],
+    [
+     9,
+     260
+    ],
+    [
+     11,
+     240
+    ],
+    [
+     13,
+     220
+    ],
+    [
+     15,
+     200
+    ],
+    [
+     17,
+     180
+    ],
+    [
+     19,
+     160
+    ]
+   ],
+   "colour": "waffle2",
+   "thickness_mm": 1.2,
+   "id": "waffle5b"
+  },
+  {
+   "type": "satin",
+   "on": "scoop2",
+   "at": {
+    "round": 3,
+    "az": 20
+   },
+   "width_mm": 2.2,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "sp4",
+   "thickness_mm": 1.2,
+   "rotate": 30,
+   "id": "sprinkle1"
+  },
+  {
+   "type": "satin",
+   "on": "scoop2",
+   "at": {
+    "round": 4.5,
+    "az": -35
+   },
+   "width_mm": 2.2,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "sp2",
+   "thickness_mm": 1.2,
+   "rotate": -40,
+   "id": "sprinkle2"
+  },
+  {
+   "type": "satin",
+   "on": "scoop2",
+   "at": {
+    "round": 3.5,
+    "az": 100
+   },
+   "width_mm": 2.2,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "sp3",
+   "thickness_mm": 1.2,
+   "rotate": 70,
+   "id": "sprinkle3"
+  },
+  {
+   "type": "satin",
+   "on": "scoop2",
+   "at": {
+    "round": 6,
+    "az": 150
+   },
+   "width_mm": 2.2,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "sp1",
+   "thickness_mm": 1.2,
+   "rotate": -20,
+   "id": "sprinkle4"
+  },
+  {
+   "type": "satin",
+   "on": "scoop2",
+   "at": {
+    "round": 4.5,
+    "az": -120
+   },
+   "width_mm": 2.2,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "sp4",
+   "thickness_mm": 1.2,
+   "rotate": 15,
+   "id": "sprinkle5"
+  },
+  {
+   "type": "satin",
+   "on": "scoop2",
+   "at": {
+    "round": 6.5,
+    "az": 65
+   },
+   "width_mm": 2.2,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "sp3",
+   "thickness_mm": 1.2,
+   "rotate": 80,
+   "id": "sprinkle6"
+  },
+  {
+   "type": "satin",
+   "on": "scoop2",
+   "at": {
+    "round": 6,
+    "az": -75
+   },
+   "width_mm": 2.2,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "sp1",
+   "thickness_mm": 1.2,
+   "rotate": -60,
+   "id": "sprinkle7"
+  },
+  {
+   "type": "satin",
+   "on": "scoop2",
+   "at": {
+    "round": 2.5,
+    "az": -150
+   },
+   "width_mm": 2.2,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "sp2",
+   "thickness_mm": 1.2,
+   "rotate": 45,
+   "id": "sprinkle8"
+  },
+  {
+   "type": "satin",
+   "on": "scoop2",
+   "at": {
+    "round": 7,
+    "az": 10
+   },
+   "width_mm": 2.2,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "sp4",
+   "thickness_mm": 1.2,
+   "rotate": 10,
+   "id": "sprinkle9"
+  },
+  {
+   "type": "satin",
+   "on": "scoop2",
+   "at": {
+    "round": 5.5,
+    "az": 200
+   },
+   "width_mm": 2.2,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "sp3",
+   "thickness_mm": 1.2,
+   "rotate": -30,
+   "id": "sprinkle10"
+  },
+  {
+   "type": "satin",
+   "on": "scoop2",
+   "at": {
+    "round": 7.5,
+    "az": -20
+   },
+   "width_mm": 2.2,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "sp1",
+   "thickness_mm": 1.2,
+   "rotate": 55,
+   "id": "sprinkle11"
+  },
+  {
+   "type": "satin",
+   "on": "scoop2",
+   "at": {
+    "round": 3,
+    "az": 60
+   },
+   "width_mm": 2.2,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "sp2",
+   "thickness_mm": 1.2,
+   "rotate": -70,
+   "id": "sprinkle12"
+  },
+  {
+   "type": "satin",
+   "on": "scoop2",
+   "at": {
+    "round": 7,
+    "az": 120
+   },
+   "width_mm": 2.2,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "sp4",
+   "thickness_mm": 1.2,
+   "rotate": 35,
+   "id": "sprinkle13"
+  },
+  {
+   "type": "satin",
+   "on": "scoop2",
+   "at": {
+    "round": 4,
+    "az": 170
+   },
+   "width_mm": 2.2,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "sp3",
+   "thickness_mm": 1.2,
+   "rotate": 0,
+   "id": "sprinkle14"
+  }
+ ]
+}

@@ -1,0 +1,316 @@
+{
+ "name": "shark",
+ "title": "Emotional support shark",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "blue": "#0d5e9e",
+  "white": "#eef0f3",
+  "black": "#1c1a1a"
+ },
+ "colour_names_ru": {
+  "blue": "синий"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "even 7",
+    "dec 6 to 36",
+    "even 3",
+    "dec 6 to 30",
+    "even 1",
+    "dec 6 to 6"
+   ],
+   "colour": "blue",
+   "stuff": "firm",
+   "colours": [
+    {
+     "shape": [
+      [
+       2.5,
+       -40
+      ],
+      [
+       2.5,
+       40
+      ],
+      [
+       19,
+       40
+      ],
+      [
+       21,
+       32
+      ],
+      [
+       22,
+       16
+      ],
+      [
+       22.4,
+       0
+      ],
+      [
+       22,
+       -16
+      ],
+      [
+       21,
+       -32
+      ],
+      [
+       19,
+       -40
+      ]
+     ],
+     "colour": "white"
+    }
+   ]
+  },
+  {
+   "id": "dorsal",
+   "name_en": "dorsal fin",
+   "name_ru": "спинной плавник",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 3",
+    "15"
+   ],
+   "colour": "blue",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.35
+  },
+  {
+   "id": "tail",
+   "name_en": "tail fin lobe",
+   "name_ru": "лопасть хвоста",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "10"
+   ],
+   "colour": "blue",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.35
+  },
+  {
+   "id": "fin",
+   "name_en": "side fin",
+   "name_ru": "боковой плавник",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "10",
+    "even 3"
+   ],
+   "colour": "blue",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.2,
+   "bend": {
+    "deg": 85,
+    "at": 5,
+    "over": 3
+   }
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "dorsal",
+   "on": "body",
+   "at": {
+    "round": 21.5,
+    "az": 180
+   },
+   "dir": [
+    0,
+    1,
+    -0.5
+   ],
+   "front": [
+    1,
+    0,
+    0
+   ],
+   "seam": "flat",
+   "seam_line": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "tail",
+   "name": "tail_top",
+   "on": "body",
+   "at": {
+    "round": 11,
+    "az": 180
+   },
+   "dir": [
+    0,
+    0.3,
+    -1
+   ],
+   "front": [
+    1,
+    0,
+    0
+   ],
+   "seam": "flat",
+   "seam_line": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "tail",
+   "name": "tail_low",
+   "on": "body",
+   "at": {
+    "round": 7,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.5,
+    -1
+   ],
+   "front": [
+    1,
+    0,
+    0
+   ],
+   "seam": "flat",
+   "seam_line": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "fin",
+   "name": "fin_L",
+   "on": "body",
+   "at": {
+    "round": 11,
+    "az": 70
+   },
+   "dir": [
+    0.05,
+    -0.3,
+    1
+   ],
+   "seam": "flat",
+   "bend_toward": [
+    -1,
+    0,
+    0.4
+   ]
+  },
+  {
+   "part": "fin",
+   "name": "fin_R",
+   "on": "body",
+   "at": {
+    "round": 11,
+    "az": -70
+   },
+   "dir": [
+    -0.05,
+    -0.3,
+    1
+   ],
+   "seam": "flat",
+   "bend_toward": [
+    1,
+    0,
+    0.4
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 18.5,
+    "az": 35
+   },
+   "size_mm": 6,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     16.2,
+     -8
+    ],
+    [
+     17.1,
+     -4
+    ],
+    [
+     17.3,
+     0
+    ],
+    [
+     17.1,
+     4
+    ],
+    [
+     16.2,
+     8
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.1
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     18.9,
+     44
+    ],
+    [
+     19.4,
+     51
+    ],
+    [
+     18.9,
+     58
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0,
+   "mirror": true
+  }
+ ]
+}

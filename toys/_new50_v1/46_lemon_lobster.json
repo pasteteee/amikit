@@ -1,0 +1,40 @@
+{
+ "name": "46_lemon_lobster",
+ "title": "Lemon Candy Lobster",
+ "title_ru": "Лобстер Лимонная карамель",
+ "subject": "lobster",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {"lemon": "#f6c450", "coral": "#f06a5c", "lilac": "#c39cc8", "pink": "#f2a0b0", "black": "#151313"},
+ "colour_names_ru": {"lemon": "лимонно-жёлтый", "coral": "коралловый", "lilac": "сиреневый", "pink": "розовый", "black": "чёрный"},
+ "parts": [
+  {"id": "body", "rounds": ["mr 6", "inc 6 to 30", "blo 30", "inc 6 to 36", "even 5", "dec 6 to 30", "even 1"], "colour": "lemon", "stuff": "firm", "name_ru": "Туловище", "name_en": "Body", "end": "open"},
+  {"id": "head", "rounds": ["mr 6", "inc 6 to 36", "inc 6 to 48 every 2", "even 6", "dec 6 to 36 every 2", "dec 6 to 6"], "colour": "lemon", "stuff": "firm", "name_ru": "Голова", "name_en": "Head"},
+  {"id": "seg1", "rounds": ["mr 6", "inc 6 to 24", "even 3", "dec 6 to 12"], "colour": "lemon", "stuff": "firm", "name_ru": "Сегмент хвоста 1", "name_en": "Tail segment 1"},
+  {"id": "seg2", "rounds": ["mr 6", "12", "18", "21", "even 2", "15", "9"], "colour": "lemon", "stuff": "firm", "name_ru": "Сегмент хвоста 2", "name_en": "Tail segment 2"},
+  {"id": "seg3", "rounds": ["mr 6", "12", "18", "even 2", "12", "6"], "colour": "lemon", "stuff": "firm", "name_ru": "Сегмент хвоста 3", "name_en": "Tail segment 3"},
+  {"id": "lobe", "rounds": ["mr 6", "12", "18", "24", "even 4", "18", "12"], "colour": "coral", "end": "open", "stuff": "light", "flatten": 0.65, "name_ru": "Лопасть хвоста", "name_en": "Tail fan lobe"},
+  {"id": "claw", "rounds": ["mr 6", "12", "18", "24", "30", "even 6", "24", "18", "even 2"], "colour": "coral", "end": "open", "stuff": "firm", "flatten": 0.3, "name_ru": "Клешня", "name_en": "Claw"},
+  {"id": "thumb", "rounds": ["mr 6", "12", "even 4"], "colour": "coral", "end": "open", "stuff": "firm", "name_ru": "Палец клешни", "name_en": "Claw thumb"},
+  {"id": "leg", "rounds": ["mr 7", "even 7"], "colour": "lilac", "end": "open", "stuff": "light", "bend": {"deg": 70, "at": 4, "over": 3, "toward": [0, -1, 0]}, "name_ru": "Лапка", "name_en": "Leg"},
+  {"id": "antenna", "rounds": ["mr 7", "even 5"], "colour": "lemon", "end": "open", "stuff": "light", "name_ru": "Усик", "name_en": "Antenna nub", "bend": {"deg": 40, "at": 3, "over": 2, "toward": [0.5, 0, 1]}},
+  {"id": "cheek", "rounds": ["mr 6", "12"], "colour": "pink", "end": "open", "stuff": "none", "name_ru": "Щёчка", "name_en": "Cheek"}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 1, 0]},
+  {"part": "head", "on": "body", "at": {"round": "end"}, "dir": [0, 1, 0.1], "sink": 8, "attach": "end"},
+  {"part": "seg1", "on": "body", "at": {"round": 6, "az": 180}, "dir": [0, 0.12, -1], "sink": 6},
+  {"part": "seg2", "on": "seg1", "at": {"round": "start"}, "dir": [0, -0.1, -1], "sink": 4},
+  {"part": "seg3", "on": "seg2", "at": {"round": "start"}, "dir": [0, -0.1, -1], "sink": 3},
+  {"part": "lobe", "on": "seg3", "at": {"round": 1.5, "az": 60}, "dir": [0.5, 0, -1], "front": [0, 1, 0], "mirror": true},
+  {"part": "claw", "on": "head", "at": {"round": 19, "az": 82}, "dir": [1, 0.05, 0.65], "front": [0, 0, 1], "mirror": true},
+  {"part": "thumb", "on": "claw", "at": {"round": 6, "az": 0}, "dir": [0.3, 1, 0.2], "mirror": true},
+  {"part": "leg", "name": "leg_front", "on": "body", "at": {"round": 8, "az": 65}, "dir": [1, -0.25, 0.35], "mirror": true},
+  {"part": "leg", "name": "leg_back", "on": "body", "at": {"round": 8, "az": 105}, "dir": [1, -0.25, -0.25], "mirror": true},
+  {"part": "antenna", "on": "head", "at": {"round": 3, "az": 30}, "dir": [0.3, 1, 0.1], "mirror": true},
+  {"part": "cheek", "on": "head", "at": {"round": 16.5, "az": 46}, "applique": true, "mirror": true}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "head", "at": {"round": 14, "az": 28}, "size_mm": 12, "mirror": true, "highlight": true},
+  {"type": "stitch", "on": "head", "points": [[16, -8], [16.8, -4], [17, 0], [16.8, 4], [16, 8]], "colour": "black", "thickness_mm": 1.1}
+ ]
+}

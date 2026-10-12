@@ -1,0 +1,65 @@
+{
+ "name": "04_mango_flower_axolotl",
+ "title": "Mango Flower Axolotl",
+ "title_ru": "Аксолотль Манговый цветок",
+ "subject": "axolotl",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {
+  "mango": "#f7a034",
+  "coral": "#f0605a",
+  "cream": "#f6e6c6",
+  "turquoise": "#2bb3a8",
+  "blush": "#f2909a"
+ },
+ "colour_names_ru": {
+  "mango": "манговый (ярко-оранжевый)",
+  "coral": "коралловый",
+  "cream": "молочный",
+  "turquoise": "бирюзовый",
+  "blush": "розовый (щёчки)"
+ },
+ "parts": [
+  {"id": "body", "name_ru": "туловище", "name_en": "body",
+   "rounds": ["mr 6", "inc 6 to 54", "even 12"], "colour": "mango", "end": "open", "stuff": "firm", "flatten": 0.2,
+   "colours": [{"rounds": [1, 21], "az": [125, 235], "colour": "cream"}]},
+  {"id": "head", "name_ru": "голова", "name_en": "head",
+   "rounds": ["mr 6", "inc 6 to 48", "inc 6 to 60 every 2", "even 3", "dec 6 to 48 every 2", "dec 6 to 6"],
+   "colour": "mango", "end": "closed", "stuff": "firm", "flatten": 0.08,
+   "colours": [{"rounds": [9, 23], "az": [128, 232], "colour": "cream"}]},
+  {"id": "tail", "name_ru": "хвост", "name_en": "tail",
+   "rounds": ["mr 4", "7", "10", "13", "16", "19", "22", "25", "28", "31", "34", "even 3", "36", "even 2"],
+   "colour": "mango", "end": "open", "stuff": "medium", "flatten": 0.2,
+   "bend": {"deg": 30, "at": 6, "over": 4}},
+  {"id": "gill", "name_ru": "лепесток-жабра", "name_en": "gill petal",
+   "rounds": ["mr 6", "12", "15", "even 4", "12", "9"], "colour": "coral", "end": "closed", "stuff": "light",
+   "flatten": 0.6},
+  {"id": "leg", "name_ru": "лапка", "name_en": "leg",
+   "rounds": ["mr 6", "12", "15", "even 2", "12", "even 3"], "colour": "mango", "end": "open", "stuff": "medium"},
+  {"id": "cheek", "name_ru": "щёчка", "name_en": "cheek", "rounds": ["mr 6", "12"], "colour": "blush", "end": "open",
+   "stuff": "none"},
+  {"id": "spot", "name_ru": "кружок на хвосте", "name_en": "tail circle", "colour": "turquoise",
+   "motif": {"kind": "circle", "rounds": 4}}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 0, 1]},
+  {"part": "head", "on": "body", "at": {"round": "end"}, "attach": "end", "dir": [0, 0.3, 1], "sink": 10},
+  {"part": "tail", "on": "body", "at": {"round": "start"}, "dir": [0, -0.2, -1], "bend_toward": [-0.4, -0.4, -1]},
+  {"part": "gill", "name": "gill_top", "on": "head", "at": {"round": 15, "az": 55}, "dir": [0.85, 0.9, -0.2], "mirror": true,
+   "attach": "start", "front": [0, 0, 1]},
+  {"part": "gill", "name": "gill_mid", "on": "head", "at": {"round": 15, "az": 80}, "dir": [1, 0.25, -0.2], "mirror": true,
+   "attach": "start", "front": [0, 0, 1]},
+  {"part": "gill", "name": "gill_low", "on": "head", "at": {"round": 15, "az": 105}, "dir": [1, -0.35, -0.15], "mirror": true,
+   "attach": "start", "front": [0, 0, 1]},
+  {"part": "leg", "name": "front_leg", "on": "head", "at": {"round": 18, "az": 125}, "dir": [0.95, -0.6, 0.2], "mirror": true,
+   "seam": "flat"},
+  {"part": "leg", "name": "hind_leg", "on": "body", "at": {"round": 6, "az": 105}, "dir": [1, -0.6, -0.3], "mirror": true,
+   "seam": "flat"},
+  {"part": "cheek", "on": "head", "at": {"round": 9, "az": 112}, "applique": true, "mirror": true},
+  {"part": "spot", "on": "tail", "at": {"round": 12, "az": 90}, "applique": true, "mirror": true}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "head", "at": {"round": 7.5, "az": 80}, "size_mm": 13, "mirror": true, "highlight": true},
+  {"type": "stitch", "on": "head", "points": [[3.2, 140], [3.9, 160], [4.1, 180], [3.9, 200], [3.2, 220]], "colour": "black",
+   "thickness_mm": 1.3}
+ ]
+}

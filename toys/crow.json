@@ -1,0 +1,244 @@
+{
+ "name": "crow",
+ "title": "Little hope crow",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "navy": "#19202e",
+  "grey": "#b9b8bd",
+  "white": "#f4f2ee",
+  "black": "#121213"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 5",
+    "dec 6 to 42",
+    "even 1",
+    "inc 6 to 60",
+    "even 9",
+    "dec 6 to 6"
+   ],
+   "colour": "navy",
+   "stuff": "firm",
+   "name_en": "head and body",
+   "name_ru": "голова-тело"
+  },
+  {
+   "id": "beak",
+   "rounds": [
+    "mr 6",
+    "9",
+    "12",
+    "15",
+    "18",
+    "even 1"
+   ],
+   "colour": "grey",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "wing",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 1"
+   ],
+   "colour": "navy",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "feather",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 1"
+   ],
+   "colour": "navy",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "toe",
+   "rounds": [
+    "mr 6",
+    "9",
+    "12",
+    "even 2"
+   ],
+   "colour": "grey",
+   "end": "open",
+   "stuff": "light"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "beak",
+   "on": "body",
+   "at": {
+    "round": 27.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.3,
+    1
+   ]
+  },
+  {
+   "part": "wing",
+   "on": "body",
+   "at": {
+    "round": 14,
+    "az": 75
+   },
+   "attach": "edge",
+   "dir": [
+    1,
+    0.1,
+    0.3
+   ],
+   "face": [
+    0.2,
+    0,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "feather",
+   "name": "feather_a",
+   "on": "wing",
+   "at": {
+    "round": 4.5,
+    "az": 0
+   },
+   "dir": [
+    1,
+    0,
+    0.15
+   ],
+   "mirror": true
+  },
+  {
+   "part": "feather",
+   "name": "feather_b",
+   "on": "wing",
+   "at": {
+    "round": 4.5,
+    "az": -40
+   },
+   "dir": [
+    1,
+    0.6,
+    0.15
+   ],
+   "mirror": true
+  },
+  {
+   "part": "feather",
+   "name": "feather_c",
+   "on": "wing",
+   "at": {
+    "round": 4.5,
+    "az": 40
+   },
+   "dir": [
+    1,
+    -0.6,
+    0.15
+   ],
+   "mirror": true
+  },
+  {
+   "part": "toe",
+   "name": "toe_a",
+   "on": "body",
+   "at": {
+    "round": 6.5,
+    "az": 11
+   },
+   "dir": [
+    0.0,
+    -0.45,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "toe",
+   "name": "toe_b",
+   "on": "body",
+   "at": {
+    "round": 6.5,
+    "az": 23
+   },
+   "dir": [
+    0.3,
+    -0.45,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "toe",
+   "name": "toe_c",
+   "on": "body",
+   "at": {
+    "round": 6.5,
+    "az": 35
+   },
+   "dir": [
+    0.6,
+    -0.45,
+    0.9
+   ],
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "felt",
+   "on": "body",
+   "at": {
+    "round": 29.3,
+    "az": 30
+   },
+   "size_mm": [
+    14,
+    12
+   ],
+   "colour": "white",
+   "mirror": true
+  },
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 30,
+    "az": 29
+   },
+   "size_mm": 12,
+   "mirror": true,
+   "highlight": true
+  }
+ ]
+}

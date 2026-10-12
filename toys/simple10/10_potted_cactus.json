@@ -1,0 +1,484 @@
+{
+ "name": "10_potted_cactus",
+ "title": "Potted Cactus Spike",
+ "title_ru": "Кактус Колюнчик в горшке",
+ "subject": "cactus",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "cactus": "#6fae6c",
+  "pot": "#d47a4e",
+  "rim": "#b9603a",
+  "soil": "#6a4a36",
+  "flower": "#f58fb1",
+  "centre": "#ffd85a",
+  "spine": "#fbf7ee",
+  "blush": "#f59a9a",
+  "mouth": "#2f2a24"
+ },
+ "colour_names_ru": {
+  "cactus": "зелёный",
+  "pot": "терракотовый",
+  "rim": "тёмно-терракотовый",
+  "soil": "коричневый",
+  "flower": "розовый",
+  "centre": "жёлтый",
+  "spine": "белый",
+  "blush": "розовый (щёчки)",
+  "mouth": "тёмно-коричневый"
+ },
+ "parts": [
+  {
+   "id": "pot",
+   "name_ru": "горшок",
+   "name_en": "pot",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "blo 42",
+    "even 2",
+    "45",
+    "even 1",
+    "48",
+    "even 1",
+    "51",
+    "54",
+    "even 2",
+    "blo 54",
+    "dec 6 to 6"
+   ],
+   "colour": "pot",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      16,
+      18
+     ],
+     "colour": "rim"
+    },
+    {
+     "rounds": [
+      19,
+      28
+     ],
+     "colour": "soil"
+    }
+   ]
+  },
+  {
+   "id": "body",
+   "name_ru": "кактус",
+   "name_en": "cactus",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "rib 36 x7",
+    "36"
+   ],
+   "colour": "cactus",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "branch",
+   "name_ru": "отросток",
+   "name_en": "branch",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 5",
+    "10"
+   ],
+   "colour": "cactus",
+   "end": "open",
+   "stuff": "firm",
+   "bend": {
+    "deg": 75,
+    "at": 4,
+    "over": 2,
+    "toward": [
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "flower",
+   "name_ru": "цветок",
+   "name_en": "flower",
+   "colour": "flower",
+   "motif": {
+    "kind": "lobed",
+    "lobes": 5,
+    "tall": "tr",
+    "stitches": 5
+   }
+  },
+  {
+   "id": "centre",
+   "name_ru": "серединка",
+   "name_en": "flower centre",
+   "rounds": [
+    "mr 6",
+    "12",
+    "6"
+   ],
+   "colour": "centre",
+   "stuff": "light"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "branch2",
+   "name_ru": "отросток малый",
+   "name_en": "small branch",
+   "rounds": [
+    "mr 6",
+    "10",
+    "even 3",
+    "8"
+   ],
+   "colour": "cactus",
+   "end": "open",
+   "stuff": "firm",
+   "bend": {
+    "deg": 75,
+    "at": 3,
+    "over": 2,
+    "toward": [
+     0,
+     1,
+     0
+    ]
+   }
+  }
+ ],
+ "assembly": [
+  {
+   "part": "pot",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "body",
+   "on": "pot",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 4
+  },
+  {
+   "part": "branch",
+   "on": "body",
+   "at": {
+    "round": 9,
+    "az": -95
+   },
+   "dir": [
+    -1,
+    0.15,
+    0
+   ],
+   "sink": 2
+  },
+  {
+   "part": "flower",
+   "on": "body",
+   "at": {
+    "round": 2.5,
+    "az": 0
+   },
+   "attach": "edge",
+   "dir": [
+    0,
+    1,
+    0.15
+   ],
+   "face": [
+    0,
+    0.3,
+    1
+   ],
+   "sink": 3
+  },
+  {
+   "part": "centre",
+   "on": "body",
+   "at": {
+    "round": 2.5,
+    "az": 0
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    0.75,
+    1
+   ],
+   "sink": -3
+  },
+  {
+   "part": "cheek",
+   "on": "body",
+   "at": {
+    "round": 10.3,
+    "az": 44
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.0
+  },
+  {
+   "part": "branch2",
+   "on": "body",
+   "at": {
+    "round": 12,
+    "az": 95
+   },
+   "dir": [
+    1,
+    0.1,
+    0
+   ],
+   "sink": 2
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 9,
+    "az": 26
+   },
+   "size_mm": 14,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     10.4,
+     -6
+    ],
+    [
+     10.8,
+     -3
+    ],
+    [
+     10.95,
+     0
+    ],
+    [
+     10.8,
+     3
+    ],
+    [
+     10.4,
+     6
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 1.0,
+   "id": "smile"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     6.5,
+     60
+    ],
+    [
+     7.0,
+     62
+    ]
+   ],
+   "colour": "spine",
+   "thickness_mm": 1.1,
+   "id": "sp1"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     10.5,
+     75
+    ],
+    [
+     11.0,
+     77
+    ]
+   ],
+   "colour": "spine",
+   "thickness_mm": 1.1,
+   "id": "sp2"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     6.5,
+     -60
+    ],
+    [
+     7.0,
+     -62
+    ]
+   ],
+   "colour": "spine",
+   "thickness_mm": 1.1,
+   "id": "sp3"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     11.5,
+     -70
+    ],
+    [
+     12.0,
+     -72
+    ]
+   ],
+   "colour": "spine",
+   "thickness_mm": 1.1,
+   "id": "sp4"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     8.5,
+     120
+    ],
+    [
+     9.0,
+     122
+    ]
+   ],
+   "colour": "spine",
+   "thickness_mm": 1.1,
+   "id": "sp5"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     5.5,
+     150
+    ],
+    [
+     6.0,
+     152
+    ]
+   ],
+   "colour": "spine",
+   "thickness_mm": 1.1,
+   "id": "sp6"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     10.5,
+     180
+    ],
+    [
+     11.0,
+     182
+    ]
+   ],
+   "colour": "spine",
+   "thickness_mm": 1.1,
+   "id": "sp7"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     7.5,
+     -140
+    ],
+    [
+     8.0,
+     -142
+    ]
+   ],
+   "colour": "spine",
+   "thickness_mm": 1.1,
+   "id": "sp8"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     4.5,
+     30
+    ],
+    [
+     5.0,
+     32
+    ]
+   ],
+   "colour": "spine",
+   "thickness_mm": 1.1,
+   "id": "sp9"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     4.5,
+     -30
+    ],
+    [
+     5.0,
+     -32
+    ]
+   ],
+   "colour": "spine",
+   "thickness_mm": 1.1,
+   "id": "sp10"
+  }
+ ]
+}

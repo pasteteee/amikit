@@ -1,0 +1,371 @@
+{
+ "name": "41_cloud_caterpillar",
+ "title": "Rainbow Pillow Caterpillar",
+ "title_ru": "Гусеничка Радужные подушки",
+ "subject": "caterpillar",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "coral": "#f97a6b",
+  "yellow": "#f9d65a",
+  "lime": "#8cc04e",
+  "aqua": "#5cc6d3",
+  "cream": "#f3e2cc",
+  "purple": "#8e4aa8",
+  "pink": "#f49ab8",
+  "black": "#141213",
+  "white": "#f6f4ef"
+ },
+ "colour_names_ru": {
+  "coral": "коралловый",
+  "yellow": "жёлтый",
+  "lime": "салатовый",
+  "aqua": "бирюзовый",
+  "cream": "молочный",
+  "purple": "фиолетовый",
+  "pink": "розовый"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 38",
+    "inc 6 to 56 every 2",
+    "even 4",
+    "dec 6 to 38 every 2",
+    "dec 6 to 8"
+   ],
+   "colour": "coral",
+   "end": "closed",
+   "stuff": "firm"
+  },
+  {
+   "id": "seg_yellow",
+   "name_ru": "сегмент жёлтый",
+   "name_en": "yellow segment",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "even 3",
+    "dec 6 to 6"
+   ],
+   "colour": "yellow",
+   "end": "closed",
+   "stuff": "firm"
+  },
+  {
+   "id": "seg_lime",
+   "name_ru": "сегмент салатовый",
+   "name_en": "lime segment",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "even 3",
+    "dec 6 to 6"
+   ],
+   "colour": "lime",
+   "end": "closed",
+   "stuff": "firm"
+  },
+  {
+   "id": "seg_aqua",
+   "name_ru": "сегмент бирюзовый",
+   "name_en": "aqua segment",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "even 3",
+    "dec 6 to 6"
+   ],
+   "colour": "aqua",
+   "end": "closed",
+   "stuff": "firm"
+  },
+  {
+   "id": "foot",
+   "name_ru": "лапка",
+   "name_en": "foot",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 2",
+    "12",
+    "6"
+   ],
+   "colour": "cream",
+   "end": "closed",
+   "stuff": "firm"
+  },
+  {
+   "id": "antenna",
+   "name_ru": "усик",
+   "name_en": "antenna",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "9",
+    "8",
+    "even 3"
+   ],
+   "colour": "purple",
+   "end": "open",
+   "stuff": "light",
+   "bend": {
+    "deg": 70,
+    "at": 3,
+    "over": 2
+   }
+  },
+  {
+   "id": "heart",
+   "name_ru": "сердечко",
+   "name_en": "heart",
+   "motif": {
+    "kind": "heart"
+   },
+   "colour": "cream"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "head",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "seg_yellow",
+   "on": "head",
+   "at": {
+    "round": 14,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.05,
+    -1
+   ],
+   "sink": 16
+  },
+  {
+   "part": "seg_lime",
+   "on": "seg_yellow",
+   "at": {
+    "round": "start"
+   },
+   "dir": [
+    0,
+    0,
+    -1
+   ],
+   "sink": 13
+  },
+  {
+   "part": "seg_aqua",
+   "on": "seg_lime",
+   "at": {
+    "round": "start"
+   },
+   "dir": [
+    0,
+    0,
+    -1
+   ],
+   "sink": 13
+  },
+  {
+   "part": "foot",
+   "name": "foot_y",
+   "on": "seg_yellow",
+   "at": {
+    "round": 9.5,
+    "az": 112
+   },
+   "dir": [
+    1,
+    -0.9,
+    0
+   ],
+   "mirror": true,
+   "sink": 4
+  },
+  {
+   "part": "foot",
+   "name": "foot_l",
+   "on": "seg_lime",
+   "at": {
+    "round": 9.5,
+    "az": 112
+   },
+   "dir": [
+    1,
+    -0.9,
+    0
+   ],
+   "mirror": true,
+   "sink": 4
+  },
+  {
+   "part": "foot",
+   "name": "foot_a",
+   "on": "seg_aqua",
+   "at": {
+    "round": 9.5,
+    "az": 112
+   },
+   "dir": [
+    1,
+    -0.9,
+    0
+   ],
+   "mirror": true,
+   "sink": 4
+  },
+  {
+   "part": "antenna",
+   "on": "head",
+   "at": {
+    "round": 25,
+    "az": 60
+   },
+   "dir": [
+    0.55,
+    1,
+    0.1
+   ],
+   "mirror": true,
+   "bend_toward": [
+    0.3,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "heart",
+   "on": "seg_aqua",
+   "at": {
+    "round": 2,
+    "az": 0
+   },
+   "applique": true,
+   "lift": 0.8
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 10.5,
+    "az": 50
+   },
+   "applique": true,
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "satin",
+   "role": "eye",
+   "on": "head",
+   "at": {
+    "round": 13.5,
+    "az": 29
+   },
+   "width_mm": 12.5,
+   "height_mm": 13.5,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.1,
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 13.5,
+    "az": 29
+   },
+   "width_mm": 3,
+   "height_mm": 3,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 0.9,
+   "offset_mm": [
+    2.0,
+    2.5
+   ]
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 13.5,
+    "az": -29
+   },
+   "width_mm": 3,
+   "height_mm": 3,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 0.9,
+   "offset_mm": [
+    2.0,
+    2.5
+   ]
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     12.0,
+     9
+    ],
+    [
+     11.1,
+     5
+    ],
+    [
+     10.8,
+     0
+    ],
+    [
+     11.1,
+     -5
+    ],
+    [
+     12.0,
+     -9
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.3
+  }
+ ]
+}

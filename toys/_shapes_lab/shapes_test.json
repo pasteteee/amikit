@@ -1,0 +1,41 @@
+{
+ "name": "shapes_test",
+ "title": "Shaped pieces test toy",
+ "colours": {"tan": "#c89a6c", "cream": "#efe2cc", "sage": "#86a06a", "pink": "#f2a3ad", "blue": "#bcd4ea",
+             "rust": "#b55839", "melon": "#d97f75", "gold": "#e0b040"},
+ "parts": [
+  {"id": "body", "rounds": ["mr 6", "inc 6 to 48", "even 6", "dec 6 to 36", "even 2"], "colour": "tan", "end": "open"},
+  {"id": "head", "rounds": ["mr 6", "inc 6 to 54", "even 6", "dec 6 to 6"], "colour": "tan"},
+  {"id": "mask", "motif": {"kind": "mask", "chain": 10, "rounds": 3}, "colour": "cream"},
+  {"id": "kerchief", "motif": {"kind": "triangle", "width": 22}, "colour": "sage"},
+  {"id": "wing", "motif": {"kind": "triangle", "width": 7, "ends": "one", "sew": "side"}, "colour": "rust"},
+  {"id": "plate", "motif": {"kind": "leaf", "chain": 8, "tall": "tr"}, "colour": "sage"},
+  {"id": "cell", "motif": {"kind": "hexagon", "rounds": 3}, "colour": "gold", "colours": [{"rounds": [3, 3], "colour": "rust"}]},
+  {"id": "fin", "motif": {"kind": "half_circle", "rows": 4, "edging": {"kind": "shell", "k": 5, "every": 4, "colour": "blue"}}, "colour": "melon"},
+  {"id": "heart", "motif": {"kind": "heart"}, "colour": "pink"},
+  {"id": "moon", "motif": {"kind": "crescent", "chain": 10}, "colour": "gold"},
+  {"id": "flower", "motif": {"kind": "circle", "rounds": 2, "edging": {"kind": "picot", "every": 2}}, "colour": "pink"},
+  {"id": "collar", "rounds": ["ring 36", "inc 6 to 48", "shells 5 every 4"], "colour": "blue", "end": "open", "stuff": "none"},
+  {"id": "pad", "rounds": ["ring 30", "inc 4 x3"], "split": true, "colour": "sage", "end": "open", "stuff": "none"},
+  {"id": "snood", "rounds": ["ring 36", "rib 36 x2"], "colour": "cream", "end": "open", "stuff": "none"}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 1, 0]},
+  {"part": "head", "on": "body", "at": {"round": "end"}, "attach": "end", "dir": [0, 1, 0], "sink": 5},
+  {"part": "mask", "on": "head", "applique": true, "anchor": "eyes", "offset_mm": [0, -4]},
+  {"part": "kerchief", "on": "body", "at": {"round": 13, "az": 0}, "applique": true, "drape": true, "roll": 180},
+  {"part": "wing", "on": "body", "at": {"round": 11, "az": 100}, "attach": "edge", "dir": [1, 0.3, -0.4], "face": [0.2, 0, 1], "mirror": true},
+  {"part": "plate", "on": "body", "at": {"round": 10, "az": 180}, "attach": "edge", "dir": [0, 0.2, -1], "face": [1, 0, 0]},
+  {"part": "cell", "on": "body", "at": {"round": 7, "az": 0}, "applique": true},
+  {"part": "fin", "on": "body", "at": {"round": 5, "az": 120}, "attach": "edge", "dir": [0.5, -0.2, -1], "face": [1, 0, 0]},
+  {"part": "heart", "on": "body", "at": {"round": 9, "az": 40}, "applique": true},
+  {"part": "moon", "on": "head", "at": {"round": 5, "az": 90}, "applique": true},
+  {"part": "flower", "on": "head", "at": {"round": 6, "az": -60}, "applique": true},
+  {"part": "collar", "on": "body", "at": {"round": 15}, "around": true},
+  {"part": "pad", "on": "head", "at": {"round": 12}, "around": true, "fall": true},
+  {"part": "snood", "on": "body", "at": {"round": 16}, "around": true, "dir": [0, 1, 0]}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "head", "at": {"round": 9, "az": 26}, "size_mm": 9, "mirror": true}
+ ]
+}

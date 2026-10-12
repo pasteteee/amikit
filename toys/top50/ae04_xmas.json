@@ -1,0 +1,401 @@
+{
+ "name": "ae04_xmas",
+ "title": "Gingerbread man with Santa hat",
+ "subject": "doll",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "ginger": "#b07a45",
+  "white": "#f4f1ec",
+  "red": "#d42a26",
+  "green": "#4f8a2c",
+  "pink": "#ef8c98",
+  "black": "#151313"
+ },
+ "colour_names_ru": {
+  "ginger": "\u0420\u0451\u0420\u0458\u0420\u00b1\u0420\u0451\u0421\u0402\u0420\u0405\u0421\u2039\u0420\u2116 (\u0421\u0402\u0421\u2039\u0420\u00b6\u0420\u00b5\u0420\u0406\u0420\u00b0\u0421\u201a\u0420\u0455-\u0420\u0454\u0420\u0455\u0421\u0402\u0420\u0451\u0421\u2021\u0420\u0405\u0420\u00b5\u0420\u0406\u0421\u2039\u0420\u2116)"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "inc 6 to 42 every 2",
+    "even 6",
+    "dec 6 to 30 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "ginger",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "ch 9",
+    "inc 6 to 42",
+    "even 8",
+    "dec 6 to 36",
+    "dec 6 to 30"
+   ],
+   "colour": "ginger",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 4",
+    "12"
+   ],
+   "colour": "ginger",
+   "end": "open",
+   "stuff": "light",
+   "colours": [
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "az": [
+      -40,
+      40
+     ],
+     "colour": "white"
+    },
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "az": [
+      140,
+      220
+     ],
+     "colour": "white"
+    }
+   ]
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 3",
+    "15",
+    "even 1"
+   ],
+   "colour": "ginger",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "az": [
+      -20,
+      20
+     ],
+     "colour": "white"
+    },
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "az": [
+      50,
+      80
+     ],
+     "colour": "white"
+    },
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "az": [
+      -80,
+      -50
+     ],
+     "colour": "white"
+    },
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "az": [
+      110,
+      140
+     ],
+     "colour": "white"
+    },
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "az": [
+      -140,
+      -110
+     ],
+     "colour": "white"
+    },
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "az": [
+      170,
+      190
+     ],
+     "colour": "white"
+    }
+   ]
+  },
+  {
+   "id": "hat",
+   "rounds": [
+    "mr 6",
+    "8",
+    "10",
+    "13",
+    "16",
+    "20",
+    "24",
+    "28",
+    "32",
+    "36",
+    "even 1",
+    "40",
+    "even 4"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "none",
+   "colours": [
+    {
+     "rounds": [
+      13,
+      17
+     ],
+     "colour": "white"
+    }
+   ],
+   "bend": {
+    "deg": 100,
+    "at": 6,
+    "over": 3,
+    "toward": [
+     1,
+     -0.5,
+     0
+    ]
+   }
+  },
+  {
+   "id": "pompom",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "6"
+   ],
+   "colour": "white",
+   "stuff": "firm"
+  },
+  {
+   "id": "scarf",
+   "flat": {
+    "width_st": 34,
+    "rows": 4
+   },
+   "colour": "green"
+  },
+  {
+   "id": "scarf_end",
+   "flat": {
+    "width_st": 5,
+    "rows": 9
+   },
+   "colour": "green"
+  },
+  {
+   "id": "card",
+   "flat": {
+    "width_st": 10,
+    "rows": 8
+   },
+   "colour": "white"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 3
+  },
+  {
+   "part": "hat",
+   "on": "head",
+   "at": {
+    "round": 5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    -0.05
+   ],
+   "attach": "end"
+  },
+  {
+   "part": "pompom",
+   "on": "hat",
+   "at": {
+    "round": 1
+   },
+   "attach": "end"
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 90
+   },
+   "dir": [
+    1,
+    -0.35,
+    0.1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 2,
+    "az": 55
+   },
+   "dir": [
+    0.15,
+    -1,
+    0.05
+   ],
+   "mirror": true
+  },
+  {
+   "part": "scarf",
+   "on": "body",
+   "at": {
+    "round": 16,
+    "az": 0
+   },
+   "conform": true,
+   "lift": 1.5
+  },
+  {
+   "part": "scarf_end",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": -30
+   },
+   "conform": true,
+   "lift": 3,
+   "roll": 15
+  },
+  {
+   "part": "card",
+   "on": "body",
+   "at": {
+    "round": 9,
+    "az": 0
+   },
+   "lift": 4
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 11,
+    "az": 18
+   },
+   "size_mm": 7,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     13,
+     -22
+    ],
+    [
+     14.2,
+     -10
+    ],
+    [
+     14.5,
+     0
+    ],
+    [
+     14.2,
+     10
+    ],
+    [
+     13,
+     22
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.2
+  },
+  {
+   "type": "blush",
+   "on": "head",
+   "at": {
+    "round": 13,
+    "az": 33
+   },
+   "size_mm": 6,
+   "colour": "pink",
+   "mirror": true,
+   "strength": 0.8
+  }
+ ]
+}

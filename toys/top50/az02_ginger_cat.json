@@ -1,0 +1,617 @@
+{
+ "name": "az02_ginger_cat",
+ "title": "Lying ginger tabby cat",
+ "subject": "cat",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "ginger": "#eaa94a",
+  "stripe": "#c0641e",
+  "cream": "#f6ead2",
+  "pink": "#ecc3b3",
+  "nose": "#efa898",
+  "iris": "#6f8a28",
+  "black": "#1e1a19"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 48 every 2",
+    "even 6",
+    "dec 6 to 36 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "ginger",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      3,
+      10
+     ],
+     "az": [
+      -3,
+      3
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      4,
+      9
+     ],
+     "az": [
+      10,
+      14
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      4,
+      9
+     ],
+     "az": [
+      -14,
+      -10
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      8,
+      8
+     ],
+     "az": [
+      50,
+      110
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      8,
+      8
+     ],
+     "az": [
+      -110,
+      -50
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      12,
+      12
+     ],
+     "az": [
+      45,
+      120
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      12,
+      12
+     ],
+     "az": [
+      -120,
+      -45
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      16,
+      16
+     ],
+     "az": [
+      50,
+      120
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      16,
+      16
+     ],
+     "az": [
+      -120,
+      -50
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      5,
+      18
+     ],
+     "az": [
+      170,
+      190
+     ],
+     "colour": "stripe"
+    },
+    {
+     "shape": [
+      [
+       14,
+       0
+      ],
+      [
+       14.5,
+       -16
+      ],
+      [
+       16.5,
+       -34
+      ],
+      [
+       24,
+       -40
+      ],
+      [
+       24,
+       40
+      ],
+      [
+       16.5,
+       34
+      ],
+      [
+       14.5,
+       16
+      ]
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 30",
+    "inc 6 to 36 every 2",
+    "even 18",
+    "dec 6 to 30 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "ginger",
+   "end": "closed",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "az": [
+      -105,
+      105
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      7,
+      7
+     ],
+     "az": [
+      -105,
+      105
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      10,
+      10
+     ],
+     "az": [
+      -105,
+      105
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      13,
+      13
+     ],
+     "az": [
+      -105,
+      105
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      16,
+      16
+     ],
+     "az": [
+      -105,
+      105
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      19,
+      19
+     ],
+     "az": [
+      -105,
+      105
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      22,
+      22
+     ],
+     "az": [
+      -105,
+      105
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      1,
+      32
+     ],
+     "az": [
+      140,
+      220
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 20",
+    "even 2"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 4",
+    "inc 2 to 8",
+    "inc 3 to 17",
+    "even 1"
+   ],
+   "colour": "ginger",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.55,
+   "colours": [
+    {
+     "shape": [
+      [
+       2,
+       0
+      ],
+      [
+       4.5,
+       -35
+      ],
+      [
+       6.5,
+       -45
+      ],
+      [
+       6.5,
+       45
+      ],
+      [
+       4.5,
+       35
+      ]
+     ],
+     "colour": "pink"
+    }
+   ]
+  },
+  {
+   "id": "front_leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 2",
+    "dec 3 to 12",
+    "even 7"
+   ],
+   "colour": "ginger",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      5,
+      5
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      8,
+      8
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      11,
+      11
+     ],
+     "colour": "stripe"
+    }
+   ]
+  },
+  {
+   "id": "hind_leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 2",
+    "18",
+    "even 4"
+   ],
+   "colour": "ginger",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      7,
+      7
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      10,
+      10
+     ],
+     "colour": "stripe"
+    }
+   ]
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 18"
+   ],
+   "colour": "ginger",
+   "end": "open",
+   "stuff": "light",
+   "bend": {
+    "deg": 25,
+    "at": 12,
+    "over": 6
+   },
+   "colours": [
+    {
+     "rounds": [
+      1,
+      2
+     ],
+     "colour": "cream"
+    },
+    {
+     "rounds": [
+      5,
+      6
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      10,
+      11
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      15,
+      16
+     ],
+     "colour": "stripe"
+    }
+   ]
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": 27,
+    "az": 0
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    -0.15
+   ],
+   "sink": 7
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 15.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 5.5,
+    "az": 68
+   },
+   "dir": [
+    0.6,
+    1,
+    0.1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "front_leg",
+   "on": "body",
+   "at": {
+    "round": 27,
+    "az": 135
+   },
+   "dir": [
+    0.1,
+    -0.3,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "hind_leg",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 125
+   },
+   "dir": [
+    0.35,
+    -0.3,
+    -1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 3,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    -0.45
+   ],
+   "seam": "flat"
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 12,
+    "az": 30
+   },
+   "size_mm": 12,
+   "iris": "iris",
+   "pupil": 0.6,
+   "mirror": true
+  },
+  {
+   "type": "safety_nose",
+   "on": "muzzle",
+   "at": {
+    "round": 1.3,
+    "az": 0
+   },
+   "size_mm": [
+    7,
+    5
+   ],
+   "shape": "triangle",
+   "colour": "nose"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.0,
+     180
+    ],
+    [
+     2.5,
+     180
+    ]
+   ],
+   "colour": "stripe",
+   "thickness_mm": 1.0
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     2.5,
+     180
+    ],
+    [
+     2.9,
+     160
+    ],
+    [
+     2.7,
+     140
+    ]
+   ],
+   "colour": "stripe",
+   "thickness_mm": 1.0,
+   "mirror": true
+  }
+ ]
+}

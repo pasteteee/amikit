@@ -1,0 +1,310 @@
+{
+ "name": "09_sunflower_turtle",
+ "title": "Sunflower Shell Turtle",
+ "title_ru": "Черепашка Подсолнух",
+ "subject": "turtle",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "leaf": "#93ab6c",
+  "butter": "#f3dc86",
+  "mustard": "#e1a42a",
+  "cocoa": "#6a3f22",
+  "blush": "#ee9aa8",
+  "black": "#141213"
+ },
+ "colour_names_ru": {
+  "leaf": "травяной зелёный",
+  "butter": "сливочно-жёлтый",
+  "mustard": "горчичный",
+  "cocoa": "какао",
+  "blush": "розовый"
+ },
+ "parts": [
+  {
+   "id": "shell",
+   "name_ru": "панцирь (верх и низ одной деталью)",
+   "name_en": "shell (top and underside in one piece)",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "inc 6 to 72 every 2",
+    "even 3",
+    "blo 72",
+    "dec 6 to 6"
+   ],
+   "colour": "butter",
+   "stuff": "medium",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      9
+     ],
+     "colour": "cocoa"
+    }
+   ]
+  },
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "inc 6 to 42 every 2",
+    "even 4",
+    "dec 6 to 36 every 2",
+    "36"
+   ],
+   "colour": "leaf",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "flipper",
+   "name_ru": "ласта",
+   "name_en": "flipper",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "even 3",
+    "15",
+    "even 1"
+   ],
+   "colour": "leaf",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвостик",
+   "name_en": "tail",
+   "rounds": [
+    "mr 4",
+    "6",
+    "9",
+    "12"
+   ],
+   "colour": "leaf",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "petal",
+   "name_ru": "лепесток подсолнуха",
+   "name_en": "sunflower petal",
+   "colour": "mustard",
+   "rounds": [
+    "ch 6",
+    "18",
+    "24"
+   ],
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "shell",
+   "axis": [
+    0,
+    -1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "shell",
+   "at": {
+    "round": 18,
+    "az": 0
+   },
+   "dir": [
+    0,
+    0.25,
+    1
+   ]
+  },
+  {
+   "part": "flipper",
+   "name": "front_flipper",
+   "on": "shell",
+   "at": {
+    "round": 21,
+    "az": 50
+   },
+   "dir": [
+    0.8,
+    -0.45,
+    0.6
+   ],
+   "mirror": true
+  },
+  {
+   "part": "flipper",
+   "name": "back_flipper",
+   "on": "shell",
+   "at": {
+    "round": 21,
+    "az": 130
+   },
+   "dir": [
+    0.8,
+    -0.45,
+    -0.6
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "shell",
+   "at": {
+    "round": 20,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.2,
+    -1
+   ]
+  },
+  {
+   "part": "petal",
+   "name": "petal_f",
+   "on": "shell",
+   "at": {
+    "round": 13.3,
+    "az": 0
+   },
+   "applique": true,
+   "pad": 1.8,
+   "lift": 1.2,
+   "along": "parent"
+  },
+  {
+   "part": "petal",
+   "name": "petal_fl",
+   "on": "shell",
+   "at": {
+    "round": 13.3,
+    "az": 45
+   },
+   "applique": true,
+   "pad": 1.8,
+   "lift": 1.2,
+   "mirror": true,
+   "along": "parent"
+  },
+  {
+   "part": "petal",
+   "name": "petal_l",
+   "on": "shell",
+   "at": {
+    "round": 13.3,
+    "az": 90
+   },
+   "applique": true,
+   "pad": 1.8,
+   "lift": 1.2,
+   "mirror": true,
+   "along": "parent"
+  },
+  {
+   "part": "petal",
+   "name": "petal_bl",
+   "on": "shell",
+   "at": {
+    "round": 13.3,
+    "az": 135
+   },
+   "applique": true,
+   "pad": 1.8,
+   "lift": 1.2,
+   "mirror": true,
+   "along": "parent"
+  },
+  {
+   "part": "petal",
+   "name": "petal_b",
+   "on": "shell",
+   "at": {
+    "round": 13.3,
+    "az": 180
+   },
+   "applique": true,
+   "pad": 1.8,
+   "lift": 1.2,
+   "along": "parent"
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 7.2,
+    "az": 138
+   },
+   "applique": true,
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 5.6,
+    "az": 107
+   },
+   "size_mm": 12,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     3.4,
+     140
+    ],
+    [
+     3.7,
+     160
+    ],
+    [
+     3.8,
+     180
+    ],
+    [
+     3.7,
+     200
+    ],
+    [
+     3.4,
+     220
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0
+  }
+ ]
+}

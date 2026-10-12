@@ -1,0 +1,421 @@
+{
+ "name": "07_apricot_button_pug",
+ "title": "Apricot Button Pug",
+ "title_ru": "Мопсик Абрикосовая кнопка",
+ "subject": "dog",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "apricot": "#ebc99b",
+  "cocoa": "#5b3526",
+  "cream": "#f5e6cc",
+  "mint": "#a6dcc6",
+  "coral": "#f29a8a",
+  "nose": "#1c1a1a"
+ },
+ "colour_names_ru": {
+  "apricot": "абрикосово-бежевый",
+  "cocoa": "тёмно-какао",
+  "cream": "кремовый",
+  "mint": "мятный",
+  "coral": "коралловый (щёчки)",
+  "nose": "чёрный (носик)"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "туловище",
+   "name_en": "body",
+   "rounds": [
+    "ch 5",
+    "inc 6 to 58",
+    "even 4",
+    "dec 6 to 52",
+    "even 1",
+    "dec 6 to 46",
+    "dec 6 to 10"
+   ],
+   "colour": "apricot",
+   "end": "closed",
+   "stuff": "firm"
+  },
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 56",
+    "inc 6 to 68 every 2",
+    "even 7",
+    "dec 6 to 50 every 2",
+    "dec 6 to 8"
+   ],
+   "colour": "apricot",
+   "stuff": "firm"
+  },
+  {
+   "id": "muzzle",
+   "name_ru": "носик-накладка",
+   "name_en": "nose pad",
+   "rounds": [
+    "ch 4",
+    "12",
+    "18",
+    "even 3"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "name_ru": "ушко",
+   "name_en": "ear",
+   "rounds": [
+    "mr 4",
+    "8",
+    "11",
+    "14",
+    "17",
+    "20",
+    "23",
+    "even 2"
+   ],
+   "colour": "cocoa",
+   "end": "open",
+   "stuff": "none",
+   "spoon": 0.35,
+   "bend": {
+    "deg": 120,
+    "at": 5.5,
+    "over": 2,
+    "toward": [
+     0.2,
+     -1,
+     0.6
+    ]
+   }
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "coral",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "front_leg",
+   "name_ru": "передняя лапка",
+   "name_en": "front leg",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 2",
+    "12",
+    "even 5"
+   ],
+   "colour": "apricot",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "colour": "cocoa"
+    }
+   ]
+  },
+  {
+   "id": "hind_foot",
+   "name_ru": "задняя лапка",
+   "name_en": "hind foot",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "24",
+    "even 3",
+    "18",
+    "15"
+   ],
+   "colour": "apricot",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "colour": "cocoa"
+    }
+   ]
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвостик",
+   "name_en": "tail",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 15"
+   ],
+   "colour": "apricot",
+   "end": "open",
+   "stuff": "medium",
+   "bend": {
+    "deg": 400,
+    "at": 16,
+    "over": 14,
+    "coil": 2,
+    "toward": [
+     0.6,
+     0,
+     -0.8
+    ]
+   }
+  },
+  {
+   "id": "bib",
+   "name_ru": "нагрудник",
+   "name_en": "bib",
+   "colour": "mint",
+   "motif": {
+    "kind": "half_circle",
+    "rows": 6,
+    "edging": {
+     "kind": "shell",
+     "k": 5,
+     "every": 4
+    }
+   }
+  },
+  {
+   "id": "mask",
+   "name_ru": "маска",
+   "name_en": "muzzle mask",
+   "rounds": [
+    "ch 7",
+    "20",
+    "26",
+    "32",
+    "38",
+    "44"
+   ],
+   "colour": "cocoa",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": 19,
+    "az": 0
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0.08
+   ],
+   "sink": 6
+  },
+  {
+   "part": "mask",
+   "on": "head",
+   "at": {
+    "round": 19,
+    "az": 0
+   },
+   "applique": true,
+   "pad": 8,
+   "lift": 0.8
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 17.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ],
+   "sink": 0
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 10,
+    "az": 74
+   },
+   "dir": [
+    1,
+    0.3,
+    0.15
+   ],
+   "mirror": true
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 19.5,
+    "az": 57
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "bib",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 0
+   },
+   "applique": true,
+   "drape": true,
+   "lift": 1.4
+  },
+  {
+   "part": "front_leg",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 28
+   },
+   "dir": [
+    0.1,
+    -1,
+    0.45
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 1.0
+  },
+  {
+   "part": "hind_foot",
+   "on": "body",
+   "at": {
+    "round": 5.5,
+    "az": 88
+   },
+   "dir": [
+    0.8,
+    -0.3,
+    0.8
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 11,
+    "az": 196
+   },
+   "dir": [
+    0,
+    1,
+    -0.25
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 15.5,
+    "az": 31.7
+   },
+   "size_mm": 16,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "safety_nose",
+   "on": "muzzle",
+   "at": {
+    "round": 1,
+    "az": 0
+   },
+   "size_mm": [
+    8,
+    6
+   ],
+   "shape": "oval",
+   "colour": "nose",
+   "id": "nose"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.4,
+     180
+    ],
+    [
+     2.0,
+     180
+    ]
+   ],
+   "colour": "nose",
+   "thickness_mm": 0.9,
+   "id": "line"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     2.0,
+     180
+    ],
+    [
+     2.4,
+     150
+    ],
+    [
+     2.0,
+     120
+    ]
+   ],
+   "colour": "nose",
+   "thickness_mm": 0.9,
+   "mirror": true,
+   "id": "line2"
+  }
+ ]
+}

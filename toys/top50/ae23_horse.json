@@ -1,0 +1,225 @@
+{
+ "name": "ae23_horse",
+ "title": "Positive horse (egg-shaped)",
+ "subject": "horse",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "caramel": "#c47a2c",
+  "cream": "#f1e7d6",
+  "tan": "#ddb689",
+  "chestnut": "#6b3219",
+  "black": "#121212"
+ },
+ "colour_names_ru": {
+  "caramel": "\u0420\u0454\u0420\u00b0\u0421\u0402\u0420\u00b0\u0420\u0458\u0420\u00b5\u0420\u00bb\u0421\u040a\u0420\u0405\u0421\u2039\u0420\u2116",
+  "chestnut": "\u0421\u201a\u0421\u2018\u0420\u0458\u0420\u0405\u0420\u0455-\u0420\u0454\u0420\u00b0\u0421\u20ac\u0421\u201a\u0420\u00b0\u0420\u0405\u0420\u0455\u0420\u0406\u0421\u2039\u0420\u2116"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "inc 6 to 54 every 2",
+    "even 14",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "caramel",
+   "stuff": "firm",
+   "colours": [
+    {
+     "ellipse": {
+      "center": [
+       25.5,
+       12
+      ],
+      "radii": [
+       2.2,
+       22
+      ]
+     },
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 8",
+    "inc 6 to 40"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "even 3",
+    "15",
+    "12"
+   ],
+   "colour": "caramel",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.85
+  },
+  {
+   "id": "inner_ear",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18"
+   ],
+   "colour": "tan",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "even 4"
+   ],
+   "colour": "caramel",
+   "end": "open",
+   "stuff": "light"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "muzzle",
+   "on": "body",
+   "at": {
+    "round": 18,
+    "az": 0
+   },
+   "applique": true,
+   "pad": 3
+  },
+  {
+   "part": "ear",
+   "on": "body",
+   "at": {
+    "round": 27.5,
+    "az": 68
+   },
+   "dir": [
+    1,
+    0.1,
+    0.15
+   ],
+   "mirror": true
+  },
+  {
+   "part": "inner_ear",
+   "on": "ear",
+   "at": {
+    "round": 4.5,
+    "az": 0
+   },
+   "applique": true,
+   "mirror": true,
+   "inset": 1.2,
+   "along": "parent"
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 70
+   },
+   "dir": [
+    0.3,
+    -0.3,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 24.5,
+    "az": 30
+   },
+   "size_mm": 9,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.5,
+     62
+    ],
+    [
+     1.5,
+     118
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.6,
+   "mirror": true
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     30,
+     -55
+    ],
+    [
+     32,
+     -25
+    ],
+    [
+     33,
+     0
+    ],
+    [
+     32,
+     25
+    ],
+    [
+     30,
+     55
+    ]
+   ],
+   "count": 40,
+   "length_mm": 18,
+   "colours": [
+    "chestnut"
+   ],
+   "droop": 0.3,
+   "curl": 330,
+   "spread": 0.3,
+   "thickness_mm": 4,
+   "seed": 1
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "az36_black_cat",
+  "title": "Lying black cat pillow",
+  "subject": "cat",
+  "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+  "colours": {"black": "#19191c", "white": "#e8e6e2", "gold": "#e0b030"},
+  "colour_names_ru": {"gold": "золотистый"},
+  "parts": [
+    {"id": "head", "rounds": ["ch 9", "inc 6 to 48", "inc 6 to 60 every 2", "even 2", "dec 6 to 42 every 2", "dec 6 to 12"], "colour": "black", "stuff": "firm"},
+    {"id": "body", "rounds": ["mr 6", "inc 6 to 36", "inc 6 to 42 every 2", "even 12"], "colour": "black", "end": "open", "stuff": "firm"},
+    {"id": "ear", "rounds": ["mr 4", "8", "12", "16", "20", "24", "even 2"], "colour": "black", "end": "open", "stuff": "none", "flatten": 0.8},
+    {"id": "paw", "rounds": ["mr 6", "12", "even 3"], "colour": "black", "end": "open", "stuff": "light"},
+    {"id": "tail", "rounds": ["mr 6", "10", "even 12"], "colour": "black", "end": "open", "stuff": "light", "bend": {"deg": 40, "at": 8, "over": 4}}
+  ],
+  "assembly": [
+    {"part": "head", "axis": [0, 1, 0]},
+    {"part": "body", "on": "head", "at": {"round": 7, "az": 180}, "dir": [0, 0, -1]},
+    {"part": "ear", "on": "head", "at": {"round": 18.5, "az": 62}, "dir": [0.5, 1, 0.1], "mirror": true, "seam": "flat", "pinch": 0.6},
+    {"part": "paw", "on": "head", "at": {"round": 5, "az": 38}, "dir": [0.2, -0.25, 1], "mirror": true, "seam": "flat"},
+    {"part": "paw", "name": "hind", "on": "body", "at": {"round": 8, "az": 100}, "dir": [1, -0.5, -0.3], "mirror": true, "seam": "flat"},
+    {"part": "tail", "on": "body", "at": {"round": 4, "az": 0}, "dir": [0, 1, -0.2], "bend_toward": [0, 0, -1]}
+  ],
+  "face": [
+    {"type": "safety_eye", "on": "head", "at": {"round": 12.5, "az": 27}, "size_mm": 18, "mirror": true, "iris": "gold", "pupil": 0.72},
+    {"type": "satin", "on": "head", "at": {"round": 12, "az": 0}, "width_mm": 5, "height_mm": 3.5, "shape": "triangle", "colour": "gold"},
+    {"type": "stitch", "on": "head", "points": [[11.5, 46], [11.8, 58]], "colour": "white", "thickness_mm": 1.2, "mirror": true},
+    {"type": "stitch", "on": "head", "points": [[10.2, 46], [9.8, 58]], "colour": "white", "thickness_mm": 1.2, "mirror": true}
+  ]
+}

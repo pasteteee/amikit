@@ -1,0 +1,445 @@
+{
+ "name": "06_snowball_samoyed_puppy",
+ "title": "Snowball Samoyed Puppy",
+ "title_ru": "Щенок Снежный комочек",
+ "subject": "dog",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "snow": "#f5f1e8",
+  "pinkear": "#f2a8a6",
+  "coral": "#ef968f",
+  "sky": "#86bce8",
+  "nose": "#1c1a1a",
+  "toe": "#ee9aa0"
+ },
+ "colour_names_ru": {
+  "snow": "тёпло-белый",
+  "pinkear": "светло-розовый (внутри ушка)",
+  "coral": "коралловый (щёчки)",
+  "sky": "небесно-голубой",
+  "nose": "чёрный (носик)",
+  "toe": "розовый (пальчики)"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "туловище",
+   "name_en": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 60",
+    "even 4",
+    "dec 6 to 54",
+    "even 1",
+    "dec 6 to 48",
+    "dec 6 to 42",
+    "dec 6 to 6"
+   ],
+   "colour": "snow",
+   "end": "closed",
+   "stuff": "firm"
+  },
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "inc 6 to 66 every 2",
+    "even 8",
+    "dec 6 to 48 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "snow",
+   "stuff": "firm"
+  },
+  {
+   "id": "muzzle",
+   "name_ru": "мордочка",
+   "name_en": "muzzle",
+   "rounds": [
+    "mr 6",
+    "10",
+    "14",
+    "18",
+    "22",
+    "even 1"
+   ],
+   "colour": "snow",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "name_ru": "ушко",
+   "name_en": "ear",
+   "preset": "ear",
+   "kind": "pointed",
+   "inner": "pinkear",
+   "rounds": [
+    "mr 4",
+    "7",
+    "10",
+    "13",
+    "16",
+    "18",
+    "even 2"
+   ],
+   "colour": "snow"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "coral",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "arm",
+   "name_ru": "ручка",
+   "name_en": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "10",
+    "even 1"
+   ],
+   "colour": "snow",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "foot",
+   "name_ru": "ножка",
+   "name_en": "foot",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "24",
+    "30",
+    "36",
+    "even 2",
+    "30",
+    "24"
+   ],
+   "colour": "snow",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвост",
+   "name_en": "tail",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "even 26"
+   ],
+   "colour": "snow",
+   "end": "open",
+   "stuff": "medium",
+   "bend": {
+    "deg": 480,
+    "at": 24,
+    "over": 22,
+    "coil": 2.2,
+    "toward": [
+     0.6,
+     0,
+     -0.8
+    ]
+   }
+  },
+  {
+   "id": "knot",
+   "name_ru": "серединка бантика",
+   "name_en": "bow knot",
+   "rounds": [
+    "ch 4",
+    "10"
+   ],
+   "colour": "sky",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "bow_wing",
+   "name_ru": "крылышко бантика",
+   "name_en": "bow wing",
+   "colour": "sky",
+   "motif": {
+    "kind": "triangle",
+    "width": 10
+   }
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": 19.5,
+    "az": 0
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    -0.03
+   ],
+   "sink": 10
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 20,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 7,
+    "az": 54
+   },
+   "dir": [
+    0.45,
+    1,
+    0.05
+   ],
+   "mirror": true
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 20.5,
+    "az": 48
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 45
+   },
+   "dir": [
+    0.1,
+    -0.6,
+    1
+   ],
+   "mirror": true,
+   "avoid": true,
+   "avoid_toward": [
+    0,
+    0,
+    1
+   ],
+   "contact": 0.7,
+   "seam": "flat"
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 8,
+    "az": 62
+   },
+   "dir": [
+    0.65,
+    -0.15,
+    1
+   ],
+   "mirror": true,
+   "front": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 196
+   },
+   "dir": [
+    0,
+    1,
+    -0.45
+   ]
+  },
+  {
+   "part": "bow_wing",
+   "on": "head",
+   "at": {
+    "round": 27.5,
+    "az": 17
+   },
+   "applique": true,
+   "roll": 90,
+   "lift": 2.5,
+   "mirror": true
+  },
+  {
+   "part": "knot",
+   "on": "head",
+   "at": {
+    "round": 27.5,
+    "az": 0
+   },
+   "applique": true,
+   "roll": 90,
+   "lift": 4,
+   "pad": 2
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 17,
+    "az": 24.2
+   },
+   "size_mm": 13,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "safety_nose",
+   "on": "muzzle",
+   "at": {
+    "round": 1.2,
+    "az": 0
+   },
+   "size_mm": [
+    10,
+    7.5
+   ],
+   "shape": "triangle",
+   "colour": "nose",
+   "id": "nose"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.6,
+     180
+    ],
+    [
+     2.4,
+     180
+    ]
+   ],
+   "colour": "nose",
+   "thickness_mm": 1.0
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     2.4,
+     180
+    ],
+    [
+     3.0,
+     150
+    ],
+    [
+     2.4,
+     120
+    ]
+   ],
+   "colour": "nose",
+   "thickness_mm": 1.0,
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "on": "foot",
+   "at": {
+    "round": 2.4,
+    "az": -38
+   },
+   "width_mm": 5,
+   "height_mm": 9,
+   "shape": "oval",
+   "colour": "toe",
+   "rotate": 19.0,
+   "thickness_mm": 1.4,
+   "mirror": true,
+   "id": "bean0"
+  },
+  {
+   "type": "satin",
+   "on": "foot",
+   "at": {
+    "round": 2.4,
+    "az": 0
+   },
+   "width_mm": 5,
+   "height_mm": 9,
+   "shape": "oval",
+   "colour": "toe",
+   "rotate": 0.0,
+   "thickness_mm": 1.4,
+   "mirror": true,
+   "id": "bean1"
+  },
+  {
+   "type": "satin",
+   "on": "foot",
+   "at": {
+    "round": 2.4,
+    "az": 38
+   },
+   "width_mm": 5,
+   "height_mm": 9,
+   "shape": "oval",
+   "colour": "toe",
+   "rotate": -19.0,
+   "thickness_mm": 1.4,
+   "mirror": true,
+   "id": "bean2"
+  }
+ ]
+}

@@ -1,0 +1,293 @@
+{
+ "name": "e_rocket_star",
+ "title": "Little Rocket",
+ "title_ru": "Ракета Звёздочка",
+ "subject": "rocket",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "white": "#f7f8fb",
+  "red": "#ff5a5f",
+  "blue": "#5aa9e6",
+  "glass": "#bfe3ff",
+  "frame": "#9aa6b8",
+  "flame": "#ff9f43",
+  "flame2": "#ffd84d",
+  "star": "#ffd84d",
+  "blush": "#ff9eb0",
+  "mouth": "#2b3a55"
+ },
+ "colour_names_ru": {
+  "white": "белый",
+  "red": "красный",
+  "blue": "голубой",
+  "glass": "светло-голубой",
+  "frame": "серый",
+  "flame": "оранжевый",
+  "flame2": "жёлтый",
+  "star": "жёлтый",
+  "blush": "розовый (щёчки)",
+  "mouth": "тёмно-синий"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "корпус",
+   "name_en": "rocket body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "blo 42",
+    "even 14",
+    "dec 3 to 6"
+   ],
+   "colour": "white",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      9,
+      10
+     ],
+     "colour": "blue"
+    },
+    {
+     "rounds": [
+      27,
+      34
+     ],
+     "colour": "red"
+    },
+    {
+     "rounds": [
+      23,
+      24
+     ],
+     "colour": "blue"
+    }
+   ]
+  },
+  {
+   "id": "porthole",
+   "name_ru": "иллюминатор",
+   "name_en": "porthole",
+   "colour": "glass",
+   "motif": {
+    "kind": "circle",
+    "rounds": 5
+   },
+   "colours": [
+    {
+     "rounds": [
+      5,
+      5
+     ],
+     "colour": "frame"
+    }
+   ]
+  },
+  {
+   "id": "fin",
+   "name_ru": "стабилизатор",
+   "name_en": "fin",
+   "colour": "red",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "10",
+    "12",
+    "14",
+    "16"
+   ],
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.88
+  },
+  {
+   "id": "flame",
+   "name_ru": "огонёк",
+   "name_en": "flame",
+   "rounds": [
+    "mr 6",
+    "9",
+    "even 1",
+    "6"
+   ],
+   "colour": "flame",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      2
+     ],
+     "colour": "flame2"
+    }
+   ]
+  },
+  {
+   "id": "star",
+   "name_ru": "звёздочка",
+   "name_en": "star",
+   "colour": "star",
+   "motif": {
+    "kind": "star",
+    "points": 5,
+    "length": 3
+   }
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "fin",
+   "name": "fin1",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 45
+   },
+   "dir": [
+    0.71,
+    -1.0,
+    0.71
+   ],
+   "front": [
+    0.71,
+    0,
+    -0.71
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "fin",
+   "name": "fin2",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 135
+   },
+   "dir": [
+    0.71,
+    -1.0,
+    -0.71
+   ],
+   "front": [
+    -0.71,
+    0,
+    -0.71
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "porthole",
+   "on": "body",
+   "at": {
+    "round": 18,
+    "az": 0
+   },
+   "applique": true,
+   "lift": 1.2,
+   "pad": 1.5
+  },
+  {
+   "part": "flame",
+   "on": "body",
+   "at": {
+    "round": "start"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    -1,
+    0
+   ],
+   "sink": 8
+  },
+  {
+   "part": "star",
+   "on": "body",
+   "at": {
+    "round": 16,
+    "az": 180
+   },
+   "applique": true,
+   "lift": 1.2,
+   "pad": 1.0
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "porthole",
+   "at": {
+    "round": 2.2,
+    "az": 58
+   },
+   "size_mm": 9,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye",
+   "sink": 1.0
+  },
+  {
+   "type": "stitch",
+   "on": "porthole",
+   "points": [
+    [
+     2.9,
+     160
+    ],
+    [
+     3.3,
+     170
+    ],
+    [
+     3.4,
+     180
+    ],
+    [
+     3.3,
+     190
+    ],
+    [
+     2.9,
+     200
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 1.1,
+   "id": "smile"
+  },
+  {
+   "type": "satin",
+   "on": "porthole",
+   "at": {
+    "round": 3.2,
+    "az": 95
+   },
+   "width_mm": 5,
+   "height_mm": 3.5,
+   "shape": "oval",
+   "colour": "blush",
+   "thickness_mm": 1.0,
+   "mirror": true,
+   "id": "blush"
+  }
+ ]
+}

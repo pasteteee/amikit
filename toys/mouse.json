@@ -1,0 +1,284 @@
+{
+ "name": "mouse",
+ "title": "Grey mouse",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "grey": "#b8b6b8",
+  "pink": "#e3a9b4",
+  "white": "#eeebe5",
+  "blush": "#e8aab8",
+  "black": "#2d2b2a"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "inc 6 to 48 every 2",
+    "even 4",
+    "dec 6 to 36 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "grey",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "even 6",
+    "dec 6 to 30",
+    "even 2",
+    "dec 6 to 24",
+    "even 1",
+    "dec 6 to 18"
+   ],
+   "colour": "grey",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "ellipse": {
+      "center": [
+       9,
+       0
+      ],
+      "radii": [
+       7,
+       44
+      ]
+     },
+     "colour": "white"
+    }
+   ]
+  },
+  {
+   "id": "snout",
+   "rounds": [
+    "mr 6",
+    "9",
+    "12",
+    "15",
+    "18"
+   ],
+   "colour": "grey",
+   "end": "open",
+   "stuff": "light",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      1
+     ],
+     "colour": "pink"
+    }
+   ]
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 30"
+   ],
+   "colour": "grey",
+   "end": "open",
+   "stuff": "none",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "colour": "pink"
+    }
+   ]
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "10",
+    "even 4"
+   ],
+   "colour": "grey",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 2",
+    "12"
+   ],
+   "colour": "grey",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "tail",
+   "cord": {
+    "length_mm": 75,
+    "thickness_mm": 3.2,
+    "curl_deg": 100,
+    "slip_back": true
+   },
+   "colour": "pink"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 4
+  },
+  {
+   "part": "snout",
+   "on": "head",
+   "at": {
+    "round": 15,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.05,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 7.5,
+    "az": 80
+   },
+   "attach": "edge",
+   "dir": [
+    1,
+    0.75,
+    0
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 85
+   },
+   "dir": [
+    0.75,
+    -1,
+    0.3
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.6
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 40
+   },
+   "dir": [
+    0.25,
+    -0.1,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 195
+   },
+   "dir": [
+    -0.9,
+    -0.3,
+    -0.75
+   ],
+   "toward": [
+    0,
+    1,
+    0
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 14,
+    "az": 30
+   },
+   "size_mm": 10.5,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "blush",
+   "on": "head",
+   "at": {
+    "round": 16.5,
+    "az": 46
+   },
+   "size_mm": 8,
+   "colour": "blush",
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "on": "snout",
+   "at": {
+    "round": 1,
+    "az": 0
+   },
+   "width_mm": 10,
+   "height_mm": 8,
+   "shape": "oval",
+   "colour": "pink",
+   "thickness_mm": 1.6,
+   "strands": 9
+  }
+ ]
+}

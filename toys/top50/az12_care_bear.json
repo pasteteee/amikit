@@ -1,0 +1,388 @@
+{
+ "name": "az12_care_bear",
+ "title": "Pink caring bear with crown",
+ "subject": "bear",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "pink": "#f4b0d2",
+  "lightpink": "#f8d3e6",
+  "white": "#f2f0f6",
+  "silver": "#c9ced8",
+  "rose": "#e2589c",
+  "nose": "#c2306e",
+  "black": "#1a1418",
+  "gold": "#e0b050"
+ },
+ "colour_names_ru": {
+  "lightpink": "светло-розовый",
+  "silver": "серебристый",
+  "rose": "ярко-розовый",
+  "nose": "малиновый",
+  "gold": "золотистый"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 54 every 2",
+    "even 5",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "pink",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "even 4",
+    "dec 6 to 36",
+    "even 3",
+    "dec 6 to 30",
+    "even 2",
+    "dec 6 to 24"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "ellipse": {
+      "center": [
+       12,
+       12
+      ],
+      "radii": [
+       6.5,
+       52
+      ]
+     },
+     "colour": "white"
+    }
+   ]
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 6",
+    "inc 4 to 20",
+    "even 2"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 2"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.85
+  },
+  {
+   "id": "inner_ear",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "lightpink",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 2",
+    "12",
+    "even 6"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 3",
+    "dec 3 to 18",
+    "15",
+    "even 2"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "crown",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 1",
+    "dec 3 to 18",
+    "even 3"
+   ],
+   "colour": "silver",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "tutu",
+   "flat": {
+    "width_st": 22,
+    "rows": 4
+   },
+   "colour": "rose",
+   "pinch": 0.2
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 17.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.05,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 6.5,
+    "az": 64
+   },
+   "dir": [
+    0.75,
+    1,
+    0.1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "inner_ear",
+   "on": "ear",
+   "at": {
+    "round": 3.5,
+    "az": 0
+   },
+   "applique": true,
+   "mirror": true,
+   "inset": 1.2
+  },
+  {
+   "part": "crown",
+   "on": "head",
+   "at": {
+    "round": 2.5
+   },
+   "dir": [
+    0,
+    1,
+    -0.05
+   ]
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 17.5,
+    "az": 80
+   },
+   "dir": [
+    0.35,
+    -1,
+    0.35
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.6,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 6,
+    "az": 32
+   },
+   "dir": [
+    0.15,
+    -0.1,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tutu",
+   "on": "body",
+   "at": {
+    "round": 9.5,
+    "az": 0
+   },
+   "lift": 1.5,
+   "conform": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 13.3,
+    "az": 22
+   },
+   "size_mm": 9,
+   "mirror": true
+  },
+  {
+   "type": "felt",
+   "on": "head",
+   "at": {
+    "round": 13.3,
+    "az": 22
+   },
+   "size_mm": [
+    12,
+    12
+   ],
+   "colour": "white",
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     9.5,
+     14
+    ],
+    [
+     9,
+     22
+    ],
+    [
+     9.5,
+     30
+    ]
+   ],
+   "colour": "rose",
+   "thickness_mm": 1.0,
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "on": "muzzle",
+   "at": {
+    "round": 1.6,
+    "az": 0
+   },
+   "width_mm": 7,
+   "height_mm": 6,
+   "shape": "heart",
+   "colour": "nose"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     4.2,
+     145
+    ],
+    [
+     5.2,
+     180
+    ],
+    [
+     4.2,
+     215
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 12,
+    "az": 0
+   },
+   "width_mm": 14,
+   "height_mm": 12,
+   "shape": "heart",
+   "colour": "rose"
+  },
+  {
+   "type": "satin",
+   "on": "leg_L",
+   "at": {
+    "round": 2,
+    "az": 0
+   },
+   "width_mm": 10,
+   "height_mm": 9,
+   "shape": "heart",
+   "colour": "lightpink"
+  },
+  {
+   "type": "satin",
+   "on": "leg_R",
+   "at": {
+    "round": 2,
+    "az": 0
+   },
+   "width_mm": 10,
+   "height_mm": 9,
+   "shape": "heart",
+   "colour": "lightpink"
+  }
+ ]
+}

@@ -1,0 +1,428 @@
+{
+ "name": "30_watermelon_triceratops",
+ "title": "Watermelon Baby Triceratops",
+ "title_ru": "Трицератопс Арбузная долька",
+ "subject": "dinosaur",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "melon": "#ef6f7c",
+  "cream": "#f4e6cc",
+  "green": "#6f9a58",
+  "pink": "#f4a2ae",
+  "black": "#141213",
+  "white": "#f6f4ef"
+ },
+ "colour_names_ru": {
+  "melon": "арбузно-розовый",
+  "cream": "сливочный",
+  "green": "зелёный",
+  "pink": "светло-розовый"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "туловище",
+   "name_en": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 21",
+    "dec 6 to 24",
+    "dec 6 to 12"
+   ],
+   "colour": "melon",
+   "stuff": "firm",
+   "flatten": 0.15,
+   "colours": [
+    {
+     "rounds": [
+      4,
+      30
+     ],
+     "az": [
+      130,
+      230
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 66 every 2",
+    "even 5",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "melon",
+   "stuff": "firm"
+  },
+  {
+   "id": "muzzle",
+   "name_ru": "мордочка",
+   "name_en": "muzzle",
+   "rounds": [
+    "ch 7",
+    "inc 6 to 32",
+    "36",
+    "even 5"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "medium"
+  },
+  {
+   "id": "horn",
+   "name_ru": "рожок на лбу",
+   "name_en": "brow horn",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "10",
+    "12",
+    "14",
+    "even 1"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "nose_horn",
+   "name_ru": "рожок на носу",
+   "name_en": "nose horn",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "10",
+    "12",
+    "14",
+    "16"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "frill",
+   "name_ru": "воротник",
+   "name_en": "frill",
+   "rounds": [
+    "ring 54",
+    "inc 6 to 72",
+    "inc 4 to 96",
+    "shells 9 tr every 8"
+   ],
+   "colour": "green",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "leg",
+   "name_ru": "ножка",
+   "name_en": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "blo 24",
+    "even 5"
+   ],
+   "colour": "green",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвост",
+   "name_en": "tail",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "10",
+    "12",
+    "14",
+    "16",
+    "18",
+    "20",
+    "22",
+    "24",
+    "27",
+    "30",
+    "33",
+    "36"
+   ],
+   "colour": "melon",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "chest",
+   "name_ru": "грудка",
+   "name_en": "chest patch",
+   "rounds": [
+    "ch 5",
+    "inc 6 to 34"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "head",
+   "axis": [
+    0,
+    0,
+    -1
+   ]
+  },
+  {
+   "part": "body",
+   "on": "head",
+   "at": {
+    "round": 13.5,
+    "az": 180
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    -0.15,
+    -1
+   ],
+   "sink": -12,
+   "conform": false
+  },
+  {
+   "part": "frill",
+   "on": "head",
+   "at": {
+    "round": 22
+   },
+   "around": true,
+   "dir": [
+    0,
+    0,
+    -1
+   ]
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 7.3,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.2,
+    1
+   ]
+  },
+  {
+   "part": "nose_horn",
+   "on": "muzzle",
+   "at": {
+    "round": 5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    0.45
+   ]
+  },
+  {
+   "part": "horn",
+   "on": "head",
+   "at": {
+    "round": 8.17,
+    "az": 38.3
+   },
+   "dir": [
+    0.3,
+    1,
+    0.35
+   ],
+   "mirror": true
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 11.8,
+    "az": 116
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 0.6
+  },
+  {
+   "part": "leg",
+   "name": "front_leg",
+   "on": "body",
+   "at": {
+    "round": 30,
+    "az": 125
+   },
+   "dir": [
+    0.1,
+    -1,
+    0.05
+   ],
+   "mirror": true
+  },
+  {
+   "part": "leg",
+   "name": "back_leg",
+   "on": "body",
+   "at": {
+    "round": 7,
+    "az": 124
+   },
+   "dir": [
+    0.1,
+    -1,
+    -0.05
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 2.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.3,
+    -1
+   ]
+  },
+  {
+   "part": "chest",
+   "on": "body",
+   "at": {
+    "round": 34.5,
+    "az": 172
+   },
+   "applique": true,
+   "roll": 90,
+   "lift": 0.6
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 8.2,
+    "az": 100
+   },
+   "size_mm": 18,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     2.5,
+     150
+    ],
+    [
+     3.0,
+     165
+    ],
+    [
+     3.2,
+     180
+    ],
+    [
+     3.0,
+     195
+    ],
+    [
+     2.5,
+     210
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.2
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 12.5,
+    "az": 50
+   },
+   "width_mm": 5,
+   "height_mm": 9,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.2,
+   "rotate": 25,
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 11.0,
+    "az": 66
+   },
+   "width_mm": 5,
+   "height_mm": 9,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.2,
+   "rotate": 15,
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 13.5,
+    "az": 70
+   },
+   "width_mm": 5,
+   "height_mm": 9,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.2,
+   "rotate": 30,
+   "mirror": true
+  }
+ ]
+}

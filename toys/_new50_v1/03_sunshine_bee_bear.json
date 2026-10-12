@@ -1,0 +1,60 @@
+{
+ "name": "03_sunshine_bee_bear",
+ "title": "Sunshine Bee Bear",
+ "title_ru": "Пчеломишка Лучик",
+ "subject": "bear",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {
+  "sunny": "#f8c63c",
+  "cocoa": "#5a3020",
+  "cream": "#f3e6c8",
+  "orange": "#f07a1e",
+  "blush": "#f08aa8",
+  "brown": "#3a2018"
+ },
+ "colour_names_ru": {
+  "sunny": "солнечно-жёлтый",
+  "cocoa": "какао (тёмно-коричневый)",
+  "cream": "молочный",
+  "orange": "оранжевый",
+  "blush": "розовый (щёчки)",
+  "brown": "тёмно-коричневый (вышивка)"
+ },
+ "parts": [
+  {"id": "body", "name_ru": "туловище с головой", "name_en": "body with head",
+   "rounds": ["mr 6", "inc 6 to 72", "even 16", "dec 6 to 60 every 2", "dec 6 to 6"],
+   "colour": "sunny", "end": "closed", "stuff": "firm", "flatten": 0.2,
+   "colours": [{"rounds": [18, 20], "colour": "cocoa"}, {"rounds": [27, 29], "colour": "cocoa"}]},
+  {"id": "muzzle", "name_ru": "мордочка", "name_en": "muzzle",
+   "rounds": ["ch 4", "14", "20", "even 1"], "colour": "cream", "end": "open", "stuff": "light"},
+  {"id": "ear", "name_ru": "ушко", "name_en": "ear", "preset": "ear", "kind": "round", "max": 20, "inner": "cocoa",
+   "colour": "sunny"},
+  {"id": "cheek", "name_ru": "щёчка", "name_en": "cheek", "rounds": ["mr 6", "12"], "colour": "blush", "end": "open",
+   "stuff": "none"},
+  {"id": "sun", "name_ru": "солнышко", "name_en": "sun disk", "colour": "orange",
+   "motif": {"kind": "circle", "rounds": 3, "edging": {"kind": "picot", "every": 2}}},
+  {"id": "paw", "name_ru": "лапка", "name_en": "paw",
+   "rounds": ["mr 6", "12", "18", "even 1", "12"], "colour": "cocoa", "end": "open", "stuff": "firm"},
+  {"id": "wing", "name_ru": "крылышко", "name_en": "wing", "colour": "cream",
+   "motif": {"kind": "half_circle", "rows": 8, "sew": "base"}}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 0, -1]},
+  {"part": "muzzle", "on": "body", "at": {"round": 1.0, "az": 180}, "dir": [0, -0.05, 1]},
+  {"part": "ear", "on": "body", "at": {"round": 11, "az": 48}, "dir": [0.6, 1, 0.1], "mirror": true},
+  {"part": "cheek", "on": "body", "at": {"round": 8.5, "az": 100}, "applique": true, "mirror": true},
+  {"part": "sun", "on": "body", "at": {"round": 9, "az": 180}, "applique": true},
+  {"part": "paw", "name": "front_paw", "on": "body", "at": {"round": 13, "az": 135}, "dir": [0.5, -1, 0.3], "mirror": true},
+  {"part": "paw", "name": "hind_paw", "on": "body", "at": {"round": 32, "az": 135}, "dir": [0.5, -1, -0.3], "mirror": true},
+  {"part": "wing", "on": "body", "at": {"round": 22, "az": 25}, "dir": [0.65, 1, -0.3], "mirror": true, "attach": "edge",
+   "face": [0.75, 0, -0.65], "sink": 1}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "body", "at": {"round": 6.5, "az": 68}, "size_mm": 14, "mirror": true, "highlight": true},
+  {"type": "satin", "on": "muzzle", "at": {"round": 1.5, "az": 0}, "width_mm": 7, "height_mm": 5, "shape": "triangle",
+   "colour": "brown", "thickness_mm": 1.3},
+  {"type": "stitch", "on": "muzzle", "points": [[2.0, 180], [2.7, 180]], "colour": "brown", "thickness_mm": 0.9},
+  {"type": "stitch", "on": "muzzle", "points": [[2.7, 180], [3.1, 148], [2.7, 122]], "colour": "brown", "thickness_mm": 0.9,
+   "mirror": true}
+ ]
+}

@@ -1,0 +1,325 @@
+{
+ "name": "cat",
+ "title": "Kitten (base for pets)",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "iris": "#b9c28c",
+  "brown": "#6a3514",
+  "black": "#1e1a19",
+  "grey": "#8a8784",
+  "pink": "#ec9fa8"
+ },
+ "colour_names_ru": {
+  "tabby": "серо-коричневый (табби)",
+  "stripe": "тёмно-коричневый (полоски)"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 8",
+    "dec 6 to 6"
+   ],
+   "colour": "grey",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 44",
+    "even 4",
+    "dec 6 to 38",
+    "even 3",
+    "dec 6 to 32",
+    "even 2",
+    "dec 4 to 24"
+   ],
+   "oval_axis": "front",
+   "colour": "grey",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 3",
+    "inc 6 to 18",
+    "even 2"
+   ],
+   "colour": "grey",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 4",
+    "inc 2 to 8",
+    "inc 3 to 20",
+    "even 2"
+   ],
+   "colour": "grey",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.55,
+   "colours": [
+    {
+     "inner": true,
+     "colour": "pink"
+    }
+   ]
+  },
+  {
+   "id": "front_leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 2",
+    "dec 3 to 12",
+    "even 6"
+   ],
+   "colour": "grey",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "haunch",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24"
+   ],
+   "colour": "grey",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "hind_foot",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 2",
+    "dec 3 to 15"
+   ],
+   "colour": "grey",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 6",
+    "11",
+    "even 18"
+   ],
+   "colour": "grey",
+   "end": "open",
+   "stuff": "light",
+   "bend": {
+    "deg": 15,
+    "at": 11,
+    "over": 6,
+    "toward": [
+     1,
+     0,
+     0
+    ]
+   }
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 18,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 5.5,
+    "az": 62
+   },
+   "dir": [
+    0.45,
+    1,
+    0.1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "front_leg",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 30
+   },
+   "dir": [
+    0,
+    -1,
+    0.2
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.7,
+   "seam": "flat",
+   "seam_line": [
+    1,
+    0,
+    0
+   ],
+   "pinch": 0.6,
+   "max_turn": 8
+  },
+  {
+   "part": "haunch",
+   "on": "body",
+   "at": {
+    "round": 8,
+    "az": 110
+   },
+   "applique": true,
+   "pad": 5,
+   "mirror": true
+  },
+  {
+   "part": "hind_foot",
+   "on": "body",
+   "at": {
+    "round": 5.5,
+    "az": 80
+   },
+   "dir": [
+    0.7,
+    -0.35,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 180
+   },
+   "dir": [
+    0.3,
+    0.05,
+    -1
+   ],
+   "seam": "flat"
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 14,
+    "az": 26
+   },
+   "size_mm": 15,
+   "iris": "iris",
+   "pupil": 0.55,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "safety_nose",
+   "on": "muzzle",
+   "at": {
+    "round": 1.3,
+    "az": 0
+   },
+   "size_mm": [
+    7,
+    5
+   ],
+   "shape": "triangle",
+   "colour": "pink",
+   "id": "nose"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.0,
+     180
+    ],
+    [
+     2.5,
+     180
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0,
+   "id": "line"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     2.5,
+     180
+    ],
+    [
+     2.9,
+     160
+    ],
+    [
+     2.7,
+     140
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0,
+   "mirror": true,
+   "id": "line2"
+  }
+ ],
+ "title_ru": "Котёнок (основа для питомца)",
+ "subject": "cat"
+}

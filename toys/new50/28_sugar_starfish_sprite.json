@@ -1,0 +1,289 @@
+{
+ "name": "28_sugar_starfish_sprite",
+ "title": "Sugar Star Sea Sprite",
+ "title_ru": "Морская звёздочка Сахаринка",
+ "subject": "starfish",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "turquoise": "#2fb4c4",
+  "butter": "#f5df78",
+  "cream": "#f2e8d0",
+  "coral": "#ef7a5f",
+  "pink": "#f0908e",
+  "black": "#141213",
+  "white": "#f6f4ef"
+ },
+ "colour_names_ru": {
+  "turquoise": "бирюзовый",
+  "butter": "сливочно-жёлтый",
+  "cream": "сливочный",
+  "coral": "коралловый",
+  "pink": "розовый"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "серединка звезды",
+   "name_en": "star centre",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "even 9",
+    "dec 6 to 6"
+   ],
+   "colour": "turquoise",
+   "end": "closed",
+   "stuff": "firm"
+  },
+  {
+   "id": "arm",
+   "name_ru": "лучик",
+   "name_en": "star arm",
+   "rounds": [
+    "mr 6",
+    "9",
+    "12",
+    "15",
+    "18",
+    "21",
+    "24",
+    "27",
+    "30",
+    "34",
+    "38"
+   ],
+   "colour": "turquoise",
+   "end": "open",
+   "stuff": "firm",
+   "flatten": 0.12,
+   "colours": [
+    {
+     "rounds": [
+      1,
+      5
+     ],
+     "colour": "butter"
+    }
+   ]
+  },
+  {
+   "id": "belly",
+   "name_ru": "кружок снизу",
+   "name_en": "underside circle",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "dot",
+   "name_ru": "пятнышко",
+   "name_en": "back dot",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "coral",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "bigdot",
+   "name_ru": "большое пятнышко",
+   "name_en": "big back dot",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18"
+   ],
+   "colour": "coral",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 5",
+    "10"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "arm",
+   "name": "arm_top",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 0
+   },
+   "dir": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "front": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "arm",
+   "name": "arm_up",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 72
+   },
+   "dir": [
+    0.951,
+    0.309,
+    0.0
+   ],
+   "front": [
+    0,
+    0,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "arm",
+   "name": "arm_low",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 144
+   },
+   "dir": [
+    0.588,
+    -0.809,
+    0.0
+   ],
+   "front": [
+    0,
+    0,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "cheek",
+   "on": "body",
+   "at": {
+    "round": 20.3,
+    "az": 115
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 0.6
+  },
+  {
+   "part": "bigdot",
+   "on": "body",
+   "at": {
+    "round": 1.5,
+    "az": 0
+   },
+   "applique": true,
+   "lift": 0.8
+  },
+  {
+   "part": "dot",
+   "name": "dot_up",
+   "on": "body",
+   "at": {
+    "round": 6,
+    "az": 0
+   },
+   "applique": true,
+   "lift": 0.8
+  },
+  {
+   "part": "dot",
+   "name": "dot_down",
+   "on": "body",
+   "at": {
+    "round": 6,
+    "az": 180
+   },
+   "applique": true,
+   "lift": 0.8
+  },
+  {
+   "part": "belly",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 180
+   },
+   "applique": true,
+   "lift": 0.8
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 20.6,
+    "az": 72
+   },
+   "size_mm": 14,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     22.3,
+     135
+    ],
+    [
+     22.0,
+     155
+    ],
+    [
+     21.8,
+     180
+    ],
+    [
+     22.0,
+     205
+    ],
+    [
+     22.3,
+     225
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.3
+  }
+ ]
+}

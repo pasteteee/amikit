@@ -1,0 +1,447 @@
+{
+ "name": "az05_hello_kitty",
+ "title": "Kitty in a unicorn hood",
+ "subject": "cat",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "butter": "#f6eab8",
+  "white": "#fbfaf7",
+  "pink": "#de8fa4",
+  "navy": "#4a3d93",
+  "yellow": "#f2d75a",
+  "gold": "#d3a43a",
+  "lilac": "#b8a8d8",
+  "peach": "#f2c3b8",
+  "black": "#151313"
+ },
+ "colour_names_ru": {
+  "butter": "\u0421\u0403\u0420\u0406\u0420\u00b5\u0421\u201a\u0420\u00bb\u0420\u0455-\u0420\u00b6\u0421\u2018\u0420\u00bb\u0421\u201a\u0421\u2039\u0420\u2116 (\u0421\u0403\u0420\u00bb\u0420\u0451\u0420\u0406\u0420\u0455\u0421\u2021\u0420\u0405\u0421\u2039\u0420\u2116)",
+  "navy": "\u0421\u201a\u0421\u2018\u0420\u0458\u0420\u0405\u0420\u0455-\u0421\u201e\u0420\u0451\u0420\u0455\u0420\u00bb\u0420\u00b5\u0421\u201a\u0420\u0455\u0420\u0406\u0421\u2039\u0420\u2116",
+  "gold": "\u0420\u00b7\u0420\u0455\u0420\u00bb\u0420\u0455\u0421\u201a\u0420\u0451\u0421\u0403\u0421\u201a\u0421\u2039\u0420\u2116",
+  "lilac": "\u0421\u0403\u0420\u0451\u0421\u0402\u0420\u00b5\u0420\u0405\u0420\u00b5\u0420\u0406\u0421\u2039\u0420\u2116",
+  "peach": "\u0420\u0457\u0420\u00b5\u0421\u0402\u0421\u0403\u0420\u0451\u0420\u0454\u0420\u0455\u0420\u0406\u0421\u2039\u0420\u2116"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "name_en": "head with hood",
+   "name_ru": "\u0420\u0456\u0420\u0455\u0420\u00bb\u0420\u0455\u0420\u0406\u0420\u00b0 \u0421\u0403 \u0420\u0454\u0420\u00b0\u0420\u0457\u0421\u040b\u0421\u20ac\u0420\u0455\u0420\u0405\u0420\u0455\u0420\u0458",
+   "rounds": [
+    "ch 8",
+    "inc 6 to 58",
+    "even 9",
+    "dec 6 to 16"
+   ],
+   "colour": "butter",
+   "stuff": "firm",
+   "colours": [
+    {
+     "ellipse": {
+      "center": [
+       13,
+       0
+      ],
+      "radii": [
+       5.2,
+       62
+      ]
+     },
+     "colour": "white"
+    }
+   ]
+  },
+  {
+   "id": "snout",
+   "name_en": "hood snout",
+   "name_ru": "\u0420\u0458\u0420\u0455\u0421\u0402\u0420\u0491\u0420\u0455\u0421\u2021\u0420\u0454\u0420\u00b0 \u0420\u0454\u0420\u00b0\u0420\u0457\u0421\u040b\u0421\u20ac\u0420\u0455\u0420\u0405\u0420\u00b0",
+   "rounds": [
+    "ch 5",
+    "inc 5 to 20",
+    "even 1"
+   ],
+   "colour": "butter",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "even 6",
+    "dec 6 to 30",
+    "even 2",
+    "dec 6 to 24"
+   ],
+   "colour": "butter",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "10",
+    "12",
+    "14",
+    "even 1"
+   ],
+   "colour": "butter",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.6,
+   "colours": [
+    {
+     "shape": [
+      [
+       2,
+       0
+      ],
+      [
+       5,
+       -40
+      ],
+      [
+       6.5,
+       -45
+      ],
+      [
+       6.5,
+       45
+      ],
+      [
+       5,
+       40
+      ]
+     ],
+     "colour": "peach"
+    }
+   ]
+  },
+  {
+   "id": "horn",
+   "rounds": [
+    "mr 4",
+    "5",
+    "6",
+    "8",
+    "10",
+    "even 2"
+   ],
+   "colour": "gold",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "bow_loop",
+   "rounds": [
+    "ch 4",
+    "12",
+    "even 4",
+    "10"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.7
+  },
+  {
+   "id": "bow_knot",
+   "rounds": [
+    "mr 6",
+    "even 1"
+   ],
+   "colour": "pink",
+   "end": "closed",
+   "stuff": "light"
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "10",
+    "even 4"
+   ],
+   "colour": "butter",
+   "end": "open",
+   "stuff": "light",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      3
+     ],
+     "colour": "pink"
+    }
+   ]
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 1",
+    "blo 18",
+    "even 3",
+    "15"
+   ],
+   "colour": "butter",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      3
+     ],
+     "colour": "pink"
+    }
+   ]
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 4
+  },
+  {
+   "part": "snout",
+   "on": "head",
+   "at": {
+    "round": 6.8,
+    "az": 0
+   },
+   "dir": [
+    0,
+    0.6,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 4.5,
+    "az": 55
+   },
+   "dir": [
+    0.45,
+    1,
+    0.1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "horn",
+   "on": "head",
+   "at": {
+    "round": 2.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    0.15
+   ]
+  },
+  {
+   "part": "bow_loop",
+   "name": "bow_up",
+   "on": "head",
+   "at": {
+    "round": 7.5,
+    "az": 60
+   },
+   "dir": [
+    0.6,
+    0.8,
+    0.5
+   ]
+  },
+  {
+   "part": "bow_loop",
+   "name": "bow_low",
+   "on": "head",
+   "at": {
+    "round": 9.5,
+    "az": 65
+   },
+   "dir": [
+    0.6,
+    -0.6,
+    0.5
+   ]
+  },
+  {
+   "part": "bow_knot",
+   "on": "head",
+   "at": {
+    "round": 8.5,
+    "az": 62
+   },
+   "sink": 2
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 11,
+    "az": 28
+   },
+   "dir": [
+    0.05,
+    -1,
+    0.7
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.6,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 48
+   },
+   "dir": [
+    0.5,
+    -0.1,
+    1
+   ],
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 13.2,
+    "az": 24
+   },
+   "size_mm": 6,
+   "aspect": 1.35,
+   "colour": "navy",
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "on": "head",
+   "at": {
+    "round": 14.6,
+    "az": 0
+   },
+   "width_mm": 6,
+   "height_mm": 4,
+   "shape": "oval",
+   "colour": "yellow"
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     11.3,
+     42
+    ],
+    [
+     10.8,
+     52
+    ]
+   ],
+   "colour": "navy",
+   "thickness_mm": 1.0,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     13.3,
+     43
+    ],
+    [
+     13.3,
+     54
+    ]
+   ],
+   "colour": "navy",
+   "thickness_mm": 1.0,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     15.3,
+     42
+    ],
+    [
+     15.8,
+     52
+    ]
+   ],
+   "colour": "navy",
+   "thickness_mm": 1.0,
+   "mirror": true
+  },
+  {
+   "type": "fringe",
+   "on": "head",
+   "points": [
+    [
+     3.5,
+     -25
+    ],
+    [
+     3.5,
+     25
+    ]
+   ],
+   "count": 12,
+   "length_mm": 14,
+   "colours": [
+    "lilac",
+    "lilac",
+    "peach"
+   ],
+   "droop": 0.3,
+   "curl": 180,
+   "spread": 0.3,
+   "seed": 1
+  }
+ ]
+}

@@ -1,0 +1,376 @@
+{
+ "name": "11_lemon_duck",
+ "title": "Lemon Drop Duckling",
+ "title_ru": "Утёнок Лимончик",
+ "subject": "duck",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "butter": "#f7da92",
+  "apricot": "#f7915a",
+  "cream": "#eedcc2",
+  "lemon": "#f6cd5e",
+  "leaf": "#5b6b3a",
+  "pink": "#f2a59c",
+  "black": "#151313"
+ },
+ "colour_names_ru": {
+  "butter": "светло-жёлтый",
+  "apricot": "абрикосовый",
+  "cream": "кремовый",
+  "lemon": "лимонный",
+  "leaf": "зелёный",
+  "pink": "розовый",
+  "black": "чёрный"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 60 every 2",
+    "even 5",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "butter",
+   "stuff": "firm",
+   "name_ru": "Голова",
+   "name_en": "Head"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "inc 6 to 54 every 2",
+    "even 5",
+    "dec 6 to 48",
+    "even 1",
+    "dec 6 to 36"
+   ],
+   "colour": "butter",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "shape": [
+      [
+       20.5,
+       -48
+      ],
+      [
+       20.5,
+       88
+      ],
+      [
+       9,
+       20
+      ]
+     ],
+     "colour": "cream"
+    }
+   ],
+   "name_ru": "Тело",
+   "name_en": "Body"
+  },
+  {
+   "id": "tuft",
+   "rounds": [
+    "mr 5",
+    "8",
+    "even 1"
+   ],
+   "colour": "butter",
+   "end": "open",
+   "stuff": "light",
+   "name_ru": "Хохолок",
+   "name_en": "Tuft"
+  },
+  {
+   "id": "beak",
+   "rounds": [
+    "ch 4",
+    "12",
+    "16",
+    "even 2"
+   ],
+   "colour": "apricot",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.35,
+   "name_ru": "Клюв",
+   "name_en": "Beak"
+  },
+  {
+   "id": "wing",
+   "rounds": [
+    "mr 6",
+    "10",
+    "14",
+    "18",
+    "20",
+    "even 3",
+    "16",
+    "12"
+   ],
+   "colour": "butter",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.6,
+   "name_ru": "Крылышко",
+   "name_en": "Wing"
+  },
+  {
+   "id": "foot",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "even 3",
+    "15"
+   ],
+   "colour": "apricot",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.5,
+   "name_ru": "Лапка",
+   "name_en": "Foot"
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 5",
+    "10",
+    "14",
+    "even 1"
+   ],
+   "colour": "butter",
+   "end": "open",
+   "stuff": "light",
+   "name_ru": "Хвостик",
+   "name_en": "Tail"
+  },
+  {
+   "id": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "Щёчка",
+   "name_en": "Cheek"
+  },
+  {
+   "id": "lemon_slice",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "lemon",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "Лимончик",
+   "name_en": "Lemon circle"
+  },
+  {
+   "id": "leaf",
+   "rounds": [
+    "ch 4"
+   ],
+   "colour": "leaf",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "Листик",
+   "name_en": "Leaf"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 7
+  },
+  {
+   "part": "tuft",
+   "on": "head",
+   "at": {
+    "round": 1.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "beak",
+   "on": "head",
+   "at": {
+    "round": 17,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ],
+   "front": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 17.5,
+    "az": 46
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "wing",
+   "on": "body",
+   "at": {
+    "round": 17,
+    "az": 84
+   },
+   "dir": [
+    0.9,
+    -1,
+    0.1
+   ],
+   "front": [
+    1,
+    0,
+    0
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "avoid": true,
+   "contact": 0.6
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 4.5,
+    "az": 50
+   },
+   "dir": [
+    0.6,
+    -0.3,
+    1
+   ],
+   "front": [
+    0,
+    1,
+    0
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 9,
+    "az": 180
+   },
+   "dir": [
+    0,
+    0.3,
+    -1
+   ]
+  },
+  {
+   "part": "lemon_slice",
+   "on": "body",
+   "at": {
+    "round": 14,
+    "az": -2
+   },
+   "applique": true,
+   "lift": 1.0
+  },
+  {
+   "part": "leaf",
+   "on": "body",
+   "at": {
+    "round": 16.3,
+    "az": 20
+   },
+   "applique": true,
+   "roll": 25,
+   "lift": 1.0
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 15.5,
+    "az": 31
+   },
+   "size_mm": 11,
+   "mirror": true
+  },
+  {
+   "type": "strap",
+   "on": "body",
+   "points": [
+    [
+     19.2,
+     -180
+    ],
+    [
+     19.2,
+     -90
+    ],
+    [
+     19.2,
+     0
+    ],
+    [
+     19.2,
+     90
+    ],
+    [
+     19.2,
+     180
+    ]
+   ],
+   "colour": "cream",
+   "thickness_mm": 3.6
+  }
+ ]
+}

@@ -1,0 +1,493 @@
+{
+ "name": "39_plum_axolotl_butterfly",
+ "title": "Plum Axolotl Butterfly",
+ "title_ru": "Аксо-бабочка Сливовый взмах",
+ "subject": "axolotl",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "plum": "#86325e",
+  "coral": "#f5686f",
+  "cream": "#efdcc4",
+  "aqua": "#4cc3c6",
+  "pink": "#f6a3b4",
+  "black": "#141213",
+  "white": "#f6f4ef"
+ },
+ "colour_names_ru": {
+  "plum": "сливовый",
+  "coral": "коралловый",
+  "cream": "молочный",
+  "aqua": "бирюзовый",
+  "pink": "розовый"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "inc 6 to 66 every 2",
+    "even 7",
+    "dec 6 to 54 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "plum",
+   "end": "closed",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "name_ru": "туловище",
+   "name_en": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "even 5",
+    "dec 6 to 42",
+    "even 2",
+    "dec 6 to 36",
+    "even 1",
+    "dec 6 to 30",
+    "dec 6 to 24"
+   ],
+   "colour": "plum",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "belly",
+   "name_ru": "животик",
+   "name_en": "belly patch",
+   "rounds": [
+    "ch 8",
+    "inc 6 to 46"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "gill",
+   "name_ru": "жаберный лепесток",
+   "name_en": "gill petal",
+   "rounds": [
+    "mr 4",
+    "8",
+    "12",
+    "even 6",
+    "10",
+    "7"
+   ],
+   "colour": "coral",
+   "end": "closed",
+   "stuff": "none",
+   "flatten": 0.9
+  },
+  {
+   "id": "arm",
+   "name_ru": "ручка",
+   "name_en": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "even 3",
+    "15",
+    "12",
+    "even 2"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "leg",
+   "name_ru": "ножка",
+   "name_en": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 3",
+    "20",
+    "even 1",
+    "16"
+   ],
+   "colour": "plum",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвост",
+   "name_en": "tail",
+   "rounds": [
+    "mr 5",
+    "8",
+    "11",
+    "14",
+    "17",
+    "20",
+    "22",
+    "24",
+    "even 7"
+   ],
+   "colour": "plum",
+   "end": "open",
+   "stuff": "medium",
+   "bend": {
+    "deg": 70,
+    "at": 6,
+    "over": 3,
+    "toward": [
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "wing",
+   "name_ru": "крыло",
+   "name_en": "wing",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "24",
+    "30",
+    "even 10",
+    "26",
+    "20",
+    "14"
+   ],
+   "colour": "aqua",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.92
+  },
+  {
+   "id": "spot",
+   "name_ru": "кружок на крыле",
+   "name_en": "wing circle",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "24"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 7",
+    "14"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0.18
+   ],
+   "sink": 4
+  },
+  {
+   "part": "belly",
+   "on": "body",
+   "at": {
+    "round": 11,
+    "az": 0
+   },
+   "applique": true,
+   "roll": 90,
+   "inset": 1.0
+  },
+  {
+   "part": "gill",
+   "name": "gill_top",
+   "on": "head",
+   "at": {
+    "round": 9,
+    "az": 78
+   },
+   "dir": [
+    0.6,
+    0.85,
+    -0.35
+   ],
+   "mirror": true,
+   "attach": "start",
+   "sink": 1.5,
+   "front": [
+    0.5,
+    0,
+    0.85
+   ]
+  },
+  {
+   "part": "gill",
+   "name": "gill_mid",
+   "on": "head",
+   "at": {
+    "round": 14,
+    "az": 88
+   },
+   "dir": [
+    1,
+    0.2,
+    -0.5
+   ],
+   "mirror": true,
+   "attach": "start",
+   "sink": 1.5,
+   "front": [
+    0.5,
+    0,
+    0.85
+   ]
+  },
+  {
+   "part": "gill",
+   "name": "gill_low",
+   "on": "head",
+   "at": {
+    "round": 19,
+    "az": 88
+   },
+   "dir": [
+    1,
+    -0.35,
+    -0.45
+   ],
+   "mirror": true,
+   "attach": "start",
+   "sink": 1.5,
+   "front": [
+    0.5,
+    0,
+    0.85
+   ]
+  },
+  {
+   "part": "wing",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 115
+   },
+   "dir": [
+    0.95,
+    0.15,
+    -0.35
+   ],
+   "mirror": true,
+   "front": [
+    0.35,
+    0,
+    0.95
+   ]
+  },
+  {
+   "part": "spot",
+   "name": "spot",
+   "on": "wing",
+   "at": {
+    "round": 10,
+    "az": 0
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "spot",
+   "name": "spot_back",
+   "name_r": "spot_back_R",
+   "on": "wing",
+   "at": {
+    "round": 10,
+    "az": 180
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 16,
+    "az": 62
+   },
+   "dir": [
+    0.35,
+    -1,
+    0.4
+   ],
+   "mirror": true,
+   "avoid": true,
+   "avoid_toward": [
+    0,
+    0,
+    1
+   ],
+   "contact": 0.6,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 50
+   },
+   "dir": [
+    0.7,
+    -0.1,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 6.5,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.1,
+    -1
+   ]
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 18.5,
+    "az": 52
+   },
+   "applique": true,
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "satin",
+   "role": "eye",
+   "on": "head",
+   "at": {
+    "round": 15.0,
+    "az": 40
+   },
+   "width_mm": 14,
+   "height_mm": 15.5,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.1,
+   "mirror": true,
+   "id": "nose"
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 15.0,
+    "az": 40
+   },
+   "width_mm": 3.8,
+   "height_mm": 3.8,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 0.9,
+   "offset_mm": [
+    2.2,
+    2.9
+   ],
+   "id": "nose2"
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 15.0,
+    "az": -40
+   },
+   "width_mm": 3.8,
+   "height_mm": 3.8,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 0.9,
+   "offset_mm": [
+    2.2,
+    2.9
+   ],
+   "id": "nose3"
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     16.7,
+     12
+    ],
+    [
+     17.9,
+     6
+    ],
+    [
+     18.3,
+     0
+    ],
+    [
+     17.9,
+     -6
+    ],
+    [
+     16.7,
+     -12
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.5,
+   "id": "line"
+  }
+ ]
+}

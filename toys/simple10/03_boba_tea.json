@@ -1,0 +1,399 @@
+{
+ "name": "03_boba_tea",
+ "title": "Boba Milk Tea",
+ "title_ru": "Бабл-ти Тапиока",
+ "subject": "drink",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "tea": "#e7c39a",
+  "sugar": "#a8673b",
+  "lid": "#f6f5f1",
+  "pearl": "#3a2620",
+  "straw": "#f29ab6",
+  "blush": "#f39a8e",
+  "mouth": "#4b2e25",
+  "rim": "#cfcac0",
+  "black": "#1b1616"
+ },
+ "colour_names_ru": {
+  "tea": "молочно-карамельный",
+  "sugar": "коричневый",
+  "lid": "белый",
+  "pearl": "тёмно-коричневый",
+  "straw": "розовый",
+  "blush": "коралловый (щёчки)",
+  "mouth": "тёмно-коричневый",
+  "rim": "светло-серый",
+  "black": "чёрный"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "стаканчик",
+   "name_en": "cup",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "blo 36",
+    "even 3",
+    "39",
+    "even 3",
+    "42",
+    "even 3",
+    "45",
+    "even 3",
+    "48",
+    "even 1",
+    "blo 48",
+    "48",
+    "dec 6 to 36 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "tea",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      7,
+      8
+     ],
+     "colour": "sugar"
+    },
+    {
+     "rounds": [
+      24,
+      25
+     ],
+     "colour": "rim"
+    },
+    {
+     "rounds": [
+      26,
+      35
+     ],
+     "colour": "lid"
+    }
+   ]
+  },
+  {
+   "id": "straw",
+   "name_ru": "трубочка",
+   "name_en": "straw",
+   "rounds": [
+    "mr 8",
+    "even 12"
+   ],
+   "colour": "straw",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "arm",
+   "name_ru": "лапка",
+   "name_en": "arm",
+   "rounds": [
+    "mr 6",
+    "9",
+    "even 1",
+    "6"
+   ],
+   "colour": "tea",
+   "stuff": "light"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "pearl",
+   "name_ru": "жемчужинка",
+   "name_en": "tapioca pearl",
+   "rounds": [
+    "mr 6",
+    "11"
+   ],
+   "colour": "pearl",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "straw",
+   "on": "body",
+   "at": {
+    "round": 31,
+    "az": -40
+   },
+   "dir": [
+    -0.2,
+    1,
+    0.12
+   ],
+   "sink": 1
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 17,
+    "az": 68
+   },
+   "dir": [
+    0.55,
+    -0.2,
+    0.8
+   ],
+   "mirror": true,
+   "sink": 2
+  },
+  {
+   "part": "cheek",
+   "on": "body",
+   "at": {
+    "round": 19.5,
+    "az": 38
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.0
+  },
+  {
+   "part": "pearl",
+   "name": "pearl1",
+   "on": "body",
+   "at": {
+    "round": 9.5,
+    "az": 0
+   },
+   "applique": true,
+   "pad": 3.5,
+   "lift": 0.8
+  },
+  {
+   "part": "pearl",
+   "name": "pearl2",
+   "on": "body",
+   "at": {
+    "round": 11.8,
+    "az": 28
+   },
+   "applique": true,
+   "pad": 3.5,
+   "lift": 0.8
+  },
+  {
+   "part": "pearl",
+   "name": "pearl3",
+   "on": "body",
+   "at": {
+    "round": 11.8,
+    "az": -28
+   },
+   "applique": true,
+   "pad": 3.5,
+   "lift": 0.8
+  },
+  {
+   "part": "pearl",
+   "name": "pearl4",
+   "on": "body",
+   "at": {
+    "round": 9.2,
+    "az": 55
+   },
+   "applique": true,
+   "pad": 3.5,
+   "lift": 0.8
+  },
+  {
+   "part": "pearl",
+   "name": "pearl5",
+   "on": "body",
+   "at": {
+    "round": 9.2,
+    "az": -55
+   },
+   "applique": true,
+   "pad": 3.5,
+   "lift": 0.8
+  },
+  {
+   "part": "pearl",
+   "name": "pearl6",
+   "on": "body",
+   "at": {
+    "round": 12.2,
+    "az": 84
+   },
+   "applique": true,
+   "pad": 3.5,
+   "lift": 0.8
+  },
+  {
+   "part": "pearl",
+   "name": "pearl7",
+   "on": "body",
+   "at": {
+    "round": 12.2,
+    "az": -84
+   },
+   "applique": true,
+   "pad": 3.5,
+   "lift": 0.8
+  },
+  {
+   "part": "pearl",
+   "name": "pearl8",
+   "on": "body",
+   "at": {
+    "round": 9.5,
+    "az": 115
+   },
+   "applique": true,
+   "pad": 3.5,
+   "lift": 0.8
+  },
+  {
+   "part": "pearl",
+   "name": "pearl9",
+   "on": "body",
+   "at": {
+    "round": 9.5,
+    "az": -115
+   },
+   "applique": true,
+   "pad": 3.5,
+   "lift": 0.8
+  },
+  {
+   "part": "pearl",
+   "name": "pearl10",
+   "on": "body",
+   "at": {
+    "round": 12,
+    "az": 150
+   },
+   "applique": true,
+   "pad": 3.5,
+   "lift": 0.8
+  },
+  {
+   "part": "pearl",
+   "name": "pearl11",
+   "on": "body",
+   "at": {
+    "round": 12,
+    "az": -150
+   },
+   "applique": true,
+   "pad": 3.5,
+   "lift": 0.8
+  },
+  {
+   "part": "pearl",
+   "name": "pearl12",
+   "on": "body",
+   "at": {
+    "round": 9.3,
+    "az": 180
+   },
+   "applique": true,
+   "pad": 3.5,
+   "lift": 0.8
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 20.5,
+    "az": 22
+   },
+   "size_mm": 14,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     19.4,
+     -6
+    ],
+    [
+     18.9,
+     -3
+    ],
+    [
+     18.7,
+     0
+    ],
+    [
+     18.9,
+     3
+    ],
+    [
+     19.4,
+     6
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 1.1,
+   "id": "smile"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     20.1,
+     -28
+    ],
+    [
+     20.7,
+     -25
+    ],
+    [
+     20.9,
+     -22
+    ],
+    [
+     20.7,
+     -19
+    ],
+    [
+     20.1,
+     -16
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.8,
+   "id": "wink"
+  }
+ ]
+}

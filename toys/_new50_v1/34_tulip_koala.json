@@ -1,0 +1,47 @@
+{
+ "name": "34_tulip_koala",
+ "title": "Tulip Hug Koala",
+ "title_ru": "Коала Тюльпанчик",
+ "subject": "koala",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {"lilac": "#b48edb", "purple": "#7a4cb4", "cream": "#f3e9d3", "grey": "#4a454f", "coral": "#f2727a", "green": "#6c9a48", "pink": "#f2a0a8", "black": "#141213"},
+ "colour_names_ru": {"lilac": "сиреневый", "purple": "фиолетовый", "cream": "кремовый", "grey": "тёмно-серый", "coral": "коралловый", "green": "зелёный", "pink": "розовый", "black": "чёрный"},
+ "parts": [
+  {"id": "head", "name_ru": "голова", "name_en": "head", "rounds": ["mr 6", "inc 6 to 54", "inc 6 to 72 every 2", "even 9", "dec 6 to 60 every 2", "dec 6 to 6"], "colour": "lilac", "stuff": "firm"},
+  {"id": "body", "name_ru": "тело", "name_en": "body", "rounds": ["mr 6", "inc 6 to 48", "blo 48", "even 8", "dec 6 to 42", "even 2", "dec 6 to 36", "dec 6 to 30"], "colour": "lilac", "end": "open", "stuff": "firm"},
+  {"id": "ear", "name_ru": "ушко", "name_en": "ear", "rounds": ["mr 6", "inc 6 to 48", "even 3", "dec 6 to 36"], "colour": "lilac", "end": "open", "stuff": "none", "dish": 0.5},
+  {"id": "inner_ear", "name_ru": "внутренняя часть ушка", "name_en": "inner ear", "rounds": ["mr 6", "inc 6 to 36"], "colour": "cream", "end": "open", "stuff": "none"},
+  {"id": "nose", "name_ru": "носик", "name_en": "nose", "rounds": ["ch 5", "inc 6 to 28"], "colour": "grey", "end": "open", "stuff": "none"},
+  {"id": "belly", "name_ru": "животик", "name_en": "belly patch", "rounds": ["ch 7", "inc 6 to 38"], "colour": "cream", "end": "open", "stuff": "none"},
+  {"id": "arm", "name_ru": "лапка", "name_en": "arm", "rounds": ["mr 6", "12", "18", "21", "even 5", "18", "15", "even 1"], "colour": "lilac", "end": "open", "stuff": "light", "bend": {"deg": 55, "at": 6, "over": 3, "toward": [-1, 0, 0.3]}},
+  {"id": "foot", "name_ru": "стопа", "name_en": "foot", "rounds": ["ch 6", "inc 6 to 36", "even 3", "30", "24"], "colour": "purple", "end": "open", "stuff": "firm", "flatten": 0.15},
+  {"id": "tail", "name_ru": "хвостик", "name_en": "tail", "rounds": ["mr 6", "inc 6 to 18", "even 2", "dec 6 to 6"], "colour": "lilac", "stuff": "firm"},
+  {"id": "stem", "name_ru": "стебелёк", "name_en": "stem", "rounds": ["mr 8", "even 3"], "colour": "green", "end": "open", "stuff": "firm"},
+  {"id": "bud", "name_ru": "бутон", "name_en": "tulip bud", "rounds": ["mr 6", "12", "18", "24", "30", "even 5", "dec 6 to 12", "dec 6 to 6"], "colour": "coral", "stuff": "firm"},
+  {"id": "petal", "name_ru": "лепесток", "name_en": "petal", "motif": {"kind": "leaf", "chain": 12, "tall": "tr", "sew": "base"}, "colour": "coral"},
+  {"id": "leaf", "name_ru": "листик", "name_en": "leaf", "motif": {"kind": "leaf", "chain": 9, "tall": "dc"}, "colour": "green"},
+  {"id": "cheek", "name_ru": "щёчка", "name_en": "cheek", "rounds": ["mr 6", "12"], "colour": "pink", "end": "open", "stuff": "none"}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 1, 0]},
+  {"part": "head", "on": "body", "at": {"round": "end"}, "attach": "end", "dir": [0, 1, 0], "sink": 5},
+  {"part": "ear", "on": "head", "at": {"round": 15, "az": 70}, "dir": [1, 0.5, -0.25], "mirror": true, "attach": "edge", "face": [0.25, 0.1, 1], "sink": 18},
+  {"part": "inner_ear", "on": "ear", "at": {"round": "start"}, "applique": true, "mirror": true, "inset": 1.0},
+  {"part": "nose", "on": "head", "at": {"round": 20.5, "az": 0}, "applique": true, "roll": 90, "pad": 4},
+  {"part": "cheek", "on": "head", "at": {"round": 23.5, "az": 44}, "applique": true, "mirror": true},
+  {"part": "belly", "on": "body", "at": {"round": 8, "az": 0}, "applique": true, "roll": 90},
+  {"part": "foot", "on": "body", "at": {"round": 5, "az": 50}, "dir": [0.45, -0.35, 1], "mirror": true},
+  {"part": "tail", "on": "body", "at": {"round": 9, "az": 180}, "dir": [0, 0, -1]},
+  {"part": "stem", "on": "body", "at": {"round": 10, "az": 0}, "dir": [0, 0.45, 1]},
+  {"part": "bud", "on": "stem", "at": {"round": "start"}, "dir": [0, 1, 0.3], "sink": 3},
+  {"part": "petal", "name": "petal_front", "on": "bud", "at": {"round": 8, "az": 0}, "attach": "edge", "dir": [0, 1, 0.35], "face": [0, 0, 1]},
+  {"part": "petal", "name": "petal_l", "on": "bud", "at": {"round": 8, "az": 65}, "attach": "edge", "dir": [0.35, 1, 0.1], "face": [0.8, 0, 0.6]},
+  {"part": "petal", "name": "petal_r", "on": "bud", "at": {"round": 8, "az": -65}, "attach": "edge", "dir": [-0.35, 1, 0.1], "face": [-0.8, 0, 0.6]},
+  {"part": "leaf", "on": "body", "at": {"round": 8.5, "az": 12}, "applique": true, "mirror": true, "roll": -60, "lift": 2.0},
+  {"part": "arm", "on": "body", "at": {"round": 20, "az": 72}, "dir": [0.35, -0.5, 1], "mirror": true, "seam": "flat"}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "head", "at": {"round": 20.5, "az": 29}, "size_mm": 14, "mirror": true, "highlight": true, "id": "eye"},
+  {"type": "stitch", "on": "head", "points": [[25.6, 7], [26.4, 3.5], [26.6, 0], [26.4, -3.5], [25.6, -7]], "colour": "black", "thickness_mm": 1.2, "id": "smile"}
+ ]
+}

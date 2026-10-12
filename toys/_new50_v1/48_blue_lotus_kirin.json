@@ -1,0 +1,44 @@
+{
+ "name": "48_blue_lotus_kirin",
+ "title": "Blue Lotus Kirin",
+ "title_ru": "Кирин Голубой лотос",
+ "subject": "unicorn",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {"aqua": "#7ab8c6", "cream": "#efdcc4", "sage": "#87956c", "lilac": "#b993d6", "coral": "#ef7266", "pink": "#f4a0a8", "brown": "#4a2a22", "black": "#151313"},
+ "colour_names_ru": {"aqua": "голубой", "cream": "кремовый", "sage": "зелёный", "lilac": "сиреневый", "coral": "коралловый", "pink": "розовый", "brown": "тёмно-коричневый", "black": "чёрный"},
+ "parts": [
+  {"id": "head", "rounds": ["mr 6", "inc 6 to 42", "inc 6 to 60 every 2", "even 4", "dec 6 to 48 every 2", "dec 6 to 6"], "colour": "aqua", "stuff": "firm", "name_ru": "Голова", "name_en": "Head"},
+  {"id": "body", "rounds": ["mr 6", "inc 6 to 42", "blo 42", "even 4", "inc 6 to 48", "even 3", "dec 6 to 42", "even 2", "dec 6 to 36", "even 1"], "colour": "aqua", "end": "open", "stuff": "firm", "colours": [{"ellipse": {"center": [13, 0], "radii": [9, 46]}, "colour": "cream"}], "name_ru": "Тело", "name_en": "Body"},
+  {"id": "muzzle", "rounds": ["ch 4", "inc 6 to 26", "even 3"], "colour": "cream", "end": "open", "stuff": "medium", "name_ru": "Мордочка", "name_en": "Muzzle"},
+  {"id": "ear", "rounds": ["mr 4", "6", "8", "10", "12", "14", "16", "even 3", "14"], "colour": "sage", "end": "open", "stuff": "none", "spoon": 0.35, "name_ru": "Ушко-листик", "name_en": "Leaf ear"},
+  {"id": "horn", "rounds": ["mr 4", "6", "8", "10", "12", "even 1"], "colour": "coral", "end": "open", "stuff": "firm", "name_ru": "Рог", "name_en": "Horn"},
+  {"id": "crescent", "colour": "coral", "name_ru": "Месяц на лбу", "name_en": "Forehead crescent", "rounds": ["mr 6", "12", "18", "24"], "end": "open", "stuff": "none"},
+  {"id": "petal", "rounds": ["ch 5", "16", "22"], "colour": "lilac", "end": "open", "stuff": "none", "name_ru": "Лепесток гривы", "name_en": "Mane petal"},
+  {"id": "arm", "rounds": ["mr 6", "12", "15", "even 2", "12", "even 3"], "colour": "aqua", "colours": [{"rounds": [1, 3], "colour": "cream"}], "end": "open", "stuff": "light", "name_ru": "Ручка", "name_en": "Arm"},
+  {"id": "foot", "rounds": ["mr 6", "12", "18", "24", "even 3", "18"], "colour": "coral", "end": "open", "stuff": "firm", "name_ru": "Ножка", "name_en": "Foot"},
+  {"id": "tail", "rounds": ["mr 6", "9", "12", "15", "even 18"], "colour": "sage", "end": "open", "stuff": "firm", "bend": {"deg": 330, "at": 10, "over": 12, "toward": [0, 1, 0]}, "name_ru": "Хвост-завиток", "name_en": "Curl tail"},
+  {"id": "cheek", "rounds": ["mr 6", "12"], "colour": "pink", "end": "open", "stuff": "none", "name_ru": "Щёчка", "name_en": "Cheek"},
+  {"id": "crescent_cover", "rounds": ["mr 6", "12", "18"], "colour": "aqua", "end": "open", "stuff": "none", "name_ru": "Накладка месяца", "name_en": "Crescent cover"}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 1, 0]},
+  {"part": "head", "on": "body", "at": {"round": "end"}, "attach": "end", "dir": [0, 1, 0], "sink": 7},
+  {"part": "muzzle", "on": "head", "at": {"round": 19, "az": 0}, "dir": [0, -0.3, 1]},
+  {"part": "cheek", "on": "head", "at": {"round": 18, "az": 55}, "applique": true, "mirror": true},
+  {"part": "ear", "on": "head", "at": {"round": 9, "az": 72}, "dir": [1, 0.4, 0], "mirror": true},
+  {"part": "horn", "on": "head", "at": {"round": 2.5, "az": 0}, "dir": [0, 1, 0.25]},
+  {"part": "crescent", "on": "head", "at": {"round": 8, "az": 0}, "applique": true, "roll": 0, "lift": 0.6},
+  {"part": "petal", "name": "petal_top", "on": "head", "at": {"round": 5, "az": 180}, "applique": true, "roll": 0, "pad": 4, "lift": 1.4},
+  {"part": "petal", "name": "petal_mid", "on": "head", "at": {"round": 12, "az": 180}, "applique": true, "roll": 0, "pad": 4, "lift": 1.4},
+  {"part": "petal", "name": "petal_low", "on": "head", "at": {"round": 19, "az": 180}, "applique": true, "roll": 0, "pad": 4, "lift": 1.4},
+  {"part": "arm", "on": "body", "at": {"round": 17, "az": 75}, "dir": [0.5, -1, 0.3], "mirror": true, "seam": "flat", "avoid": true, "contact": 0.6},
+  {"part": "foot", "on": "body", "at": {"round": 4.5, "az": 40}, "dir": [0.4, -0.3, 1], "mirror": true},
+  {"part": "tail", "on": "body", "at": {"round": 8, "az": 180}, "dir": [0, -0.15, -1]},
+  {"part": "crescent_cover", "on": "head", "at": {"round": 8, "az": 0}, "applique": true, "offset_mm": [0, 6], "lift": 1.2}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "head", "at": {"round": 15, "az": 36}, "size_mm": 12, "mirror": true, "highlight": true},
+  {"type": "satin", "on": "muzzle", "at": {"round": 2.6, "az": 35}, "width_mm": 2.4, "height_mm": 3, "shape": "oval", "colour": "brown", "thickness_mm": 1.0, "mirror": true},
+  {"type": "stitch", "on": "muzzle", "points": [[2.0, 140], [2.5, 162], [2.65, 180], [2.5, 198], [2.0, 220]], "colour": "brown", "thickness_mm": 1.0}
+ ]
+}

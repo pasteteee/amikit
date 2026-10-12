@@ -1,0 +1,4 @@
+# LF in the repository, the platform's line ends in a working copy
+* text=auto
+*.jpg binary
+*.png binary

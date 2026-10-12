@@ -1,0 +1,435 @@
+{
+ "name": "09_pistachio_chinchilla",
+ "title": "Pistachio Chinchilla Baby",
+ "title_ru": "Шиншиллёнок Фисташка",
+ "subject": "chinchilla",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "mint": "#a6cbb3",
+  "cream": "#f1e7d6",
+  "peach": "#f2b49a",
+  "peachdark": "#d98f78",
+  "lilac": "#a993d4",
+  "blush": "#f0928a",
+  "brown": "#3a2a24"
+ },
+ "colour_names_ru": {
+  "mint": "мятный",
+  "cream": "кремовый",
+  "peach": "персиковый",
+  "peachdark": "тёмно-персиковый (вышивка)",
+  "lilac": "сиреневый",
+  "blush": "коралловый",
+  "brown": "тёмно-коричневый (вышивка)"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "colour": "mint",
+   "stuff": "firm",
+   "rounds": [
+    "ch 3",
+    "inc 6 to 60",
+    "inc 6 to 72 every 2",
+    "even 8",
+    "dec 6 to 60 every 2",
+    "dec 6 to 12"
+   ],
+   "colours": [
+    {
+     "patch": {
+      "at": {
+       "round": 26,
+       "az": 0
+      },
+      "size_mm": [
+       125,
+       40
+      ]
+     },
+     "colour": "cream"
+    },
+    {
+     "patch": {
+      "at": {
+       "round": 22.5,
+       "az": 66
+      },
+      "size_mm": [
+       70,
+       30
+      ],
+      "mirror": true
+     },
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "body",
+   "name_ru": "тело",
+   "name_en": "body",
+   "colour": "mint",
+   "end": "open",
+   "stuff": "firm",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "even 7",
+    "42",
+    "even 1",
+    "36",
+    "30"
+   ]
+  },
+  {
+   "id": "ear",
+   "name_ru": "ушко",
+   "name_en": "ear",
+   "colour": "mint",
+   "end": "open",
+   "stuff": "none",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 2",
+    "dec 6 to 18"
+   ],
+   "dish": 0.5,
+   "colours": [
+    {
+     "inner": true,
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none",
+   "rounds": [
+    "mr 6",
+    "12"
+   ]
+  },
+  {
+   "id": "belly",
+   "name_ru": "пятно на животике",
+   "name_en": "belly patch",
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none",
+   "rounds": [
+    "ch 5",
+    "inc 6 to 34"
+   ]
+  },
+  {
+   "id": "heart",
+   "name_ru": "сердечко",
+   "name_en": "heart",
+   "colour": "lilac",
+   "motif": {
+    "kind": "heart"
+   }
+  },
+  {
+   "id": "arm",
+   "name_ru": "лапка",
+   "name_en": "arm",
+   "colour": "mint",
+   "end": "open",
+   "stuff": "light",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "10"
+   ]
+  },
+  {
+   "id": "leg",
+   "name_ru": "ножка",
+   "name_en": "leg",
+   "colour": "peach",
+   "end": "open",
+   "stuff": "firm",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 26",
+    "even 5",
+    "20"
+   ]
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвост",
+   "name_en": "tail",
+   "colour": "mint",
+   "end": "open",
+   "stuff": "medium",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 28"
+   ],
+   "colours": [
+    {
+     "rounds": [
+      1,
+      9
+     ],
+     "colour": "cream"
+    }
+   ],
+   "bend": {
+    "deg": 130,
+    "at": 15,
+    "over": 12,
+    "toward": [
+     0,
+     1,
+     0
+    ]
+   }
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0.45
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 11,
+    "az": 78
+   },
+   "dir": [
+    1,
+    0.55,
+    -0.15
+   ],
+   "mirror": true,
+   "attach": "edge",
+   "face": [
+    0.65,
+    0.1,
+    1
+   ],
+   "sink": 22
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 20,
+    "az": 50
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.0
+  },
+  {
+   "part": "belly",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 0
+   },
+   "applique": true,
+   "roll": 90
+  },
+  {
+   "part": "heart",
+   "on": "body",
+   "at": {
+    "round": 14,
+    "az": 0
+   },
+   "applique": true,
+   "lift": 1.4
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 18.5,
+    "az": 45
+   },
+   "dir": [
+    -0.2,
+    -0.6,
+    1
+   ],
+   "mirror": true,
+   "avoid": true,
+   "avoid_toward": [
+    0,
+    0,
+    1
+   ],
+   "contact": 0.7,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 50
+   },
+   "dir": [
+    0.65,
+    -0.05,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": -150
+   },
+   "dir": [
+    -0.7,
+    -0.05,
+    -0.7
+   ],
+   "front": [
+    0,
+    1,
+    0
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 16.5,
+    "az": 28
+   },
+   "size_mm": 16,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "satin",
+   "on": "head",
+   "at": {
+    "round": 19.3,
+    "az": 0
+   },
+   "width_mm": 7,
+   "height_mm": 5,
+   "shape": "triangle",
+   "colour": "lilac",
+   "thickness_mm": 1.4
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     20.0,
+     0
+    ],
+    [
+     20.8,
+     0
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     20.8,
+     0
+    ],
+    [
+     21.2,
+     5
+    ],
+    [
+     20.8,
+     9
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 0.9,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "leg",
+   "points": [
+    [
+     1.5,
+     -30
+    ],
+    [
+     3.5,
+     -30
+    ]
+   ],
+   "colour": "peachdark",
+   "thickness_mm": 1.2,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "leg",
+   "points": [
+    [
+     1.5,
+     30
+    ],
+    [
+     3.5,
+     30
+    ]
+   ],
+   "colour": "peachdark",
+   "thickness_mm": 1.2,
+   "mirror": true
+  }
+ ]
+}

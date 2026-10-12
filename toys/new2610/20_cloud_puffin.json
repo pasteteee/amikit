@@ -1,0 +1,386 @@
+{
+ "name": "20_cloud_puffin",
+ "title": "Cloud Collar Puffin",
+ "title_ru": "Тупик Облачко",
+ "subject": "penguin",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "bluegrey": "#7b8ca8",
+  "cream": "#f1e7dc",
+  "apricot": "#f09a6c",
+  "butter": "#f9d98f",
+  "powder": "#adc0da",
+  "pink": "#e3a29b",
+  "black": "#141414"
+ },
+ "colour_names_ru": {
+  "bluegrey": "серо-голубой",
+  "cream": "кремовый",
+  "apricot": "абрикосовый",
+  "butter": "светло-жёлтый",
+  "powder": "нежно-голубой",
+  "black": "чёрный",
+  "pink": "розовый"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 66 every 2",
+    "even 3",
+    "dec 6 to 48 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "bluegrey",
+   "stuff": "firm",
+   "colours": [
+    {
+     "ellipse": {
+      "center": [
+       17,
+       33
+      ],
+      "radii": [
+       8.5,
+       40
+      ]
+     },
+     "colour": "cream"
+    },
+    {
+     "ellipse": {
+      "center": [
+       17,
+       -33
+      ],
+      "radii": [
+       8.5,
+       40
+      ]
+     },
+     "colour": "cream"
+    },
+    {
+     "rounds": [
+      20,
+      32
+     ],
+     "az": [
+      -72,
+      72
+     ],
+     "colour": "cream"
+    },
+    {
+     "shape": [
+      [
+       7.5,
+       -34
+      ],
+      [
+       7.5,
+       34
+      ],
+      [
+       14,
+       0
+      ]
+     ],
+     "colour": "bluegrey"
+    }
+   ],
+   "name_ru": "голова",
+   "name_en": "head"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 60",
+    "even 4",
+    "dec 6 to 54",
+    "even 2",
+    "dec 6 to 48",
+    "even 1",
+    "dec 6 to 42"
+   ],
+   "colour": "bluegrey",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      3,
+      20
+     ],
+     "az": [
+      -64,
+      64
+     ],
+     "colour": "cream"
+    }
+   ],
+   "name_ru": "тело",
+   "name_en": "body"
+  },
+  {
+   "id": "beak",
+   "rounds": [
+    "mr 6",
+    "10",
+    "15",
+    "20",
+    "25",
+    "30"
+   ],
+   "colour": "apricot",
+   "end": "open",
+   "stuff": "light",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      6
+     ],
+     "az": [
+      -16,
+      16
+     ],
+     "colour": "butter"
+    },
+    {
+     "rounds": [
+      1,
+      6
+     ],
+     "az": [
+      164,
+      196
+     ],
+     "colour": "butter"
+    }
+   ],
+   "name_ru": "клюв",
+   "name_en": "beak"
+  },
+  {
+   "id": "wing",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "even 3",
+    "15",
+    "even 3",
+    "12"
+   ],
+   "colour": "bluegrey",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.5,
+   "name_ru": "крылышко",
+   "name_en": "wing"
+  },
+  {
+   "id": "foot",
+   "rounds": [
+    "mr 6",
+    "12",
+    "16",
+    "18",
+    "even 2"
+   ],
+   "colour": "apricot",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.85,
+   "name_ru": "лапка",
+   "name_en": "foot"
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 6",
+    "10",
+    "12",
+    "even 1"
+   ],
+   "colour": "bluegrey",
+   "end": "open",
+   "stuff": "light",
+   "name_ru": "хвостик",
+   "name_en": "tail"
+  },
+  {
+   "id": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "щёчка",
+   "name_en": "cheek"
+  },
+  {
+   "id": "collar",
+   "name_en": "collar",
+   "name_ru": "воротничок",
+   "rounds": [
+    "ring 42",
+    "inc 4 x3",
+    "shells 7 every 6"
+   ],
+   "colour": "powder",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 3
+  },
+  {
+   "part": "beak",
+   "on": "head",
+   "at": {
+    "round": 16,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.3,
+    1
+   ]
+  },
+  {
+   "part": "wing",
+   "on": "body",
+   "at": {
+    "round": 18.5,
+    "az": 86
+   },
+   "dir": [
+    0.9,
+    -1,
+    0.05
+   ],
+   "mirror": true,
+   "front": [
+    1,
+    0,
+    0
+   ],
+   "avoid": true,
+   "contact": 0.6,
+   "seam": "flat"
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 8,
+    "az": 36
+   },
+   "dir": [
+    0.6,
+    -0.05,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 10,
+    "az": 180
+   },
+   "dir": [
+    0,
+    0.3,
+    -1
+   ]
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 18.8,
+    "az": 49
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 0.6
+  },
+  {
+   "part": "collar",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "around": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 15.5,
+    "az": 35
+   },
+   "size_mm": 13,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     20.8,
+     -8
+    ],
+    [
+     21.4,
+     0
+    ],
+    [
+     20.8,
+     8
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.1
+  }
+ ]
+}

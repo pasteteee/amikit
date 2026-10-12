@@ -1,0 +1,541 @@
+{
+ "name": "09_blueberry_calf_new",
+ "title": "Blueberry Cream Calf",
+ "title_ru": "Телёнок Черничный крем",
+ "subject": "cow",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "cream": "#efe4d6",
+  "lilac": "#ad8fae",
+  "pink": "#eba9b1",
+  "black": "#151313",
+  "brown": "#4a2c22"
+ },
+ "colour_names_ru": {
+  "cream": "кремовый",
+  "lilac": "сиреневый",
+  "brown": "тёмно-коричневый",
+  "pink": "розовый",
+  "black": "чёрный"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 66 every 2",
+    "even 3",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "cream",
+   "stuff": "firm",
+   "flatten": 0.12,
+   "name_ru": "Голова",
+   "name_en": "Head"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 60",
+    "even 4",
+    "dec 6 to 54",
+    "even 1",
+    "dec 6 to 42"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "firm",
+   "name_ru": "Тело",
+   "name_en": "Body"
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 7",
+    "inc 6 to 32",
+    "even 6"
+   ],
+   "colour": "lilac",
+   "end": "open",
+   "stuff": "firm",
+   "name_ru": "Мордочка",
+   "name_en": "Muzzle"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "10",
+    "14",
+    "18",
+    "22",
+    "even 5",
+    "18",
+    "14"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "Ушко",
+   "name_en": "Ear",
+   "spoon": 0.8
+  },
+  {
+   "id": "inner_ear",
+   "rounds": [
+    "ch 6",
+    "18",
+    "24"
+   ],
+   "colour": "lilac",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "Вставка ушка",
+   "name_en": "Inner ear"
+  },
+  {
+   "id": "horn",
+   "rounds": [
+    "mr 6",
+    "9",
+    "even 1",
+    "12",
+    "even 1"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "firm",
+   "name_ru": "Рожок",
+   "name_en": "Horn"
+  },
+  {
+   "id": "front_leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "blo 18",
+    "even 2",
+    "dec 3 to 15",
+    "even 5"
+   ],
+   "colour": "cream",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      5
+     ],
+     "colour": "lilac"
+    }
+   ],
+   "end": "open",
+   "stuff": "firm",
+   "bend": {
+    "deg": 35,
+    "at": 5,
+    "over": 2,
+    "toward": [
+     0,
+     0,
+     1
+    ]
+   },
+   "name_ru": "Передняя ножка с копытцем",
+   "name_en": "Front leg with hoof"
+  },
+  {
+   "id": "hind_leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "21",
+    "blo 21",
+    "even 1",
+    "dec 3 to 18",
+    "even 3"
+   ],
+   "colour": "cream",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      5
+     ],
+     "colour": "lilac"
+    }
+   ],
+   "end": "open",
+   "stuff": "firm",
+   "name_ru": "Задняя ножка с копытцем",
+   "name_en": "Hind leg with hoof"
+  },
+  {
+   "id": "haunch",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 30"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "Бедро (аппликация)",
+   "name_en": "Haunch (applique)"
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "dec 3 to 6",
+    "even 5"
+   ],
+   "colour": "cream",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      5
+     ],
+     "colour": "lilac"
+    }
+   ],
+   "end": "open",
+   "stuff": "light",
+   "name_ru": "Хвостик с кисточкой",
+   "name_en": "Tail with ball tip"
+  },
+  {
+   "id": "patch",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42"
+   ],
+   "colour": "lilac",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "Пятно на спинке",
+   "name_en": "Back patch"
+  },
+  {
+   "id": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "Щёчка",
+   "name_en": "Cheek"
+  },
+  {
+   "id": "petal",
+   "rounds": [
+    "mr 8"
+   ],
+   "colour": "lilac",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "Лепесток цветка",
+   "name_en": "Flower petal"
+  },
+  {
+   "id": "flower_centre",
+   "rounds": [
+    "mr 6"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "Серединка цветка",
+   "name_en": "Flower centre"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0.18
+   ],
+   "sink": 10
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 21,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 13,
+    "az": 94
+   },
+   "dir": [
+    1,
+    -0.22,
+    0.15
+   ],
+   "front": [
+    0,
+    0,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "inner_ear",
+   "on": "ear",
+   "at": {
+    "round": 4.5,
+    "az": 0
+   },
+   "applique": true,
+   "mirror": true,
+   "along": "parent",
+   "inset": 1.4
+  },
+  {
+   "part": "horn",
+   "on": "head",
+   "at": {
+    "round": 5,
+    "az": 60
+   },
+   "dir": [
+    0.45,
+    1,
+    0.1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "front_leg",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 26
+   },
+   "dir": [
+    0.05,
+    -1,
+    0.35
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "pinch": 0.6
+  },
+  {
+   "part": "haunch",
+   "on": "body",
+   "at": {
+    "round": 11,
+    "az": 92
+   },
+   "applique": true,
+   "pad": 6,
+   "mirror": true
+  },
+  {
+   "part": "hind_leg",
+   "on": "body",
+   "at": {
+    "round": 9,
+    "az": 66
+   },
+   "dir": [
+    0.65,
+    -0.75,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 7,
+    "az": 180
+   },
+   "dir": [
+    0,
+    0.15,
+    -1
+   ],
+   "seam": "flat"
+  },
+  {
+   "part": "patch",
+   "on": "body",
+   "at": {
+    "round": 12.5,
+    "az": 180
+   },
+   "applique": true
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 18.2,
+    "az": 52
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "flower_centre",
+   "name": "fc",
+   "on": "head",
+   "at": {
+    "round": 10,
+    "az": -58
+   },
+   "applique": true,
+   "lift": 1.4
+  },
+  {
+   "part": "petal",
+   "name": "p1",
+   "on": "head",
+   "at": {
+    "round": 10,
+    "az": -58
+   },
+   "applique": true,
+   "offset_mm": [
+    0.0,
+    7.5
+   ]
+  },
+  {
+   "part": "petal",
+   "name": "p2",
+   "on": "head",
+   "at": {
+    "round": 10,
+    "az": -58
+   },
+   "applique": true,
+   "offset_mm": [
+    7.13,
+    2.32
+   ]
+  },
+  {
+   "part": "petal",
+   "name": "p3",
+   "on": "head",
+   "at": {
+    "round": 10,
+    "az": -58
+   },
+   "applique": true,
+   "offset_mm": [
+    4.41,
+    -6.07
+   ]
+  },
+  {
+   "part": "petal",
+   "name": "p4",
+   "on": "head",
+   "at": {
+    "round": 10,
+    "az": -58
+   },
+   "applique": true,
+   "offset_mm": [
+    -4.41,
+    -6.07
+   ]
+  },
+  {
+   "part": "petal",
+   "name": "p5",
+   "on": "head",
+   "at": {
+    "round": 10,
+    "az": -58
+   },
+   "applique": true,
+   "offset_mm": [
+    -7.13,
+    2.32
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 15.5,
+    "az": 33
+   },
+   "size_mm": 11,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.1,
+     130
+    ],
+    [
+     1.5,
+     155
+    ],
+    [
+     1.7,
+     180
+    ],
+    [
+     1.5,
+     205
+    ],
+    [
+     1.1,
+     230
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 1.2
+  }
+ ]
+}

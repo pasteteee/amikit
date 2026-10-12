@@ -1,0 +1,336 @@
+{
+ "name": "capybara",
+ "title": "Capybara with a turtle friend",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "tan": "#ae885b",
+  "snout": "#703c2a",
+  "brown": "#63301f",
+  "ear": "#7d3f29",
+  "green": "#355713",
+  "white": "#ebe9e4",
+  "black": "#141213",
+  "strap": "#a3c4a0"
+ },
+ "colour_names_ru": {
+  "snout": "тёмно-коричневый (нос)",
+  "ear": "коричневый (ушки)",
+  "strap": "светло-зелёный (лямки)"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "ch 7",
+    "inc 6 to 44",
+    "even 5",
+    "dec 6 to 8"
+   ],
+   "colour": "tan",
+   "end": "closed",
+   "stuff": "firm",
+   "oval_axis": "front"
+  },
+  {
+   "id": "head",
+   "rounds": [
+    "ch 5",
+    "inc 6 to 34",
+    "even 11"
+   ],
+   "colour": "tan",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      2
+     ],
+     "colour": "snout"
+    }
+   ],
+   "oval_axis": "front"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "even 2"
+   ],
+   "colour": "ear",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.6
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "blo 15",
+    "even 1"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "shell",
+   "name_en": "turtle shell",
+   "name_ru": "панцирь черепашки",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "even 3"
+   ],
+   "colour": "green",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "t_head",
+   "name_en": "turtle head",
+   "name_ru": "голова черепашки",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 3",
+    "dec 6 to 12"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "t_leg",
+   "name_en": "turtle leg",
+   "name_ru": "лапка черепашки",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "even 2"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "light"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": 11,
+    "az": 0
+   },
+   "dir": [
+    0,
+    0.4,
+    1
+   ],
+   "sink": 6
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 9,
+    "az": 52
+   },
+   "dir": [
+    0.3,
+    1,
+    0.05
+   ],
+   "mirror": true,
+   "front": [
+    0.7,
+    0,
+    0.7
+   ]
+  },
+  {
+   "part": "leg",
+   "name": "front_leg",
+   "on": "body",
+   "at": {
+    "round": 3,
+    "az": 30
+   },
+   "dir": [
+    0.15,
+    -1,
+    0.1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "leg",
+   "name": "back_leg",
+   "on": "body",
+   "at": {
+    "round": 3,
+    "az": 145
+   },
+   "dir": [
+    0.15,
+    -1,
+    -0.1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "shell",
+   "on": "body",
+   "at": {
+    "round": 16,
+    "az": 180
+   },
+   "dir": [
+    0,
+    1,
+    -0.45
+   ]
+  },
+  {
+   "part": "t_head",
+   "on": "shell",
+   "at": {
+    "round": 5.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    0.7
+   ]
+  },
+  {
+   "part": "t_leg",
+   "name": "t_front_leg",
+   "on": "shell",
+   "at": {
+    "round": 7,
+    "az": 50
+   },
+   "dir": [
+    1,
+    -0.5,
+    0.4
+   ],
+   "mirror": true
+  },
+  {
+   "part": "t_leg",
+   "name": "t_back_leg",
+   "on": "shell",
+   "at": {
+    "round": 7,
+    "az": 130
+   },
+   "dir": [
+    1,
+    -0.5,
+    -0.4
+   ],
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     7,
+     64
+    ],
+    [
+     9.5,
+     64
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 1.8,
+   "mirror": true
+  },
+  {
+   "type": "safety_eye",
+   "on": "t_head",
+   "at": {
+    "round": 4,
+    "az": 55
+   },
+   "size_mm": 6,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "strap",
+   "on": "body",
+   "points": [
+    [
+     16.5,
+     105
+    ],
+    [
+     13,
+     78
+    ],
+    [
+     8,
+     60
+    ],
+    [
+     3,
+     52
+    ]
+   ],
+   "colour": "strap",
+   "thickness_mm": 3.4,
+   "mirror": true
+  },
+  {
+   "type": "strap",
+   "on": "body",
+   "points": [
+    [
+     16.5,
+     112
+    ],
+    [
+     12,
+     135
+    ],
+    [
+     7,
+     148
+    ],
+    [
+     3,
+     152
+    ]
+   ],
+   "colour": "strap",
+   "thickness_mm": 3.4,
+   "mirror": true
+  }
+ ]
+}

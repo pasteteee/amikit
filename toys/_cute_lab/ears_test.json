@@ -1,0 +1,30 @@
+{
+ "name": "ears_test",
+ "title": "Ear constructions test bear",
+ "title_ru": "Тестовый мишка (ушки)",
+ "subject": "bear",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {"tan": "#c89a70", "cream": "#efe2cc", "dark": "#4a2c22"},
+ "notes": "Test toy for the opt-in constructions: cute_head preset, a dish ear (round kind) and a spoon ear (pointed kind).",
+ "parts": [
+  {"id": "body", "rounds": ["mr 6", "inc 6 to 36", "even 4", "dec 6 to 30", "even 2", "dec 6 to 24"], "colour": "tan", "end": "open", "stuff": "firm"},
+  {"id": "head", "preset": "cute_head", "max": 48, "colour": "tan"},
+  {"id": "muzzle", "rounds": ["ch 4", "inc 6 to 20", "even 2"], "colour": "cream", "end": "open", "stuff": "light"},
+  {"id": "ear", "preset": "ear", "kind": "round", "colour": "tan"},
+  {"id": "inner_ear", "rounds": ["mr 6", "12"], "colour": "cream", "end": "open", "stuff": "none"},
+  {"id": "tuft_ear", "preset": "ear", "kind": "pointed", "max": 13, "colour": "tan",
+   "colours": [{"ellipse": {"center": [3, 0], "radii": [2, 45]}, "colour": "cream"}]}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 1, 0]},
+  {"part": "head", "on": "body", "at": {"round": "end"}, "attach": "end", "dir": [0, 1, 0], "sink": 4},
+  {"part": "muzzle", "on": "head", "at": {"round": 13, "az": 0}, "dir": [0, -0.05, 1]},
+  {"part": "ear", "on": "head", "at": {"round": 6, "az": 62}, "dir": [0.45, 1, 0], "mirror": true},
+  {"part": "inner_ear", "on": "ear", "at": {"round": "start"}, "applique": true, "mirror": true, "inset": 1.0},
+  {"part": "tuft_ear", "on": "head", "at": {"round": 10, "az": 100}, "dir": [1, 0.6, -0.1], "mirror": true}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "head", "at": {"round": 11, "az": 24}, "size_mm": 9, "mirror": true},
+  {"type": "satin", "on": "muzzle", "at": {"round": 1.6, "az": 0}, "width_mm": 8, "height_mm": 6, "shape": "oval", "colour": "dark"}
+ ]
+}

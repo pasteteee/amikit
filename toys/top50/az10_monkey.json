@@ -1,0 +1,396 @@
+{
+ "name": "az10_monkey",
+ "title": "Baby monkey with bottle",
+ "subject": "monkey",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "brown": "#8e4a1e",
+  "skin": "#e2ad80",
+  "white": "#eeeff1",
+  "mint": "#86cdb0",
+  "black": "#121212",
+  "cheek": "#d48a68"
+ },
+ "colour_names_ru": {
+  "skin": "телесный",
+  "mint": "мятный"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 54 every 2",
+    "even 6",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "brown",
+   "stuff": "firm",
+   "colours": [
+    {
+     "shape": [
+      [
+       11,
+       -8
+      ],
+      [
+       10,
+       -25
+      ],
+      [
+       11,
+       -45
+      ],
+      [
+       14,
+       -60
+      ],
+      [
+       19,
+       -62
+      ],
+      [
+       23,
+       -50
+      ],
+      [
+       25.5,
+       -25
+      ],
+      [
+       26,
+       0
+      ],
+      [
+       25.5,
+       25
+      ],
+      [
+       23,
+       50
+      ],
+      [
+       19,
+       62
+      ],
+      [
+       14,
+       60
+      ],
+      [
+       11,
+       45
+      ],
+      [
+       10,
+       25
+      ],
+      [
+       11,
+       8
+      ],
+      [
+       12,
+       0
+      ]
+     ],
+     "colour": "skin"
+    }
+   ]
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "even 5",
+    "dec 6 to 36",
+    "even 2",
+    "dec 6 to 30",
+    "even 2",
+    "dec 6 to 24"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 5",
+    "inc 4 to 18",
+    "even 1"
+   ],
+   "colour": "skin",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18"
+   ],
+   "colour": "skin",
+   "end": "open",
+   "stuff": "none",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      1
+     ],
+     "colour": "cheek"
+    }
+   ]
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 2",
+    "12",
+    "even 8"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "light",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "colour": "skin"
+    }
+   ],
+   "bend": {
+    "deg": 100,
+    "at": 7,
+    "over": 2
+   }
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 3",
+    "15",
+    "12",
+    "even 4"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "colour": "skin"
+    }
+   ]
+  },
+  {
+   "id": "bottle",
+   "rounds": [
+    "mr 6",
+    "12",
+    "blo 12",
+    "even 6",
+    "dec 3 to 6"
+   ],
+   "colour": "white",
+   "end": "closed",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      8,
+      9
+     ],
+     "colour": "mint"
+    }
+   ]
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 21,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 16,
+    "az": 95
+   },
+   "dir": [
+    1,
+    0.1,
+    -0.35
+   ],
+   "mirror": true,
+   "attach": "edge",
+   "face": [
+    0.2,
+    0,
+    1
+   ],
+   "cup": 3
+  },
+  {
+   "part": "arm",
+   "name": "arm_raised",
+   "on": "body",
+   "at": {
+    "round": 17.5,
+    "az": 80
+   },
+   "dir": [
+    1,
+    0.8,
+    0
+   ],
+   "bend_toward": [
+    -0.3,
+    1,
+    0.3
+   ],
+   "seam": "flat"
+  },
+  {
+   "part": "arm",
+   "name": "arm_hold",
+   "on": "body",
+   "at": {
+    "round": 17.5,
+    "az": -75
+   },
+   "dir": [
+    -0.2,
+    -0.5,
+    1
+   ],
+   "bend_toward": [
+    0.6,
+    0.8,
+    0
+   ],
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 6,
+    "az": 40
+   },
+   "dir": [
+    0.35,
+    -0.1,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "bottle",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": -10
+   },
+   "attach": "start",
+   "dir": [
+    0.15,
+    0.5,
+    1
+   ],
+   "sink": 3
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 16.5,
+    "az": 24
+   },
+   "size_mm": 12,
+   "mirror": true,
+   "iris": "brown",
+   "pupil": 0.6
+  },
+  {
+   "type": "safety_nose",
+   "on": "muzzle",
+   "at": {
+    "round": 1.5,
+    "az": 0
+   },
+   "size_mm": [
+    5,
+    3.5
+   ],
+   "shape": "oval",
+   "colour": "skin"
+  },
+  {
+   "type": "blush",
+   "on": "head",
+   "at": {
+    "round": 20,
+    "az": 38
+   },
+   "size_mm": 9,
+   "colour": "cheek",
+   "mirror": true,
+   "strength": 0.4
+  }
+ ]
+}

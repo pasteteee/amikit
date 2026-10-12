@@ -1,0 +1,189 @@
+{
+ "name": "08_onigiri",
+ "title": "Onigiri Buddy",
+ "title_ru": "Онигири Рисинка",
+ "subject": "rice ball",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "rice": "#fbfaf4",
+  "nori": "#2e4637",
+  "sesame": "#3a2f2a",
+  "blush": "#ffb0b8",
+  "mouth": "#3a2a2a"
+ },
+ "colour_names_ru": {
+  "rice": "белый",
+  "nori": "тёмно-зелёный",
+  "sesame": "тёмно-коричневый",
+  "blush": "розовый (щёчки)",
+  "mouth": "тёмно-коричневый"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "рисовый шарик",
+   "name_en": "rice ball",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "24",
+    "inc 6 to 48 every 2",
+    "inc 6 to 60",
+    "even 4",
+    "blo 60",
+    "dec 6 to 6"
+   ],
+   "colour": "rice",
+   "stuff": "firm",
+   "flatten": 0.3
+  },
+  {
+   "id": "nori",
+   "name_ru": "нори",
+   "name_en": "nori",
+   "colour": "nori",
+   "flat": {
+    "width_st": 11,
+    "rows": 8
+   }
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    -1,
+    0
+   ]
+  },
+  {
+   "part": "nori",
+   "on": "body",
+   "at": {
+    "round": 16,
+    "az": 0
+   },
+   "conform": true,
+   "lift": 1.0
+  },
+  {
+   "part": "cheek",
+   "on": "body",
+   "at": {
+    "round": 11.5,
+    "az": 38
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.0
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 9.5,
+    "az": 22
+   },
+   "size_mm": 12,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     11.0,
+     -6
+    ],
+    [
+     11.39,
+     -3.0
+    ],
+    [
+     11.6,
+     0
+    ],
+    [
+     11.39,
+     3.0
+    ],
+    [
+     11.0,
+     6
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 1.1,
+   "id": "smile"
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": -25
+   },
+   "width_mm": 1.8,
+   "height_mm": 3.4,
+   "shape": "oval",
+   "colour": "sesame",
+   "thickness_mm": 1.0,
+   "rotate": 30,
+   "id": "sesame1"
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 30
+   },
+   "width_mm": 1.8,
+   "height_mm": 3.4,
+   "shape": "oval",
+   "colour": "sesame",
+   "thickness_mm": 1.0,
+   "rotate": -20,
+   "id": "sesame2"
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 3.5,
+    "az": 150
+   },
+   "width_mm": 1.8,
+   "height_mm": 3.4,
+   "shape": "oval",
+   "colour": "sesame",
+   "thickness_mm": 1.0,
+   "rotate": 60,
+   "id": "sesame3"
+  }
+ ]
+}

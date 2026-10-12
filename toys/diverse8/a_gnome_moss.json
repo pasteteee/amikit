@@ -1,0 +1,231 @@
+{
+ "name": "a_gnome_moss",
+ "title": "Forest Gnome",
+ "title_ru": "Гномик Мох",
+ "subject": "gnome",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "robe": "#7f9bb3",
+  "hat": "#d64f4f",
+  "beard": "#fbf8f2",
+  "nose": "#f4b8a4",
+  "boot": "#6b4a35",
+  "mitten": "#e8c547"
+ },
+ "colour_names_ru": {
+  "robe": "серо-голубой",
+  "hat": "красный",
+  "beard": "молочный",
+  "nose": "телесный",
+  "boot": "коричневый",
+  "mitten": "горчичный"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "тельце-кафтан",
+   "name_en": "robe body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "blo 54",
+    "even 5",
+    "dec 6 to 48 every 3",
+    "dec 6 to 42 every 3",
+    "even 4",
+    "dec 6 to 6"
+   ],
+   "colour": "robe",
+   "stuff": "firm"
+  },
+  {
+   "id": "hat",
+   "name_ru": "колпак",
+   "name_en": "hat",
+   "rounds": [
+    "mr 4",
+    "inc 2 to 20 every 2",
+    "inc 4 to 48",
+    "even 5",
+    "rib 48 x1"
+   ],
+   "colour": "hat",
+   "end": "open",
+   "stuff": "medium",
+   "bend": {
+    "deg": 75,
+    "at": 13,
+    "over": 5,
+    "toward": [
+     0.25,
+     -0.3,
+     -1
+    ]
+   }
+  },
+  {
+   "id": "nose",
+   "name_ru": "носик",
+   "name_en": "nose",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "even 3",
+    "12",
+    "6"
+   ],
+   "colour": "nose",
+   "stuff": "firm"
+  },
+  {
+   "id": "beard",
+   "name_ru": "борода",
+   "name_en": "beard",
+   "rounds": [
+    "mr 4",
+    "8",
+    "12",
+    "16",
+    "20",
+    "24",
+    "28",
+    "rib 28 x3",
+    "21",
+    "14",
+    "7"
+   ],
+   "colour": "beard",
+   "stuff": "medium",
+   "flatten": 0.2
+  },
+  {
+   "id": "arm",
+   "name_ru": "ручка",
+   "name_en": "arm",
+   "rounds": [
+    "mr 6",
+    "9",
+    "even 5",
+    "8"
+   ],
+   "colour": "robe",
+   "end": "open",
+   "stuff": "light",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      3
+     ],
+     "colour": "mitten"
+    }
+   ]
+  },
+  {
+   "id": "boot",
+   "name_ru": "сапожок",
+   "name_en": "boot",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "10"
+   ],
+   "colour": "boot",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.4
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "hat",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    -0.05
+   ],
+   "sink": 6
+  },
+  {
+   "part": "nose",
+   "on": "body",
+   "at": {
+    "round": 20.5,
+    "az": 0
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    -0.1,
+    1
+   ],
+   "sink": 6
+  },
+  {
+   "part": "beard",
+   "on": "body",
+   "at": {
+    "round": 20,
+    "az": 0
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    -1,
+    0.25
+   ],
+   "sink": 10
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 16,
+    "az": 72
+   },
+   "dir": [
+    0.3,
+    -0.6,
+    0.7
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "boot",
+   "on": "body",
+   "at": {
+    "round": 2.5,
+    "az": 38
+   },
+   "dir": [
+    0.2,
+    -0.4,
+    1
+   ],
+   "mirror": true
+  }
+ ],
+ "face": []
+}

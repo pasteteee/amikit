@@ -1,0 +1,536 @@
+{
+ "name": "40_cocoa_mermaid_cat",
+ "title": "Cocoa Mermaid Cat",
+ "title_ru": "Котоморка Шоколадная волна",
+ "subject": "cat",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "cream": "#f3e4d2",
+  "teal": "#1597a1",
+  "aqua": "#6ccbd1",
+  "coral": "#f8705f",
+  "cocoa": "#6b3a22",
+  "pink": "#f6a0a6",
+  "nosepink": "#f48aa0",
+  "brown": "#5a3322",
+  "black": "#141213",
+  "white": "#f6f4ef",
+  "deepteal": "#0a7480"
+ },
+ "colour_names_ru": {
+  "cream": "молочный",
+  "teal": "бирюзовый",
+  "aqua": "бирюзовый светлый",
+  "coral": "коралловый",
+  "cocoa": "шоколадный",
+  "pink": "розовый",
+  "nosepink": "розовый (носик)",
+  "brown": "коричневый",
+  "deepteal": "бирюзовый глубокий"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "туловище",
+   "name_en": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "blo 54",
+    "even 3",
+    "dec 6 to 48",
+    "even 1",
+    "dec 6 to 42",
+    "dec 6 to 36",
+    "even 6"
+   ],
+   "colour": "teal",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      12,
+      16
+     ],
+     "colour": "deepteal"
+    },
+    {
+     "rounds": [
+      17,
+      23
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 60 every 2",
+    "even 3",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "cream",
+   "end": "closed",
+   "stuff": "firm"
+  },
+  {
+   "id": "ear",
+   "preset": "ear",
+   "kind": "pointed",
+   "inner": "coral",
+   "name_ru": "ушко",
+   "name_en": "ear",
+   "colour": "cream",
+   "max": 22,
+   "rounds": [
+    "mr 4",
+    "7",
+    "10",
+    "13",
+    "16",
+    "18",
+    "20",
+    "22",
+    "even 1"
+   ]
+  },
+  {
+   "id": "band",
+   "name_ru": "верхняя волна-оборка",
+   "name_en": "upper scalloped band",
+   "rounds": [
+    "ring 42",
+    "42",
+    "shells 7 every 6"
+   ],
+   "colour": "aqua",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвост русалочки",
+   "name_en": "mermaid tail",
+   "rounds": [
+    "mr 6",
+    "8",
+    "10",
+    "12",
+    "14",
+    "even 2",
+    "17",
+    "20",
+    "23",
+    "26",
+    "29",
+    "32",
+    "even 3"
+   ],
+   "colour": "teal",
+   "end": "open",
+   "stuff": "medium",
+   "bend": {
+    "deg": 60,
+    "at": 6,
+    "over": 5
+   }
+  },
+  {
+   "id": "fin",
+   "name_ru": "лопасть хвоста",
+   "name_en": "tail lobe",
+   "rounds": [
+    "mr 4",
+    "6",
+    "9",
+    "12",
+    "15",
+    "17",
+    "even 2",
+    "16",
+    "14",
+    "12",
+    "10",
+    "8",
+    "6",
+    "4"
+   ],
+   "colour": "coral",
+   "end": "closed",
+   "stuff": "light",
+   "flatten": 0.8
+  },
+  {
+   "id": "arm",
+   "name_ru": "ручка",
+   "name_en": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 4",
+    "12",
+    "even 1"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "button",
+   "name_ru": "шоколадный кружок",
+   "name_en": "cocoa button",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18"
+   ],
+   "colour": "cocoa",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "band2",
+   "name_ru": "нижняя волна-оборка",
+   "name_en": "lower scalloped band",
+   "rounds": [
+    "ring 54",
+    "48",
+    "shells 7 every 6"
+   ],
+   "colour": "aqua",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0.15
+   ],
+   "sink": 8,
+   "sink_dir": "axis"
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 7.0,
+    "az": 52
+   },
+   "dir": [
+    0.4,
+    1,
+    0.0
+   ],
+   "mirror": true,
+   "front": [
+    0.45,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "band",
+   "on": "body",
+   "at": {
+    "round": 17
+   },
+   "around": true
+  },
+  {
+   "part": "band2",
+   "on": "body",
+   "at": {
+    "round": 13
+   },
+   "around": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 6.5,
+    "az": 125
+   },
+   "dir": [
+    0.75,
+    -0.12,
+    -0.65
+   ],
+   "bend_toward": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "fin",
+   "name": "fin_top",
+   "on": "tail",
+   "at": {
+    "round": 1.5,
+    "az": 0
+   },
+   "dir": [
+    0.1,
+    1,
+    -0.15
+   ],
+   "attach": "start",
+   "sink": 2,
+   "front": [
+    0.4,
+    0,
+    0.9
+   ]
+  },
+  {
+   "part": "fin",
+   "name": "fin_back",
+   "on": "tail",
+   "at": {
+    "round": 1.5,
+    "az": 180
+   },
+   "dir": [
+    0.65,
+    0.45,
+    -0.6
+   ],
+   "attach": "start",
+   "sink": 2,
+   "front": [
+    0.9,
+    0,
+    0.4
+   ]
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 21.5,
+    "az": 72
+   },
+   "dir": [
+    -0.05,
+    -0.45,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "button",
+   "on": "body",
+   "at": {
+    "round": 20.5,
+    "az": 0
+   },
+   "applique": true,
+   "pad": 4
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 18.0,
+    "az": 47
+   },
+   "applique": true,
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "satin",
+   "role": "eye",
+   "on": "head",
+   "at": {
+    "round": 14.5,
+    "az": 27
+   },
+   "width_mm": 13.5,
+   "height_mm": 14.5,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.1,
+   "mirror": true,
+   "id": "nose"
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 14.5,
+    "az": 27
+   },
+   "width_mm": 3.2,
+   "height_mm": 3.2,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 0.9,
+   "offset_mm": [
+    2.1,
+    2.6
+   ],
+   "id": "nose2"
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 14.5,
+    "az": -27
+   },
+   "width_mm": 3.2,
+   "height_mm": 3.2,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 0.9,
+   "offset_mm": [
+    2.1,
+    2.6
+   ],
+   "id": "nose3"
+  },
+  {
+   "type": "satin",
+   "on": "head",
+   "at": {
+    "round": 15.3,
+    "az": 0
+   },
+   "width_mm": 6,
+   "height_mm": 4.5,
+   "shape": "triangle",
+   "colour": "nosepink",
+   "thickness_mm": 1.3,
+   "id": "nose4"
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     16.0,
+     0
+    ],
+    [
+     16.8,
+     -4
+    ],
+    [
+     16.2,
+     -8
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 1.0,
+   "id": "line"
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     16.0,
+     0
+    ],
+    [
+     16.8,
+     4
+    ],
+    [
+     16.2,
+     8
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 1.0,
+   "id": "line2"
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     15.2,
+     44
+    ],
+    [
+     14.6,
+     56
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 0.9,
+   "mirror": true,
+   "id": "line3"
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     16.4,
+     44
+    ],
+    [
+     16.6,
+     56
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 0.9,
+   "mirror": true,
+   "id": "line4"
+  }
+ ]
+}

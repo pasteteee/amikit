@@ -1,0 +1,129 @@
+{
+ "name": "az30_ghost",
+ "title": "Emotional support ghost",
+ "subject": "ghost",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "ghost": "#f2f1ef",
+  "pink": "#f08aa8",
+  "black": "#1a1817"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "even 10",
+    "inc 6 to 42",
+    "even 5",
+    "inc 6 to 48",
+    "even 2",
+    "54",
+    "60",
+    "66",
+    "blo 66",
+    "dec 6 to 6"
+   ],
+   "colour": "ghost",
+   "stuff": "light"
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 4",
+    "7",
+    "10",
+    "12",
+    "even 5"
+   ],
+   "colour": "ghost",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.7
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    -1,
+    0
+   ],
+   "pos": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 18,
+    "az": 84
+   },
+   "dir": [
+    0.55,
+    1,
+    0.15
+   ],
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 9,
+    "az": 22
+   },
+   "size_mm": 8,
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 11.6,
+    "az": 0
+   },
+   "width_mm": 8,
+   "height_mm": 6,
+   "shape": "oval",
+   "thickness_mm": 1.2
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 12.4,
+    "az": 0
+   },
+   "width_mm": 4,
+   "height_mm": 2.2,
+   "shape": "oval",
+   "thickness_mm": 1.4,
+   "colour": "pink"
+  },
+  {
+   "type": "blush",
+   "on": "body",
+   "at": {
+    "round": 11,
+    "az": 34
+   },
+   "size_mm": 7,
+   "colour": "pink",
+   "mirror": true
+  }
+ ]
+}

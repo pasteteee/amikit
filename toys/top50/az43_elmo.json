@@ -1,0 +1,211 @@
+{
+ "name": "az43_elmo",
+ "title": "Red furry monster (Elmo)",
+ "subject": "monster",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "red": "#d8141c",
+  "orange": "#f08a1e",
+  "white": "#f4f2ee",
+  "black": "#141212"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 54 every 2",
+    "even 8",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "red",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "ch 6",
+    "inc 6 to 54",
+    "even 5",
+    "dec 6 to 48",
+    "even 3",
+    "dec 6 to 42",
+    "even 2",
+    "dec 6 to 36"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "eyeball",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 4",
+    "dec 6 to 6"
+   ],
+   "colour": "white",
+   "end": "closed",
+   "stuff": "firm"
+  },
+  {
+   "id": "nose",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "15",
+    "even 1"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 3",
+    "15",
+    "even 3",
+    "12",
+    "even 5"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "ch 5",
+    "inc 6 to 22",
+    "even 3",
+    "18",
+    "even 9"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "firm"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 6
+  },
+  {
+   "part": "eyeball",
+   "on": "head",
+   "at": {
+    "round": 6,
+    "az": 21
+   },
+   "dir": [
+    0.2,
+    1,
+    0.6
+   ],
+   "mirror": true,
+   "sink": 4,
+   "attach": "start"
+  },
+  {
+   "part": "nose",
+   "on": "head",
+   "at": {
+    "round": 11,
+    "az": 0
+   },
+   "dir": [
+    0,
+    0.1,
+    1
+   ]
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 16,
+    "az": 85
+   },
+   "dir": [
+    0.8,
+    -1,
+    0.25
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.6,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 30
+   },
+   "dir": [
+    0.35,
+    -0.1,
+    1
+   ],
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "eyeball",
+   "at": {
+    "round": 7,
+    "az": -10
+   },
+   "size_mm": 10,
+   "mirror": true
+  },
+  {
+   "type": "felt",
+   "on": "head",
+   "at": {
+    "round": 15.5,
+    "az": 0
+   },
+   "size_mm": [
+    40,
+    17
+   ],
+   "colour": "black"
+  }
+ ]
+}

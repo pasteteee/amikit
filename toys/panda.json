@@ -1,0 +1,403 @@
+{
+ "name": "panda",
+ "title": "Chibi panda",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "white": "#f3f1ec",
+  "black": "#121213",
+  "pink": "#eda0a8"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 54 every 2",
+    "even 5",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "white",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "even 4",
+    "dec 6 to 30",
+    "even 1",
+    "dec 6 to 24",
+    "even 1",
+    "dec 6 to 18"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      14,
+      17
+     ],
+     "colour": "black"
+    }
+   ]
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 20",
+    "even 3"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "patch",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "16"
+   ],
+   "colour": "black",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 3"
+   ],
+   "colour": "black",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.45,
+   "squash": 0
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "inc 5 to 16",
+    "even 1",
+    "dec 3 to 13",
+    "even 5",
+    "11",
+    "even 1"
+   ],
+   "colour": "black",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 2",
+    "16",
+    "dec 3 to 13",
+    "even 3",
+    "11"
+   ],
+   "colour": "black",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "even 2",
+    "dec 6 to 6"
+   ],
+   "colour": "white",
+   "end": "closed",
+   "stuff": "medium"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 2.5
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 17.1,
+    "az": 0
+   },
+   "dir": [
+    0,
+    0.05,
+    1
+   ]
+  },
+  {
+   "part": "patch",
+   "on": "head",
+   "at": {
+    "round": 14.0,
+    "az": 31
+   },
+   "applique": true,
+   "mirror": true,
+   "roll": -25
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 6.5,
+    "az": 105
+   },
+   "dir": [
+    0.75,
+    1,
+    -0.05
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "seam_line": [
+    0.8,
+    -0.6,
+    0
+   ]
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 14.5,
+    "az": 72
+   },
+   "dir": [
+    0.15,
+    -1,
+    0.3
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.6,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 6.5,
+    "az": 48
+   },
+   "dir": [
+    0.3,
+    -0.05,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 5.5,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.2,
+    -1
+   ],
+   "sink": 3
+  }
+ ],
+ "face": [
+  {
+   "type": "satin",
+   "role": "eye",
+   "on": "head",
+   "at": {
+    "round": 13.8,
+    "az": 31
+   },
+   "width_mm": 7.5,
+   "height_mm": 9,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.1,
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 13.8,
+    "az": 31
+   },
+   "width_mm": 3,
+   "height_mm": 3,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 0.9,
+   "offset_mm": [
+    -1.5,
+    1.8
+   ]
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 13.8,
+    "az": 31
+   },
+   "width_mm": 1.4,
+   "height_mm": 1.4,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.8,
+   "lift_mm": 0.9,
+   "offset_mm": [
+    1.65,
+    -1.98
+   ],
+   "strands": 2
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 13.8,
+    "az": -31
+   },
+   "width_mm": 3,
+   "height_mm": 3,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 0.9,
+   "offset_mm": [
+    -1.5,
+    1.8
+   ]
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 13.8,
+    "az": -31
+   },
+   "width_mm": 1.4,
+   "height_mm": 1.4,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.8,
+   "lift_mm": 0.9,
+   "offset_mm": [
+    1.65,
+    -1.98
+   ],
+   "strands": 2
+  },
+  {
+   "type": "satin",
+   "on": "muzzle",
+   "at": {
+    "round": 1.4,
+    "az": 0
+   },
+   "width_mm": 9,
+   "height_mm": 6.5,
+   "shape": "triangle",
+   "colour": "black",
+   "thickness_mm": 1.3
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.8,
+     180
+    ],
+    [
+     2.4,
+     180
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     2.9,
+     135
+    ],
+    [
+     2.4,
+     180
+    ],
+    [
+     2.9,
+     225
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0
+  },
+  {
+   "type": "blush",
+   "on": "head",
+   "at": {
+    "round": 17.6,
+    "az": 46
+   },
+   "size_mm": 8,
+   "colour": "pink",
+   "mirror": true,
+   "strength": 0.5
+  }
+ ]
+}

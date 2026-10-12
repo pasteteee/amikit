@@ -1,0 +1,65 @@
+{
+ "name": "07_tangerine_corgi_bun",
+ "title": "Tangerine Corgi Bun",
+ "title_ru": "Корги Мандариновая булочка",
+ "subject": "dog",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {
+  "tangerine": "#f07a2a",
+  "cream": "#f6ead2",
+  "pinkear": "#f6b0b4",
+  "mint": "#8fd0b0",
+  "tan": "#e6c69c",
+  "blush": "#f29aa8"
+ },
+ "colour_names_ru": {
+  "tangerine": "мандариновый",
+  "cream": "молочный",
+  "pinkear": "светло-розовый (внутри ушка)",
+  "mint": "мятный",
+  "tan": "бежевый (сердечко)",
+  "blush": "розовый (щёчки)"
+ },
+ "parts": [
+  {"id": "body", "name_ru": "туловище", "name_en": "body",
+   "rounds": ["mr 6", "inc 6 to 66", "even 9", "dec 6 to 54 every 2", "dec 6 to 6"],
+   "colour": "tangerine", "end": "closed", "stuff": "firm", "flatten": 0.3,
+   "colours": [{"rounds": [20, 32], "az": [125, 235], "colour": "cream"}]},
+  {"id": "head", "name_ru": "голова", "name_en": "head", "preset": "cute_head", "max": 66, "colour": "tangerine",
+   "colours": [{"shape": [[3, 0], [6, -6], [10, -10], [13.5, -15], [15.5, -22], [16.5, -38], [17.5, -48], [30, -48], [30, 48], [17.5, 48], [16.5, 38], [15.5, 22], [13.5, 15], [10, 10], [6, 6]],
+     "colour": "cream"}]},
+  {"id": "muzzle", "name_ru": "мордочка", "name_en": "muzzle",
+   "rounds": ["ch 5", "16", "22", "even 1"], "colour": "cream", "end": "open", "stuff": "light"},
+  {"id": "ear", "name_ru": "ушко", "name_en": "ear", "preset": "ear", "kind": "pointed", "inner": "pinkear",
+   "rounds": ["mr 4", "7", "10", "13", "16", "even 1", "19", "22", "even 1", "25", "28", "even 3"], "colour": "tangerine"},
+  {"id": "cheek", "name_ru": "щёчка", "name_en": "cheek", "rounds": ["mr 6", "12"], "colour": "blush", "end": "open",
+   "stuff": "none"},
+  {"id": "paw", "name_ru": "лапка", "name_en": "paw",
+   "rounds": ["mr 6", "12", "15", "even 1", "12"], "colour": "cream", "end": "open", "stuff": "firm"},
+  {"id": "tail", "name_ru": "хвостик", "name_en": "tail",
+   "rounds": ["mr 6", "12", "even 1", "9"], "colour": "cream", "end": "open", "stuff": "medium"},
+  {"id": "heart", "name_ru": "сердечко на попе", "name_en": "heart marking", "colour": "tan", "motif": {"kind": "heart", "rounds": 3}},
+  {"id": "kerchief", "name_ru": "косынка", "name_en": "kerchief", "colour": "mint", "motif": {"kind": "triangle", "width": 26}}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 0, 1]},
+  {"part": "head", "on": "body", "at": {"round": 27, "az": 0}, "attach": "end", "dir": [0, 1, 0.1], "sink": 13, "sink_dir": "axis"},
+  {"part": "muzzle", "on": "head", "at": {"round": 17.5, "az": 0}, "dir": [0, -0.1, 1]},
+  {"part": "ear", "on": "head", "at": {"round": 7.5, "az": 72}, "dir": [0.9, 1, 0.05], "mirror": true},
+  {"part": "cheek", "on": "head", "at": {"round": 17.5, "az": 47}, "applique": true, "mirror": true},
+  {"part": "kerchief", "on": "body", "at": {"round": 30.5, "az": 160}, "applique": true, "roll": 180, "lift": 1.6},
+  {"part": "paw", "name": "front_paw", "on": "body", "at": {"round": 24, "az": 140}, "dir": [0.3, -1, 0.4], "mirror": true},
+  {"part": "paw", "name": "hind_paw", "on": "body", "at": {"round": 7, "az": 140}, "dir": [0.3, -1, -0.3], "mirror": true},
+  {"part": "tail", "on": "body", "at": {"round": 4, "az": 0}, "dir": [0, 0.5, -1]},
+  {"part": "heart", "on": "body", "at": {"round": 3.8, "az": 180}, "applique": true, "lift": 0.8}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "head", "at": {"round": 14.8, "az": 29}, "size_mm": 13, "mirror": true, "highlight": true},
+  {"type": "safety_nose", "on": "muzzle", "at": {"round": 1.4, "az": 0}, "size_mm": [9, 7], "shape": "triangle"},
+  {"type": "stitch", "on": "muzzle", "points": [[2.0, 180], [2.8, 180]], "colour": "black", "thickness_mm": 0.9},
+  {"type": "stitch", "on": "muzzle", "points": [[2.8, 180], [3.3, 150], [2.8, 125]], "colour": "black", "thickness_mm": 0.9,
+   "mirror": true},
+  {"type": "strap", "on": "body", "points": [[30.5, 80], [27.5, 72], [24, 50], [22, 0], [24, -50], [27.5, -72], [30.5, -80]],
+   "colour": "mint", "thickness_mm": 3.4}
+ ]
+}

@@ -1,0 +1,348 @@
+{
+ "name": "az49_kiwi",
+ "title": "Kiwi slice squish",
+ "subject": "kiwi",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "kiwi": "#bcd99a",
+  "rind": "#b97a48",
+  "pale": "#e3edc4",
+  "white": "#f6f6ee",
+  "black": "#1c1a1a",
+  "red": "#e0504a"
+ },
+ "colour_names_ru": {
+  "kiwi": "\u0441\u0432\u0435\u0442\u043b\u043e-\u0437\u0435\u043b\u0451\u043d\u044b\u0439",
+  "rind": "\u0441\u0432\u0435\u0442\u043b\u043e-\u043a\u043e\u0440\u0438\u0447\u043d\u0435\u0432\u044b\u0439",
+  "pale": "\u0431\u043b\u0435\u0434\u043d\u043e-\u0437\u0435\u043b\u0451\u043d\u044b\u0439"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 62",
+    "blo 62",
+    "even 3",
+    "blo 62",
+    "dec 6 to 14"
+   ],
+   "colour": "kiwi",
+   "stuff": "medium",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      2
+     ],
+     "colour": "pale"
+    },
+    {
+     "rounds": [
+      10,
+      16
+     ],
+     "colour": "rind"
+    }
+   ],
+   "oval_axis": "front"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    0,
+    -1
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 7.5,
+    "az": -36
+   },
+   "size_mm": 7
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     7.3,
+     28
+    ],
+    [
+     7.8,
+     33
+    ],
+    [
+     7.8,
+     39
+    ],
+    [
+     7.3,
+     44
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.2
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     6.2,
+     -8
+    ],
+    [
+     5.8,
+     0
+    ],
+    [
+     6.2,
+     8
+    ]
+   ],
+   "colour": "red",
+   "thickness_mm": 1.2
+  },
+  {
+   "type": "felt",
+   "on": "body",
+   "at": {
+    "round": 4.0,
+    "az": 0
+   },
+   "size_mm": [
+    3,
+    6
+   ],
+   "rotate": 0,
+   "colour": "black"
+  },
+  {
+   "type": "felt",
+   "on": "body",
+   "at": {
+    "round": 4.3,
+    "az": -50
+   },
+   "size_mm": [
+    3,
+    6
+   ],
+   "rotate": -50,
+   "colour": "black"
+  },
+  {
+   "type": "felt",
+   "on": "body",
+   "at": {
+    "round": 4.3,
+    "az": 50
+   },
+   "size_mm": [
+    3,
+    6
+   ],
+   "rotate": 50,
+   "colour": "black"
+  },
+  {
+   "type": "felt",
+   "on": "body",
+   "at": {
+    "round": 4.5,
+    "az": -100
+   },
+   "size_mm": [
+    3,
+    6
+   ],
+   "rotate": -100,
+   "colour": "black"
+  },
+  {
+   "type": "felt",
+   "on": "body",
+   "at": {
+    "round": 4.5,
+    "az": 100
+   },
+   "size_mm": [
+    3,
+    6
+   ],
+   "rotate": 100,
+   "colour": "black"
+  },
+  {
+   "type": "felt",
+   "on": "body",
+   "at": {
+    "round": 4.3,
+    "az": -145
+   },
+   "size_mm": [
+    3,
+    6
+   ],
+   "rotate": -145,
+   "colour": "black"
+  },
+  {
+   "type": "felt",
+   "on": "body",
+   "at": {
+    "round": 4.3,
+    "az": 145
+   },
+   "size_mm": [
+    3,
+    6
+   ],
+   "rotate": 145,
+   "colour": "black"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     4.5,
+     25
+    ],
+    [
+     9.5,
+     31
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 1.4
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     4.5,
+     70
+    ],
+    [
+     9.5,
+     76
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 1.4
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     4.5,
+     120
+    ],
+    [
+     9.5,
+     126
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 1.4
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     4.5,
+     165
+    ],
+    [
+     9.5,
+     171
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 1.4
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     4.5,
+     210
+    ],
+    [
+     9.5,
+     216
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 1.4
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     4.5,
+     250
+    ],
+    [
+     9.5,
+     256
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 1.4
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     4.5,
+     290
+    ],
+    [
+     9.5,
+     296
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 1.4
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     4.5,
+     335
+    ],
+    [
+     9.5,
+     341
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 1.4
+  }
+ ]
+}

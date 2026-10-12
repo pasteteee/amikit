@@ -1,0 +1,463 @@
+{
+ "name": "az19_labubu",
+ "title": "Peach monster pendant",
+ "subject": "bunny",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "peach": "#f6c2a4",
+  "skin": "#f7dcc6",
+  "orange": "#ec9a4c",
+  "amber": "#efb860",
+  "brown": "#8a4a2a",
+  "white": "#fbf7f2",
+  "black": "#2a2220"
+ },
+ "colour_names_ru": {
+  "peach": "\u0420\u0457\u0420\u00b5\u0421\u0402\u0421\u0403\u0420\u0451\u0420\u0454\u0420\u0455\u0420\u0406\u0421\u2039\u0420\u2116",
+  "skin": "\u0421\u201a\u0420\u00b5\u0420\u00bb\u0420\u00b5\u0421\u0403\u0420\u0405\u0421\u2039\u0420\u2116",
+  "amber": "\u0421\u040f\u0420\u0405\u0421\u201a\u0420\u00b0\u0421\u0402\u0420\u0405\u0421\u2039\u0420\u2116"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 60 every 2",
+    "even 6",
+    "dec 6 to 48 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "peach",
+   "stuff": "firm",
+   "colours": [
+    {
+     "ellipse": {
+      "center": [
+       16,
+       0
+      ],
+      "radii": [
+       6.5,
+       46
+      ]
+     },
+     "colour": "skin"
+    }
+   ]
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "ch 5",
+    "inc 6 to 52",
+    "even 5",
+    "dec 6 to 46",
+    "even 3",
+    "dec 6 to 40",
+    "even 1",
+    "dec 6 to 34"
+   ],
+   "colour": "peach",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "9",
+    "12",
+    "15",
+    "even 3",
+    "14",
+    "even 1",
+    "12"
+   ],
+   "colour": "peach",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.6,
+   "colours": [
+    {
+     "shape": [
+      [
+       2,
+       0
+      ],
+      [
+       4,
+       -12
+      ],
+      [
+       9,
+       -14
+      ],
+      [
+       9,
+       14
+      ],
+      [
+       4,
+       12
+      ]
+     ],
+     "colour": "amber"
+    }
+   ]
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 3",
+    "13",
+    "even 3",
+    "12"
+   ],
+   "colour": "peach",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 2",
+    "16",
+    "even 1"
+   ],
+   "colour": "peach",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      2
+     ],
+     "colour": "orange"
+    }
+   ]
+  },
+  {
+   "id": "loop",
+   "cord": {
+    "length_mm": 60,
+    "thickness_mm": 4,
+    "curl_deg": 360,
+    "slip_back": true,
+    "link_mm": 3,
+    "toward": [
+     1,
+     0,
+     0
+    ]
+   },
+   "colour": "orange"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 5,
+    "az": 40
+   },
+   "dir": [
+    0.25,
+    1,
+    0
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 18,
+    "az": 78
+   },
+   "dir": [
+    0.6,
+    -1,
+    0.2
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.6,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 2.5,
+    "az": 35
+   },
+   "dir": [
+    0.15,
+    -1,
+    0.25
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "loop",
+   "on": "head",
+   "at": {
+    "round": 1,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    0
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "felt",
+   "on": "head",
+   "at": {
+    "round": 14.5,
+    "az": 18
+   },
+   "size_mm": [
+    18,
+    17
+   ],
+   "colour": "white",
+   "mirror": true
+  },
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 14.5,
+    "az": 18
+   },
+   "size_mm": 12,
+   "iris": "orange",
+   "pupil": 0.4,
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "on": "head",
+   "at": {
+    "round": 16.5,
+    "az": 0
+   },
+   "width_mm": 5,
+   "height_mm": 4,
+   "shape": "triangle",
+   "colour": "orange"
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     17.2,
+     -44
+    ],
+    [
+     18.6,
+     -30
+    ],
+    [
+     19.4,
+     -14
+    ],
+    [
+     19.6,
+     0
+    ],
+    [
+     19.4,
+     14
+    ],
+    [
+     18.6,
+     30
+    ],
+    [
+     17.2,
+     44
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 1.2
+  },
+  {
+   "type": "stitch",
+   "on": "leg",
+   "points": [
+    [
+     1,
+     180
+    ],
+    [
+     0.2,
+     180
+    ]
+   ],
+   "colour": "orange",
+   "thickness_mm": 1.5
+  },
+  {
+   "type": "fringe",
+   "on": "head",
+   "points": [
+    [
+     9.3,
+     0
+    ],
+    [
+     10,
+     -30
+    ],
+    [
+     12,
+     -46
+    ],
+    [
+     16,
+     -52
+    ],
+    [
+     20,
+     -46
+    ],
+    [
+     22,
+     -30
+    ],
+    [
+     23,
+     0
+    ],
+    [
+     22,
+     30
+    ],
+    [
+     20,
+     46
+    ],
+    [
+     16,
+     52
+    ],
+    [
+     12,
+     46
+    ],
+    [
+     10,
+     30
+    ],
+    [
+     9.3,
+     0
+    ]
+   ],
+   "count": 90,
+   "length_mm": 6,
+   "colours": [
+    "peach"
+   ],
+   "droop": 0.1,
+   "curl": 1.0,
+   "spread": 0.5
+  },
+  {
+   "type": "satin",
+   "on": "head",
+   "at": {
+    "round": 19.4,
+    "az": 5
+   },
+   "width_mm": 4.6,
+   "height_mm": 4.6,
+   "shape": "triangle",
+   "colour": "white",
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "on": "head",
+   "at": {
+    "round": 19.1,
+    "az": 16
+   },
+   "width_mm": 4.6,
+   "height_mm": 4.6,
+   "shape": "triangle",
+   "colour": "white",
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "on": "head",
+   "at": {
+    "round": 18.5,
+    "az": 27
+   },
+   "width_mm": 4.6,
+   "height_mm": 4.6,
+   "shape": "triangle",
+   "colour": "white",
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "on": "head",
+   "at": {
+    "round": 17.6,
+    "az": 37
+   },
+   "width_mm": 4.6,
+   "height_mm": 4.6,
+   "shape": "triangle",
+   "colour": "white",
+   "mirror": true
+  }
+ ]
+}

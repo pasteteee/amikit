@@ -1,0 +1,547 @@
+{
+ "name": "15_bubble_tea_raccoon",
+ "title": "Boba Pocket Raccoon",
+ "title_ru": "Енот Боба",
+ "subject": "raccoon",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "lavgrey": "#aca8b8",
+  "charcoal": "#55525c",
+  "lilac": "#b892e0",
+  "cream": "#f3ead2",
+  "pink": "#f2b4c0",
+  "blush": "#f0a0b0",
+  "black": "#151313"
+ },
+ "colour_names_ru": {
+  "lavgrey": "серо-лавандовый",
+  "charcoal": "графитовый",
+  "lilac": "сиреневый",
+  "cream": "сливочный",
+  "pink": "светло-розовый",
+  "blush": "розовый"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "тело",
+   "name_en": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "inc 6 to 54 every 2",
+    "blo 54",
+    "even 2",
+    "dec 6 to 36 every 2"
+   ],
+   "colour": "lavgrey",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "inc 6 to 72 every 2",
+    "even 5",
+    "dec 6 to 54 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "lavgrey",
+   "stuff": "firm"
+  },
+  {
+   "id": "muzzle",
+   "name_ru": "мордочка",
+   "name_en": "muzzle",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 1"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "mask",
+   "name_ru": "пятно-маска",
+   "name_en": "eye mask",
+   "rounds": [
+    "ch 5",
+    "16",
+    "24",
+    "30"
+   ],
+   "colour": "charcoal",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "brow",
+   "name_ru": "светлая бровка",
+   "name_en": "light brow",
+   "rounds": [
+    "ch 8"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "ear",
+   "name_ru": "ушко",
+   "name_en": "ear",
+   "rounds": [
+    "mr 6",
+    "12",
+    "16",
+    "even 2",
+    "14"
+   ],
+   "colour": "charcoal",
+   "end": "open",
+   "stuff": "none",
+   "dish": 0.5,
+   "colours": [
+    {
+     "rounds": [
+      1,
+      2
+     ],
+     "colour": "lilac"
+    }
+   ]
+  },
+  {
+   "id": "arm",
+   "name_ru": "лапка",
+   "name_en": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "10",
+    "even 5"
+   ],
+   "colour": "lavgrey",
+   "end": "open",
+   "stuff": "light",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "colour": "charcoal"
+    }
+   ]
+  },
+  {
+   "id": "leg",
+   "name_ru": "ножка",
+   "name_en": "leg",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 26",
+    "even 3",
+    "20",
+    "even 1"
+   ],
+   "colour": "charcoal",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвост",
+   "name_en": "tail",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 30",
+    "even 10",
+    "27",
+    "24"
+   ],
+   "colour": "charcoal",
+   "end": "open",
+   "stuff": "medium",
+   "colours": [
+    {
+     "rounds": [
+      7,
+      8
+     ],
+     "colour": "lilac"
+    },
+    {
+     "rounds": [
+      12,
+      13
+     ],
+     "colour": "lilac"
+    }
+   ]
+  },
+  {
+   "id": "cup",
+   "name_ru": "стаканчик",
+   "name_en": "boba cup",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 1",
+    "21",
+    "even 1",
+    "24",
+    "even 2",
+    "27",
+    "even 1",
+    "dec 6 to 9"
+   ],
+   "colour": "pink",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      12,
+      15
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "straw",
+   "name_ru": "трубочка",
+   "name_en": "straw",
+   "rounds": [
+    "mr 6",
+    "even 7"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "boba",
+   "name_ru": "шарик бобы",
+   "name_en": "boba pearl",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "charcoal",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0.1
+   ],
+   "sink": 5
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 20.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "mask",
+   "on": "head",
+   "at": {
+    "round": 17.0,
+    "az": 28
+   },
+   "applique": true,
+   "mirror": true,
+   "roll": -30,
+   "lift": 0.8
+  },
+  {
+   "part": "brow",
+   "on": "head",
+   "at": {
+    "round": 12.5,
+    "az": 30
+   },
+   "applique": true,
+   "mirror": true,
+   "roll": -20,
+   "lift": 0.8
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 20.5,
+    "az": 40
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.8
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 8.5,
+    "az": 66
+   },
+   "dir": [
+    0.5,
+    1,
+    0
+   ],
+   "mirror": true,
+   "attach": "edge",
+   "face": [
+    0.15,
+    0.3,
+    1
+   ],
+   "sink": 9
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 42
+   },
+   "dir": [
+    0.35,
+    -0.05,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 7,
+    "az": 140
+   },
+   "dir": [
+    0.8,
+    0.05,
+    -0.85
+   ]
+  },
+  {
+   "part": "cup",
+   "on": "body",
+   "at": {
+    "round": 8.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    0.3
+   ],
+   "attach": "start",
+   "sink": 1
+  },
+  {
+   "part": "straw",
+   "on": "cup",
+   "at": {
+    "round": 13,
+    "az": -20
+   },
+   "dir": [
+    -0.1,
+    1,
+    0.4
+   ],
+   "sink": 0
+  },
+  {
+   "part": "boba",
+   "name": "boba1",
+   "on": "cup",
+   "at": {
+    "round": 6.5,
+    "az": -30
+   },
+   "applique": true,
+   "lift": 1.2
+  },
+  {
+   "part": "boba",
+   "name": "boba2",
+   "on": "cup",
+   "at": {
+    "round": 6.5,
+    "az": 30
+   },
+   "applique": true,
+   "lift": 1.2
+  },
+  {
+   "part": "boba",
+   "name": "boba3",
+   "on": "cup",
+   "at": {
+    "round": 10,
+    "az": 0
+   },
+   "applique": true,
+   "lift": 1.2
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 64
+   },
+   "dir": [
+    -0.6,
+    -0.45,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "avoid": true,
+   "contact": 0.6
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 17.0,
+    "az": 28
+   },
+   "size_mm": 14,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "safety_nose",
+   "on": "muzzle",
+   "at": {
+    "round": 2,
+    "az": 0
+   },
+   "size_mm": [
+    8,
+    6
+   ],
+   "shape": "triangle",
+   "id": "nose"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     2.5,
+     180
+    ],
+    [
+     3.6,
+     180
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0,
+   "id": "line"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     3.6,
+     180
+    ],
+    [
+     4.1,
+     155
+    ],
+    [
+     3.8,
+     130
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0,
+   "id": "line2"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     3.6,
+     180
+    ],
+    [
+     4.1,
+     205
+    ],
+    [
+     3.8,
+     230
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0,
+   "id": "line3"
+  }
+ ]
+}

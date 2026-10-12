@@ -1,0 +1,404 @@
+{
+ "name": "corgi",
+ "title": "Corgi puppy",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "ginger": "#e29c4c",
+  "cream": "#eeeae6",
+  "innerear": "#edd6b1",
+  "black": "#0e0e0e"
+ },
+ "colour_names_ru": {
+  "innerear": "светло-бежевый (внутри ушка)"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 8",
+    "dec 6 to 6"
+   ],
+   "colour": "ginger",
+   "stuff": "firm",
+   "colours": [
+    {
+     "shape": [
+      [
+       3.5,
+       0
+      ],
+      [
+       6,
+       -5
+      ],
+      [
+       10,
+       -8
+      ],
+      [
+       14,
+       -11
+      ],
+      [
+       15.5,
+       -16
+      ],
+      [
+       16.5,
+       -32
+      ],
+      [
+       15.6,
+       -55
+      ],
+      [
+       15,
+       -88
+      ],
+      [
+       26,
+       -88
+      ],
+      [
+       26,
+       88
+      ],
+      [
+       15,
+       88
+      ],
+      [
+       15.6,
+       55
+      ],
+      [
+       16.5,
+       32
+      ],
+      [
+       15.5,
+       16
+      ],
+      [
+       14,
+       11
+      ],
+      [
+       10,
+       8
+      ],
+      [
+       6,
+       5
+      ]
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 38",
+    "even 6",
+    "dec 6 to 32",
+    "even 3",
+    "dec 4 to 24"
+   ],
+   "oval_axis": "front",
+   "colour": "ginger",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "shape": [
+      [
+       6.5,
+       0
+      ],
+      [
+       12,
+       -18
+      ],
+      [
+       16,
+       -38
+      ],
+      [
+       18,
+       -38
+      ],
+      [
+       18,
+       38
+      ],
+      [
+       16,
+       38
+      ],
+      [
+       12,
+       18
+      ]
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 5",
+    "inc 6 to 22",
+    "even 2"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 4",
+    "inc 2 to 8",
+    "inc 3 to 20",
+    "even 4",
+    "dec 2 to 18"
+   ],
+   "colour": "ginger",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.65
+  },
+  {
+   "id": "inner_ear",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 20"
+   ],
+   "colour": "innerear",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "front_leg",
+   "rounds": [
+    "mr 6",
+    "12",
+    "14",
+    "even 1",
+    "12",
+    "even 5"
+   ],
+   "colour": "ginger",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "hind_leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 3",
+    "dec 3 to 15"
+   ],
+   "colour": "ginger",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "even 2"
+   ],
+   "colour": "ginger",
+   "end": "open",
+   "stuff": "light"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 17,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.05,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 5.5,
+    "az": 66
+   },
+   "dir": [
+    0.6,
+    1,
+    0.05
+   ],
+   "mirror": true
+  },
+  {
+   "part": "inner_ear",
+   "on": "ear",
+   "at": {
+    "round": 9.5,
+    "az": 0
+   },
+   "applique": true,
+   "mirror": true,
+   "inset": 1.2,
+   "along": "parent"
+  },
+  {
+   "part": "front_leg",
+   "on": "body",
+   "at": {
+    "round": 14,
+    "az": 28
+   },
+   "dir": [
+    0,
+    -1,
+    0.15
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.8,
+   "seam": "flat",
+   "seam_line": [
+    1,
+    0,
+    0
+   ],
+   "pinch": 0.6,
+   "max_turn": 10
+  },
+  {
+   "part": "hind_leg",
+   "on": "body",
+   "at": {
+    "round": 5.5,
+    "az": 80
+   },
+   "dir": [
+    1,
+    -0.2,
+    0.5
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 180
+   },
+   "dir": [
+    0,
+    0.1,
+    -1
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 13.5,
+    "az": 30
+   },
+   "size_mm": 9,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "safety_nose",
+   "on": "muzzle",
+   "at": {
+    "round": 1.6,
+    "az": 0
+   },
+   "size_mm": [
+    12,
+    9
+   ],
+   "shape": "triangle"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.0,
+     180
+    ],
+    [
+     2.8,
+     180
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.1
+  }
+ ]
+}

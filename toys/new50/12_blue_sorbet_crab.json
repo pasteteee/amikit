@@ -1,0 +1,301 @@
+{
+ "name": "12_blue_sorbet_crab",
+ "title": "Blue Sorbet Crab",
+ "title_ru": "Крабик Голубой сорбет",
+ "subject": "crab",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "aqua": "#2f9cc9",
+  "cream": "#f6e3c4",
+  "coral": "#f2604c",
+  "lilac": "#b48fe0",
+  "blush": "#f39ab2",
+  "black": "#141213"
+ },
+ "colour_names_ru": {
+  "aqua": "голубой",
+  "cream": "кремовый",
+  "coral": "коралловый",
+  "lilac": "сиреневый",
+  "blush": "розовый"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "тело-овал",
+   "name_en": "oval body",
+   "rounds": [
+    "ch 9",
+    "inc 6 to 72",
+    "blo 72",
+    "even 6",
+    "dec 6 to 60 every 2",
+    "dec 6 to 18"
+   ],
+   "colour": "aqua",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      12
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "stalk",
+   "name_ru": "стебелёк глаза",
+   "name_en": "eye stalk",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 5"
+   ],
+   "colour": "aqua",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "eyeball",
+   "name_ru": "глазной бугорок",
+   "name_en": "eye bump",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "24",
+    "28",
+    "even 3",
+    "24",
+    "18",
+    "12"
+   ],
+   "colour": "cream",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      6,
+      11
+     ],
+     "colour": "aqua"
+    }
+   ]
+  },
+  {
+   "id": "claw",
+   "name_ru": "клешня-варежка",
+   "name_en": "mitten claw",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "24",
+    "even 4",
+    "21",
+    "18",
+    "15",
+    "even 2"
+   ],
+   "colour": "coral",
+   "end": "open",
+   "stuff": "medium"
+  },
+  {
+   "id": "thumb",
+   "name_ru": "палец клешни",
+   "name_en": "claw thumb",
+   "rounds": [
+    "mr 6",
+    "10",
+    "12",
+    "even 2"
+   ],
+   "colour": "coral",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "leg",
+   "name_ru": "лапка",
+   "name_en": "leg",
+   "rounds": [
+    "mr 6",
+    "10",
+    "even 3",
+    "8"
+   ],
+   "colour": "lilac",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "stalk",
+   "on": "body",
+   "at": {
+    "round": 24,
+    "az": 38
+   },
+   "dir": [
+    0.25,
+    1,
+    0.05
+   ],
+   "mirror": true
+  },
+  {
+   "part": "eyeball",
+   "on": "stalk",
+   "at": {
+    "round": "start"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    0.55,
+    1
+   ],
+   "sink": 4,
+   "mirror": true
+  },
+  {
+   "part": "claw",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 50
+   },
+   "dir": [
+    0.65,
+    -0.1,
+    0.75
+   ],
+   "mirror": true
+  },
+  {
+   "part": "thumb",
+   "on": "claw",
+   "at": {
+    "round": 6,
+    "az": -70
+   },
+   "dir": [
+    -0.45,
+    0.15,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "leg",
+   "name": "leg_front",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 100
+   },
+   "dir": [
+    1,
+    -0.35,
+    -0.1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "leg",
+   "name": "leg_back",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 130
+   },
+   "dir": [
+    1,
+    -0.35,
+    -0.6
+   ],
+   "mirror": true
+  },
+  {
+   "part": "cheek",
+   "on": "body",
+   "at": {
+    "round": 17.5,
+    "az": 26
+   },
+   "applique": true,
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "eyeball",
+   "at": {
+    "round": 1,
+    "az": 0
+   },
+   "size_mm": 14,
+   "highlight": true,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     17.5,
+     -12
+    ],
+    [
+     16.6,
+     -7
+    ],
+    [
+     16.3,
+     0
+    ],
+    [
+     16.6,
+     7
+    ],
+    [
+     17.5,
+     12
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.3
+  }
+ ]
+}

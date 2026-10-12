@@ -1,0 +1,392 @@
+{
+ "name": "highland_cow",
+ "title": "Highland cow mini",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "brown": "#a86a36",
+  "fringe": "#94582a",
+  "dark": "#6b4532",
+  "cream": "#ece6dc",
+  "black": "#1a1817"
+ },
+ "colour_names_ru": {
+  "fringe": "тёмно-рыжий (чёлка)",
+  "dark": "тёмно-коричневый"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 60",
+    "even 12",
+    "dec 6 to 54",
+    "even 3",
+    "dec 6 to 48",
+    "even 2",
+    "dec 6 to 6"
+   ],
+   "colour": "brown",
+   "stuff": "firm"
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 6",
+    "inc 6 to 30",
+    "even 2"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "medium"
+  },
+  {
+   "id": "horn",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "10",
+    "12",
+    "14",
+    "16",
+    "even 4"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "firm",
+   "bend": {
+    "deg": 40,
+    "at": 5,
+    "over": 3,
+    "toward": [
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "inc 4 to 18",
+    "even 3",
+    "15",
+    "even 1",
+    "12"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.8,
+   "bend": {
+    "deg": 55,
+    "at": 4,
+    "over": 2,
+    "toward": [
+     0,
+     -1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 2",
+    "12",
+    "even 6"
+   ],
+   "colour": "dark",
+   "end": "open",
+   "stuff": "light",
+   "bend": {
+    "deg": 75,
+    "at": 6,
+    "over": 3,
+    "toward": [
+     -1,
+     0,
+     0.2
+    ]
+   }
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "muzzle",
+   "on": "body",
+   "at": {
+    "round": 24.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.05,
+    1
+   ]
+  },
+  {
+   "part": "horn",
+   "on": "body",
+   "at": {
+    "round": 31,
+    "az": 72
+   },
+   "dir": [
+    1,
+    0.3,
+    0.05
+   ],
+   "mirror": true
+  },
+  {
+   "part": "ear",
+   "on": "body",
+   "at": {
+    "round": 28.5,
+    "az": 98
+   },
+   "dir": [
+    1,
+    -0.3,
+    0.2
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 18.5,
+    "az": 72
+   },
+   "dir": [
+    0.55,
+    -0.35,
+    0.75
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.7,
+   "seam": "flat"
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 28.5,
+    "az": 33
+   },
+   "size_mm": 9,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     2.6,
+     70
+    ],
+    [
+     0.4,
+     52
+    ],
+    [
+     2.6,
+     110
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.1,
+   "mirror": true
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     30.5,
+     -55
+    ],
+    [
+     31.5,
+     0
+    ],
+    [
+     30.5,
+     55
+    ]
+   ],
+   "count": 12,
+   "length_mm": 24,
+   "colours": [
+    "fringe"
+   ],
+   "droop": 0.3,
+   "curl": 240,
+   "spread": 0.4,
+   "seed": 1,
+   "thickness_mm": 3.8
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     32.5,
+     -60
+    ],
+    [
+     33.5,
+     0
+    ],
+    [
+     32.5,
+     60
+    ]
+   ],
+   "count": 11,
+   "length_mm": 24,
+   "colours": [
+    "fringe"
+   ],
+   "droop": 0.15,
+   "curl": 240,
+   "spread": 0.4,
+   "seed": 2,
+   "thickness_mm": 3.8
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     34.5,
+     -70
+    ],
+    [
+     35.5,
+     0
+    ],
+    [
+     34.5,
+     70
+    ]
+   ],
+   "count": 9,
+   "length_mm": 24,
+   "colours": [
+    "fringe"
+   ],
+   "droop": 0.05,
+   "curl": 240,
+   "spread": 0.4,
+   "seed": 3,
+   "thickness_mm": 3.8
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     36,
+     -90
+    ],
+    [
+     36.5,
+     0
+    ],
+    [
+     36,
+     90
+    ]
+   ],
+   "count": 8,
+   "length_mm": 24,
+   "colours": [
+    "fringe"
+   ],
+   "droop": 0.0,
+   "curl": 240,
+   "spread": 0.4,
+   "seed": 4,
+   "thickness_mm": 3.8
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     34,
+     100
+    ],
+    [
+     35,
+     180
+    ],
+    [
+     34,
+     260
+    ]
+   ],
+   "count": 11,
+   "length_mm": 22,
+   "colours": [
+    "fringe"
+   ],
+   "droop": 0.1,
+   "curl": 240,
+   "spread": 0.4,
+   "seed": 9,
+   "thickness_mm": 3.8
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     36.5,
+     -90
+    ],
+    [
+     36.5,
+     90
+    ]
+   ],
+   "count": 6,
+   "length_mm": 24,
+   "colours": [
+    "fringe"
+   ],
+   "droop": 0.0,
+   "curl": 240,
+   "spread": 0.4,
+   "seed": 11,
+   "thickness_mm": 3.8
+  }
+ ]
+}

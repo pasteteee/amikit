@@ -1,0 +1,483 @@
+{
+ "name": "10_apricot_dinosaur",
+ "title": "Apricot Baby Stegosaurus",
+ "title_ru": "Динозаврик Абрикос",
+ "subject": "dinosaur",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "apricot": "#f09a5e",
+  "butter": "#f6d7a4",
+  "cream": "#f1dcb6",
+  "sage": "#8b9a6c",
+  "pink": "#ec9396",
+  "black": "#151313",
+  "brown": "#3e2620"
+ },
+ "colour_names_ru": {
+  "apricot": "абрикосовый",
+  "butter": "светло-жёлтый",
+  "cream": "кремовый",
+  "sage": "шалфейно-зелёный",
+  "brown": "тёмно-коричневый",
+  "pink": "розовый",
+  "black": "чёрный"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 60 every 2",
+    "even 4",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "apricot",
+   "stuff": "firm",
+   "name_ru": "Голова",
+   "name_en": "Head"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 60",
+    "even 3",
+    "dec 6 to 54",
+    "even 2",
+    "dec 6 to 48",
+    "even 1",
+    "dec 6 to 42",
+    "dec 6 to 36"
+   ],
+   "colour": "apricot",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "ellipse": {
+      "center": [
+       13.5,
+       0
+      ],
+      "radii": [
+       8,
+       38
+      ]
+     },
+     "colour": "butter"
+    }
+   ],
+   "name_ru": "Тело",
+   "name_en": "Body"
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 5",
+    "inc 6 to 28",
+    "even 3"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "medium",
+   "name_ru": "Мордочка",
+   "name_en": "Muzzle"
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "21",
+    "even 3",
+    "18",
+    "even 1",
+    "15",
+    "even 2"
+   ],
+   "colour": "apricot",
+   "end": "open",
+   "stuff": "light",
+   "name_ru": "Лапка",
+   "name_en": "Arm"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "24",
+    "30",
+    "even 4",
+    "24",
+    "even 1"
+   ],
+   "colour": "apricot",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "colour": "cream"
+    }
+   ],
+   "end": "open",
+   "stuff": "firm",
+   "name_ru": "Ножка",
+   "name_en": "Leg"
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 6",
+    "9",
+    "even 1",
+    "12",
+    "even 1",
+    "15",
+    "even 1",
+    "18",
+    "even 1",
+    "21",
+    "even 1",
+    "24",
+    "even 1",
+    "27",
+    "even 1",
+    "30",
+    "even 1"
+   ],
+   "colour": "apricot",
+   "end": "open",
+   "stuff": "firm",
+   "name_ru": "Хвост",
+   "name_en": "Tail"
+  },
+  {
+   "id": "cheek",
+   "rounds": [
+    "mr 6",
+    "13"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "Щёчка",
+   "name_en": "Cheek"
+  },
+  {
+   "id": "plate",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "even 4"
+   ],
+   "colour": "sage",
+   "end": "open",
+   "stuff": "medium",
+   "name_ru": "Пластина",
+   "name_en": "Back plate"
+  },
+  {
+   "id": "crown_plate",
+   "rounds": [
+    "mr 6",
+    "10",
+    "14",
+    "18",
+    "even 3"
+   ],
+   "colour": "sage",
+   "end": "open",
+   "stuff": "medium",
+   "name_ru": "Пластина на макушке",
+   "name_en": "Crown plate"
+  },
+  {
+   "id": "small_plate",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 2"
+   ],
+   "colour": "sage",
+   "end": "open",
+   "stuff": "medium",
+   "name_ru": "Маленькая пластина",
+   "name_en": "Small plate"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0.05
+   ],
+   "sink": 8
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 18.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ]
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 17,
+    "az": 53
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 18,
+    "az": 68
+   },
+   "dir": [
+    0.45,
+    -1,
+    0.4
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "avoid": true,
+   "contact": 0.7
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 8,
+    "az": 52
+   },
+   "dir": [
+    0.6,
+    -0.15,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 9,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.2,
+    -1
+   ]
+  },
+  {
+   "part": "crown_plate",
+   "on": "head",
+   "at": {
+    "round": 3,
+    "az": 180
+   },
+   "dir": [
+    0,
+    1,
+    -0.1
+   ]
+  },
+  {
+   "part": "plate",
+   "name": "plate_head",
+   "on": "head",
+   "at": {
+    "round": 8.5,
+    "az": 112
+   },
+   "dir": [
+    1,
+    0.75,
+    -0.25
+   ],
+   "mirror": true
+  },
+  {
+   "part": "plate",
+   "name": "plate_head2",
+   "on": "head",
+   "at": {
+    "round": 15,
+    "az": 108
+   },
+   "dir": [
+    1,
+    0.1,
+    -0.25
+   ],
+   "mirror": true
+  },
+  {
+   "part": "plate",
+   "name": "plate_neck",
+   "on": "body",
+   "at": {
+    "round": 19,
+    "az": 180
+   },
+   "dir": [
+    0,
+    0.2,
+    -1
+   ]
+  },
+  {
+   "part": "plate",
+   "name": "plate_back",
+   "on": "body",
+   "at": {
+    "round": 14.5,
+    "az": 180
+   },
+   "dir": [
+    0,
+    0,
+    -1
+   ]
+  },
+  {
+   "part": "small_plate",
+   "name": "plate_low",
+   "on": "body",
+   "at": {
+    "round": 10,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.1,
+    -1
+   ]
+  },
+  {
+   "part": "small_plate",
+   "name": "plate_tail",
+   "on": "tail",
+   "at": {
+    "round": 10,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "small_plate",
+   "name": "plate_tail2",
+   "on": "tail",
+   "at": {
+    "round": 4,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    0
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 13.5,
+    "az": 35
+   },
+   "size_mm": 13,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.0,
+     120
+    ],
+    [
+     1.6,
+     150
+    ],
+    [
+     1.85,
+     180
+    ],
+    [
+     1.6,
+     210
+    ],
+    [
+     1.0,
+     240
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 1.2
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     2.2,
+     32
+    ],
+    [
+     2.9,
+     28
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 1.1,
+   "mirror": true
+  }
+ ]
+}

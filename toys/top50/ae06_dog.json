@@ -1,0 +1,298 @@
+{
+ "name": "ae06_dog",
+ "title": "Puppy with a DAD card",
+ "subject": "dog",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "brown": "#c27c3e",
+  "eartan": "#b06c32",
+  "white": "#f4f4f2",
+  "black": "#1c1a1a"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "even 8",
+    "dec 6 to 6"
+   ],
+   "colour": "brown",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "ch 5",
+    "inc 6 to 40",
+    "even 5",
+    "dec 6 to 34",
+    "even 3",
+    "dec 6 to 28",
+    "even 2",
+    "dec 4 to 24"
+   ],
+   "oval_axis": "front",
+   "colour": "brown",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 5",
+    "inc 4 to 22",
+    "even 4"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "even 6",
+    "15",
+    "even 3",
+    "12",
+    "even 2"
+   ],
+   "colour": "eartan",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.75
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "10",
+    "even 6"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "haunch",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 30"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "hind_foot",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 3",
+    "dec 3 to 15"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 6",
+    "8",
+    "even 2",
+    "10",
+    "even 6"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "card",
+   "flat": {
+    "width_st": 13,
+    "rows": 10
+   },
+   "colour": "white"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 15.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.05,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 5,
+    "az": 75
+   },
+   "dir": [
+    0.9,
+    -1,
+    0.15
+   ],
+   "front": [
+    0,
+    1,
+    0
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "seam_line": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "card",
+   "on": "body",
+   "at": {
+    "round": 10.5,
+    "az": 0
+   },
+   "lift": 7
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 17,
+    "az": 58
+   },
+   "dir": [
+    0.2,
+    -0.5,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "haunch",
+   "on": "body",
+   "at": {
+    "round": 7,
+    "az": 100
+   },
+   "applique": true,
+   "pad": 6,
+   "mirror": true
+  },
+  {
+   "part": "hind_foot",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 62
+   },
+   "dir": [
+    0.45,
+    -0.3,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 180
+   },
+   "dir": [
+    0.3,
+    1,
+    -0.7
+   ],
+   "seam": "flat"
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 13,
+    "az": 24
+   },
+   "size_mm": 9,
+   "mirror": true
+  },
+  {
+   "type": "safety_nose",
+   "on": "muzzle",
+   "at": {
+    "round": 1.5,
+    "az": 0
+   },
+   "size_mm": [
+    10,
+    7.5
+   ],
+   "shape": "oval"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.6,
+     180
+    ],
+    [
+     3.4,
+     180
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.1
+  }
+ ]
+}

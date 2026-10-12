@@ -1,0 +1,442 @@
+{
+ "name": "02_peaches_loaf_kitten",
+ "title": "Peaches Loaf Kitten",
+ "title_ru": "Котёнок Персиковая булочка",
+ "subject": "cat",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "peach": "#f0a07e",
+  "cream": "#f6ead6",
+  "mint": "#8cc4b0",
+  "blush": "#f09aa0",
+  "nose": "#f08c9c",
+  "brown": "#4a3028",
+  "black": "#141213"
+ },
+ "colour_names_ru": {
+  "peach": "персиковый",
+  "cream": "кремовый",
+  "mint": "мятный",
+  "blush": "розовый (щёчки)",
+  "nose": "розовый (носик)",
+  "brown": "тёмно-коричневый (вышивка)"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "тело",
+   "name_en": "body",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 86",
+    "even 7",
+    "dec 6 to 74",
+    "dec 6 to 38"
+   ],
+   "colour": "peach",
+   "stuff": "firm",
+   "colours": [
+    {
+     "patch": {
+      "at": {
+       "round": 12.0,
+       "az": 0
+      },
+      "size_mm": [
+       50,
+       34
+      ]
+     },
+     "colour": "cream"
+    }
+   ],
+   "oval_axis": "front"
+  },
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 66",
+    "inc 6 to 84 every 2",
+    "even 9",
+    "dec 6 to 66 every 2",
+    "dec 6 to 12"
+   ],
+   "colour": "peach",
+   "stuff": "firm",
+   "colours": []
+  },
+  {
+   "id": "muzzle",
+   "name_ru": "мордочка",
+   "name_en": "muzzle",
+   "rounds": [
+    "ch 7",
+    "20",
+    "26",
+    "32",
+    "even 1"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "name_ru": "ушко",
+   "name_en": "ear",
+   "preset": "ear",
+   "kind": "pointed",
+   "inner": "cream",
+   "rounds": [
+    "mr 4",
+    "8",
+    "inc 2 to 16",
+    "even 1",
+    "inc 2 to 22",
+    "even 1"
+   ],
+   "colour": "peach",
+   "spoon": 0.55
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "paw",
+   "name_ru": "лапка",
+   "name_en": "paw",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "even 2",
+    "15"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "medium"
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвостик",
+   "name_en": "tail",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "21",
+    "even 3",
+    "18",
+    "even 3"
+   ],
+   "colour": "peach",
+   "end": "open",
+   "stuff": "medium",
+   "bend": {
+    "deg": 60.0,
+    "at": 6,
+    "over": 3,
+    "toward": [
+     0,
+     1,
+     0
+    ]
+   },
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "stripe",
+   "name_ru": "полоска",
+   "name_en": "stripe",
+   "rounds": [
+    "ch 12"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "bow_wing",
+   "name_ru": "крылышко бантика",
+   "name_en": "bow wing",
+   "colour": "mint",
+   "motif": {
+    "kind": "triangle",
+    "width": 10
+   }
+  },
+  {
+   "id": "knot",
+   "name_ru": "серединка бантика",
+   "name_en": "bow knot",
+   "rounds": [
+    "ch 3",
+    "8"
+   ],
+   "colour": "mint",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": 23.0,
+    "az": 0
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0.1
+   ],
+   "sink": 26.0,
+   "sink_dir": "axis"
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 21.0,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.2,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 7.5,
+    "az": 64
+   },
+   "dir": [
+    0.6,
+    1,
+    0.05
+   ],
+   "mirror": true
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 20.5,
+    "az": 50
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "paw",
+   "name": "front_paw",
+   "on": "body",
+   "at": {
+    "round": 14.0,
+    "az": 40.0
+   },
+   "dir": [
+    0.5,
+    -0.45,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "paw",
+   "name": "hind_paw",
+   "on": "body",
+   "at": {
+    "round": 14.0,
+    "az": 118.0
+   },
+   "dir": [
+    1,
+    -0.45,
+    -0.4
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 18.0,
+    "az": 180
+   },
+   "dir": [
+    0,
+    0.6,
+    -1
+   ]
+  },
+  {
+   "part": "stripe",
+   "name": "stripe_f",
+   "on": "head",
+   "at": {
+    "round": 9.5,
+    "az": 0
+   },
+   "applique": true,
+   "roll": 90,
+   "pad": 4.0,
+   "lift": 1.0
+  },
+  {
+   "part": "stripe",
+   "name": "stripe_fl",
+   "on": "head",
+   "at": {
+    "round": 9.5,
+    "az": 22.0
+   },
+   "applique": true,
+   "roll": 90,
+   "pad": 4.0,
+   "lift": 1.0,
+   "mirror": true
+  },
+  {
+   "part": "stripe",
+   "name": "stripe_b",
+   "on": "head",
+   "at": {
+    "round": 9.5,
+    "az": 180
+   },
+   "applique": true,
+   "roll": 90,
+   "pad": 4.0,
+   "lift": 1.0
+  },
+  {
+   "part": "stripe",
+   "name": "stripe_bl",
+   "on": "head",
+   "at": {
+    "round": 9.5,
+    "az": 158.0
+   },
+   "applique": true,
+   "roll": 90,
+   "pad": 4.0,
+   "lift": 1.0,
+   "mirror": true
+  },
+  {
+   "part": "bow_wing",
+   "on": "head",
+   "at": {
+    "round": 30.0,
+    "az": 13.0
+   },
+   "applique": true,
+   "roll": 90,
+   "lift": 2.0,
+   "pad": 2,
+   "mirror": true
+  },
+  {
+   "part": "knot",
+   "on": "head",
+   "at": {
+    "round": 30.0,
+    "az": 0
+   },
+   "applique": true,
+   "roll": 90,
+   "lift": 3.8,
+   "pad": 2
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 17.5,
+    "az": 28.5
+   },
+   "size_mm": 20,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "satin",
+   "on": "muzzle",
+   "at": {
+    "round": 1.5,
+    "az": 0
+   },
+   "width_mm": 6,
+   "height_mm": 4.5,
+   "shape": "triangle",
+   "colour": "nose",
+   "thickness_mm": 1.4,
+   "id": "nose"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.0,
+     180
+    ],
+    [
+     2.2,
+     165
+    ],
+    [
+     2.2,
+     145
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 0.9,
+   "mirror": true,
+   "id": "smile"
+  }
+ ]
+}

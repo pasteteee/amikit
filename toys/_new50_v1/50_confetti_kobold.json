@@ -1,0 +1,35 @@
+{
+ "name": "50_confetti_kobold",
+ "title": "Confetti Pocket Kobold",
+ "title_ru": "Кобольд Конфетти",
+ "subject": "dinosaur",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {"teal": "#2f95a0", "coral": "#f27a6a", "yellow": "#f5d07a", "lilac": "#bb90bc", "pink": "#f29a98", "black": "#151313"},
+ "colour_names_ru": {"teal": "бирюзовый", "coral": "коралловый", "yellow": "светло-жёлтый", "lilac": "сиреневый", "pink": "розовый", "black": "чёрный"},
+ "parts": [
+  {"id": "head", "rounds": ["mr 6", "inc 6 to 42", "inc 6 to 66 every 2", "even 4", "dec 6 to 48 every 2", "dec 6 to 6"], "colour": "teal", "stuff": "firm", "colours": [{"ellipse": {"center": [24, 0], "radii": [8, 72]}, "colour": "yellow"}], "name_ru": "Голова", "name_en": "Head"},
+  {"id": "body", "rounds": ["mr 6", "inc 6 to 48", "blo 48", "even 5", "dec 6 to 42", "even 2", "dec 6 to 36", "even 1"], "colour": "lilac", "end": "open", "stuff": "firm", "name_ru": "Тело", "name_en": "Body"},
+  {"id": "ear", "rounds": ["mr 6", "10", "14", "18", "22", "even 10", "20", "16"], "colour": "coral", "end": "open", "stuff": "none", "spoon": 0.45, "name_ru": "Ушко", "name_en": "Ear"},
+  {"id": "arm", "rounds": ["mr 6", "12", "15", "even 2", "12", "even 3"], "colour": "teal", "end": "open", "stuff": "light", "name_ru": "Лапка", "name_en": "Arm"},
+  {"id": "foot", "rounds": ["ch 7", "inc 6 to 32", "even 2", "dec 6 to 14"], "oval_axis": "front", "colour": "yellow", "end": "closed", "stuff": "firm", "name_ru": "Стопа", "name_en": "Foot", "flatten": 0.35},
+  {"id": "tail", "rounds": ["mr 4", "6", "8", "10", "12", "14", "16", "18", "20", "22", "24", "even 1"], "colour": "teal", "end": "open", "stuff": "firm", "name_ru": "Хвост", "name_en": "Tail"},
+  {"id": "cheek", "rounds": ["mr 6", "12"], "colour": "pink", "end": "open", "stuff": "none", "name_ru": "Щёчка", "name_en": "Cheek"},
+  {"id": "dot", "rounds": ["mr 6", "12"], "colour": "coral", "end": "open", "stuff": "none", "name_ru": "Пятнышко", "name_en": "Back dot"}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 1, 0]},
+  {"part": "head", "on": "body", "at": {"round": "end"}, "attach": "end", "dir": [0, 1, 0], "sink": 7},
+  {"part": "ear", "on": "head", "at": {"round": 14, "az": 92}, "dir": [1, -0.85, -0.2], "mirror": true, "front": [0, 0, 1]},
+  {"part": "cheek", "on": "head", "at": {"round": 20, "az": 47}, "applique": true, "mirror": true},
+  {"part": "arm", "on": "body", "at": {"round": 15, "az": 62}, "dir": [0.3, -0.7, 1], "mirror": true, "seam": "flat", "avoid": true, "contact": 0.6},
+  {"part": "foot", "on": "body", "at": {"round": 6, "az": 44}, "dir": [0.6, -0.25, 1], "mirror": true, "front": [0, 1, 0], "sink": 6},
+  {"part": "tail", "on": "body", "at": {"round": 3, "az": 180}, "dir": [0, -0.2, -1]},
+  {"part": "dot", "name": "dot_top", "on": "body", "at": {"round": 15.5, "az": 180}, "applique": true, "lift": 0.8},
+  {"part": "dot", "name": "dot_mid", "on": "body", "at": {"round": 12, "az": 180}, "applique": true, "lift": 0.8},
+  {"part": "dot", "name": "dot_low", "on": "body", "at": {"round": 8.5, "az": 180}, "applique": true, "lift": 0.8}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "head", "at": {"round": 16.5, "az": 31}, "size_mm": 13, "mirror": true, "highlight": true},
+  {"type": "stitch", "on": "head", "points": [[20.5, -16], [21.4, -8], [21.7, 0], [21.4, 8], [20.5, 16]], "colour": "black", "thickness_mm": 1.2}
+ ]
+}

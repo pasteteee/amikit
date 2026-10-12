@@ -1,0 +1,545 @@
+{
+ "name": "05_cinnamon_red_panda_new",
+ "title": "Cinnamon Bun Red Panda",
+ "title_ru": "Красная панда Булочка",
+ "subject": "red panda",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "rust": "#b55839",
+  "cream": "#ecdccc",
+  "dark": "#4a2d26",
+  "oatmeal": "#d9cbb9",
+  "pink": "#f2a6ab"
+ },
+ "colour_names_ru": {
+  "rust": "рыжий (корица)",
+  "dark": "тёмно-коричневый (какао)",
+  "oatmeal": "овсяный",
+  "cream": "кремовый",
+  "pink": "розовый"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "colour": "rust",
+   "stuff": "firm",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 66",
+    "inc 6 to 78 every 2",
+    "even 6",
+    "dec 6 to 66 every 2",
+    "dec 6 to 6"
+   ]
+  },
+  {
+   "id": "body",
+   "name_ru": "тело со снудом",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 4",
+    "48",
+    "even 1",
+    "42",
+    "48",
+    "even 1",
+    "42",
+    "36"
+   ],
+   "colour": "rust",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      17,
+      21
+     ],
+     "colour": "oatmeal"
+    }
+   ],
+   "name_en": "body with snood"
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 30",
+    "even 3"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "firm",
+   "name_ru": "мордочка",
+   "name_en": "muzzle"
+  },
+  {
+   "id": "cheek_patch",
+   "name_ru": "светлое пятно щеки",
+   "rounds": [
+    "ch 5",
+    "16",
+    "22"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none",
+   "name_en": "cheek patch"
+  },
+  {
+   "id": "brow",
+   "name_ru": "бровка",
+   "rounds": [
+    "ch 4"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none",
+   "name_en": "eyebrow"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none",
+   "name_en": "cheek"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "9",
+    "12",
+    "15",
+    "18",
+    "21",
+    "24",
+    "even 2"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      9
+     ],
+     "az": [
+      95,
+      265
+     ],
+     "colour": "rust"
+    },
+    {
+     "ellipse": {
+      "center": [
+       5,
+       0
+      ],
+      "radii": [
+       3.4,
+       45
+      ]
+     },
+     "colour": "dark"
+    }
+   ],
+   "name_ru": "ушко",
+   "name_en": "ear",
+   "spoon": 0.35
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 3",
+    "12",
+    "even 1"
+   ],
+   "colour": "dark",
+   "end": "open",
+   "stuff": "light",
+   "name_ru": "ручка",
+   "name_en": "arm"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 30",
+    "even 5",
+    "27",
+    "24",
+    "even 1"
+   ],
+   "colour": "dark",
+   "end": "open",
+   "stuff": "firm",
+   "name_ru": "ножка",
+   "name_en": "leg"
+  },
+  {
+   "id": "pad",
+   "name_ru": "подушечка стопы",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none",
+   "name_en": "foot pad"
+  },
+  {
+   "id": "bean",
+   "name_ru": "пальчик",
+   "rounds": [
+    "mr 5"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none",
+   "name_en": "toe bean"
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "even 15",
+    "dec 3 to 27"
+   ],
+   "colour": "rust",
+   "end": "open",
+   "stuff": "medium",
+   "colours": [
+    {
+     "rounds": [
+      9,
+      10
+     ],
+     "colour": "cream"
+    },
+    {
+     "rounds": [
+      14,
+      15
+     ],
+     "colour": "cream"
+    },
+    {
+     "rounds": [
+      19,
+      20
+     ],
+     "colour": "cream"
+    }
+   ],
+   "name_ru": "хвост",
+   "name_en": "tail"
+  },
+  {
+   "id": "snood",
+   "name_en": "snood",
+   "name_ru": "снуд",
+   "rounds": [
+    "ring 48",
+    "rib 48 x4"
+   ],
+   "colour": "oatmeal",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 6
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 22.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    0.1,
+    1
+   ]
+  },
+  {
+   "part": "cheek_patch",
+   "on": "head",
+   "applique": true,
+   "mirror": true,
+   "roll": 35,
+   "pad": 1,
+   "anchor": "eye",
+   "offset_mm": [
+    -20,
+    -15
+   ]
+  },
+  {
+   "part": "brow",
+   "on": "head",
+   "at": {
+    "round": 12.5,
+    "az": 23
+   },
+   "applique": true,
+   "mirror": true,
+   "roll": 10
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 20.5,
+    "az": 40
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.2
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 8.5,
+    "az": 60
+   },
+   "dir": [
+    0.45,
+    1,
+    0.05
+   ],
+   "mirror": true
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 16,
+    "az": 45
+   },
+   "dir": [
+    0.3,
+    -1,
+    0.55
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.7,
+   "seam": "flat",
+   "max_turn": 20
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 42
+   },
+   "dir": [
+    0.4,
+    0.08,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "pad",
+   "on": "leg",
+   "at": {
+    "round": "start"
+   },
+   "applique": true,
+   "mirror": true,
+   "pad": 1.5
+  },
+  {
+   "part": "bean",
+   "name": "bean0",
+   "on": "leg",
+   "at": {
+    "round": 3.4,
+    "az": -45
+   },
+   "applique": true,
+   "mirror": true,
+   "pad": 1.0
+  },
+  {
+   "part": "bean",
+   "name": "bean1",
+   "on": "leg",
+   "at": {
+    "round": 3.4,
+    "az": 0
+   },
+   "applique": true,
+   "mirror": true,
+   "pad": 1.0
+  },
+  {
+   "part": "bean",
+   "name": "bean2",
+   "on": "leg",
+   "at": {
+    "round": 3.4,
+    "az": 45
+   },
+   "applique": true,
+   "mirror": true,
+   "pad": 1.0
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 10,
+    "az": 125
+   },
+   "dir": [
+    0.85,
+    0.05,
+    -0.5
+   ],
+   "seam": "flat"
+  },
+  {
+   "part": "snood",
+   "on": "body",
+   "at": {
+    "round": 16.5
+   },
+   "around": true,
+   "dir": [
+    0,
+    1,
+    0
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 16.5,
+    "az": 27
+   },
+   "size_mm": 14,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "satin",
+   "on": "muzzle",
+   "at": {
+    "round": 1.1,
+    "az": 0
+   },
+   "width_mm": 9,
+   "height_mm": 6.5,
+   "shape": "triangle",
+   "colour": "dark",
+   "thickness_mm": 1.4
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     0.3,
+     180
+    ],
+    [
+     1.9,
+     180
+    ]
+   ],
+   "colour": "dark",
+   "thickness_mm": 1.0
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.9,
+     180
+    ],
+    [
+     2.5,
+     157
+    ],
+    [
+     2.2,
+     132
+    ]
+   ],
+   "colour": "dark",
+   "thickness_mm": 1.0
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.9,
+     180
+    ],
+    [
+     2.5,
+     203
+    ],
+    [
+     2.2,
+     228
+    ]
+   ],
+   "colour": "dark",
+   "thickness_mm": 1.0
+  }
+ ]
+}

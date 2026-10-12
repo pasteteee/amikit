@@ -1,0 +1,471 @@
+{
+ "name": "d3_pug_kerchief",
+ "title": "Pug in a Kerchief",
+ "title_ru": "Мопсик Пирожок",
+ "subject": "pug",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "fawn": "#ecd2a8",
+  "dark": "#6b5248",
+  "kerchief": "#ff5a5f",
+  "dot": "#ffffff",
+  "black": "#1f1816",
+  "tongue": "#ff8fa3",
+  "blush": "#ff9eb0"
+ },
+ "colour_names_ru": {
+  "fawn": "бежевый",
+  "dark": "какао",
+  "kerchief": "красный",
+  "dot": "белый",
+  "black": "чёрный",
+  "tongue": "розовый (язычок)",
+  "blush": "розовый (щёчки)"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "тельце",
+   "name_en": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 54 every 2",
+    "even 12",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "fawn",
+   "stuff": "firm"
+  },
+  {
+   "id": "muzzle",
+   "name_ru": "мордочка",
+   "name_en": "muzzle",
+   "rounds": [
+    "ch 5",
+    "16",
+    "22",
+    "even 2"
+   ],
+   "colour": "dark",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "name_ru": "ушко",
+   "name_en": "ear",
+   "colour": "dark",
+   "preset": "ear",
+   "kind": "floppy",
+   "max": 15,
+   "length": 2,
+   "hang": true
+  },
+  {
+   "id": "kerchief",
+   "name_ru": "платочек",
+   "name_en": "kerchief",
+   "colour": "kerchief",
+   "motif": {
+    "kind": "triangle",
+    "width": 20
+   }
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвостик-колечко",
+   "name_en": "curly tail",
+   "rounds": [
+    "mr 6",
+    "8",
+    "even 7"
+   ],
+   "colour": "fawn",
+   "end": "open",
+   "stuff": "light",
+   "bend": {
+    "deg": 330,
+    "at": 8,
+    "over": 2,
+    "coil": 2,
+    "toward": [
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "arm",
+   "name_ru": "лапка",
+   "name_en": "arm",
+   "rounds": [
+    "mr 6",
+    "9",
+    "even 2",
+    "8"
+   ],
+   "colour": "fawn",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "foot",
+   "name_ru": "ножка",
+   "name_en": "foot",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 1",
+    "10"
+   ],
+   "colour": "fawn",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.5
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "muzzle",
+   "on": "body",
+   "at": {
+    "round": 17,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ],
+   "sink": 2
+  },
+  {
+   "part": "ear",
+   "on": "body",
+   "at": {
+    "round": 27,
+    "az": 70
+   },
+   "mirror": true,
+   "front": [
+    0,
+    -1,
+    0.45
+   ],
+   "toward": [
+    0.05,
+    -1,
+    0
+   ]
+  },
+  {
+   "part": "kerchief",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 0
+   },
+   "applique": true,
+   "drape": true,
+   "roll": 180,
+   "lift": 1.0
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 8,
+    "az": 180
+   },
+   "dir": [
+    0,
+    0.6,
+    -1
+   ]
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 11.5,
+    "az": 55
+   },
+   "dir": [
+    -0.2,
+    -0.45,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 3,
+    "az": 30
+   },
+   "dir": [
+    0.3,
+    -0.35,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "cheek",
+   "on": "body",
+   "at": {
+    "round": 17.5,
+    "az": 46
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.0
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 21,
+    "az": 26
+   },
+   "size_mm": 15,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "satin",
+   "on": "muzzle",
+   "at": {
+    "round": 1.5,
+    "az": 0
+   },
+   "width_mm": 10,
+   "height_mm": 7,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.6,
+   "id": "nose"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.3,
+     180
+    ],
+    [
+     2.0,
+     180
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0,
+   "id": "line"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     2.0,
+     180
+    ],
+    [
+     2.4,
+     170
+    ],
+    [
+     2.55,
+     158
+    ],
+    [
+     2.4,
+     146
+    ],
+    [
+     2.05,
+     138
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.1,
+   "mirror": true,
+   "id": "smile"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     25.3,
+     -7
+    ],
+    [
+     25.8,
+     0
+    ],
+    [
+     25.3,
+     7
+    ]
+   ],
+   "colour": "dark",
+   "thickness_mm": 1.2,
+   "id": "wrinkle1"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     26.4,
+     -5
+    ],
+    [
+     26.8,
+     0
+    ],
+    [
+     26.4,
+     5
+    ]
+   ],
+   "colour": "dark",
+   "thickness_mm": 1.2,
+   "id": "wrinkle2"
+  },
+  {
+   "type": "satin",
+   "on": "kerchief",
+   "at": {
+    "round": 2,
+    "az": 0
+   },
+   "width_mm": 2.5,
+   "height_mm": 2.5,
+   "shape": "oval",
+   "colour": "dot",
+   "thickness_mm": 1.0,
+   "id": "kdot1"
+  },
+  {
+   "type": "satin",
+   "on": "kerchief",
+   "at": {
+    "round": 4,
+    "az": 40
+   },
+   "width_mm": 2.5,
+   "height_mm": 2.5,
+   "shape": "oval",
+   "colour": "dot",
+   "thickness_mm": 1.0,
+   "id": "kdot2"
+  },
+  {
+   "type": "satin",
+   "on": "kerchief",
+   "at": {
+    "round": 4,
+    "az": -40
+   },
+   "width_mm": 2.5,
+   "height_mm": 2.5,
+   "shape": "oval",
+   "colour": "dot",
+   "thickness_mm": 1.0,
+   "id": "kdot3"
+  },
+  {
+   "type": "satin",
+   "on": "kerchief",
+   "at": {
+    "round": 6,
+    "az": 10
+   },
+   "width_mm": 2.5,
+   "height_mm": 2.5,
+   "shape": "oval",
+   "colour": "dot",
+   "thickness_mm": 1.0,
+   "id": "kdot4"
+  },
+  {
+   "type": "satin",
+   "on": "kerchief",
+   "at": {
+    "round": 3,
+    "az": 120
+   },
+   "width_mm": 2.5,
+   "height_mm": 2.5,
+   "shape": "oval",
+   "colour": "dot",
+   "thickness_mm": 1.0,
+   "id": "kdot5"
+  },
+  {
+   "type": "satin",
+   "on": "kerchief",
+   "at": {
+    "round": 3,
+    "az": -120
+   },
+   "width_mm": 2.5,
+   "height_mm": 2.5,
+   "shape": "oval",
+   "colour": "dot",
+   "thickness_mm": 1.0,
+   "id": "kdot6"
+  },
+  {
+   "type": "satin",
+   "on": "muzzle",
+   "at": {
+    "round": 2.7,
+    "az": 180
+   },
+   "width_mm": 5,
+   "height_mm": 3.5,
+   "shape": "oval",
+   "colour": "tongue",
+   "thickness_mm": 1.3,
+   "id": "tongue"
+  }
+ ]
+}

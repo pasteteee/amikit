@@ -1,0 +1,314 @@
+{
+ "name": "dog",
+ "title": "Puppy (base for pets)",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "black": "#2d2a29",
+  "nose": "#232122",
+  "fawn": "#c9a06a"
+ },
+ "colour_names_ru": {
+  "nose": "тёмно-коричневый (нос)"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 9",
+    "dec 6 to 6"
+   ],
+   "colour": "fawn",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "ch 6",
+    "inc 6 to 42",
+    "even 5",
+    "dec 6 to 36",
+    "even 2",
+    "dec 6 to 30",
+    "even 3",
+    "dec 6 to 24"
+   ],
+   "oval_axis": "front",
+   "colour": "fawn",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 8",
+    "inc 6 to 28",
+    "even 5"
+   ],
+   "colour": "fawn",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "21",
+    "even 6",
+    "18",
+    "even 3",
+    "15",
+    "even 2",
+    "12",
+    "even 1"
+   ],
+   "colour": "fawn",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.65,
+   "bend": {
+    "deg": 100,
+    "at": 16,
+    "over": 3,
+    "toward": [
+     0.3,
+     -1,
+     0.1
+    ]
+   }
+  },
+  {
+   "id": "front_leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 2",
+    "dec 3 to 12",
+    "even 8"
+   ],
+   "end": "open",
+   "stuff": "firm",
+   "colour": "fawn"
+  },
+  {
+   "id": "haunch",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36"
+   ],
+   "colour": "fawn",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "hind_foot",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 3",
+    "dec 3 to 15"
+   ],
+   "colour": "fawn",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 6",
+    "8",
+    "even 1",
+    "10",
+    "even 1",
+    "12",
+    "even 6"
+   ],
+   "colour": "fawn",
+   "end": "open",
+   "stuff": "light"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 16.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.05,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 6.5,
+    "az": 95
+   },
+   "dir": [
+    1,
+    0.2,
+    0.1
+   ],
+   "front": [
+    0,
+    1,
+    0
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "seam_line": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "front_leg",
+   "on": "body",
+   "at": {
+    "round": 16,
+    "az": 30
+   },
+   "dir": [
+    0,
+    -1,
+    0.3
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 1.0,
+   "seam": "flat",
+   "max_turn": 10,
+   "seam_line": [
+    1,
+    0,
+    0
+   ],
+   "pinch": 0.6
+  },
+  {
+   "part": "haunch",
+   "on": "body",
+   "at": {
+    "round": 8,
+    "az": 108
+   },
+   "applique": true,
+   "pad": 6,
+   "mirror": true
+  },
+  {
+   "part": "hind_foot",
+   "on": "body",
+   "at": {
+    "round": 6.5,
+    "az": 72
+   },
+   "dir": [
+    0.45,
+    -0.35,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 180
+   },
+   "dir": [
+    0,
+    0.25,
+    -1
+   ],
+   "seam": "flat"
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 13,
+    "az": 27
+   },
+   "size_mm": 12,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "safety_nose",
+   "on": "muzzle",
+   "at": {
+    "round": 2,
+    "az": 0
+   },
+   "size_mm": [
+    12,
+    9
+   ],
+   "shape": "oval",
+   "colour": "nose",
+   "id": "nose"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.2,
+     180
+    ],
+    [
+     3.5,
+     180
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.2,
+   "id": "line"
+  }
+ ],
+ "title_ru": "Щенок (основа для питомца)",
+ "subject": "dog"
+}

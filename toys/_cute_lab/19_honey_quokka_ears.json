@@ -1,0 +1,526 @@
+{
+ "name": "19_honey_quokka_cute",
+ "title": "Honey Hug Quokka",
+ "title_ru": "\u041a\u0432\u043e\u043a\u043a\u0430 \u041c\u0435\u0434\u043e\u0432\u0443\u0448\u043a\u0430",
+ "subject": "bear",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "tan": "#b88a6a",
+  "cream": "#ecdcc8",
+  "ochre": "#db8f29",
+  "darkochre": "#a8621a",
+  "brown": "#442a20",
+  "pink": "#eba6a4",
+  "black": "#141414"
+ },
+ "colour_names_ru": {
+  "tan": "\u043c\u0435\u0434\u043e\u0432\u043e-\u0431\u0435\u0436\u0435\u0432\u044b\u0439",
+  "cream": "\u043a\u0440\u0435\u043c\u043e\u0432\u044b\u0439",
+  "ochre": "\u043e\u0445\u0440\u0430",
+  "darkochre": "\u0442\u0451\u043c\u043d\u0430\u044f \u043e\u0445\u0440\u0430",
+  "brown": "\u0442\u0451\u043c\u043d\u043e-\u043a\u043e\u0440\u0438\u0447\u043d\u0435\u0432\u044b\u0439",
+  "pink": "\u0440\u043e\u0437\u043e\u0432\u044b\u0439",
+  "black": "\u0447\u0451\u0440\u043d\u044b\u0439"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 66 every 2",
+    "even 3",
+    "dec 6 to 48 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "tan",
+   "stuff": "firm",
+   "name_ru": "\u0433\u043e\u043b\u043e\u0432\u0430",
+   "name_en": "head"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 60",
+    "even 2",
+    "dec 6 to 54",
+    "even 1",
+    "dec 6 to 48",
+    "dec 6 to 42",
+    "dec 6 to 36"
+   ],
+   "colour": "tan",
+   "end": "open",
+   "stuff": "firm",
+   "name_ru": "\u0442\u0435\u043b\u043e",
+   "name_en": "body"
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 26",
+    "even 4"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light",
+   "name_ru": "\u043c\u043e\u0440\u0434\u043e\u0447\u043a\u0430",
+   "name_en": "muzzle"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 1",
+    "21",
+    "18"
+   ],
+   "colour": "tan",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "\u0443\u0448\u043a\u043e",
+   "name_en": "ear",
+   "dish": 0.5
+  },
+  {
+   "id": "inner_ear",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "\u0432\u043d\u0443\u0442\u0440\u0435\u043d\u043d\u044f\u044f \u0447\u0430\u0441\u0442\u044c \u0443\u0448\u043a\u0430",
+   "name_en": "inner ear"
+  },
+  {
+   "id": "belly",
+   "rounds": [
+    "ch 3",
+    "inc 6 to 36"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "\u0436\u0438\u0432\u043e\u0442\u0438\u043a",
+   "name_en": "belly patch"
+  },
+  {
+   "id": "honeycomb",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "ochre",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "\u0441\u043e\u0442\u0430",
+   "name_en": "honeycomb cell"
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 3",
+    "12",
+    "even 3"
+   ],
+   "colour": "tan",
+   "end": "open",
+   "stuff": "light",
+   "name_ru": "\u0440\u0443\u0447\u043a\u0430",
+   "name_en": "arm"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 4",
+    "21",
+    "18",
+    "even 1"
+   ],
+   "colour": "tan",
+   "end": "open",
+   "stuff": "firm",
+   "name_ru": "\u043d\u043e\u0436\u043a\u0430",
+   "name_en": "leg"
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "10",
+    "even 1",
+    "12",
+    "even 1",
+    "14",
+    "even 2",
+    "16",
+    "even 3"
+   ],
+   "colour": "tan",
+   "end": "open",
+   "stuff": "light",
+   "name_ru": "\u0445\u0432\u043e\u0441\u0442\u0438\u043a",
+   "name_en": "tail"
+  },
+  {
+   "id": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "\u0449\u0451\u0447\u043a\u0430",
+   "name_en": "cheek"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 4
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 20.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.05,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 9,
+    "az": 62
+   },
+   "attach": "edge",
+   "dir": [
+    0.35,
+    1,
+    0
+   ],
+   "face": [
+    0.1,
+    0.25,
+    1
+   ],
+   "sink": 6,
+   "mirror": true
+  },
+  {
+   "part": "inner_ear",
+   "on": "ear",
+   "at": {
+    "round": "start"
+   },
+   "applique": true,
+   "mirror": true,
+   "inset": 1.0
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 19.5,
+    "az": 50
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 0.6
+  },
+  {
+   "part": "belly",
+   "on": "body",
+   "at": {
+    "round": 11.5,
+    "az": 0
+   },
+   "applique": true,
+   "roll": 90
+  },
+  {
+   "part": "honeycomb",
+   "name": "honeycomb_top",
+   "on": "body",
+   "at": {
+    "round": 12.9,
+    "az": 0
+   },
+   "applique": true,
+   "lift": 1.6
+  },
+  {
+   "part": "honeycomb",
+   "name": "honeycomb_l",
+   "on": "body",
+   "at": {
+    "round": 10.3,
+    "az": 11
+   },
+   "applique": true,
+   "lift": 1.6
+  },
+  {
+   "part": "honeycomb",
+   "name": "honeycomb_r",
+   "on": "body",
+   "at": {
+    "round": 10.3,
+    "az": -11
+   },
+   "applique": true,
+   "lift": 1.6
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 15.5,
+    "az": 62
+   },
+   "dir": [
+    -0.3,
+    -0.6,
+    1
+   ],
+   "mirror": true,
+   "avoid": true,
+   "avoid_toward": [
+    0,
+    0,
+    1
+   ],
+   "contact": 0.7,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 7,
+    "az": 60
+   },
+   "dir": [
+    0.75,
+    -0.2,
+    0.8
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.25,
+    -1
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 17,
+    "az": 32
+   },
+   "size_mm": 13,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "satin",
+   "on": "muzzle",
+   "at": {
+    "round": 2.4,
+    "az": 0
+   },
+   "width_mm": 12,
+   "height_mm": 9,
+   "shape": "oval",
+   "colour": "brown",
+   "thickness_mm": 1.6
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     2.2,
+     138
+    ],
+    [
+     3.3,
+     163
+    ],
+    [
+     3.3,
+     197
+    ],
+    [
+     2.2,
+     222
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 1.2
+  },
+  {
+   "type": "stitch",
+   "on": "honeycomb_top",
+   "points": [
+    [
+     1.7,
+     0
+    ],
+    [
+     1.7,
+     60
+    ],
+    [
+     1.7,
+     120
+    ],
+    [
+     1.7,
+     180
+    ],
+    [
+     1.7,
+     240
+    ],
+    [
+     1.7,
+     300
+    ],
+    [
+     1.7,
+     360
+    ]
+   ],
+   "colour": "darkochre",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "honeycomb_l",
+   "points": [
+    [
+     1.7,
+     0
+    ],
+    [
+     1.7,
+     60
+    ],
+    [
+     1.7,
+     120
+    ],
+    [
+     1.7,
+     180
+    ],
+    [
+     1.7,
+     240
+    ],
+    [
+     1.7,
+     300
+    ],
+    [
+     1.7,
+     360
+    ]
+   ],
+   "colour": "darkochre",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "honeycomb_r",
+   "points": [
+    [
+     1.7,
+     0
+    ],
+    [
+     1.7,
+     60
+    ],
+    [
+     1.7,
+     120
+    ],
+    [
+     1.7,
+     180
+    ],
+    [
+     1.7,
+     240
+    ],
+    [
+     1.7,
+     300
+    ],
+    [
+     1.7,
+     360
+    ]
+   ],
+   "colour": "darkochre",
+   "thickness_mm": 0.9
+  }
+ ]
+}

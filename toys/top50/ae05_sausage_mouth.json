@@ -1,0 +1,282 @@
+{
+ "name": "ae05_sausage_mouth",
+ "title": "Blue big-lips creature keychain",
+ "subject": "monster",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "blue": "#6a98d4",
+  "red": "#e2441c",
+  "darkred": "#7a1a12",
+  "tan": "#b88040",
+  "lightblue": "#a8c8e0",
+  "white": "#f0f0ec",
+  "black": "#151515",
+  "cream": "#f2e8dc"
+ },
+ "colour_names_ru": {
+  "darkred": "тёмно-красный",
+  "lightblue": "светло-голубой",
+  "cream": "кремовый"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "ch 9",
+    "inc 4 to 30",
+    "even 13",
+    "dec 3 to 24",
+    "dec 6 to 18",
+    "dec 6 to 12",
+    "6"
+   ],
+   "colour": "blue",
+   "end": "closed",
+   "stuff": "medium",
+   "flatten": 0.0
+  },
+  {
+   "id": "upper_lip",
+   "rounds": [
+    "ch 12",
+    "inc 4 to 32"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "lower_lip",
+   "rounds": [
+    "ch 10",
+    "inc 4 to 28"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "eye_white",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 5",
+    "even 5"
+   ],
+   "colour": "blue",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "even 1",
+    "dec 1 to 5",
+    "even 3"
+   ],
+   "colour": "blue",
+   "end": "open",
+   "stuff": "light",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      2
+     ],
+     "colour": "black"
+    }
+   ]
+  },
+  {
+   "id": "pouch",
+   "rounds": [
+    "ch 7",
+    "inc 4 to 22"
+   ],
+   "colour": "tan",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "loop",
+   "cord": {
+    "length_mm": 120,
+    "thickness_mm": 3.0,
+    "curl_deg": 330,
+    "slip_back": true,
+    "toward": [
+     1,
+     0,
+     0
+    ]
+   },
+   "colour": "lightblue"
+  },
+  {
+   "id": "collar",
+   "flat": {
+    "width_st": 10,
+    "rows": 2
+   },
+   "colour": "cream",
+   "pinch": 0.0
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "upper_lip",
+   "on": "body",
+   "at": {
+    "round": 15.5,
+    "az": 0
+   },
+   "applique": true,
+   "pad": 7,
+   "lift": 1.0
+  },
+  {
+   "part": "lower_lip",
+   "on": "body",
+   "at": {
+    "round": 12.5,
+    "az": 0
+   },
+   "applique": true,
+   "pad": 6,
+   "lift": 1.0
+  },
+  {
+   "part": "collar",
+   "on": "body",
+   "at": {
+    "round": 10.5,
+    "az": -25
+   },
+   "lift": 1.0,
+   "conform": true
+  },
+  {
+   "part": "eye_white",
+   "on": "body",
+   "at": {
+    "round": 19.5,
+    "az": 20
+   },
+   "applique": true,
+   "pad": 2,
+   "mirror": true
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 10,
+    "az": 88
+   },
+   "dir": [
+    1,
+    -0.6,
+    0.1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 1.5,
+    "az": 40
+   },
+   "dir": [
+    0.15,
+    -1,
+    0.1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "pouch",
+   "on": "body",
+   "at": {
+    "round": 9,
+    "az": 45
+   },
+   "applique": true,
+   "pad": 4,
+   "roll": 20
+  },
+  {
+   "part": "loop",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "toward": [
+    1,
+    0,
+    0
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 19.5,
+    "az": 18
+   },
+   "size_mm": 6,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     14.2,
+     -32
+    ],
+    [
+     14.2,
+     0
+    ],
+    [
+     14.2,
+     32
+    ]
+   ],
+   "colour": "darkred",
+   "thickness_mm": 2.4
+  }
+ ]
+}

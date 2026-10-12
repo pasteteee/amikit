@@ -1,0 +1,328 @@
+{
+ "name": "02_duckling_sailor",
+ "title": "Sailor Duckling",
+ "title_ru": "Утёнок Юнга",
+ "subject": "duckling",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "yellow": "#ffe066",
+  "bill": "#ffa940",
+  "collar": "#8ecdf0",
+  "collar2": "#ffffff",
+  "bow": "#ff6b81",
+  "blush": "#ff9eb0"
+ },
+ "colour_names_ru": {
+  "yellow": "жёлтый",
+  "bill": "оранжевый",
+  "collar": "голубой",
+  "collar2": "белый",
+  "bow": "розово-красный",
+  "blush": "розовый (щёчки)"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "тельце",
+   "name_en": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 54 every 2",
+    "even 12",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "yellow",
+   "stuff": "firm"
+  },
+  {
+   "id": "bill",
+   "name_ru": "клювик",
+   "name_en": "bill",
+   "rounds": [
+    "mr 6",
+    "10",
+    "12",
+    "even 2",
+    "10"
+   ],
+   "colour": "bill",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.65
+  },
+  {
+   "id": "tuft",
+   "name_ru": "хохолок",
+   "name_en": "tuft",
+   "colour": "yellow",
+   "cord": {
+    "length_mm": 20,
+    "thickness_mm": 3.0,
+    "curl_deg": 230,
+    "slip_back": true
+   }
+  },
+  {
+   "id": "wing",
+   "name_ru": "крылышко",
+   "name_en": "wing",
+   "rounds": [
+    "mr 6",
+    "10",
+    "12",
+    "even 3",
+    "10"
+   ],
+   "colour": "yellow",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.6
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвостик",
+   "name_en": "tail",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8"
+   ],
+   "colour": "yellow",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "foot",
+   "name_ru": "лапка",
+   "name_en": "foot",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 1",
+    "10"
+   ],
+   "colour": "bill",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.5
+  },
+  {
+   "id": "collar",
+   "name_ru": "матросский воротник",
+   "name_en": "sailor collar",
+   "rounds": [
+    "ring 54",
+    "60",
+    "66",
+    "shells 5 every 6"
+   ],
+   "colour": "collar",
+   "end": "open",
+   "stuff": "none",
+   "colours": [
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "colour": "collar2"
+    }
+   ]
+  },
+  {
+   "id": "bow",
+   "name_ru": "бантик",
+   "name_en": "bow",
+   "colour": "bow",
+   "flat": {
+    "width_st": 8,
+    "rows": 4
+   },
+   "pinch": 0.85
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "collar",
+   "on": "body",
+   "at": {
+    "round": 16
+   },
+   "around": true,
+   "fall": true
+  },
+  {
+   "part": "bill",
+   "on": "body",
+   "at": {
+    "round": 19.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ]
+  },
+  {
+   "part": "tuft",
+   "name": "tuft_c",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "dir": [
+    0,
+    1,
+    0.25
+   ],
+   "toward": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "tuft",
+   "name": "tuft_l",
+   "on": "body",
+   "at": {
+    "round": 32,
+    "az": 60
+   },
+   "dir": [
+    0.45,
+    1,
+    0
+   ],
+   "toward": [
+    1,
+    0,
+    0
+   ]
+  },
+  {
+   "part": "tuft",
+   "name": "tuft_r",
+   "on": "body",
+   "at": {
+    "round": 32,
+    "az": -60
+   },
+   "dir": [
+    -0.45,
+    1,
+    0
+   ],
+   "toward": [
+    -1,
+    0,
+    0
+   ]
+  },
+  {
+   "part": "wing",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 85
+   },
+   "dir": [
+    0.75,
+    -1,
+    0.1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 8,
+    "az": 180
+   },
+   "dir": [
+    0,
+    0.7,
+    -1
+   ]
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 3,
+    "az": 30
+   },
+   "dir": [
+    0.25,
+    -0.35,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "bow",
+   "on": "body",
+   "at": {
+    "round": 16.5,
+    "az": 0
+   },
+   "lift": 2.0
+  },
+  {
+   "part": "cheek",
+   "on": "body",
+   "at": {
+    "round": 19.5,
+    "az": 44
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.0
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 22,
+    "az": 25
+   },
+   "size_mm": 13,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  }
+ ]
+}

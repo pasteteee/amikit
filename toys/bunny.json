@@ -1,0 +1,362 @@
+{
+ "name": "bunny",
+ "title": "Pink bunny",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "pink": "#e7a9b2",
+  "pale": "#f6e3e4",
+  "cream": "#f7f3f0",
+  "rose": "#ec8fa5",
+  "black": "#2d2b2a",
+  "blush": "#f08ea0",
+  "white": "#fbfaf6"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 54 every 2",
+    "even 5",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "pink",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "ch 5",
+    "inc 6 to 52",
+    "even 3",
+    "dec 6 to 40",
+    "even 1",
+    "dec 6 to 28",
+    "dec 5 to 18"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "firm",
+   "oval_axis": "front"
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 2"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "medium"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "9",
+    "12",
+    "15",
+    "18",
+    "even 5",
+    "16",
+    "even 2",
+    "14",
+    "even 2",
+    "12",
+    "even 1"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.6
+  },
+  {
+   "id": "inner_ear",
+   "rounds": [
+    "ch 12",
+    "28",
+    "inc 6 to 34"
+   ],
+   "colour": "pale",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 4",
+    "10",
+    "even 4"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "24",
+    "even 3",
+    "18",
+    "15"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "16",
+    "even 1",
+    "12",
+    "dec 6 to 6"
+   ],
+   "colour": "cream",
+   "stuff": "medium"
+  },
+  {
+   "id": "haunch",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 8
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 15.0,
+    "az": 0
+   },
+   "dir": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 5,
+    "az": 45
+   },
+   "dir": [
+    0.4,
+    1,
+    -0.1
+   ],
+   "roll": -25,
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "inner_ear",
+   "on": "ear",
+   "at": {
+    "round": 11,
+    "az": 0
+   },
+   "applique": true,
+   "mirror": true,
+   "along": "parent",
+   "inset": 1.4
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 16,
+    "az": 70
+   },
+   "dir": [
+    0.25,
+    -1,
+    0.6
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.8,
+   "seam": "flat"
+  },
+  {
+   "part": "haunch",
+   "on": "body",
+   "at": {
+    "round": 8,
+    "az": 80
+   },
+   "applique": true,
+   "pad": 6,
+   "mirror": true
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 62
+   },
+   "dir": [
+    0.8,
+    -0.15,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 7.5,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.2,
+    -1
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "satin",
+   "role": "eye",
+   "on": "head",
+   "at": {
+    "round": 13.5,
+    "az": 28
+   },
+   "width_mm": 8,
+   "height_mm": 10,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.1,
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 13.5,
+    "az": 28
+   },
+   "width_mm": 2.8,
+   "height_mm": 2.8,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 0.9,
+   "offset_mm": [
+    -1.6,
+    2.0
+   ]
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 13.5,
+    "az": -28
+   },
+   "width_mm": 2.8,
+   "height_mm": 2.8,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 0.9,
+   "offset_mm": [
+    -1.6,
+    2.0
+   ]
+  },
+  {
+   "type": "satin",
+   "on": "muzzle",
+   "at": {
+    "round": 1.0,
+    "az": 0
+   },
+   "width_mm": 7,
+   "height_mm": 5,
+   "shape": "triangle",
+   "colour": "rose",
+   "thickness_mm": 1.6,
+   "strands": 9
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     0.3,
+     180
+    ],
+    [
+     1.9,
+     180
+    ]
+   ],
+   "colour": "rose",
+   "thickness_mm": 1.1
+  },
+  {
+   "type": "blush",
+   "on": "head",
+   "at": {
+    "round": 16.5,
+    "az": 41
+   },
+   "size_mm": 9,
+   "colour": "blush",
+   "mirror": true,
+   "strength": 0.8
+  }
+ ]
+}

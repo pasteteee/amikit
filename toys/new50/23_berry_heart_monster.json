@@ -1,0 +1,31 @@
+{
+ "name": "23_berry_heart_monster",
+ "title": "Berry Heart Monster",
+ "title_ru": "Монстрик Ягодное сердце",
+ "subject": "monster",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {"raspberry": "#e2216c", "aqua": "#6fd6cf", "lilac": "#b98ae0", "cream": "#f3e2c4", "purple": "#a47ed4", "blush": "#f6a6b4", "mouth": "#2a1a14", "black": "#151313"},
+ "colour_names_ru": {"raspberry": "малиновый", "aqua": "бирюзово-аквамариновый", "lilac": "сиреневый", "cream": "кремовый", "purple": "лиловый", "blush": "розовый (щёчки)", "mouth": "тёмно-коричневый (вышивка)", "black": "чёрный"},
+ "parts": [
+  {"id": "body", "name_ru": "тело-сердце (нижняя часть)", "name_en": "heart body (lower part)", "rounds": ["mr 6", "inc 6 to 30", "inc 6 to 72 every 2", "even 1", "dec 6 to 60", "dec 6 to 6"], "colour": "raspberry", "stuff": "firm", "flatten": 0.1},
+  {"id": "lobe", "name_ru": "верхняя долька сердца", "name_en": "heart lobe", "rounds": ["mr 6", "inc 6 to 42", "inc 6 to 48 every 2", "even 5", "dec 6 to 36", "dec 6 to 6"], "colour": "raspberry", "stuff": "firm"},
+  {"id": "nub", "name_ru": "бугорок", "name_en": "nub", "rounds": ["mr 6", "12", "even 2", "10"], "colour": "cream", "end": "open", "stuff": "medium"},
+  {"id": "arm", "name_ru": "ручка", "name_en": "arm", "rounds": ["mr 6", "12", "18", "even 3", "15", "12"], "colour": "aqua", "end": "open", "stuff": "medium"},
+  {"id": "foot", "name_ru": "лапка", "name_en": "foot", "rounds": ["mr 6", "12", "18", "even 2", "15"], "colour": "lilac", "end": "open", "stuff": "firm"},
+  {"id": "cheek", "name_ru": "щёчка", "name_en": "cheek", "rounds": ["mr 6", "12"], "colour": "blush", "end": "open", "stuff": "none"},
+  {"id": "tail_patch", "name_ru": "хвостик-кружок", "name_en": "tail patch", "rounds": ["mr 6", "12", "18", "24"], "colour": "purple", "end": "open", "stuff": "none"}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 1, 0]},
+  {"part": "lobe", "on": "body", "at": {"round": 19.5, "az": 62}, "dir": [0.45, 1, -0.12], "mirror": true, "sink": 34, "attach": "end"},
+  {"part": "nub", "on": "lobe", "at": {"round": 4, "az": 20}, "dir": [0.25, 1, 0.1], "mirror": true},
+  {"part": "arm", "on": "body", "at": {"round": 13.5, "az": 88}, "dir": [1, -0.8, 0.15], "mirror": true, "seam": "flat", "pinch_rounds": 1.0},
+  {"part": "foot", "on": "body", "at": {"round": 4, "az": 70}, "dir": [0.6, -0.8, 0.5], "mirror": true},
+  {"part": "cheek", "on": "body", "at": {"round": 16, "az": 40}, "applique": true, "mirror": true},
+  {"part": "tail_patch", "on": "body", "at": {"round": 11, "az": 180}, "applique": true}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "body", "at": {"round": 18.5, "az": 24}, "size_mm": 15, "mirror": true, "highlight": true},
+  {"type": "stitch", "on": "body", "points": [[17.2, -9], [16.4, -4], [16.2, 0], [16.4, 4], [17.2, 9]], "colour": "mouth", "thickness_mm": 1.2}
+ ]
+}

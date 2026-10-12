@@ -1,0 +1,540 @@
+{
+ "name": "03_blueberry_tuxedo_kitten",
+ "title": "Blueberry Tuxedo Kitten",
+ "title_ru": "Котёнок Черничный смокинг",
+ "subject": "cat",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "purple": "#5c2f9c",
+  "cream": "#f5ead6",
+  "pinkear": "#f4aaa6",
+  "blush": "#f39a98",
+  "coral": "#ee6c62",
+  "mouth": "#a8384a",
+  "black": "#141213"
+ },
+ "colour_names_ru": {
+  "purple": "черничный (фиолетовый)",
+  "cream": "кремовый",
+  "pinkear": "розовый (ушки, носик, подушечки)",
+  "blush": "розовый (щёчки)",
+  "coral": "коралловый (ошейник)",
+  "mouth": "тёмно-розовый (вышивка ротика)"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "ch 9",
+    "inc 6 to 48",
+    "inc 6 to 72 every 2",
+    "even 5",
+    "dec 6 to 60 every 2",
+    "dec 6 to 12"
+   ],
+   "colour": "purple",
+   "stuff": "firm",
+   "colours": [
+    {
+     "shape": [
+      [
+       5,
+       0
+      ],
+      [
+       15,
+       -13.0
+      ],
+      [
+       17.5,
+       -17.0
+      ],
+      [
+       17.5,
+       17.0
+      ],
+      [
+       15,
+       13.0
+      ]
+     ],
+     "colour": "cream"
+    },
+    {
+     "patch": {
+      "at": {
+       "round": 23.5,
+       "az": 0
+      },
+      "size_mm": [
+       100.0,
+       46.0
+      ]
+     },
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "body",
+   "name_ru": "тело",
+   "name_en": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "blo 54",
+    "even 3",
+    "dec 6 to 48",
+    "dec 6 to 42",
+    "even 1",
+    "dec 6 to 36",
+    "dec 6 to 30"
+   ],
+   "colour": "purple",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "shape": [
+      [
+       10,
+       -14
+      ],
+      [
+       10,
+       14
+      ],
+      [
+       14,
+       19
+      ],
+      [
+       18.5,
+       28
+      ],
+      [
+       18.5,
+       -28
+      ],
+      [
+       14,
+       -19
+      ]
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "ear",
+   "name_ru": "ушко",
+   "name_en": "ear",
+   "preset": "ear",
+   "kind": "pointed",
+   "inner": "pinkear",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "10",
+    "12",
+    "14",
+    "16",
+    "18",
+    "20",
+    "even 2"
+   ],
+   "colour": "purple",
+   "spoon": 0.55
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "front_leg",
+   "name_ru": "передняя лапка",
+   "name_en": "front leg",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 2",
+    "12",
+    "even 5"
+   ],
+   "colour": "purple",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      5
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "foot",
+   "name_ru": "задняя лапка",
+   "name_en": "hind foot",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "24",
+    "30",
+    "blo 30",
+    "even 2",
+    "24",
+    "even 1"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвост",
+   "name_en": "tail",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 3",
+    "13",
+    "even 20"
+   ],
+   "colour": "purple",
+   "end": "open",
+   "stuff": "medium",
+   "bend": {
+    "deg": 30.0,
+    "at": 14.0,
+    "over": 5,
+    "toward": [
+     0,
+     1,
+     0
+    ]
+   },
+   "colours": [
+    {
+     "rounds": [
+      1,
+      5
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "tag",
+   "name_ru": "медальон",
+   "name_en": "collar tag",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "coral",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 6.0,
+   "sink_dir": "axis"
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 7,
+    "az": 64
+   },
+   "dir": [
+    0.75,
+    1,
+    0.05
+   ],
+   "mirror": true
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 19,
+    "az": 44
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "tag",
+   "on": "body",
+   "at": {
+    "round": 17.6,
+    "az": 0
+   },
+   "applique": true,
+   "lift": 1.8
+  },
+  {
+   "part": "front_leg",
+   "on": "body",
+   "at": {
+    "round": 14.5,
+    "az": 26
+   },
+   "dir": [
+    0,
+    -1,
+    0.25
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.7,
+   "seam": "flat",
+   "seam_line": [
+    1,
+    0,
+    0
+   ],
+   "pinch": 0.6,
+   "max_turn": 10
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 4.0,
+    "az": 80.0
+   },
+   "dir": [
+    0.8,
+    -0.15,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 6.0,
+    "az": 100.0
+   },
+   "dir": [
+    1.0,
+    1.1,
+    -1
+   ],
+   "seam": "flat"
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 16,
+    "az": 27
+   },
+   "size_mm": 16,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "satin",
+   "on": "head",
+   "at": {
+    "round": 18,
+    "az": 0
+   },
+   "width_mm": 6,
+   "height_mm": 4.5,
+   "shape": "triangle",
+   "colour": "pinkear",
+   "thickness_mm": 1.4,
+   "id": "nose"
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     18.8,
+     0
+    ],
+    [
+     19.6,
+     -3.5
+    ],
+    [
+     19.0,
+     -7
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 1.0,
+   "id": "smile_r"
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     18.8,
+     0
+    ],
+    [
+     19.6,
+     3.5
+    ],
+    [
+     19.0,
+     7
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 1.0,
+   "id": "smile_l"
+  },
+  {
+   "type": "strap",
+   "on": "body",
+   "points": [
+    [
+     17.6,
+     0
+    ],
+    [
+     17.6,
+     60
+    ],
+    [
+     17.6,
+     120
+    ],
+    [
+     17.6,
+     180
+    ],
+    [
+     17.6,
+     240
+    ],
+    [
+     17.6,
+     300
+    ],
+    [
+     17.6,
+     359
+    ]
+   ],
+   "colour": "coral",
+   "thickness_mm": 3.2,
+   "id": "collar"
+  },
+  {
+   "type": "satin",
+   "on": "foot",
+   "at": {
+    "round": 1.2,
+    "az": 180
+   },
+   "width_mm": 8,
+   "height_mm": 6,
+   "shape": "oval",
+   "colour": "pinkear",
+   "thickness_mm": 1.3,
+   "mirror": true,
+   "id": "pad"
+  },
+  {
+   "type": "satin",
+   "on": "foot",
+   "at": {
+    "round": 3.0,
+    "az": 0
+   },
+   "width_mm": 3.6,
+   "height_mm": 3.6,
+   "shape": "oval",
+   "colour": "pinkear",
+   "thickness_mm": 1.2,
+   "mirror": true,
+   "id": "toe_m"
+  },
+  {
+   "type": "satin",
+   "on": "foot",
+   "at": {
+    "round": 3.0,
+    "az": 50
+   },
+   "width_mm": 3.6,
+   "height_mm": 3.6,
+   "shape": "oval",
+   "colour": "pinkear",
+   "thickness_mm": 1.2,
+   "mirror": true,
+   "id": "toe_a"
+  },
+  {
+   "type": "satin",
+   "on": "foot",
+   "at": {
+    "round": 3.0,
+    "az": -50
+   },
+   "width_mm": 3.6,
+   "height_mm": 3.6,
+   "shape": "oval",
+   "colour": "pinkear",
+   "thickness_mm": 1.2,
+   "mirror": true,
+   "id": "toe_b"
+  }
+ ]
+}

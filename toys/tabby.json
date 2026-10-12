@@ -1,0 +1,1094 @@
+{
+ "name": "tabby",
+ "title": "Tabby kitten",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "tabby": "#8a7663",
+  "stripe": "#352b27",
+  "cream": "#ece4da",
+  "pink": "#dcbca8",
+  "fawn": "#b39a7a",
+  "iris": "#b9c28c",
+  "brown": "#6a3514",
+  "black": "#1e1a19"
+ },
+ "colour_names_ru": {
+  "tabby": "серо-коричневый (табби)",
+  "stripe": "тёмно-коричневый (полоски)"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 8",
+    "dec 6 to 6"
+   ],
+   "colour": "tabby",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      3,
+      11
+     ],
+     "az": [
+      -3,
+      3
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      4,
+      10
+     ],
+     "az": [
+      9,
+      13
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      4,
+      10
+     ],
+     "az": [
+      -13,
+      -9
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      5,
+      9
+     ],
+     "az": [
+      19,
+      23
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      5,
+      9
+     ],
+     "az": [
+      -23,
+      -19
+     ],
+     "colour": "stripe"
+    },
+    {
+     "ellipse": {
+      "center": [
+       14.5,
+       26
+      ],
+      "radii": [
+       2.6,
+       15
+      ]
+     },
+     "colour": "fawn"
+    },
+    {
+     "ellipse": {
+      "center": [
+       14.5,
+       -26
+      ],
+      "radii": [
+       2.6,
+       15
+      ]
+     },
+     "colour": "fawn"
+    },
+    {
+     "rounds": [
+      7,
+      7
+     ],
+     "az": [
+      50,
+      106
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      7,
+      7
+     ],
+     "az": [
+      116,
+      178
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      7,
+      7
+     ],
+     "az": [
+      -94,
+      -38
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      7,
+      7
+     ],
+     "az": [
+      -166,
+      -104
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      10,
+      10
+     ],
+     "az": [
+      38,
+      94
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      10,
+      10
+     ],
+     "az": [
+      104,
+      166
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      10,
+      10
+     ],
+     "az": [
+      -106,
+      -50
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      10,
+      10
+     ],
+     "az": [
+      -178,
+      -116
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      13,
+      13
+     ],
+     "az": [
+      50,
+      106
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      13,
+      13
+     ],
+     "az": [
+      116,
+      178
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      13,
+      13
+     ],
+     "az": [
+      -94,
+      -38
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      13,
+      13
+     ],
+     "az": [
+      -166,
+      -104
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      16,
+      16
+     ],
+     "az": [
+      38,
+      94
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      16,
+      16
+     ],
+     "az": [
+      104,
+      166
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      16,
+      16
+     ],
+     "az": [
+      -106,
+      -50
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      16,
+      16
+     ],
+     "az": [
+      -178,
+      -116
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      19,
+      19
+     ],
+     "az": [
+      50,
+      106
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      19,
+      19
+     ],
+     "az": [
+      116,
+      178
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      19,
+      19
+     ],
+     "az": [
+      -94,
+      -38
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      19,
+      19
+     ],
+     "az": [
+      -166,
+      -104
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      3,
+      12
+     ],
+     "az": [
+      177,
+      183
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      3,
+      12
+     ],
+     "az": [
+      163,
+      169
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      3,
+      12
+     ],
+     "az": [
+      -169,
+      -163
+     ],
+     "colour": "stripe"
+    },
+    {
+     "shape": [
+      [
+       16.5,
+       0
+      ],
+      [
+       17,
+       -14
+      ],
+      [
+       18.5,
+       -30
+      ],
+      [
+       24,
+       -34
+      ],
+      [
+       24,
+       34
+      ],
+      [
+       18.5,
+       30
+      ],
+      [
+       17,
+       14
+      ]
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 44",
+    "even 4",
+    "dec 6 to 38",
+    "even 3",
+    "dec 6 to 32",
+    "even 2",
+    "dec 4 to 24"
+   ],
+   "oval_axis": "front",
+   "colour": "tabby",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "az": [
+      56,
+      106
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "az": [
+      120,
+      176
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "az": [
+      -90,
+      -40
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "az": [
+      -160,
+      -104
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      7,
+      7
+     ],
+     "az": [
+      40,
+      90
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      7,
+      7
+     ],
+     "az": [
+      104,
+      160
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      7,
+      7
+     ],
+     "az": [
+      -106,
+      -56
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      7,
+      7
+     ],
+     "az": [
+      -176,
+      -120
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      10,
+      10
+     ],
+     "az": [
+      56,
+      106
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      10,
+      10
+     ],
+     "az": [
+      120,
+      176
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      10,
+      10
+     ],
+     "az": [
+      -90,
+      -40
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      10,
+      10
+     ],
+     "az": [
+      -160,
+      -104
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      13,
+      13
+     ],
+     "az": [
+      40,
+      90
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      13,
+      13
+     ],
+     "az": [
+      104,
+      160
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      13,
+      13
+     ],
+     "az": [
+      -106,
+      -56
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      13,
+      13
+     ],
+     "az": [
+      -176,
+      -120
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      16,
+      16
+     ],
+     "az": [
+      56,
+      106
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      16,
+      16
+     ],
+     "az": [
+      120,
+      176
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      16,
+      16
+     ],
+     "az": [
+      -90,
+      -40
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      16,
+      16
+     ],
+     "az": [
+      -160,
+      -104
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      19,
+      19
+     ],
+     "az": [
+      40,
+      90
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      19,
+      19
+     ],
+     "az": [
+      104,
+      160
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      19,
+      19
+     ],
+     "az": [
+      -106,
+      -56
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      19,
+      19
+     ],
+     "az": [
+      -176,
+      -120
+     ],
+     "colour": "stripe"
+    },
+    {
+     "shape": [
+      [
+       4,
+       0
+      ],
+      [
+       8,
+       -22
+      ],
+      [
+       15,
+       -30
+      ],
+      [
+       20,
+       -40
+      ],
+      [
+       20,
+       40
+      ],
+      [
+       15,
+       30
+      ],
+      [
+       8,
+       22
+      ]
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 3",
+    "inc 6 to 18",
+    "even 2"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 4",
+    "inc 2 to 8",
+    "inc 3 to 20",
+    "even 2"
+   ],
+   "colour": "tabby",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.55,
+   "colours": [
+    {
+     "shape": [
+      [
+       2,
+       0
+      ],
+      [
+       5,
+       -35
+      ],
+      [
+       7.5,
+       -45
+      ],
+      [
+       7.5,
+       45
+      ],
+      [
+       5,
+       35
+      ]
+     ],
+     "colour": "pink"
+    }
+   ]
+  },
+  {
+   "id": "front_leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 2",
+    "dec 3 to 12",
+    "even 6"
+   ],
+   "colour": "tabby",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "colour": "cream"
+    },
+    {
+     "rounds": [
+      7,
+      7
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      10,
+      10
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      13,
+      13
+     ],
+     "colour": "stripe"
+    }
+   ]
+  },
+  {
+   "id": "haunch",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24"
+   ],
+   "colour": "tabby",
+   "end": "open",
+   "stuff": "none",
+   "colours": [
+    {
+     "rounds": [
+      3,
+      3
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      5,
+      5
+     ],
+     "colour": "stripe"
+    }
+   ]
+  },
+  {
+   "id": "hind_foot",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 2",
+    "dec 3 to 15"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 6",
+    "11",
+    "even 18"
+   ],
+   "colour": "tabby",
+   "end": "open",
+   "stuff": "light",
+   "bend": {
+    "deg": 15,
+    "at": 11,
+    "over": 6,
+    "toward": [
+     1,
+     0,
+     0
+    ]
+   },
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      7,
+      8
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      11,
+      12
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      15,
+      16
+     ],
+     "colour": "stripe"
+    },
+    {
+     "rounds": [
+      19,
+      19
+     ],
+     "colour": "stripe"
+    }
+   ]
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 18,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 5.5,
+    "az": 62
+   },
+   "dir": [
+    0.45,
+    1,
+    0.1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "front_leg",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 30
+   },
+   "dir": [
+    0,
+    -1,
+    0.2
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.7,
+   "seam": "flat",
+   "seam_line": [
+    1,
+    0,
+    0
+   ],
+   "pinch": 0.6,
+   "max_turn": 8
+  },
+  {
+   "part": "haunch",
+   "on": "body",
+   "at": {
+    "round": 8,
+    "az": 110
+   },
+   "applique": true,
+   "pad": 5,
+   "mirror": true
+  },
+  {
+   "part": "hind_foot",
+   "on": "body",
+   "at": {
+    "round": 5.5,
+    "az": 80
+   },
+   "dir": [
+    0.7,
+    -0.35,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 180
+   },
+   "dir": [
+    0.3,
+    0.05,
+    -1
+   ],
+   "seam": "flat"
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 14,
+    "az": 26
+   },
+   "size_mm": 15,
+   "iris": "iris",
+   "pupil": 0.55,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "safety_nose",
+   "on": "muzzle",
+   "at": {
+    "round": 1.3,
+    "az": 0
+   },
+   "size_mm": [
+    7,
+    5
+   ],
+   "shape": "triangle",
+   "colour": "brown"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.0,
+     180
+    ],
+    [
+     2.5,
+     180
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     2.5,
+     180
+    ],
+    [
+     2.9,
+     160
+    ],
+    [
+     2.7,
+     140
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0,
+   "mirror": true
+  }
+ ]
+}

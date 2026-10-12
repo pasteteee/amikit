@@ -1,0 +1,369 @@
+{
+ "name": "seal_wig",
+ "title": "Seal in a Bob Wig",
+ "title_ru": "Тюлень в парике",
+ "subject": "seal",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "fur": "#f1efec",
+  "flipper": "#a3a6a8",
+  "hind": "#c9cbcc",
+  "hair": "#6b2618",
+  "iris": "#c15fa8",
+  "black": "#151313",
+  "dot": "#b9bec2",
+  "ink": "#2e2a2a"
+ },
+ "colour_names_ru": {
+  "fur": "белый",
+  "flipper": "серый",
+  "hind": "светло-серый",
+  "hair": "каштаново-рыжий",
+  "iris": "розово-сиреневый",
+  "dot": "серый (точки усов)",
+  "ink": "тёмно-серый (надпись)"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "тельце с головой",
+   "name_en": "body with head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "blo 18",
+    "even 3",
+    "24",
+    "even 2",
+    "30",
+    "even 2",
+    "36",
+    "even 2",
+    "42",
+    "even 5",
+    "36",
+    "even 6",
+    "30",
+    "30",
+    "dec 6 to 6"
+   ],
+   "colour": "fur",
+   "stuff": "firm"
+  },
+  {
+   "id": "wig",
+   "name_ru": "парик",
+   "name_en": "bob wig",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "inc 6 to 42 every 2",
+    "48",
+    "even 8"
+   ],
+   "colour": "hair",
+   "end": "open",
+   "stuff": "none",
+   "opening": {
+    "from": 11,
+    "stitches": 16
+   }
+  },
+  {
+   "id": "muzzle",
+   "name_ru": "мордочка",
+   "name_en": "muzzle",
+   "rounds": [
+    "ch 5",
+    "14",
+    "even 1"
+   ],
+   "colour": "fur",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "flipper",
+   "name_ru": "ласта",
+   "name_en": "flipper",
+   "rounds": [
+    "mr 6",
+    "9",
+    "12",
+    "even 3",
+    "10",
+    "8"
+   ],
+   "colour": "flipper",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.75
+  },
+  {
+   "id": "tail",
+   "name_ru": "задняя ласта",
+   "name_en": "hind flipper",
+   "rounds": [
+    "mr 6",
+    "10",
+    "14",
+    "even 2",
+    "12",
+    "10"
+   ],
+   "colour": "hind",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.8
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "wig",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "wear": true,
+   "dir": [
+    0,
+    -1,
+    0
+   ],
+   "pad": 3
+  },
+  {
+   "part": "muzzle",
+   "on": "body",
+   "at": {
+    "round": 24.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.05,
+    1
+   ]
+  },
+  {
+   "part": "flipper",
+   "on": "body",
+   "at": {
+    "round": 21,
+    "az": 92
+   },
+   "dir": [
+    0.7,
+    -1,
+    0.1
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "avoid": true,
+   "front": [
+    1,
+    0,
+    0
+   ]
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 2.5,
+    "az": 20
+   },
+   "dir": [
+    0.2,
+    -0.45,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 26.5,
+    "az": 32
+   },
+   "size_mm": 15,
+   "mirror": true,
+   "iris": "iris",
+   "pupil": 0.55,
+   "highlight": true,
+   "sink": 0.45,
+   "id": "eye"
+  },
+  {
+   "type": "safety_nose",
+   "on": "muzzle",
+   "at": {
+    "round": 1.5,
+    "az": 0
+   },
+   "size_mm": [
+    7,
+    5
+   ],
+   "shape": "oval",
+   "id": "nose"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.2,
+     180
+    ],
+    [
+     2.2,
+     180
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0,
+   "id": "line"
+  },
+  {
+   "type": "satin",
+   "on": "muzzle",
+   "at": {
+    "round": 1.8,
+    "az": 120
+   },
+   "width_mm": 1.8,
+   "height_mm": 1.8,
+   "shape": "oval",
+   "colour": "dot",
+   "thickness_mm": 1.0,
+   "mirror": true,
+   "id": "whisker_dot1"
+  },
+  {
+   "type": "satin",
+   "on": "muzzle",
+   "at": {
+    "round": 2.2,
+    "az": 140
+   },
+   "width_mm": 1.8,
+   "height_mm": 1.8,
+   "shape": "oval",
+   "colour": "dot",
+   "thickness_mm": 1.0,
+   "mirror": true,
+   "id": "whisker_dot2"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     2.2,
+     180
+    ],
+    [
+     2.0,
+     160
+    ],
+    [
+     2.3,
+     140
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0,
+   "mirror": true,
+   "id": "smile"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     24.6,
+     -46.5
+    ],
+    [
+     24.2,
+     -49
+    ],
+    [
+     23.6,
+     -51
+    ],
+    [
+     23.0,
+     -51
+    ],
+    [
+     22.6,
+     -49.5
+    ],
+    [
+     22.7,
+     -47.5
+    ],
+    [
+     23.2,
+     -46.8
+    ],
+    [
+     23.6,
+     -47.8
+    ],
+    [
+     23.5,
+     -49.8
+    ],
+    [
+     23.1,
+     -51
+    ]
+   ],
+   "colour": "ink",
+   "thickness_mm": 0.9,
+   "id": "tattoo_6"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     24.6,
+     -45
+    ],
+    [
+     24.7,
+     -40
+    ],
+    [
+     22.6,
+     -43.5
+    ]
+   ],
+   "colour": "ink",
+   "thickness_mm": 0.9,
+   "id": "tattoo_7"
+  }
+ ]
+}

@@ -1,0 +1,294 @@
+{
+ "name": "47_poppy_mandragora",
+ "title": "Poppy Root Mandrake",
+ "title_ru": "Мандрагора Маковый малыш",
+ "subject": "doll",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "lilac": "#c08dc0",
+  "emerald": "#1f7550",
+  "coral": "#fb6c63",
+  "yellow": "#f7c43c",
+  "pink": "#f4a0a8",
+  "black": "#151313"
+ },
+ "colour_names_ru": {
+  "lilac": "сиреневый",
+  "emerald": "изумрудно-зелёный",
+  "coral": "коралловый",
+  "yellow": "жёлтый",
+  "pink": "розовый",
+  "black": "чёрный"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "blo 42",
+    "even 4",
+    "inc 6 to 54 every 2",
+    "even 7",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "lilac",
+   "end": "closed",
+   "stuff": "firm",
+   "name_ru": "Тело-корешок с головой",
+   "name_en": "Root body with head"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "24",
+    "blo 24",
+    "even 2"
+   ],
+   "colour": "lilac",
+   "end": "open",
+   "stuff": "firm",
+   "name_ru": "Ножка-корешок",
+   "name_en": "Root leg"
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 2",
+    "12",
+    "even 1"
+   ],
+   "colour": "lilac",
+   "end": "open",
+   "stuff": "light",
+   "name_ru": "Ручка-корешок",
+   "name_en": "Root arm"
+  },
+  {
+   "id": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "Щёчка",
+   "name_en": "Cheek"
+  },
+  {
+   "id": "leaf",
+   "colour": "emerald",
+   "name_ru": "Листок",
+   "name_en": "Leaf",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "10",
+    "12",
+    "14",
+    "even 3",
+    "12",
+    "10",
+    "8"
+   ],
+   "end": "closed",
+   "stuff": "none",
+   "flatten": 0.9
+  },
+  {
+   "id": "flower_centre",
+   "rounds": [
+    "mr 5",
+    "10"
+   ],
+   "colour": "yellow",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "Серединка цветка",
+   "name_en": "Flower centre"
+  },
+  {
+   "id": "flower",
+   "colour": "coral",
+   "name_ru": "Цветок мака",
+   "name_en": "Poppy flower",
+   "motif": {
+    "kind": "lobed",
+    "lobes": 5,
+    "tall": "tr",
+    "stitches": 5,
+    "rounds": 1
+   }
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "cheek",
+   "on": "body",
+   "at": {
+    "round": 18.5,
+    "az": 50
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 2.5,
+    "az": 40
+   },
+   "dir": [
+    0.25,
+    -1,
+    0.15
+   ],
+   "mirror": true
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 12,
+    "az": 85
+   },
+   "dir": [
+    0.4,
+    -1,
+    0.15
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "avoid": true,
+   "contact": 0.6
+  },
+  {
+   "part": "leaf",
+   "name": "leaf_side",
+   "on": "body",
+   "at": {
+    "round": 27.5,
+    "az": 78
+   },
+   "dir": [
+    1,
+    0.3,
+    0.1
+   ],
+   "mirror": true,
+   "sink": 2,
+   "front": [
+    0.4,
+    0.6,
+    0.7
+   ]
+  },
+  {
+   "part": "leaf",
+   "name": "leaf_back",
+   "on": "body",
+   "at": {
+    "round": 31,
+    "az": 180
+   },
+   "dir": [
+    0,
+    1,
+    -0.4
+   ],
+   "sink": 2,
+   "front": [
+    0.5,
+    0.3,
+    0.8
+   ]
+  },
+  {
+   "part": "flower",
+   "on": "body",
+   "at": {
+    "round": 27.5,
+    "az": 0
+   },
+   "applique": true,
+   "pad": 2,
+   "lift": 1.0
+  },
+  {
+   "part": "flower_centre",
+   "on": "body",
+   "at": {
+    "round": 27.5,
+    "az": 0
+   },
+   "applique": true,
+   "pad": 3,
+   "lift": 2.4
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 20,
+    "az": 30
+   },
+   "size_mm": 12,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     18.3,
+     -10
+    ],
+    [
+     17.8,
+     -5
+    ],
+    [
+     17.6,
+     0
+    ],
+    [
+     17.8,
+     5
+    ],
+    [
+     18.3,
+     10
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.1
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+# packaging (pip install / build from this folder)
+/build/
+/dist/
+*.egg-info/
+# spec backups of toy jobs
+*.bak
+# designers' patterns and photos for test_reverse (third-party, learn-only): kept locally, never committed;
+# without them test_designer_patterns_build is skipped
+/reverse_tests/

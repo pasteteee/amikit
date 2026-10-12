@@ -1,0 +1,208 @@
+{
+ "name": "ae26_penguin",
+ "title": "Positive penguin with heart",
+ "subject": "penguin",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "black": "#1b1a1c",
+  "white": "#f3f1ec",
+  "orange": "#f39a3a",
+  "red": "#d9241f"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "even 10",
+    "dec 6 to 42",
+    "even 4",
+    "dec 6 to 36",
+    "even 2",
+    "dec 6 to 6"
+   ],
+   "colour": "black",
+   "stuff": "firm"
+  },
+  {
+   "id": "belly",
+   "rounds": [
+    "ch 8",
+    "inc 6 to 64"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "beak",
+   "rounds": [
+    "mr 4",
+    "inc 2 to 10",
+    "even 1"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "light",
+   "squash": 0.4
+  },
+  {
+   "id": "flipper",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 3",
+    "10",
+    "even 4",
+    "8"
+   ],
+   "colour": "black",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.5
+  },
+  {
+   "id": "foot",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 2"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.85
+  },
+  {
+   "id": "heart_lobe",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "heart_tip",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "belly",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 0
+   },
+   "applique": true,
+   "roll": 90,
+   "inset": 0.8
+  },
+  {
+   "part": "beak",
+   "on": "body",
+   "at": {
+    "round": 20,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ]
+  },
+  {
+   "part": "heart_lobe",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 14
+   },
+   "applique": true,
+   "pad": 6,
+   "mirror": true,
+   "lift": 4
+  },
+  {
+   "part": "heart_tip",
+   "on": "body",
+   "at": {
+    "round": 9,
+    "az": 0
+   },
+   "applique": true,
+   "pad": 5,
+   "lift": 4
+  },
+  {
+   "part": "flipper",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 72
+   },
+   "dir": [
+    0.15,
+    -0.4,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "front": [
+    1,
+    0,
+    0
+   ]
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 3,
+    "az": 28
+   },
+   "dir": [
+    0.4,
+    -0.2,
+    1
+   ],
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 21,
+    "az": 26
+   },
+   "size_mm": 8,
+   "mirror": true
+  }
+ ]
+}

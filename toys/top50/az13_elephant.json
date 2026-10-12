@@ -1,0 +1,27 @@
+{
+ "name": "az13_elephant",
+ "title": "Sitting elephant",
+ "subject": "elephant",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {"grey": "#aea49c", "dgrey": "#9d938b", "black": "#1e1c22"},
+ "colour_names_ru": {"grey": "серо-бежевый", "dgrey": "тёмно-серо-бежевый"},
+ "parts": [
+  {"id": "head", "rounds": ["mr 6", "inc 6 to 42", "inc 6 to 60 every 2", "even 5", "dec 6 to 48 every 2", "dec 6 to 6"], "colour": "grey", "stuff": "firm"},
+  {"id": "body", "rounds": ["ch 4", "inc 6 to 44", "even 5", "dec 6 to 38", "even 5", "dec 6 to 32", "even 2", "dec 4 to 24"], "oval_axis": "front", "colour": "grey", "end": "open", "stuff": "firm"},
+  {"id": "trunk", "rounds": ["mr 6", "12", "even 2", "15", "even 2", "18", "21", "24", "27"], "colour": "grey", "end": "open", "stuff": "firm", "bend": {"deg": 45, "at": 5, "over": 4, "toward": [0, -1, 0.1]}},
+  {"id": "ear", "rounds": ["ch 6", "inc 6 to 54"], "colour": "grey", "end": "open", "stuff": "none"},
+  {"id": "front_leg", "rounds": ["mr 6", "inc 6 to 24", "blo 24", "even 3", "21", "even 4", "18", "even 3"], "colour": "grey", "end": "open", "stuff": "firm"},
+  {"id": "hind_leg", "rounds": ["mr 6", "inc 6 to 24", "blo 24", "even 2", "21", "even 3", "18", "even 1"], "colour": "grey", "end": "open", "stuff": "firm"}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 1, 0]},
+  {"part": "head", "on": "body", "at": {"round": "end"}, "attach": "end", "dir": [0, 1, 0], "sink": 5},
+  {"part": "trunk", "on": "head", "at": {"round": 15.5, "az": 0}, "dir": [0, -0.25, 1]},
+  {"part": "ear", "on": "head", "at": {"round": 11, "az": 80}, "attach": "edge", "dir": [1, 0.7, -0.1], "roll": 70, "face": [0.15, 0, 1], "mirror": true},
+  {"part": "front_leg", "on": "body", "at": {"round": 16, "az": 24}, "dir": [0.05, -1, 0.1], "mirror": true, "avoid": true, "avoid_toward": [0, 0, 1], "contact": 0.8, "max_turn": 10, "seam": "flat", "pinch": 0.6},
+  {"part": "hind_leg", "on": "body", "at": {"round": 5.5, "az": 70}, "dir": [0.6, -0.2, 1], "mirror": true}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "head", "at": {"round": 13.5, "az": 24}, "size_mm": 6, "mirror": true}
+ ]
+}

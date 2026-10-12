@@ -1,0 +1,444 @@
+{
+ "name": "b_bear_honeypot",
+ "title": "Bear in a Honey Pot",
+ "title_ru": "Мишка в горшочке",
+ "subject": "bear",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "pot": "#8ecdf0",
+  "honey": "#ffc23d",
+  "bear": "#c98b5a",
+  "muzzle": "#f6e3c9",
+  "inner": "#f2b8a0",
+  "dark": "#3a2a22",
+  "blush": "#ff9e9e"
+ },
+ "colour_names_ru": {
+  "pot": "голубой",
+  "honey": "медовый",
+  "bear": "карамельный",
+  "muzzle": "кремовый",
+  "inner": "персиковый",
+  "dark": "тёмно-коричневый",
+  "blush": "розовый (щёчки)"
+ },
+ "parts": [
+  {
+   "id": "pot",
+   "name_ru": "горшочек",
+   "name_en": "honey pot",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "blo 42",
+    "inc 6 to 54 every 2",
+    "even 6",
+    "dec 6 to 48 every 2",
+    "even 1",
+    "54"
+   ],
+   "colour": "pot",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "honey",
+   "name_ru": "мёд",
+   "name_en": "honey drips",
+   "rounds": [
+    "ring 54",
+    "even 1",
+    "shells 7 tr every 6"
+   ],
+   "colour": "honey",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "body",
+   "name_ru": "тельце мишки",
+   "name_en": "bear body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "even 10",
+    "dec 6 to 6"
+   ],
+   "colour": "bear",
+   "stuff": "firm"
+  },
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "inc 6 to 42 every 2",
+    "even 5",
+    "dec 6 to 36 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "bear",
+   "stuff": "firm"
+  },
+  {
+   "id": "muzzle",
+   "name_ru": "мордочка",
+   "name_en": "muzzle",
+   "rounds": [
+    "ch 3",
+    "12",
+    "18",
+    "even 1"
+   ],
+   "colour": "muzzle",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "name_ru": "ушко",
+   "name_en": "ear",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 1",
+    "dec 6 to 6"
+   ],
+   "colour": "bear",
+   "end": "closed",
+   "stuff": "none",
+   "dish": 0.5,
+   "colours": [
+    {
+     "inner": true,
+     "colour": "inner"
+    }
+   ]
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "arm",
+   "name_ru": "лапка",
+   "name_en": "arm",
+   "rounds": [
+    "mr 6",
+    "10",
+    "even 4",
+    "9"
+   ],
+   "colour": "bear",
+   "end": "open",
+   "stuff": "light"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "pot",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "honey",
+   "on": "pot",
+   "at": {
+    "round": 20
+   },
+   "around": true,
+   "fall": true
+  },
+  {
+   "part": "body",
+   "on": "pot",
+   "at": {
+    "round": 2
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 4
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "start"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 6
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 13,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ],
+   "sink": 1
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 5,
+    "az": 55
+   },
+   "attach": "edge",
+   "dir": [
+    0.6,
+    1,
+    0
+   ],
+   "face": [
+    0.15,
+    0.25,
+    1
+   ],
+   "mirror": true,
+   "sink": 3.5
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 12.5,
+    "az": 46
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.0
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 40
+   },
+   "dir": [
+    0.3,
+    0.05,
+    1
+   ],
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 10,
+    "az": 21
+   },
+   "size_mm": 12,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye",
+   "sink": 0.6
+  },
+  {
+   "type": "satin",
+   "on": "muzzle",
+   "at": {
+    "round": 1.2,
+    "az": 0
+   },
+   "width_mm": 8,
+   "height_mm": 5.5,
+   "shape": "oval",
+   "colour": "dark",
+   "thickness_mm": 1.5,
+   "id": "nose"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.0,
+     180
+    ],
+    [
+     1.9,
+     180
+    ]
+   ],
+   "colour": "dark",
+   "thickness_mm": 1.0,
+   "id": "line"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.9,
+     180
+    ],
+    [
+     2.35,
+     166
+    ],
+    [
+     2.5,
+     152
+    ],
+    [
+     2.3,
+     140
+    ]
+   ],
+   "colour": "dark",
+   "thickness_mm": 1.1,
+   "mirror": true,
+   "id": "smile"
+  },
+  {
+   "type": "satin",
+   "on": "pot",
+   "at": {
+    "round": 17.288888888888888,
+    "az": -40
+   },
+   "width_mm": 4.5,
+   "height_mm": 8,
+   "shape": "oval",
+   "colour": "honey",
+   "thickness_mm": 1.4,
+   "id": "drip1"
+  },
+  {
+   "type": "satin",
+   "on": "pot",
+   "at": {
+    "round": 16.455555555555556,
+    "az": -12
+   },
+   "width_mm": 4.5,
+   "height_mm": 14,
+   "shape": "oval",
+   "colour": "honey",
+   "thickness_mm": 1.4,
+   "id": "drip2"
+  },
+  {
+   "type": "satin",
+   "on": "pot",
+   "at": {
+    "round": 17.566666666666666,
+    "az": 15
+   },
+   "width_mm": 4.5,
+   "height_mm": 6,
+   "shape": "oval",
+   "colour": "honey",
+   "thickness_mm": 1.4,
+   "id": "drip3"
+  },
+  {
+   "type": "satin",
+   "on": "pot",
+   "at": {
+    "round": 16.87222222222222,
+    "az": 42
+   },
+   "width_mm": 4.5,
+   "height_mm": 11,
+   "shape": "oval",
+   "colour": "honey",
+   "thickness_mm": 1.4,
+   "id": "drip4"
+  },
+  {
+   "type": "satin",
+   "on": "pot",
+   "at": {
+    "round": 17.15,
+    "az": 100
+   },
+   "width_mm": 4.5,
+   "height_mm": 9,
+   "shape": "oval",
+   "colour": "honey",
+   "thickness_mm": 1.4,
+   "id": "drip5"
+  },
+  {
+   "type": "satin",
+   "on": "pot",
+   "at": {
+    "round": 16.59444444444444,
+    "az": 150
+   },
+   "width_mm": 4.5,
+   "height_mm": 13,
+   "shape": "oval",
+   "colour": "honey",
+   "thickness_mm": 1.4,
+   "id": "drip6"
+  },
+  {
+   "type": "satin",
+   "on": "pot",
+   "at": {
+    "round": 17.427777777777777,
+    "az": -110
+   },
+   "width_mm": 4.5,
+   "height_mm": 7,
+   "shape": "oval",
+   "colour": "honey",
+   "thickness_mm": 1.4,
+   "id": "drip7"
+  },
+  {
+   "type": "satin",
+   "on": "pot",
+   "at": {
+    "round": 16.73333333333333,
+    "az": -160
+   },
+   "width_mm": 4.5,
+   "height_mm": 12,
+   "shape": "oval",
+   "colour": "honey",
+   "thickness_mm": 1.4,
+   "id": "drip8"
+  }
+ ]
+}

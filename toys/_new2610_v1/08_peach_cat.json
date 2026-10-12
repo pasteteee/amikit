@@ -1,0 +1,414 @@
+{
+ "name": "08_peach_cat",
+ "title": "Peach Leaf Kitten",
+ "title_ru": "Котёнок Персик",
+ "subject": "cat",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "peach": "#eeb497",
+  "cream": "#f1e4d2",
+  "pinkear": "#eba49b",
+  "cheek": "#efa3a4",
+  "leaf": "#8a9a6c",
+  "nose": "#e8958b",
+  "brown": "#4a3028"
+ },
+ "colour_names_ru": {
+  "peach": "персиковый",
+  "pinkear": "розовый",
+  "cheek": "розовый (щёчки)",
+  "leaf": "шалфейный",
+  "nose": "розовый (вышивка носика)",
+  "cream": "кремовый",
+  "brown": "тёмно-коричневый (вышивка)"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "тело",
+   "name_en": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "even 13",
+    "dec 6 to 24",
+    "dec 6 to 12"
+   ],
+   "colour": "peach",
+   "stuff": "firm",
+   "flatten": 0.5
+  },
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "ch 9",
+    "inc 6 to 54",
+    "inc 6 to 72 every 2",
+    "even 3",
+    "dec 6 to 54 every 2",
+    "dec 6 to 18"
+   ],
+   "colour": "peach",
+   "stuff": "firm",
+   "colours": [
+    {
+     "ellipse": {
+      "center": [
+       19,
+       0
+      ],
+      "radii": [
+       6,
+       46
+      ]
+     },
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "ear",
+   "name_ru": "ушко",
+   "name_en": "ear",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "10",
+    "12",
+    "14",
+    "16",
+    "18",
+    "even 2"
+   ],
+   "colour": "peach",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.8
+  },
+  {
+   "id": "inner_ear",
+   "name_ru": "внутренняя часть ушка",
+   "name_en": "inner ear",
+   "rounds": [
+    "ch 4",
+    "10"
+   ],
+   "colour": "pinkear",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "cheek",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "leaf",
+   "name_ru": "листик",
+   "name_en": "leaf",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "even 2",
+    "6",
+    "5"
+   ],
+   "colour": "leaf",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.9
+  },
+  {
+   "id": "paw",
+   "name_ru": "передняя лапка",
+   "name_en": "front paw",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "even 4",
+    "15"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "medium"
+  },
+  {
+   "id": "hind_paw",
+   "name_ru": "задняя лапка",
+   "name_en": "hind paw",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "10"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "medium"
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвост",
+   "name_en": "tail",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "21",
+    "even 12",
+    "18"
+   ],
+   "colour": "peach",
+   "end": "open",
+   "stuff": "medium",
+   "bend": {
+    "deg": 150,
+    "at": 8,
+    "over": 7
+   },
+   "colours": [
+    {
+     "rounds": [
+      1,
+      5
+     ],
+     "colour": "cream"
+    },
+    {
+     "rounds": [
+      10,
+      12
+     ],
+     "colour": "cream"
+    }
+   ]
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": 18,
+    "az": 0
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0.15
+   ],
+   "sink": 12
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 6.5,
+    "az": 64
+   },
+   "dir": [
+    0.6,
+    1,
+    0.05
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "inner_ear",
+   "on": "ear",
+   "at": {
+    "round": 5.5,
+    "az": 0
+   },
+   "applique": true,
+   "mirror": true,
+   "along": "parent",
+   "inset": 1.0
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 14.3,
+    "az": 52
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "leaf",
+   "on": "head",
+   "at": {
+    "round": 1,
+    "az": 30
+   },
+   "dir": [
+    0.8,
+    0.7,
+    0.05
+   ],
+   "mirror": true,
+   "front": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "paw",
+   "on": "body",
+   "at": {
+    "round": 20,
+    "az": 158
+   },
+   "dir": [
+    0.12,
+    -0.1,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "hind_paw",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 140
+   },
+   "dir": [
+    0.5,
+    -0.4,
+    -0.3
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 110
+   },
+   "dir": [
+    0.9,
+    -0.1,
+    -0.4
+   ],
+   "bend_toward": [
+    0.2,
+    -0.1,
+    1
+   ],
+   "seam": "flat"
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 11.6,
+    "az": 29
+   },
+   "size_mm": 12,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "satin",
+   "on": "head",
+   "at": {
+    "round": 13.0,
+    "az": 0
+   },
+   "width_mm": 7.5,
+   "height_mm": 5.5,
+   "shape": "triangle",
+   "colour": "nose",
+   "thickness_mm": 1.4
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     13.6,
+     0
+    ],
+    [
+     14.4,
+     0
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     14.4,
+     0
+    ],
+    [
+     14.9,
+     -6
+    ],
+    [
+     14.5,
+     -12
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     14.4,
+     0
+    ],
+    [
+     14.9,
+     6
+    ],
+    [
+     14.5,
+     12
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 0.9
+  }
+ ]
+}

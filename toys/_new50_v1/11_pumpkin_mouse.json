@@ -1,0 +1,416 @@
+{
+ "name": "11_pumpkin_mouse",
+ "title": "Pumpkin Button Mouse",
+ "title_ru": "Мышонок Тыквенная кнопка",
+ "subject": "mouse",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "orange": "#f0711c",
+  "rib": "#c95510",
+  "cream": "#f4e6cf",
+  "peach": "#f8b39a",
+  "green": "#5f9a3a",
+  "coral": "#f27c72",
+  "blush": "#f09a92",
+  "cocoa": "#4a2a20",
+  "black": "#141213"
+ },
+ "colour_names_ru": {
+  "orange": "мандариново-оранжевый",
+  "rib": "тёмно-оранжевый",
+  "cream": "кремовый",
+  "peach": "персиковый",
+  "green": "зелёный",
+  "coral": "коралловый",
+  "blush": "розовый",
+  "cocoa": "тёмно-коричневый"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "тело-тыковка",
+   "name_en": "pumpkin body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 72",
+    "even 5",
+    "dec 6 to 42"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "inc 6 to 66 every 2",
+    "even 5",
+    "dec 6 to 48 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "cream",
+   "stuff": "firm"
+  },
+  {
+   "id": "ear",
+   "name_ru": "круглое ушко",
+   "name_en": "round ear",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "24",
+    "30",
+    "36",
+    "42",
+    "even 2",
+    "36"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "none",
+   "dish": 0.5,
+   "colours": [
+    {
+     "inner": true,
+     "colour": "peach"
+    }
+   ]
+  },
+  {
+   "id": "paw",
+   "name_ru": "лапка",
+   "name_en": "paw",
+   "rounds": [
+    "mr 6",
+    "10",
+    "even 2",
+    "8"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "foot",
+   "name_ru": "ступня",
+   "name_en": "foot",
+   "rounds": [
+    "ch 5",
+    "16",
+    "20",
+    "even 2",
+    "16"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "tail",
+   "name_ru": "толстый хвостик",
+   "name_en": "thick tail",
+   "rounds": [
+    "mr 6",
+    "9",
+    "even 20",
+    "12"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "light",
+   "bend": {
+    "deg": 60,
+    "at": 12,
+    "over": 6,
+    "toward": [
+     1,
+     0.3,
+     0.2
+    ]
+   }
+  },
+  {
+   "id": "leaf",
+   "name_ru": "листик",
+   "name_en": "leaf",
+   "motif": {
+    "kind": "leaf",
+    "chain": 6,
+    "tall": "dc"
+   },
+   "colour": "green"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0.25
+   ],
+   "sink": 8
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 9.5,
+    "az": 92
+   },
+   "dir": [
+    1,
+    0.7,
+    -0.55
+   ],
+   "mirror": true,
+   "attach": "edge",
+   "face": [
+    0.3,
+    0.1,
+    1
+   ],
+   "sink": 13
+  },
+  {
+   "part": "paw",
+   "on": "body",
+   "at": {
+    "round": 17,
+    "az": 34
+   },
+   "dir": [
+    0.2,
+    -0.3,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 32
+   },
+   "dir": [
+    0.25,
+    -0.35,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 140
+   },
+   "dir": [
+    0.6,
+    0,
+    -1
+   ],
+   "front": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "leaf",
+   "on": "body",
+   "at": {
+    "round": 20.5,
+    "az": 40
+   },
+   "applique": true,
+   "roll": -40,
+   "pad": 1.5,
+   "lift": 1.2
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 18.5,
+    "az": 46
+   },
+   "applique": true,
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 16.5,
+    "az": 29
+   },
+   "size_mm": 13,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "satin",
+   "on": "head",
+   "at": {
+    "round": 17.6,
+    "az": 0
+   },
+   "width_mm": 7,
+   "height_mm": 5,
+   "shape": "triangle",
+   "colour": "coral",
+   "thickness_mm": 2.0
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     18.4,
+     0
+    ],
+    [
+     19.4,
+     0
+    ]
+   ],
+   "colour": "cocoa",
+   "thickness_mm": 1.0
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     19.0,
+     -8
+    ],
+    [
+     19.7,
+     -4
+    ],
+    [
+     19.4,
+     0
+    ],
+    [
+     19.7,
+     4
+    ],
+    [
+     19.0,
+     8
+    ]
+   ],
+   "colour": "cocoa",
+   "thickness_mm": 1.0
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     2.5,
+     0
+    ],
+    [
+     21.5,
+     0
+    ]
+   ],
+   "colour": "rib",
+   "thickness_mm": 2.2
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     2.5,
+     60
+    ],
+    [
+     21.5,
+     60
+    ]
+   ],
+   "colour": "rib",
+   "thickness_mm": 2.2,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     2.5,
+     120
+    ],
+    [
+     21.5,
+     120
+    ]
+   ],
+   "colour": "rib",
+   "thickness_mm": 2.2,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     2.5,
+     180
+    ],
+    [
+     21.5,
+     180
+    ]
+   ],
+   "colour": "rib",
+   "thickness_mm": 2.2
+  }
+ ]
+}

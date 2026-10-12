@@ -1,0 +1,200 @@
+{
+ "name": "duck",
+ "title": "Yellow duckling",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "yellow": "#f8cc4c",
+  "orange": "#fa8030",
+  "black": "#2d2b2a"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 8",
+    "dec 6 to 6"
+   ],
+   "colour": "yellow",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "inc 6 to 36 every 2",
+    "even 5",
+    "dec 6 to 30",
+    "even 3",
+    "dec 6 to 24"
+   ],
+   "colour": "yellow",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "bill",
+   "rounds": [
+    "ch 6",
+    "18",
+    "even 5"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.2
+  },
+  {
+   "id": "wing",
+   "rounds": [
+    "mr 4",
+    "8",
+    "12",
+    "15",
+    "even 4",
+    "dec 3 to 9"
+   ],
+   "colour": "yellow",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.35
+  },
+  {
+   "id": "foot",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 4"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.9
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 4",
+    "6",
+    "9",
+    "12",
+    "even 1"
+   ],
+   "colour": "yellow",
+   "end": "open",
+   "stuff": "light"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 4
+  },
+  {
+   "part": "bill",
+   "on": "head",
+   "at": {
+    "round": 16.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ]
+  },
+  {
+   "part": "wing",
+   "on": "body",
+   "at": {
+    "round": 15.5,
+    "az": 85
+   },
+   "dir": [
+    0.35,
+    -1,
+    0.05
+   ],
+   "front": [
+    1,
+    0,
+    0
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.5
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 55
+   },
+   "dir": [
+    0.8,
+    -0.55,
+    1
+   ],
+   "front": [
+    0,
+    1,
+    0
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 9,
+    "az": 180
+   },
+   "dir": [
+    0,
+    1,
+    -0.8
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 14.5,
+    "az": 34
+   },
+   "size_mm": 9,
+   "mirror": true,
+   "highlight": true
+  }
+ ]
+}

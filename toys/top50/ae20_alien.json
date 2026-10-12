@@ -1,0 +1,218 @@
+{
+ "name": "ae20_alien",
+ "title": "Little green alien",
+ "subject": "alien",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "green": "#86b833",
+  "black": "#141414",
+  "white": "#ffffff",
+  "card": "#fbfbfb"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "inc 6 to 60 every 2",
+    "even 6",
+    "dec 6 to 48 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "green",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "even 4",
+    "dec 6 to 30",
+    "even 3",
+    "dec 6 to 24",
+    "even 1"
+   ],
+   "colour": "green",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "even 2",
+    "10",
+    "even 3"
+   ],
+   "colour": "green",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 3",
+    "15",
+    "even 2"
+   ],
+   "colour": "green",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "card",
+   "flat": {
+    "width_st": 14,
+    "rows": 8
+   },
+   "colour": "card"
+  },
+  {
+   "id": "eye",
+   "rounds": [
+    "ch 5",
+    "inc 6 to 22",
+    "inc 6 to 28 every 2",
+    "34"
+   ],
+   "colour": "black",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 35
+   },
+   "dir": [
+    0.3,
+    -0.2,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 12,
+    "az": 75
+   },
+   "dir": [
+    0.3,
+    0,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "card",
+   "on": "body",
+   "at": {
+    "round": 10.5,
+    "az": 0
+   },
+   "lift": 18
+  },
+  {
+   "part": "eye",
+   "on": "head",
+   "at": {
+    "round": 14.5,
+    "az": 34
+   },
+   "applique": true,
+   "mirror": true,
+   "roll": 28,
+   "pad": 2
+  }
+ ],
+ "face": [
+  {
+   "type": "felt",
+   "on": "eye",
+   "at": {
+    "round": 2,
+    "az": 30
+   },
+   "size_mm": [
+    3.2,
+    3.2
+   ],
+   "colour": "white",
+   "mirror": true
+  },
+  {
+   "type": "felt",
+   "on": "eye",
+   "at": {
+    "round": 3,
+    "az": 60
+   },
+   "size_mm": [
+    2.4,
+    2.4
+   ],
+   "colour": "white",
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     20.8,
+     -9
+    ],
+    [
+     21.7,
+     0
+    ],
+    [
+     20.8,
+     9
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.3
+  }
+ ]
+}

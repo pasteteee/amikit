@@ -1,0 +1,39 @@
+{
+ "name": "37_papaya_pelican",
+ "title": "Papaya Pocket Pelican",
+ "title_ru": "Пеликан Папайя",
+ "subject": "pelican",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {"cream": "#f2e5cf", "coral": "#e57a62", "lightcoral": "#ee9784", "orange": "#f4982c", "teal": "#3c9e9a", "blush": "#ee8f80", "black": "#141213"},
+ "colour_names_ru": {"cream": "кремовый", "coral": "коралловый", "lightcoral": "светло-коралловый", "orange": "оранжевый", "teal": "бирюзово-зелёный", "blush": "розово-коралловый", "black": "чёрный"},
+ "parts": [
+  {"id": "head", "name_ru": "голова", "name_en": "head", "rounds": ["mr 6", "inc 6 to 42", "inc 6 to 54 every 2", "even 6", "dec 6 to 42 every 2", "dec 6 to 6"], "colour": "cream", "stuff": "firm"},
+  {"id": "body", "name_ru": "тело", "name_en": "body", "rounds": ["mr 6", "inc 6 to 54", "inc 6 to 66 every 2", "even 6", "dec 6 to 54 every 2", "dec 6 to 42"], "colour": "coral", "end": "open", "stuff": "firm"},
+  {"id": "beak", "name_ru": "клюв", "name_en": "beak", "rounds": ["ch 8", "inc 6 to 28", "even 7"], "colour": "orange", "end": "open", "stuff": "light", "flatten": 0.45},
+  {"id": "pouch", "name_ru": "горловой мешок", "name_en": "throat pouch", "rounds": ["mr 6", "inc 6 to 42", "even 5"], "colour": "lightcoral", "end": "open", "stuff": "light"},
+  {"id": "fish", "name_ru": "рыбка", "name_en": "fish", "rounds": ["mr 6", "inc 6 to 18", "even 4", "dec 6 to 6"], "colour": "teal", "stuff": "firm", "flatten": 0.15},
+  {"id": "fish_tail", "name_ru": "хвостик рыбки", "name_en": "fish tail", "rounds": ["mr 4", "8", "12", "14"], "colour": "teal", "end": "open", "stuff": "none", "flatten": 0.7},
+  {"id": "wing", "name_ru": "крыло", "name_en": "wing", "rounds": ["mr 6", "12", "18", "24", "30", "even 9", "24", "18"], "colour": "cream", "end": "open", "stuff": "light", "flatten": 0.65},
+  {"id": "foot", "name_ru": "лапка", "name_en": "foot", "rounds": ["mr 6", "12", "18", "24", "30", "even 3", "24", "18"], "colour": "orange", "end": "open", "stuff": "light", "flatten": 0.6},
+  {"id": "tail", "name_ru": "хвостик", "name_en": "tail", "rounds": ["mr 6", "12", "18", "24", "even 2"], "colour": "cream", "end": "open", "stuff": "light", "flatten": 0.55},
+  {"id": "tuft", "name_ru": "хохолок", "name_en": "crown tuft", "rounds": ["mr 5", "8", "even 1"], "colour": "coral", "end": "open", "stuff": "light"},
+  {"id": "cheek", "name_ru": "щёчка", "name_en": "cheek", "rounds": ["mr 6", "12"], "colour": "blush", "end": "open", "stuff": "none"}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 1, 0]},
+  {"part": "head", "on": "body", "at": {"round": "end"}, "attach": "end", "dir": [0, 1, 0], "sink": 6},
+  {"part": "tuft", "name": "tuft_mid", "on": "head", "at": {"round": 1.5, "az": 0}, "dir": [0, 1, 0]},
+  {"part": "tuft", "name": "tuft_side", "on": "head", "at": {"round": 2, "az": 90}, "dir": [0.35, 1, 0], "mirror": true},
+  {"part": "beak", "on": "head", "at": {"round": 16, "az": 0}, "dir": [0, -0.12, 1], "front": [0, 1, 0]},
+  {"part": "pouch", "on": "body", "at": {"round": 16, "az": 0}, "dir": [0, 0.1, 1]},
+  {"part": "fish", "on": "pouch", "at": {"round": 6, "az": 14}, "dir": [-1, 0.2, 0.3], "sink": 6},
+  {"part": "fish_tail", "on": "pouch", "at": {"round": 6, "az": 34}, "dir": [1, 0.3, 0.4]},
+  {"part": "cheek", "on": "head", "at": {"round": 16, "az": 50}, "applique": true, "mirror": true},
+  {"part": "wing", "on": "body", "at": {"round": 20, "az": 84}, "dir": [0.5, -1, -0.1], "front": [1, 0, 0.15], "mirror": true, "seam": "flat", "avoid": true, "contact": 0.6},
+  {"part": "foot", "on": "body", "at": {"round": 5, "az": 40}, "dir": [0.45, -0.3, 1], "front": [0, 1, 0], "mirror": true},
+  {"part": "tail", "on": "body", "at": {"round": 12, "az": 180}, "dir": [0, 0.45, -1], "front": [0, 1, 0]}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "head", "at": {"round": 13.5, "az": 32}, "size_mm": 11, "mirror": true, "highlight": true, "id": "eye"}
+ ]
+}

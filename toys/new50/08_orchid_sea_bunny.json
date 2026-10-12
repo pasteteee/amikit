@@ -1,0 +1,296 @@
+{
+ "name": "08_orchid_sea_bunny",
+ "title": "Orchid Sea Bunny",
+ "title_ru": "Морской зайчик Орхидея",
+ "subject": "sea slug",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "orchid": "#b25ec8",
+  "cream": "#f1dcbf",
+  "coral": "#f8807a",
+  "blush": "#f08a98",
+  "black": "#141213"
+ },
+ "colour_names_ru": {
+  "orchid": "орхидейно-лиловый",
+  "cream": "сливочный",
+  "coral": "коралловый",
+  "blush": "розовый"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "тело-купол с мордочкой",
+   "name_en": "dome body with the face",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 78",
+    "blo 78",
+    "even 6",
+    "dec 6 to 54 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "orchid",
+   "stuff": "firm"
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвостовая часть слизня",
+   "name_en": "slug tail",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 2",
+    "30",
+    "even 2",
+    "36",
+    "even 2",
+    "42",
+    "even 2",
+    "48",
+    "even 2"
+   ],
+   "colour": "orchid",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "trim",
+   "name_ru": "нижняя кайма-оборка",
+   "name_en": "bottom ruffle trim",
+   "rounds": [
+    "ring 78",
+    "84",
+    "90",
+    "shells 7 every 6"
+   ],
+   "colour": "coral",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "rhino",
+   "name_ru": "ушко-ринофор",
+   "name_en": "rhinophore ear",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 6",
+    "12",
+    "even 2"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.2
+  },
+  {
+   "id": "petal",
+   "name_ru": "лепесток жабр",
+   "name_en": "gill petal",
+   "rounds": [
+    "mr 4",
+    "8",
+    "12",
+    "16",
+    "20",
+    "24",
+    "28",
+    "even 4",
+    "24",
+    "20",
+    "16"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none",
+   "spoon": 0.4
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "trim",
+   "on": "body",
+   "at": {
+    "round": 13.5
+   },
+   "around": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 16,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.4,
+    -1
+   ]
+  },
+  {
+   "part": "rhino",
+   "on": "body",
+   "at": {
+    "round": 28,
+    "az": 34
+   },
+   "dir": [
+    0.3,
+    1,
+    0.1
+   ],
+   "mirror": true,
+   "front": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "petal",
+   "name": "petal_mid",
+   "on": "tail",
+   "at": {
+    "round": 12,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    -0.3
+   ]
+  },
+  {
+   "part": "petal",
+   "name": "petal_side",
+   "on": "tail",
+   "at": {
+    "round": 13,
+    "az": 50
+   },
+   "dir": [
+    0.6,
+    1,
+    -0.25
+   ],
+   "mirror": true
+  },
+  {
+   "part": "cheek",
+   "on": "body",
+   "at": {
+    "round": 18,
+    "az": 46
+   },
+   "applique": true,
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 19.5,
+    "az": 30
+   },
+   "size_mm": 15,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     18,
+     -8
+    ],
+    [
+     17.5,
+     -4
+    ],
+    [
+     17.3,
+     0
+    ],
+    [
+     17.5,
+     4
+    ],
+    [
+     18,
+     8
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.1
+  },
+  {
+   "type": "strap",
+   "on": "tail",
+   "points": [
+    [
+     1.5,
+     180
+    ],
+    [
+     3,
+     150
+    ],
+    [
+     6,
+     138
+    ],
+    [
+     10,
+     134
+    ],
+    [
+     14,
+     132
+    ],
+    [
+     18,
+     130
+    ],
+    [
+     19.5,
+     130
+    ]
+   ],
+   "colour": "coral",
+   "thickness_mm": 6,
+   "mirror": true
+  }
+ ]
+}

@@ -1,0 +1,381 @@
+{
+ "name": "33_dragonfruit_seahorse",
+ "title": "Dragon Fruit Seahorse",
+ "title_ru": "Морской конёк Питайя",
+ "subject": "seahorse",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "magenta": "#de1f78",
+  "lime": "#a6c24a",
+  "cream": "#f3e2c3",
+  "pink": "#f4a0b2",
+  "black": "#141213",
+  "brown": "#5a3a2a"
+ },
+ "colour_names_ru": {
+  "magenta": "малиново-розовый",
+  "lime": "салатовый",
+  "cream": "кремовый",
+  "pink": "розовый",
+  "black": "чёрный",
+  "brown": "коричневый"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "inc 6 to 60 every 2",
+    "even 8",
+    "dec 6 to 48 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "magenta",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "name_ru": "тело",
+   "name_en": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 48 every 2",
+    "even 6",
+    "dec 6 to 36",
+    "dec 6 to 30",
+    "even 2"
+   ],
+   "colour": "magenta",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвост",
+   "name_en": "tail",
+   "rounds": [
+    "mr 6",
+    "inc 2 to 24 every 3",
+    "even 3"
+   ],
+   "colour": "magenta",
+   "end": "open",
+   "stuff": "firm",
+   "bend": {
+    "deg": 480,
+    "at": 28,
+    "over": 2,
+    "coil": 3,
+    "toward": [
+     0.85,
+     0,
+     -0.5
+    ]
+   }
+  },
+  {
+   "id": "snout",
+   "name_ru": "носик",
+   "name_en": "snout",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 2",
+    "18"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "lobe",
+   "name_ru": "бугорок на макушке",
+   "name_en": "crown lobe",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 4",
+    "12"
+   ],
+   "colour": "lime",
+   "end": "open",
+   "stuff": "medium"
+  },
+  {
+   "id": "fin",
+   "name_ru": "плавник",
+   "name_en": "fin",
+   "motif": {
+    "kind": "half_circle",
+    "rows": 6,
+    "edging": {
+     "kind": "shell",
+     "k": 5,
+     "every": 4
+    }
+   },
+   "colour": "lime"
+  },
+  {
+   "id": "belly",
+   "name_ru": "животик",
+   "name_en": "belly",
+   "rounds": [
+    "ch 9",
+    "inc 6 to 36"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 160
+   },
+   "dir": [
+    0.12,
+    -1,
+    -0.25
+   ]
+  },
+  {
+   "part": "snout",
+   "on": "head",
+   "at": {
+    "round": 19.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ]
+  },
+  {
+   "part": "lobe",
+   "name": "lobe_mid",
+   "on": "head",
+   "at": {
+    "round": 2,
+    "az": 150
+   },
+   "dir": [
+    0,
+    1,
+    -0.2
+   ]
+  },
+  {
+   "part": "lobe",
+   "name": "lobe_side",
+   "on": "head",
+   "at": {
+    "round": 6,
+    "az": 75
+   },
+   "dir": [
+    0.8,
+    1,
+    -0.2
+   ],
+   "mirror": true
+  },
+  {
+   "part": "fin",
+   "on": "head",
+   "at": {
+    "round": 16.5,
+    "az": 92
+   },
+   "attach": "edge",
+   "dir": [
+    1,
+    0.1,
+    -0.2
+   ],
+   "face": [
+    0.8,
+    0,
+    0.6
+   ],
+   "mirror": true
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 21.0,
+    "az": 42
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "belly",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 0
+   },
+   "applique": true,
+   "roll": 90
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 17.5,
+    "az": 30
+   },
+   "size_mm": 12,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "satin",
+   "on": "snout",
+   "at": {
+    "round": 1,
+    "az": 0
+   },
+   "width_mm": 4,
+   "height_mm": 4,
+   "shape": "oval",
+   "colour": "brown",
+   "thickness_mm": 1.2,
+   "id": "nostril"
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     21.5,
+     14
+    ],
+    [
+     22.1,
+     18
+    ],
+    [
+     21.9,
+     22
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.1,
+   "mirror": true,
+   "id": "smile"
+  },
+  {
+   "type": "satin",
+   "on": "belly",
+   "at": {
+    "round": 2,
+    "az": 60
+   },
+   "width_mm": 2.5,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.2,
+   "id": "seed1"
+  },
+  {
+   "type": "satin",
+   "on": "belly",
+   "at": {
+    "round": 2,
+    "az": 120
+   },
+   "width_mm": 2.5,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.2,
+   "id": "seed2"
+  },
+  {
+   "type": "satin",
+   "on": "belly",
+   "at": {
+    "round": 2,
+    "az": 240
+   },
+   "width_mm": 2.5,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.2,
+   "id": "seed3"
+  },
+  {
+   "type": "satin",
+   "on": "belly",
+   "at": {
+    "round": 2,
+    "az": 300
+   },
+   "width_mm": 2.5,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.2,
+   "id": "seed4"
+  }
+ ]
+}

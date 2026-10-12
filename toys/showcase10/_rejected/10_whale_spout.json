@@ -1,0 +1,397 @@
+{
+ "name": "10_whale_spout",
+ "title": "Splash the Whale",
+ "title_ru": "Китёнок Фонтанчик",
+ "subject": "whale",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "blue": "#7fb8f0",
+  "belly": "#eef7ff",
+  "fin": "#6aa6e4",
+  "water": "#bfe6ff",
+  "water2": "#ffffff",
+  "star": "#ffd86b",
+  "blush": "#ffa8c0",
+  "mouth": "#26334d"
+ },
+ "colour_names_ru": {
+  "blue": "голубой",
+  "belly": "светло-голубой",
+  "fin": "синий",
+  "water": "небесный",
+  "water2": "белый",
+  "star": "жёлтый",
+  "blush": "розовый (щёчки)",
+  "mouth": "тёмно-синий"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "тельце",
+   "name_en": "body",
+   "rounds": [
+    "mr 6",
+    "9",
+    "12",
+    "15",
+    "18",
+    "24",
+    "30",
+    "36",
+    "42",
+    "48",
+    "54",
+    "60",
+    "even 6",
+    "dec 6 to 48 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "blue",
+   "stuff": "firm",
+   "colours": [
+    {
+     "shape": [
+      [
+       8,
+       150
+      ],
+      [
+       21,
+       135
+      ],
+      [
+       23,
+       180
+      ],
+      [
+       21,
+       225
+      ],
+      [
+       8,
+       210
+      ]
+     ],
+     "colour": "belly"
+    }
+   ]
+  },
+  {
+   "id": "fluke",
+   "name_ru": "хвостовой плавник",
+   "name_en": "tail fluke",
+   "rounds": [
+    "mr 6",
+    "10",
+    "14",
+    "even 2",
+    "12",
+    "10"
+   ],
+   "colour": "fin",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.75
+  },
+  {
+   "id": "flipper",
+   "name_ru": "плавничок",
+   "name_en": "flipper",
+   "rounds": [
+    "mr 6",
+    "10",
+    "12",
+    "even 1",
+    "10"
+   ],
+   "colour": "fin",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.75
+  },
+  {
+   "id": "star",
+   "name_ru": "звёздочка",
+   "name_en": "star",
+   "colour": "star",
+   "motif": {
+    "kind": "star",
+    "points": 5,
+    "length": 4
+   }
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвост",
+   "name_en": "tail",
+   "rounds": [
+    "mr 6",
+    "9",
+    "12",
+    "15",
+    "even 2"
+   ],
+   "colour": "blue",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "spout",
+   "name_ru": "фонтанчик",
+   "name_en": "spout tube",
+   "rounds": [
+    "mr 6",
+    "even 3"
+   ],
+   "colour": "water",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "splash_a",
+   "name_ru": "брызги голубые",
+   "name_en": "blue splash",
+   "cord": {
+    "length_mm": 30,
+    "thickness_mm": 3.2,
+    "curl_deg": 260,
+    "slip_back": true
+   },
+   "colour": "water"
+  },
+  {
+   "id": "splash_b",
+   "name_ru": "брызги белые",
+   "name_en": "white splash",
+   "cord": {
+    "length_mm": 30,
+    "thickness_mm": 3.2,
+    "curl_deg": 300,
+    "slip_back": true
+   },
+   "colour": "water2"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    0.15,
+    1
+   ]
+  },
+  {
+   "part": "flipper",
+   "on": "body",
+   "at": {
+    "round": 18,
+    "az": 115
+   },
+   "dir": [
+    1,
+    -0.6,
+    0.35
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "star",
+   "on": "body",
+   "at": {
+    "round": 18,
+    "az": 35
+   },
+   "applique": true,
+   "lift": 1.2,
+   "pad": 1.5
+  },
+  {
+   "part": "cheek",
+   "on": "body",
+   "at": {
+    "round": 25.5,
+    "az": 102
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.0
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": "start"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    0.8,
+    -1
+   ]
+  },
+  {
+   "part": "fluke",
+   "on": "tail",
+   "at": {
+    "round": 2,
+    "az": 90
+   },
+   "dir": [
+    1,
+    0.4,
+    -0.3
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "spout",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    0.1
+   ],
+   "sink": 1
+  },
+  {
+   "part": "splash_a",
+   "name": "splash1",
+   "on": "spout",
+   "at": {
+    "round": "start"
+   },
+   "dir": [
+    0.35,
+    1,
+    0.1
+   ],
+   "toward": [
+    1,
+    0,
+    0.3
+   ]
+  },
+  {
+   "part": "splash_b",
+   "name": "splash2",
+   "on": "spout",
+   "at": {
+    "round": "start"
+   },
+   "dir": [
+    -0.35,
+    1,
+    0.1
+   ],
+   "toward": [
+    -1,
+    0,
+    0.3
+   ]
+  },
+  {
+   "part": "splash_a",
+   "name": "splash3",
+   "on": "spout",
+   "at": {
+    "round": "start"
+   },
+   "dir": [
+    0.07,
+    1,
+    0.35
+   ],
+   "toward": [
+    0.2,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "splash_b",
+   "name": "splash4",
+   "on": "spout",
+   "at": {
+    "round": "start"
+   },
+   "dir": [
+    0.0,
+    1,
+    -0.35
+   ],
+   "toward": [
+    0,
+    0,
+    -1
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 24.5,
+    "az": 52
+   },
+   "size_mm": 14,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     26.9,
+     155
+    ],
+    [
+     26.4,
+     168
+    ],
+    [
+     26.2,
+     180
+    ],
+    [
+     26.4,
+     192
+    ],
+    [
+     26.9,
+     205
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 1.2,
+   "id": "smile"
+  }
+ ]
+}

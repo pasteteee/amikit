@@ -1,0 +1,290 @@
+{
+ "name": "ae03_lizard",
+ "title": "Flat turtle coaster",
+ "subject": "turtle",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "green": "#7fa83a",
+  "white": "#f4f2ee",
+  "black": "#151313"
+ },
+ "colour_names_ru": {
+  "green": "\u0421\u201a\u0421\u0402\u0420\u00b0\u0420\u0406\u0421\u040f\u0420\u0405\u0420\u0455\u0420\u2116 \u0420\u00b7\u0420\u00b5\u0420\u00bb\u0421\u2018\u0420\u0405\u0421\u2039\u0420\u2116"
+ },
+ "parts": [
+  {
+   "id": "shell",
+   "name_en": "coaster shell (top disc and underside in one piece)",
+   "name_ru": "\u0420\u0457\u0420\u00b0\u0420\u0405\u0421\u2020\u0420\u0451\u0421\u0402\u0421\u040a-\u0420\u0457\u0420\u0455\u0420\u0491\u0421\u0403\u0421\u201a\u0420\u00b0\u0420\u0406\u0420\u0454\u0420\u00b0 (\u0420\u0406\u0420\u00b5\u0421\u0402\u0421\u2026 \u0420\u0451 \u0420\u0405\u0420\u0451\u0420\u00b7 \u0420\u0455\u0420\u0491\u0420\u0405\u0420\u0455\u0420\u2116 \u0420\u0491\u0420\u00b5\u0421\u201a\u0420\u00b0\u0420\u00bb\u0421\u040a\u0421\u040b)",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "inc 6 to 66 every 2",
+    "blo 66",
+    "even 1",
+    "dec 6 to 6"
+   ],
+   "colour": "green",
+   "end": "closed",
+   "stuff": "none"
+  },
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 7",
+    "dec 3 to 18",
+    "even 2"
+   ],
+   "colour": "green",
+   "end": "open",
+   "stuff": "firm",
+   "flatten": 0.35
+  },
+  {
+   "id": "eyeball",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "6"
+   ],
+   "colour": "white",
+   "end": "closed",
+   "stuff": "firm"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "even 1",
+    "5",
+    "even 6"
+   ],
+   "colour": "green",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "toe",
+   "cord": {
+    "length_mm": 9,
+    "thickness_mm": 3.0,
+    "curl_deg": 0,
+    "slip_back": true,
+    "link_mm": 3
+   },
+   "colour": "green"
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "even 1"
+   ],
+   "colour": "green",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "shell",
+   "axis": [
+    0,
+    -1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "shell",
+   "at": {
+    "round": 14,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ]
+  },
+  {
+   "part": "eyeball",
+   "on": "head",
+   "at": {
+    "round": 6.5,
+    "az": 35
+   },
+   "mirror": true,
+   "sink": 2
+  },
+  {
+   "part": "leg",
+   "name": "front_leg",
+   "on": "shell",
+   "at": {
+    "round": 14,
+    "az": 50
+   },
+   "dir": [
+    1,
+    -0.05,
+    0.7
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "name": "back_leg",
+   "on": "shell",
+   "at": {
+    "round": 14,
+    "az": 130
+   },
+   "dir": [
+    1,
+    -0.05,
+    -0.7
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "toe",
+   "name": "toe_f1",
+   "on": "front_leg",
+   "at": {
+    "round": 1,
+    "az": 0
+   },
+   "dir": [
+    1,
+    0,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "toe",
+   "name": "toe_f2",
+   "on": "front_leg",
+   "at": {
+    "round": 1,
+    "az": 0
+   },
+   "dir": [
+    1,
+    0,
+    0
+   ],
+   "mirror": true
+  },
+  {
+   "part": "toe",
+   "name": "toe_b1",
+   "on": "back_leg",
+   "at": {
+    "round": 1,
+    "az": 0
+   },
+   "dir": [
+    1,
+    0,
+    -1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "toe",
+   "name": "toe_b2",
+   "on": "back_leg",
+   "at": {
+    "round": 1,
+    "az": 0
+   },
+   "dir": [
+    1,
+    0,
+    0
+   ],
+   "mirror": true
+  },
+  {
+   "part": "toe",
+   "name": "toe_f3",
+   "on": "front_leg",
+   "at": {
+    "round": 1,
+    "az": 0
+   },
+   "dir": [
+    0.3,
+    0,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "toe",
+   "name": "toe_b3",
+   "on": "back_leg",
+   "at": {
+    "round": 1,
+    "az": 0
+   },
+   "dir": [
+    0.3,
+    0,
+    -1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "shell",
+   "at": {
+    "round": 14,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.05,
+    -1
+   ],
+   "seam": "flat"
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "eyeball",
+   "at": {
+    "round": 1.5,
+    "az": 0
+   },
+   "size_mm": 6
+  },
+  {
+   "type": "safety_eye",
+   "on": "eyeball_R",
+   "at": {
+    "round": 1.5,
+    "az": 0
+   },
+   "size_mm": 6
+  }
+ ]
+}

@@ -1,0 +1,275 @@
+{
+ "name": "ae11_fruit",
+ "title": "Black-faced sheep pouch",
+ "subject": "sheep",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 3.0,
+  "stitch_mm": 4.5,
+  "round_mm": 4.0,
+  "thickness_mm": 2.2
+ },
+ "colours": {
+  "wool": "#f3f0e2",
+  "black": "#1b1a1c",
+  "lip": "#e99b8e",
+  "white": "#f4f2ee"
+ },
+ "colour_names_ru": {
+  "wool": "\u043c\u043e\u043b\u043e\u0447\u043d\u044b\u0439",
+  "lip": "\u043f\u0435\u0440\u0441\u0438\u043a\u043e\u0432\u043e-\u0440\u043e\u0437\u043e\u0432\u044b\u0439"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "ch 6",
+    "inc 6 to 48",
+    "even 6",
+    "dec 6 to 42",
+    "even 4",
+    "dec 6 to 36",
+    "even 1"
+   ],
+   "colour": "wool",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "head",
+   "rounds": [
+    "ch 9",
+    "inc 6 to 48",
+    "even 7",
+    "dec 6 to 18"
+   ],
+   "colour": "black",
+   "stuff": "firm"
+  },
+  {
+   "id": "lips",
+   "rounds": [
+    "ch 10",
+    "inc 6 to 32",
+    "38"
+   ],
+   "colour": "lip",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "inc 3 to 12",
+    "even 3",
+    "10"
+   ],
+   "colour": "black",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.8
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "9",
+    "even 1",
+    "7",
+    "even 5"
+   ],
+   "colour": "black",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "10",
+    "even 1",
+    "8",
+    "7",
+    "even 3"
+   ],
+   "colour": "black",
+   "end": "open",
+   "stuff": "light",
+   "bend": {
+    "deg": 75,
+    "at": 3,
+    "over": 2
+   }
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 6
+  },
+  {
+   "part": "lips",
+   "on": "head",
+   "at": {
+    "round": 11.2,
+    "az": 0
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 6,
+    "az": 90
+   },
+   "dir": [
+    1,
+    -0.6,
+    0
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 88
+   },
+   "dir": [
+    0.5,
+    -1,
+    0.2
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "avoid": true
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 2.5,
+    "az": 35
+   },
+   "dir": [
+    0.1,
+    -1,
+    0
+   ],
+   "mirror": true,
+   "bend_toward": [
+    0,
+    0,
+    1
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 7.2,
+    "az": 13
+   },
+   "size_mm": 9,
+   "iris": "white",
+   "pupil": 0.5,
+   "mirror": true
+  },
+  {
+   "type": "fringe",
+   "on": "head",
+   "points": [
+    [
+     1,
+     -90
+    ],
+    [
+     1,
+     -30
+    ],
+    [
+     1,
+     30
+    ],
+    [
+     1,
+     90
+    ],
+    [
+     3,
+     60
+    ],
+    [
+     3,
+     -60
+    ],
+    [
+     4.5,
+     0
+    ],
+    [
+     4.5,
+     30
+    ],
+    [
+     4.5,
+     -30
+    ],
+    [
+     2.5,
+     0
+    ]
+   ],
+   "count": 70,
+   "length_mm": 12,
+   "colours": [
+    "white"
+   ],
+   "droop": 0.1,
+   "curl": 400,
+   "spread": 0.6,
+   "thickness_mm": 4.5
+  },
+  {
+   "type": "stitch",
+   "on": "lips",
+   "points": [
+    [
+     1,
+     -90
+    ],
+    [
+     1,
+     90
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 2.2
+  }
+ ]
+}

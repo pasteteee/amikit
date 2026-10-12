@@ -1,0 +1,348 @@
+{
+ "name": "az04_fuggler",
+ "title": "Pink fuzzy monster with teeth",
+ "subject": "monster",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "pink": "#f7bdb3",
+  "peach": "#f8cfae",
+  "lemon": "#f5e3a2",
+  "purple": "#a2399f",
+  "mouth": "#5a1838",
+  "tooth": "#efe2c6",
+  "iris": "#4a2a18",
+  "black": "#1a1617"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_en": "body and head (one piece)",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "even 20",
+    "dec 6 to 36 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "pink",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      6,
+      14
+     ],
+     "az": [
+      100,
+      200
+     ],
+     "colour": "peach"
+    },
+    {
+     "rounds": [
+      29,
+      37
+     ],
+     "az": [
+      -90,
+      -20
+     ],
+     "colour": "lemon"
+    },
+    {
+     "rounds": [
+      22,
+      22
+     ],
+     "az": [
+      -17,
+      33
+     ],
+     "colour": "mouth"
+    },
+    {
+     "rounds": [
+      20,
+      21
+     ],
+     "az": [
+      -15,
+      31
+     ],
+     "colour": "tooth"
+    },
+    {
+     "rounds": [
+      19,
+      19
+     ],
+     "az": [
+      -13,
+      29
+     ],
+     "colour": "mouth"
+    }
+   ]
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 4",
+    "inc 2 to 8",
+    "inc 3 to 20",
+    "even 1"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.45
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 3",
+    "13",
+    "12",
+    "even 3"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "blo 18",
+    "even 1",
+    "15"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "eye_rim",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24"
+   ],
+   "colour": "purple",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "ear_lemon",
+   "rounds": [
+    "mr 4",
+    "inc 2 to 8",
+    "inc 3 to 20",
+    "even 1"
+   ],
+   "colour": "lemon",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.45
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "body",
+   "at": {
+    "round": 31,
+    "az": 62
+   },
+   "dir": [
+    0.6,
+    1,
+    0.05
+   ],
+   "seam": "flat"
+  },
+  {
+   "part": "ear_lemon",
+   "on": "body",
+   "at": {
+    "round": 31,
+    "az": -62
+   },
+   "dir": [
+    -0.6,
+    1,
+    0.05
+   ],
+   "seam": "flat"
+  },
+  {
+   "part": "eye_rim",
+   "on": "body",
+   "at": {
+    "round": 24.5,
+    "az": 36
+   },
+   "applique": true,
+   "pad": 2,
+   "mirror": true
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 19,
+    "az": 85
+   },
+   "dir": [
+    0.3,
+    -1,
+    0.1
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.6,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 3,
+    "az": 38
+   },
+   "dir": [
+    0.15,
+    -1,
+    0.15
+   ],
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 24.5,
+    "az": 36
+   },
+   "size_mm": 12,
+   "iris": "iris",
+   "pupil": 0.6,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     19.6,
+     -15
+    ],
+    [
+     21.4,
+     -15
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 0.8
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     19.6,
+     -9
+    ],
+    [
+     21.4,
+     -9
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 0.8
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     19.6,
+     -3
+    ],
+    [
+     21.4,
+     -3
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 0.8
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     19.6,
+     3
+    ],
+    [
+     21.4,
+     3
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 0.8
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     19.6,
+     9
+    ],
+    [
+     21.4,
+     9
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 0.8
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     19.6,
+     15
+    ],
+    [
+     21.4,
+     15
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 0.8
+  }
+ ]
+}

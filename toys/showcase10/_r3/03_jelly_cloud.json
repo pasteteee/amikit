@@ -1,0 +1,423 @@
+{
+ "name": "03_jelly_cloud",
+ "title": "Bubble the Jellyfish",
+ "title_ru": "Медузка Пузырёк",
+ "subject": "jellyfish",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "dome": "#b9d8ff",
+  "under": "#e8f2ff",
+  "ruffle": "#fff6fb",
+  "pink": "#ffb3d1",
+  "mint": "#a8ecd6",
+  "lemon": "#fff0a3",
+  "blush": "#ff9fbf",
+  "mouth": "#3e3157"
+ },
+ "colour_names_ru": {
+  "dome": "голубой",
+  "under": "светло-голубой",
+  "ruffle": "белый",
+  "pink": "розовый",
+  "mint": "мятный",
+  "lemon": "лимонный",
+  "blush": "розовый (щёчки)",
+  "mouth": "тёмно-фиолетовый"
+ },
+ "parts": [
+  {
+   "id": "dome",
+   "name_ru": "купол",
+   "name_en": "dome",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "inc 6 to 72 every 2",
+    "even 12",
+    "blo 72",
+    "dec 12 to 12"
+   ],
+   "colour": "dome",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      28,
+      33
+     ],
+     "colour": "under"
+    }
+   ]
+  },
+  {
+   "id": "ruffle",
+   "name_ru": "оборка",
+   "name_en": "ruffle",
+   "rounds": [
+    "ring 72",
+    "108",
+    "even 1",
+    "shells 9 every 6"
+   ],
+   "colour": "ruffle",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "spot",
+   "name_ru": "пятнышко",
+   "name_en": "spot",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "ruffle",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "t_pink",
+   "name_ru": "щупальце розовое",
+   "name_en": "pink tentacle",
+   "rounds": [
+    "mr 6",
+    "8",
+    "even 13"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "light",
+   "bend": {
+    "deg": 330,
+    "at": 9,
+    "over": 2,
+    "coil": 2.5,
+    "toward": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t_mint",
+   "name_ru": "щупальце мятное",
+   "name_en": "mint tentacle",
+   "rounds": [
+    "mr 6",
+    "8",
+    "even 13"
+   ],
+   "colour": "mint",
+   "end": "open",
+   "stuff": "light",
+   "bend": {
+    "deg": 330,
+    "at": 9,
+    "over": 2,
+    "coil": 2.5,
+    "toward": [
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t_lemon",
+   "name_ru": "щупальце лимонное",
+   "name_en": "lemon tentacle",
+   "rounds": [
+    "mr 6",
+    "8",
+    "even 13"
+   ],
+   "colour": "lemon",
+   "end": "open",
+   "stuff": "light",
+   "bend": {
+    "deg": 330,
+    "at": 9,
+    "over": 2,
+    "coil": 2.5,
+    "toward": [
+     0,
+     0,
+     1
+    ]
+   }
+  }
+ ],
+ "assembly": [
+  {
+   "part": "dome",
+   "axis": [
+    0,
+    -1,
+    0
+   ]
+  },
+  {
+   "part": "ruffle",
+   "on": "dome",
+   "at": {
+    "round": 25
+   },
+   "around": true,
+   "dir": [
+    0,
+    -1,
+    0
+   ]
+  },
+  {
+   "part": "spot",
+   "name": "spot1",
+   "on": "dome",
+   "at": {
+    "round": 4,
+    "az": 30
+   },
+   "applique": true,
+   "lift": 0.8
+  },
+  {
+   "part": "spot",
+   "name": "spot2",
+   "on": "dome",
+   "at": {
+    "round": 9,
+    "az": -50
+   },
+   "applique": true,
+   "lift": 0.8
+  },
+  {
+   "part": "spot",
+   "name": "spot3",
+   "on": "dome",
+   "at": {
+    "round": 10,
+    "az": 110
+   },
+   "applique": true,
+   "lift": 0.8
+  },
+  {
+   "part": "spot",
+   "name": "spot4",
+   "on": "dome",
+   "at": {
+    "round": 7,
+    "az": -150
+   },
+   "applique": true,
+   "lift": 0.8
+  },
+  {
+   "part": "cheek",
+   "on": "dome",
+   "at": {
+    "round": 21.5,
+    "az": 38
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.0
+  },
+  {
+   "part": "t_pink",
+   "name": "tentacle1",
+   "on": "dome",
+   "at": {
+    "round": 30,
+    "az": 20
+   },
+   "dir": [
+    0.12,
+    -1,
+    0.33
+   ],
+   "bend_toward": [
+    0.34,
+    0,
+    0.94
+   ]
+  },
+  {
+   "part": "t_mint",
+   "name": "tentacle2",
+   "on": "dome",
+   "at": {
+    "round": 30,
+    "az": -20
+   },
+   "dir": [
+    -0.12,
+    -1,
+    0.33
+   ],
+   "bend_toward": [
+    -0.34,
+    0,
+    0.94
+   ]
+  },
+  {
+   "part": "t_lemon",
+   "name": "tentacle3",
+   "on": "dome",
+   "at": {
+    "round": 30,
+    "az": 75
+   },
+   "dir": [
+    0.34,
+    -1,
+    0.09
+   ],
+   "bend_toward": [
+    0.97,
+    0,
+    0.26
+   ]
+  },
+  {
+   "part": "t_pink",
+   "name": "tentacle4",
+   "on": "dome",
+   "at": {
+    "round": 30,
+    "az": -75
+   },
+   "dir": [
+    -0.34,
+    -1,
+    0.09
+   ],
+   "bend_toward": [
+    -0.97,
+    0,
+    0.26
+   ]
+  },
+  {
+   "part": "t_mint",
+   "name": "tentacle5",
+   "on": "dome",
+   "at": {
+    "round": 30,
+    "az": 135
+   },
+   "dir": [
+    0.25,
+    -1,
+    -0.25
+   ],
+   "bend_toward": [
+    0.71,
+    0,
+    -0.71
+   ]
+  },
+  {
+   "part": "t_lemon",
+   "name": "tentacle6",
+   "on": "dome",
+   "at": {
+    "round": 30,
+    "az": -135
+   },
+   "dir": [
+    -0.25,
+    -1,
+    -0.25
+   ],
+   "bend_toward": [
+    -0.71,
+    0,
+    -0.71
+   ]
+  },
+  {
+   "part": "t_pink",
+   "name": "tentacle7",
+   "on": "dome",
+   "at": {
+    "round": 30,
+    "az": 180
+   },
+   "dir": [
+    0.0,
+    -1,
+    -0.35
+   ],
+   "bend_toward": [
+    0.0,
+    0,
+    -1.0
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "dome",
+   "at": {
+    "round": 19.5,
+    "az": 23
+   },
+   "size_mm": 14,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "stitch",
+   "on": "dome",
+   "points": [
+    [
+     20.8,
+     -5
+    ],
+    [
+     21.4,
+     -2.5
+    ],
+    [
+     21.6,
+     0
+    ],
+    [
+     21.4,
+     2.5
+    ],
+    [
+     20.8,
+     5
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 1.1,
+   "id": "smile"
+  }
+ ]
+}

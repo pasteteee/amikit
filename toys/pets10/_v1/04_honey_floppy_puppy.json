@@ -1,0 +1,362 @@
+{
+ "name": "04_honey_floppy_puppy",
+ "title": "Honey Hug Floppy Puppy",
+ "title_ru": "Щенок Медовые ушки",
+ "subject": "dog",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "honey": "#f0c25c",
+  "cream": "#f6ecd6",
+  "coral": "#ef7466",
+  "blush": "#ee8a7c",
+  "black": "#141213"
+ },
+ "colour_names_ru": {
+  "honey": "медово-жёлтый",
+  "cream": "кремовый",
+  "coral": "коралловый",
+  "blush": "коралловый (щёчки)"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 60",
+    "inc 6 to 72 every 2",
+    "even 9",
+    "dec 6 to 60 every 2",
+    "dec 6 to 12"
+   ],
+   "colour": "honey",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "name_ru": "тело",
+   "name_en": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "blo 42",
+    "even 5",
+    "dec 6 to 36",
+    "even 2",
+    "dec 6 to 30",
+    "dec 6 to 24"
+   ],
+   "colour": "honey",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "muzzle",
+   "name_ru": "мордочка",
+   "name_en": "muzzle",
+   "rounds": [
+    "ch 5",
+    "16",
+    "22",
+    "even 2"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "name_ru": "ушко",
+   "name_en": "ear",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "21",
+    "24",
+    "even 13",
+    "21",
+    "even 4",
+    "18",
+    "even 3",
+    "15"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none",
+   "spoon": 0.45
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "arm",
+   "name_ru": "лапка",
+   "name_en": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 3",
+    "12",
+    "even 4"
+   ],
+   "colour": "honey",
+   "end": "open",
+   "stuff": "light",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      5
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "foot",
+   "name_ru": "стопа",
+   "name_en": "foot",
+   "rounds": [
+    "ch 6",
+    "inc 6 to 36",
+    "even 3",
+    "30",
+    "24"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "firm",
+   "flatten": 0.15
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвостик",
+   "name_en": "tail",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "11",
+    "even 3"
+   ],
+   "colour": "honey",
+   "end": "open",
+   "stuff": "medium"
+  },
+  {
+   "id": "heart",
+   "name_ru": "сердечко",
+   "name_en": "heart",
+   "colour": "coral",
+   "motif": {
+    "kind": "heart",
+    "rounds": 4
+   }
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 6
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 22.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.2,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 10,
+    "az": 82
+   },
+   "dir": [
+    0.38,
+    -1,
+    0.08
+   ],
+   "front": [
+    1,
+    0,
+    0.6
+   ],
+   "mirror": true
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 21.5,
+    "az": 46
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "heart",
+   "on": "body",
+   "at": {
+    "round": 11,
+    "az": 0
+   },
+   "applique": true,
+   "lift": 2.5,
+   "pad": 4
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 60
+   },
+   "dir": [
+    0.2,
+    -0.5,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 4.5,
+    "az": 50
+   },
+   "dir": [
+    0.75,
+    -0.3,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 180
+   },
+   "dir": [
+    0,
+    0.1,
+    -1
+   ],
+   "seam": "flat"
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 19.5,
+    "az": 27
+   },
+   "size_mm": 16,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "satin",
+   "on": "muzzle",
+   "at": {
+    "round": 1.4,
+    "az": 0
+   },
+   "width_mm": 9,
+   "height_mm": 6,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.6,
+   "id": "nose"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.0,
+     180
+    ],
+    [
+     2.4,
+     180
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0,
+   "id": "line"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     2.4,
+     180
+    ],
+    [
+     2.8,
+     160
+    ],
+    [
+     2.6,
+     140
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0,
+   "mirror": true,
+   "id": "smile"
+  }
+ ]
+}

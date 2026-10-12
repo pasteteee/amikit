@@ -1,0 +1,1182 @@
+{
+ "name": "az25_cactus",
+ "title": "Dancing cactus",
+ "subject": "cactus",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "green": "#5c9a2c",
+  "pot": "#c7792e",
+  "rim": "#6b4122",
+  "soil": "#d9a046",
+  "red": "#c8302a",
+  "black": "#1a1817"
+ },
+ "colour_names_ru": {
+  "green": "\u0437\u0435\u043b\u0451\u043d\u044b\u0439",
+  "pot": "\u0440\u044b\u0436\u0438\u0439",
+  "rim": "\u0442\u0451\u043c\u043d\u043e-\u043a\u043e\u0440\u0438\u0447\u043d\u0435\u0432\u044b\u0439",
+  "soil": "\u0433\u043e\u0440\u0447\u0438\u0447\u043d\u044b\u0439",
+  "red": "\u043a\u0440\u0430\u0441\u043d\u044b\u0439"
+ },
+ "parts": [
+  {
+   "id": "pot",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "blo 48",
+    "even 5",
+    "inc 6 to 54",
+    "even 6",
+    "60",
+    "even 1",
+    "blo 60",
+    "dec 6 to 36",
+    "dec 6 to 6"
+   ],
+   "colour": "pot",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      21,
+      25
+     ],
+     "colour": "rim"
+    },
+    {
+     "rounds": [
+      26,
+      40
+     ],
+     "colour": "soil"
+    }
+   ]
+  },
+  {
+   "id": "trunk",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "inc 3 to 24",
+    "even 30"
+   ],
+   "colour": "green",
+   "end": "open",
+   "stuff": "firm",
+   "bend": {
+    "deg": 14,
+    "at": 14,
+    "over": 8,
+    "toward": [
+     1,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 12",
+    "18"
+   ],
+   "colour": "green",
+   "end": "open",
+   "stuff": "firm",
+   "bend": {
+    "deg": 95,
+    "at": 10,
+    "over": 3
+   }
+  }
+ ],
+ "assembly": [
+  {
+   "part": "pot",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "trunk",
+   "on": "pot",
+   "at": {
+    "round": "end"
+   },
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 6
+  },
+  {
+   "part": "arm",
+   "name": "arm_L",
+   "on": "trunk",
+   "at": {
+    "round": 17,
+    "az": 90
+   },
+   "dir": [
+    1,
+    -0.1,
+    0.1
+   ],
+   "bend_toward": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "arm",
+   "name": "arm_R",
+   "on": "trunk",
+   "at": {
+    "round": 24,
+    "az": -90
+   },
+   "dir": [
+    -1,
+    -0.25,
+    0.15
+   ],
+   "bend_toward": [
+    0,
+    1,
+    0
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "trunk",
+   "at": {
+    "round": 7,
+    "az": 24
+   },
+   "size_mm": 13,
+   "iris": "white",
+   "pupil": 0.45,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     10.5,
+     -22
+    ],
+    [
+     12,
+     -10
+    ],
+    [
+     12.4,
+     0
+    ],
+    [
+     12,
+     10
+    ],
+    [
+     10.5,
+     22
+    ]
+   ],
+   "colour": "red",
+   "thickness_mm": 1.3
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     4,
+     -157
+    ],
+    [
+     4.7,
+     -151
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     4,
+     -112
+    ],
+    [
+     4.7,
+     -106
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     4,
+     -67
+    ],
+    [
+     4.7,
+     -61
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     4,
+     -22
+    ],
+    [
+     4.7,
+     -16
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     4,
+     23
+    ],
+    [
+     4.7,
+     29
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     4,
+     68
+    ],
+    [
+     4.7,
+     74
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     4,
+     113
+    ],
+    [
+     4.7,
+     119
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     4,
+     158
+    ],
+    [
+     4.7,
+     164
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     7,
+     -151
+    ],
+    [
+     7.7,
+     -145
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     7,
+     -106
+    ],
+    [
+     7.7,
+     -100
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     7,
+     -61
+    ],
+    [
+     7.7,
+     -55
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     7,
+     -16
+    ],
+    [
+     7.7,
+     -10
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     7,
+     29
+    ],
+    [
+     7.7,
+     35
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     7,
+     74
+    ],
+    [
+     7.7,
+     80
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     7,
+     119
+    ],
+    [
+     7.7,
+     125
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     7,
+     164
+    ],
+    [
+     7.7,
+     170
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     10,
+     -145
+    ],
+    [
+     10.7,
+     -139
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     10,
+     -100
+    ],
+    [
+     10.7,
+     -94
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     10,
+     -55
+    ],
+    [
+     10.7,
+     -49
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     10,
+     -10
+    ],
+    [
+     10.7,
+     -4
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     10,
+     35
+    ],
+    [
+     10.7,
+     41
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     10,
+     80
+    ],
+    [
+     10.7,
+     86
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     10,
+     125
+    ],
+    [
+     10.7,
+     131
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     10,
+     170
+    ],
+    [
+     10.7,
+     176
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     13,
+     -139
+    ],
+    [
+     13.7,
+     -133
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     13,
+     -94
+    ],
+    [
+     13.7,
+     -88
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     13,
+     -49
+    ],
+    [
+     13.7,
+     -43
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     13,
+     -4
+    ],
+    [
+     13.7,
+     2
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     13,
+     41
+    ],
+    [
+     13.7,
+     47
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     13,
+     86
+    ],
+    [
+     13.7,
+     92
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     13,
+     131
+    ],
+    [
+     13.7,
+     137
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     13,
+     176
+    ],
+    [
+     13.7,
+     182
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     16,
+     -178
+    ],
+    [
+     16.7,
+     -172
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     16,
+     -133
+    ],
+    [
+     16.7,
+     -127
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     16,
+     -88
+    ],
+    [
+     16.7,
+     -82
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     16,
+     92
+    ],
+    [
+     16.7,
+     98
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     16,
+     137
+    ],
+    [
+     16.7,
+     143
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     19,
+     -172
+    ],
+    [
+     19.7,
+     -166
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     19,
+     -127
+    ],
+    [
+     19.7,
+     -121
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     19,
+     -82
+    ],
+    [
+     19.7,
+     -76
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     19,
+     53
+    ],
+    [
+     19.7,
+     59
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     19,
+     98
+    ],
+    [
+     19.7,
+     104
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     19,
+     143
+    ],
+    [
+     19.7,
+     149
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     22,
+     -166
+    ],
+    [
+     22.7,
+     -160
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     22,
+     -121
+    ],
+    [
+     22.7,
+     -115
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     22,
+     -76
+    ],
+    [
+     22.7,
+     -70
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     22,
+     59
+    ],
+    [
+     22.7,
+     65
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     22,
+     104
+    ],
+    [
+     22.7,
+     110
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     22,
+     149
+    ],
+    [
+     22.7,
+     155
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     25,
+     -160
+    ],
+    [
+     25.7,
+     -154
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     25,
+     -115
+    ],
+    [
+     25.7,
+     -109
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     25,
+     -70
+    ],
+    [
+     25.7,
+     -64
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     25,
+     65
+    ],
+    [
+     25.7,
+     71
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     25,
+     110
+    ],
+    [
+     25.7,
+     116
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     25,
+     155
+    ],
+    [
+     25.7,
+     161
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     28,
+     -154
+    ],
+    [
+     28.7,
+     -148
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     28,
+     -109
+    ],
+    [
+     28.7,
+     -103
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     28,
+     -64
+    ],
+    [
+     28.7,
+     -58
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     28,
+     71
+    ],
+    [
+     28.7,
+     77
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     28,
+     116
+    ],
+    [
+     28.7,
+     122
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "trunk",
+   "points": [
+    [
+     28,
+     161
+    ],
+    [
+     28.7,
+     167
+    ]
+   ],
+   "colour": "white",
+   "thickness_mm": 0.9
+  }
+ ]
+}

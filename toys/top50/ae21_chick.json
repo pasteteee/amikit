@@ -1,0 +1,280 @@
+{
+ "name": "ae21_chick",
+ "title": "Striped positive chicken",
+ "subject": "chicken",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "blue": "#8ab0e0",
+  "cream": "#f2eee0",
+  "red": "#d82a22",
+  "orange": "#f0a828",
+  "black": "#151515",
+  "card": "#f8f8f8"
+ },
+ "colour_names_ru": {
+  "cream": "\u0420\u0458\u0420\u0455\u0420\u00bb\u0420\u0455\u0421\u2021\u0420\u0405\u0421\u2039\u0420\u2116"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 66",
+    "even 8",
+    "dec 6 to 42",
+    "dec 6 to 30 every 2",
+    "even 3",
+    "dec 6 to 6"
+   ],
+   "colour": "cream",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      4,
+      5
+     ],
+     "az": [
+      -180,
+      180
+     ],
+     "colour": "blue"
+    },
+    {
+     "rounds": [
+      8,
+      9
+     ],
+     "az": [
+      -180,
+      180
+     ],
+     "colour": "blue"
+    },
+    {
+     "rounds": [
+      12,
+      13
+     ],
+     "az": [
+      -180,
+      180
+     ],
+     "colour": "blue"
+    },
+    {
+     "rounds": [
+      16,
+      18
+     ],
+     "az": [
+      -180,
+      180
+     ],
+     "colour": "blue"
+    },
+    {
+     "rounds": [
+      21,
+      22
+     ],
+     "az": [
+      -180,
+      180
+     ],
+     "colour": "blue"
+    }
+   ]
+  },
+  {
+   "id": "comb",
+   "rounds": [
+    "mr 6",
+    "10",
+    "even 2",
+    "dec 4 to 6"
+   ],
+   "colour": "red",
+   "stuff": "medium"
+  },
+  {
+   "id": "wattle",
+   "rounds": [
+    "mr 6",
+    "9",
+    "even 1",
+    "6"
+   ],
+   "colour": "red",
+   "stuff": "medium"
+  },
+  {
+   "id": "beak",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "even 1"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "9",
+    "even 14"
+   ],
+   "colour": "blue",
+   "end": "open",
+   "stuff": "light",
+   "bend": {
+    "deg": 45,
+    "at": 8,
+    "over": 5
+   }
+  },
+  {
+   "id": "card",
+   "flat": {
+    "width_st": 13,
+    "rows": 9
+   },
+   "colour": "card"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "comb",
+   "name": "comb1",
+   "on": "body",
+   "at": {
+    "round": 33,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    0.5
+   ]
+  },
+  {
+   "part": "comb",
+   "name": "comb2",
+   "on": "body",
+   "at": {
+    "round": 33,
+    "az": 180
+   },
+   "dir": [
+    0,
+    1,
+    -0.3
+   ]
+  },
+  {
+   "part": "comb",
+   "name": "comb3",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "dir": [
+    0,
+    1,
+    0.1
+   ]
+  },
+  {
+   "part": "beak",
+   "on": "body",
+   "at": {
+    "round": 28.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ]
+  },
+  {
+   "part": "wattle",
+   "on": "body",
+   "at": {
+    "round": 27,
+    "az": 7
+   },
+   "dir": [
+    0.3,
+    -0.4,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 14,
+    "az": 70
+   },
+   "dir": [
+    0.1,
+    0,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "bend_toward": [
+    -1,
+    0,
+    0
+   ],
+   "avoid": true,
+   "avoid_toward": [
+    0,
+    0,
+    1
+   ],
+   "contact": 0.5
+  },
+  {
+   "part": "card",
+   "on": "body",
+   "at": {
+    "round": 14,
+    "az": 0
+   },
+   "lift": 8
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 30,
+    "az": 26
+   },
+   "size_mm": 7,
+   "mirror": true
+  }
+ ]
+}

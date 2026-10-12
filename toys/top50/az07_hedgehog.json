@@ -1,0 +1,648 @@
+{
+ "name": "az07_hedgehog",
+ "title": "Sitting hedgehog",
+ "subject": "hedgehog",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "spine": "#8a7560",
+  "spinelight": "#b9a68e",
+  "tan": "#d9bf98",
+  "dark": "#6b3c26",
+  "nose": "#3a2620",
+  "black": "#151313"
+ },
+ "colour_names_ru": {
+  "spine": "\u0421\u0403\u0420\u00b5\u0421\u0402\u0420\u0455-\u0420\u0454\u0420\u0455\u0421\u0402\u0420\u0451\u0421\u2021\u0420\u0405\u0420\u00b5\u0420\u0406\u0421\u2039\u0420\u2116",
+  "spinelight": "\u0421\u0403\u0420\u0406\u0420\u00b5\u0421\u201a\u0420\u00bb\u0420\u0455-\u0421\u0403\u0420\u00b5\u0421\u0402\u0420\u0455-\u0420\u0454\u0420\u0455\u0421\u0402\u0420\u0451\u0421\u2021\u0420\u0405\u0420\u00b5\u0420\u0406\u0421\u2039\u0420\u2116",
+  "dark": "\u0421\u201a\u0421\u2018\u0420\u0458\u0420\u0405\u0420\u0455-\u0420\u0454\u0420\u0455\u0421\u0402\u0420\u0451\u0421\u2021\u0420\u0405\u0420\u00b5\u0420\u0406\u0421\u2039\u0420\u2116",
+  "nose": "\u0420\u0457\u0420\u0455\u0421\u2021\u0421\u201a\u0420\u0451 \u0421\u2021\u0421\u2018\u0421\u0402\u0420\u0405\u0421\u2039\u0420\u2116"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_en": "head and body (one piece)",
+   "name_ru": "\u0420\u0456\u0420\u0455\u0420\u00bb\u0420\u0455\u0420\u0406\u0420\u00b0 \u0420\u0451 \u0421\u201a\u0420\u00b5\u0420\u00bb\u0420\u0455 (\u0420\u0455\u0420\u0491\u0420\u0405\u0420\u0455\u0420\u2116 \u0420\u0491\u0420\u00b5\u0421\u201a\u0420\u00b0\u0420\u00bb\u0421\u040a\u0421\u040b)",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 54 every 2",
+    "even 13",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "spine",
+   "stuff": "firm",
+   "colours": [
+    {
+     "shape": [
+      [
+       4,
+       0
+      ],
+      [
+       6,
+       -30
+      ],
+      [
+       19,
+       -34
+      ],
+      [
+       21,
+       -50
+      ],
+      [
+       29,
+       -46
+      ],
+      [
+       32,
+       -25
+      ],
+      [
+       32,
+       25
+      ],
+      [
+       29,
+       46
+      ],
+      [
+       21,
+       50
+      ],
+      [
+       19,
+       34
+      ],
+      [
+       6,
+       30
+      ]
+     ],
+     "colour": "tan"
+    }
+   ]
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 2"
+   ],
+   "colour": "tan",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "even 2"
+   ],
+   "colour": "dark",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.85
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "9",
+    "even 5",
+    "8"
+   ],
+   "colour": "tan",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "foot",
+   "rounds": [
+    "mr 6",
+    "12", "15",
+    "even 2",
+    "12"
+   ],
+   "colour": "dark",
+   "end": "open",
+   "stuff": "firm"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "muzzle",
+   "on": "body",
+   "at": {
+    "round": 23,
+    "az": 0
+   },
+   "dir": [
+    0,
+    0.05,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "body",
+   "at": {
+    "round": 29,
+    "az": 56
+   },
+   "dir": [
+    1,
+    0.7,
+    0.45
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 19,
+    "az": 30
+   },
+   "dir": [
+    0.15,
+    -1,
+    0.4
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.6,
+   "seam": "flat"
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 26
+   },
+   "dir": [
+    0.15,
+    -0.1,
+    1
+   ],
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 25.5,
+    "az": 17
+   },
+   "size_mm": 9,
+   "mirror": true
+  },
+  {
+   "type": "safety_nose",
+   "on": "muzzle",
+   "at": {
+    "round": 1.6,
+    "az": 0
+   },
+   "size_mm": [
+    9,
+    7
+   ],
+   "shape": "oval",
+   "colour": "nose"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.2,
+     180
+    ],
+    [
+     3.2,
+     180
+    ]
+   ],
+   "colour": "nose",
+   "thickness_mm": 1.0
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     33.5,
+     0
+    ],
+    [
+     33.5,
+     120
+    ],
+    [
+     33.5,
+     180
+    ],
+    [
+     33.5,
+     240
+    ],
+    [
+     33.5,
+     360
+    ]
+   ],
+   "count": 16,
+   "length_mm": 11,
+   "colours": [
+    "spine",
+    "spinelight",
+    "spine"
+   ],
+   "droop": 0.45,
+   "spread": 0.4,
+   "seed": 1
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     32,
+     62
+    ],
+    [
+     32,
+     120
+    ],
+    [
+     32,
+     180
+    ],
+    [
+     32,
+     240
+    ],
+    [
+     32,
+     298
+    ]
+   ],
+   "count": 28,
+   "length_mm": 11,
+   "colours": [
+    "spine",
+    "spinelight",
+    "spine"
+   ],
+   "droop": 0.45,
+   "spread": 0.4,
+   "seed": 2
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     29.5,
+     62
+    ],
+    [
+     29.5,
+     120
+    ],
+    [
+     29.5,
+     180
+    ],
+    [
+     29.5,
+     240
+    ],
+    [
+     29.5,
+     298
+    ]
+   ],
+   "count": 36,
+   "length_mm": 11,
+   "colours": [
+    "spine",
+    "spinelight",
+    "spine"
+   ],
+   "droop": 0.45,
+   "spread": 0.4,
+   "seed": 3
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     27,
+     60
+    ],
+    [
+     27,
+     120
+    ],
+    [
+     27,
+     180
+    ],
+    [
+     27,
+     240
+    ],
+    [
+     27,
+     300
+    ]
+   ],
+   "count": 40,
+   "length_mm": 11,
+   "colours": [
+    "spine",
+    "spinelight",
+    "spine"
+   ],
+   "droop": 0.45,
+   "spread": 0.4,
+   "seed": 4
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     24,
+     60
+    ],
+    [
+     24,
+     120
+    ],
+    [
+     24,
+     180
+    ],
+    [
+     24,
+     240
+    ],
+    [
+     24,
+     300
+    ]
+   ],
+   "count": 44,
+   "length_mm": 11,
+   "colours": [
+    "spine",
+    "spinelight",
+    "spine"
+   ],
+   "droop": 0.45,
+   "spread": 0.4,
+   "seed": 5
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     21,
+     55
+    ],
+    [
+     21,
+     120
+    ],
+    [
+     21,
+     180
+    ],
+    [
+     21,
+     240
+    ],
+    [
+     21,
+     305
+    ]
+   ],
+   "count": 48,
+   "length_mm": 11,
+   "colours": [
+    "spine",
+    "spinelight",
+    "spine"
+   ],
+   "droop": 0.45,
+   "spread": 0.4,
+   "seed": 6
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     18,
+     48
+    ],
+    [
+     18,
+     120
+    ],
+    [
+     18,
+     180
+    ],
+    [
+     18,
+     240
+    ],
+    [
+     18,
+     312
+    ]
+   ],
+   "count": 48,
+   "length_mm": 11,
+   "colours": [
+    "spine",
+    "spinelight",
+    "spine"
+   ],
+   "droop": 0.45,
+   "spread": 0.4,
+   "seed": 7
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     15,
+     44
+    ],
+    [
+     15,
+     120
+    ],
+    [
+     15,
+     180
+    ],
+    [
+     15,
+     240
+    ],
+    [
+     15,
+     316
+    ]
+   ],
+   "count": 48,
+   "length_mm": 11,
+   "colours": [
+    "spine",
+    "spinelight",
+    "spine"
+   ],
+   "droop": 0.45,
+   "spread": 0.4,
+   "seed": 8
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     12,
+     42
+    ],
+    [
+     12,
+     120
+    ],
+    [
+     12,
+     180
+    ],
+    [
+     12,
+     240
+    ],
+    [
+     12,
+     318
+    ]
+   ],
+   "count": 44,
+   "length_mm": 11,
+   "colours": [
+    "spine",
+    "spinelight",
+    "spine"
+   ],
+   "droop": 0.45,
+   "spread": 0.4,
+   "seed": 9
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     9,
+     42
+    ],
+    [
+     9,
+     120
+    ],
+    [
+     9,
+     180
+    ],
+    [
+     9,
+     240
+    ],
+    [
+     9,
+     318
+    ]
+   ],
+   "count": 40,
+   "length_mm": 11,
+   "colours": [
+    "spine",
+    "spinelight",
+    "spine"
+   ],
+   "droop": 0.45,
+   "spread": 0.4,
+   "seed": 10
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     6,
+     42
+    ],
+    [
+     6,
+     120
+    ],
+    [
+     6,
+     180
+    ],
+    [
+     6,
+     240
+    ],
+    [
+     6,
+     318
+    ]
+   ],
+   "count": 32,
+   "length_mm": 11,
+   "colours": [
+    "spine",
+    "spinelight",
+    "spine"
+   ],
+   "droop": 0.45,
+   "spread": 0.4,
+   "seed": 11
+  }
+ ]
+}

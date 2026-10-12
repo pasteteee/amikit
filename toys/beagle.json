@@ -1,0 +1,437 @@
+{
+ "name": "beagle",
+ "title": "Beagle puppy",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "tan": "#c5833f",
+  "eartan": "#9e622b",
+  "cream": "#eee7e1",
+  "black": "#2d2a29",
+  "nose": "#232122"
+ },
+ "colour_names_ru": {
+  "nose": "тёмно-коричневый (нос)"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 9",
+    "dec 6 to 6"
+   ],
+   "colour": "tan",
+   "stuff": "firm",
+   "colours": [
+    {
+     "shape": [
+      [
+       2,
+       0
+      ],
+      [
+       8,
+       -5
+      ],
+      [
+       12,
+       -9
+      ],
+      [
+       14,
+       -13
+      ],
+      [
+       14.6,
+       -42
+      ],
+      [
+       26,
+       -42
+      ],
+      [
+       26,
+       42
+      ],
+      [
+       14.6,
+       42
+      ],
+      [
+       14,
+       13
+      ],
+      [
+       12,
+       9
+      ],
+      [
+       8,
+       5
+      ]
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "ch 6",
+    "inc 6 to 42",
+    "even 5",
+    "dec 6 to 36",
+    "even 2",
+    "dec 6 to 30",
+    "even 3",
+    "dec 6 to 24"
+   ],
+   "oval_axis": "front",
+   "colour": "black",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      25
+     ],
+     "az": [
+      -45,
+      45
+     ],
+     "colour": "cream"
+    },
+    {
+     "rounds": [
+      7,
+      18
+     ],
+     "az": [
+      45,
+      72
+     ],
+     "colour": "tan"
+    },
+    {
+     "rounds": [
+      7,
+      18
+     ],
+     "az": [
+      -72,
+      -45
+     ],
+     "colour": "tan"
+    },
+    {
+     "rounds": [
+      1,
+      3
+     ],
+     "az": [
+      45,
+      140
+     ],
+     "colour": "cream"
+    },
+    {
+     "rounds": [
+      1,
+      3
+     ],
+     "az": [
+      -140,
+      -45
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 8",
+    "inc 6 to 28",
+    "even 5"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "21",
+    "even 6",
+    "18",
+    "even 3",
+    "15",
+    "even 2",
+    "12",
+    "even 1"
+   ],
+   "colour": "eartan",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.65,
+   "bend": {
+    "deg": 100,
+    "at": 16,
+    "over": 3,
+    "toward": [
+     0.3,
+     -1,
+     0.1
+    ]
+   }
+  },
+  {
+   "id": "front_leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 2",
+    "dec 3 to 12",
+    "even 8"
+   ],
+   "end": "open",
+   "stuff": "firm",
+   "colour": "tan",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      9
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "haunch",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36"
+   ],
+   "colour": "tan",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "hind_foot",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 3",
+    "dec 3 to 15"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 6",
+    "8",
+    "even 1",
+    "10",
+    "even 1",
+    "12",
+    "even 6"
+   ],
+   "colour": "black",
+   "end": "open",
+   "stuff": "light",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "colour": "cream"
+    }
+   ]
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 16.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.05,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 6.5,
+    "az": 95
+   },
+   "dir": [
+    1,
+    0.2,
+    0.1
+   ],
+   "front": [
+    0,
+    1,
+    0
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "seam_line": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "front_leg",
+   "on": "body",
+   "at": {
+    "round": 16,
+    "az": 30
+   },
+   "dir": [
+    0,
+    -1,
+    0.3
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 1.0,
+   "seam": "flat",
+   "max_turn": 10,
+   "seam_line": [
+    1,
+    0,
+    0
+   ],
+   "pinch": 0.6
+  },
+  {
+   "part": "haunch",
+   "on": "body",
+   "at": {
+    "round": 8,
+    "az": 108
+   },
+   "applique": true,
+   "pad": 6,
+   "mirror": true
+  },
+  {
+   "part": "hind_foot",
+   "on": "body",
+   "at": {
+    "round": 6.5,
+    "az": 72
+   },
+   "dir": [
+    0.45,
+    -0.35,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 180
+   },
+   "dir": [
+    0,
+    0.25,
+    -1
+   ],
+   "seam": "flat"
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 13,
+    "az": 27
+   },
+   "size_mm": 12,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "safety_nose",
+   "on": "muzzle",
+   "at": {
+    "round": 2,
+    "az": 0
+   },
+   "size_mm": [
+    12,
+    9
+   ],
+   "shape": "oval",
+   "colour": "nose"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.2,
+     180
+    ],
+    [
+     3.5,
+     180
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.2
+  }
+ ]
+}

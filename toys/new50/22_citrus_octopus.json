@@ -1,0 +1,36 @@
+{
+ "name": "22_citrus_octopus",
+ "title": "Citrus Squeeze Octopus",
+ "title_ru": "Осьминог Апельсиновый сок",
+ "subject": "octopus",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {"orange": "#f2701e", "peach": "#f6b18f", "leaf": "#6f9a3e", "yellow": "#f7cf2e", "cream": "#f4d9b0", "blush": "#f39ab0", "mouth": "#2a1a14", "black": "#151313"},
+ "colour_names_ru": {"orange": "ярко-оранжевый", "peach": "персиковый", "leaf": "травяной зелёный", "yellow": "сливочно-жёлтый", "cream": "кремовый", "blush": "розовый (щёчки)", "mouth": "тёмно-коричневый (вышивка)", "black": "чёрный"},
+ "parts": [
+  {"id": "body", "name_ru": "тело-мантия", "name_en": "mantle", "rounds": ["mr 6", "inc 6 to 54", "blo 54", "inc 6 to 60", "even 8", "dec 6 to 48 every 2", "dec 6 to 30 every 2", "dec 6 to 6"], "colour": "orange", "stuff": "firm", "colours": [{"ellipse": {"center": [8, 0], "radii": [3.5, 32]}, "colour": "cream"}]},
+  {"id": "tentacle", "name_ru": "щупальце", "name_en": "tentacle", "rounds": ["mr 6", "12", "16", "18", "even 8", "16", "14"], "colour": "orange", "end": "open", "stuff": "medium", "colours": [{"rounds": [1, 13], "az": [80, 280], "colour": "peach"}], "flatten": 0.15},
+  {"id": "cheek", "name_ru": "щёчка", "name_en": "cheek", "rounds": ["mr 6", "12"], "colour": "blush", "end": "open", "stuff": "none"},
+  {"id": "leaf", "name_ru": "листик", "name_en": "leaf", "rounds": ["mr 3", "6", "9", "12", "even 1", "10", "8", "6"], "colour": "leaf", "stuff": "none", "flatten": 0.85},
+  {"id": "spot_big", "name_ru": "большой кружок", "name_en": "big disc", "rounds": ["mr 6", "12", "18", "24", "30"], "colour": "yellow", "end": "open", "stuff": "none"},
+  {"id": "spot_small", "name_ru": "малый кружок", "name_en": "small disc", "rounds": ["mr 6", "12", "18", "24"], "colour": "yellow", "end": "open", "stuff": "none"}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 1, 0]},
+  {"part": "tentacle", "name": "tentacle_1", "on": "body", "at": {"round": 4, "az": 22.5}, "dir": [0.383, -0.05, 0.924], "front": [0, 1, 0]},
+  {"part": "tentacle", "name": "tentacle_2", "on": "body", "at": {"round": 4, "az": 67.5}, "dir": [0.924, -0.05, 0.383], "front": [0, 1, 0]},
+  {"part": "tentacle", "name": "tentacle_3", "on": "body", "at": {"round": 4, "az": 112.5}, "dir": [0.924, -0.05, -0.383], "front": [0, 1, 0]},
+  {"part": "tentacle", "name": "tentacle_4", "on": "body", "at": {"round": 4, "az": 157.5}, "dir": [0.383, -0.05, -0.924], "front": [0, 1, 0]},
+  {"part": "tentacle", "name": "tentacle_5", "on": "body", "at": {"round": 4, "az": 202.5}, "dir": [-0.383, -0.05, -0.924], "front": [0, 1, 0]},
+  {"part": "tentacle", "name": "tentacle_6", "on": "body", "at": {"round": 4, "az": 247.5}, "dir": [-0.924, -0.05, -0.383], "front": [0, 1, 0]},
+  {"part": "tentacle", "name": "tentacle_7", "on": "body", "at": {"round": 4, "az": 292.5}, "dir": [-0.924, -0.05, 0.383], "front": [0, 1, 0]},
+  {"part": "tentacle", "name": "tentacle_8", "on": "body", "at": {"round": 4, "az": 337.5}, "dir": [-0.383, -0.05, 0.924], "front": [0, 1, 0]},
+  {"part": "cheek", "on": "body", "at": {"round": 15, "az": 45}, "applique": true, "mirror": true},
+  {"part": "leaf", "on": "body", "at": {"round": "end"}, "attach": "start", "dir": [0.75, 0.7, 0.05], "mirror": true, "front": [0, 0, 1]},
+  {"part": "spot_big", "on": "body", "at": {"round": 19, "az": 150}, "applique": true},
+  {"part": "spot_small", "on": "body", "at": {"round": 13, "az": -150}, "applique": true}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "body", "at": {"round": 17, "az": 30}, "size_mm": 16, "mirror": true, "highlight": true},
+  {"type": "stitch", "on": "body", "points": [[17.4, -7], [16.8, -3], [16.6, 0], [16.8, 3], [17.4, 7]], "colour": "mouth", "thickness_mm": 1.1}
+ ]
+}

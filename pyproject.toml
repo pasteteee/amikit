@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "amikit"
+version = "0.1.0"
+description = "Amigurumi from a spec: count-derived crochet geometry, stitch-relief renders, GLB and the exact written pattern"
+readme = "README.md"
+requires-python = ">=3.12"
+# the versions the lab's renders and tests were made with are pinned by the users (site: engine/requirements.txt)
+dependencies = [
+    "numpy>=2.0",
+    "scipy>=1.13",
+    "trimesh>=4.0",
+    "moderngl>=5.10",
+    "pillow>=10.0",
+]
+classifiers = ["Private :: Do Not Upload"]
+
+[project.optional-dependencies]
+# Claude API: text edits, pet photos, cute choices (cute_llm, llm_edit, pet_llm)
+llm = ["anthropic>=1.0"]
+
+[tool.setuptools]
+# The repository root IS the package: the lab imports it as amigurumi-lab/amikit (`python -m amikit.x` from
+# amigurumi-lab/), so the code stays where it is. Installed: code + docs (SPEC.md is read at run time) + the
+# editor UI; toy specs (toys/) and test data stay in the repository.
+package-dir = { "amikit" = "." }
+packages = ["amikit"]
+include-package-data = false
+
+[tool.setuptools.package-data]
+amikit = ["*.md", "editor/*.html", "editor/*.js", "editor/*.css"]

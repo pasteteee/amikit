@@ -1,0 +1,59 @@
+{
+ "name": "06_rainbow_cloud_whale",
+ "title": "Rainbow Cloud Whale",
+ "title_ru": "Кит Радужное облако",
+ "subject": "whale",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {
+  "turquoise": "#25b3c4",
+  "cream": "#f6e8c4",
+  "lemon": "#f8dc6a",
+  "candy": "#f49ab0",
+  "lilac": "#c4a0e0",
+  "blush": "#f58fa6"
+ },
+ "colour_names_ru": {
+  "turquoise": "бирюзовый",
+  "cream": "молочный",
+  "lemon": "лимонно-жёлтый",
+  "candy": "розовый",
+  "lilac": "сиреневый",
+  "blush": "розовый (щёчки)"
+ },
+ "parts": [
+  {"id": "body", "name_ru": "туловище", "name_en": "body",
+   "rounds": ["mr 6", "inc 6 to 84", "blo 84", "even 5", "dec 6 to 72 every 2", "dec 6 to 6"],
+   "colour": "turquoise", "end": "closed", "stuff": "firm",
+   "colours": [{"rounds": [1, 17], "colour": "cream"}]},
+  {"id": "flipper", "name_ru": "плавник", "name_en": "flipper",
+   "rounds": ["mr 6", "12", "18", "even 3", "15", "12"], "colour": "turquoise", "end": "closed", "stuff": "light",
+   "flatten": 0.65},
+  {"id": "fluke", "name_ru": "лопасть хвоста", "name_en": "tail fluke",
+   "rounds": ["mr 6", "12", "18", "even 3", "15", "12"], "colour": "turquoise", "end": "closed", "stuff": "light",
+   "flatten": 0.65},
+  {"id": "stripe_yellow", "name_ru": "жёлтая дуга облака", "name_en": "yellow cloud stripe",
+   "rounds": ["ch 6", "18", "24", "30"], "end": "open", "stuff": "none", "colour": "lemon"},
+  {"id": "stripe_pink", "name_ru": "розовая дуга облака", "name_en": "pink cloud stripe",
+   "rounds": ["ch 6", "18", "24", "30"], "end": "open", "stuff": "none", "colour": "candy"},
+  {"id": "stripe_lilac", "name_ru": "сиреневая дуга облака", "name_en": "lilac cloud stripe",
+   "rounds": ["ch 6", "18", "24", "30"], "end": "open", "stuff": "none", "colour": "lilac"},
+  {"id": "cheek", "name_ru": "щёчка", "name_en": "cheek", "rounds": ["mr 6", "12"], "colour": "blush", "end": "open",
+   "stuff": "none"}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 1, 0]},
+  {"part": "flipper", "on": "body", "at": {"round": 16, "az": 75}, "dir": [1, -0.65, 0.45], "mirror": true, "attach": "start",
+   "front": [0, 1, 0]},
+  {"part": "fluke", "on": "body", "at": {"round": 19, "az": 180}, "dir": [0.6, 0.5, -1], "mirror": true, "attach": "start",
+   "front": [0, 1, 0.2]},
+  {"part": "cheek", "on": "body", "at": {"round": 18.5, "az": 44}, "applique": true, "mirror": true},
+  {"part": "stripe_yellow", "on": "body", "at": {"round": 30, "az": -40}, "applique": true, "pad": 12, "lift": 1.5, "roll": 40},
+  {"part": "stripe_pink", "on": "body", "at": {"round": 33.5, "az": 20}, "applique": true, "pad": 12, "lift": 2.0, "roll": 40},
+  {"part": "stripe_lilac", "on": "body", "at": {"round": 30, "az": 105}, "applique": true, "pad": 12, "lift": 1.5, "roll": 40}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "body", "at": {"round": 20.5, "az": 35}, "size_mm": 15, "mirror": true, "highlight": true},
+  {"type": "stitch", "on": "body", "points": [[20.6, 9], [19.9, 5], [19.7, 0], [19.9, -5], [20.6, -9]], "colour": "black",
+   "thickness_mm": 1.3}
+ ]
+}

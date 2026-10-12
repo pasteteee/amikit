@@ -1,0 +1,45 @@
+{
+ "name": "07_seal_pup",
+ "title": "Snowy Seal Pup",
+ "title_ru": "Тюленёнок Снежок",
+ "subject": "seal",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {"fur": "#f3f4f4", "flipper": "#dde2e6", "blush": "#f7b5c0", "black": "#151313", "dot": "#c9ced3"},
+ "colour_names_ru": {"fur": "белый", "flipper": "светло-серый", "blush": "розовый (щёчки)", "dot": "серый"},
+ "parts": [
+  {"id": "body", "name_ru": "тельце", "name_en": "body",
+   "rounds": ["mr 6", "9", "12", "15", "18", "21", "24", "30", "36", "42", "48", "54", "even 7",
+              "dec 6 to 42 every 2", "dec 6 to 6"],
+   "colour": "fur", "stuff": "firm"},
+  {"id": "flipper", "name_ru": "ласта", "name_en": "flipper",
+   "rounds": ["mr 6", "9", "12", "even 2", "10"], "colour": "flipper", "end": "open", "stuff": "light",
+   "flatten": 0.75},
+  {"id": "tail", "name_ru": "задняя ласта", "name_en": "tail flipper",
+   "rounds": ["mr 6", "9", "12", "even 1", "10"], "colour": "flipper", "end": "open", "stuff": "light",
+   "flatten": 0.8},
+  {"id": "cheek", "name_ru": "щёчка", "name_en": "cheek",
+   "rounds": ["mr 6", "12"], "colour": "blush", "end": "open", "stuff": "none"}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 0.12, 1]},
+  {"part": "flipper", "on": "body", "at": {"round": 18, "az": 112}, "dir": [1, -0.55, 0.45], "mirror": true,
+   "seam": "flat"},
+  {"part": "tail", "on": "body", "at": {"round": 3, "az": 95}, "dir": [0.75, 0.05, -1], "mirror": true,
+   "seam": "flat"},
+  {"part": "cheek", "on": "body", "at": {"round": 25.5, "az": 100}, "applique": true, "mirror": true, "lift": 1.0}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "body", "at": {"round": 25, "az": 48}, "size_mm": 14, "mirror": true,
+   "highlight": true, "sink": 0.5, "id": "eye"},
+  {"type": "safety_nose", "on": "body", "at": {"round": 27.5, "az": 180}, "size_mm": [8, 6], "shape": "oval",
+   "id": "nose"},
+  {"type": "stitch", "on": "body", "points": [[27.0, 180], [26.3, 180]], "colour": "black", "thickness_mm": 1.0,
+   "id": "line"},
+  {"type": "stitch", "on": "body", "points": [[26.3, 180], [25.8, 168], [26.1, 156]], "colour": "black",
+   "thickness_mm": 1.0, "mirror": true, "id": "smile"},
+  {"type": "satin", "on": "body", "at": {"round": 26.2, "az": 140}, "width_mm": 2, "height_mm": 2, "shape": "oval",
+   "colour": "dot", "thickness_mm": 1.0, "mirror": true, "id": "whisker_dot1"},
+  {"type": "satin", "on": "body", "at": {"round": 25.6, "az": 150}, "width_mm": 2, "height_mm": 2, "shape": "oval",
+   "colour": "dot", "thickness_mm": 1.0, "mirror": true, "id": "whisker_dot2"}
+ ]
+}

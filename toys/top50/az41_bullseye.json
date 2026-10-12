@@ -1,0 +1,342 @@
+{
+ "name": "az41_bullseye",
+ "title": "Standing horse (Bullseye)",
+ "subject": "horse",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "khaki": "#b39a78",
+  "peach": "#e9b996",
+  "cream": "#ecd98f",
+  "hoof": "#7a3f1e",
+  "mane": "#6a4426",
+  "white": "#f5f3ef",
+  "rose": "#e08080",
+  "black": "#141313"
+ },
+ "colour_names_ru": {
+  "khaki": "\u0420\u00b1\u0420\u00b5\u0420\u00b6\u0420\u00b5\u0420\u0406\u0420\u0455-\u0420\u0454\u0420\u0455\u0421\u0402\u0420\u0451\u0421\u2021\u0420\u0405\u0420\u00b5\u0420\u0406\u0421\u2039\u0420\u2116",
+  "peach": "\u0420\u0457\u0420\u00b5\u0421\u0402\u0421\u0403\u0420\u0451\u0420\u0454\u0420\u0455\u0420\u0406\u0421\u2039\u0420\u2116",
+  "hoof": "\u0420\u0454\u0420\u0455\u0421\u0402\u0420\u0451\u0421\u2021\u0420\u0405\u0420\u00b5\u0420\u0406\u0421\u2039\u0420\u2116 (\u0420\u0454\u0420\u0455\u0420\u0457\u0421\u2039\u0421\u201a\u0420\u00b0)",
+  "mane": "\u0421\u201a\u0421\u2018\u0420\u0458\u0420\u0405\u0420\u0455-\u0420\u0454\u0420\u0455\u0421\u0402\u0420\u0451\u0421\u2021\u0420\u0405\u0420\u00b5\u0420\u0406\u0421\u2039\u0420\u2116",
+  "rose": "\u0421\u0402\u0420\u0455\u0420\u00b7\u0420\u0455\u0420\u0406\u0421\u2039\u0420\u2116"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "even 18",
+    "dec 6 to 6"
+   ],
+   "colour": "khaki",
+   "stuff": "firm"
+  },
+  {
+   "id": "neck",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 6"
+   ],
+   "colour": "khaki",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "even 10",
+    "dec 6 to 12"
+   ],
+   "colour": "khaki",
+   "stuff": "firm"
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 7",
+    "inc 6 to 32",
+    "even 8"
+   ],
+   "colour": "peach",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "eye_white",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 4",
+    "8",
+    "12",
+    "16",
+    "20",
+    "even 3",
+    "16"
+   ],
+   "colour": "khaki",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.8,
+   "colours": [
+    {
+     "rounds": [
+      2,
+      7
+     ],
+     "az": [
+      -35,
+      35
+     ],
+     "colour": "peach"
+    }
+   ]
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "ch 5",
+    "inc 6 to 28",
+    "even 3",
+    "dec 5 to 18",
+    "even 2",
+    "even 14"
+   ],
+   "colour": "khaki",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      7
+     ],
+     "colour": "hoof"
+    },
+    {
+     "rounds": [
+      8,
+      9
+     ],
+     "colour": "cream"
+    }
+   ],
+   "oval_axis": "front"
+  },
+  {
+   "id": "mouth",
+   "name_en": "mouth",
+   "name_ru": "\u0440\u043e\u0442",
+   "rounds": [
+    "ch 6",
+    "inc 6 to 30"
+   ],
+   "colour": "rose",
+   "end": "open",
+   "stuff": "none",
+   "colours": [
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "colour": "white"
+    }
+   ]
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    0,
+    1
+   ],
+   "pos": [
+    0,
+    120,
+    0
+   ]
+  },
+  {
+   "part": "neck",
+   "on": "body",
+   "at": {
+    "round": 24,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    0.5
+   ]
+  },
+  {
+   "part": "head",
+   "on": "neck",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0.3
+   ],
+   "sink": 4
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 13,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.6,
+    1
+   ]
+  },
+  {
+   "part": "eye_white",
+   "on": "head",
+   "at": {
+    "round": 6.5,
+    "az": 22
+   },
+   "applique": true,
+   "mirror": true,
+   "pad": 2
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 4.5,
+    "az": 72
+   },
+   "dir": [
+    1,
+    0.9,
+    0.05
+   ],
+   "mirror": true
+  },
+  {
+   "part": "leg",
+   "name": "front_leg",
+   "on": "body",
+   "at": {
+    "round": 21,
+    "az": 140
+   },
+   "dir": [
+    0.12,
+    -1,
+    0.05
+   ],
+   "mirror": true
+  },
+  {
+   "part": "leg",
+   "name": "back_leg",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 140
+   },
+   "dir": [
+    0.12,
+    -1,
+    -0.05
+   ],
+   "mirror": true
+  },
+  {
+   "part": "mouth",
+   "on": "body",
+   "at": {
+    "round": 28,
+    "az": 0
+   },
+   "applique": true,
+   "pad": 2
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "eye_white",
+   "at": {
+    "round": 1,
+    "az": 0
+   },
+   "size_mm": 9,
+   "mirror": true
+  },
+  {
+   "type": "fringe",
+   "on": "head",
+   "points": [
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     180
+    ]
+   ],
+   "count": 4,
+   "length_mm": 28,
+   "colours": [
+    "mane"
+   ],
+   "droop": 0.2,
+   "spread": 0.2,
+   "thickness_mm": 4
+  },
+  {
+   "type": "fringe",
+   "on": "body",
+   "points": [
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     0
+    ]
+   ],
+   "count": 10,
+   "length_mm": 45,
+   "colours": [
+    "mane"
+   ],
+   "droop": 0.8,
+   "spread": 0.2,
+   "thickness_mm": 3
+  }
+ ]
+}

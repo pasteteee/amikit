@@ -1,0 +1,347 @@
+{
+ "name": "az28_pikachu",
+ "title": "Sitting electric mouse (Pikachu)",
+ "subject": "mouse",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "yellow": "#f6d23a",
+  "red": "#d8282c",
+  "pink": "#f0909a",
+  "brown": "#8a5a2a",
+  "black": "#141416"
+ },
+ "colour_names_ru": {
+  "yellow": "\u0420\u00b6\u0421\u2018\u0420\u00bb\u0421\u201a\u0421\u2039\u0420\u2116"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 60 every 2",
+    "even 6",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "yellow",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 5",
+    "dec 6 to 48",
+    "even 2",
+    "dec 6 to 42",
+    "even 2",
+    "dec 6 to 36",
+    "even 1",
+    "dec 6 to 30"
+   ],
+   "colour": "yellow",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      15,
+      16
+     ],
+     "az": [
+      150,
+      210
+     ],
+     "colour": "brown"
+    },
+    {
+     "rounds": [
+      19,
+      20
+     ],
+     "az": [
+      150,
+      210
+     ],
+     "colour": "brown"
+    }
+   ]
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 4",
+    "inc 2 to 8",
+    "inc 2 to 12 every 2",
+    "14",
+    "even 2",
+    "16",
+    "even 5",
+    "14"
+   ],
+   "colour": "yellow",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.5,
+   "colours": [
+    {
+     "rounds": [
+      1,
+      6
+     ],
+     "colour": "black"
+    }
+   ]
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "even 2",
+    "10",
+    "even 4"
+   ],
+   "colour": "yellow",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "ch 5",
+    "inc 4 to 26",
+    "even 4",
+    "22",
+    "18",
+    "even 1"
+   ],
+   "colour": "yellow",
+   "end": "open",
+   "stuff": "firm",
+   "oval_axis": "front"
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "ch 8",
+    "inc 4 to 24",
+    "even 3",
+    "20",
+    "even 3",
+    "18",
+    "even 3",
+    "16"
+   ],
+   "colour": "yellow",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.85,
+   "bend": {
+    "deg": 70,
+    "at": 7,
+    "over": 2
+   },
+   "colours": [
+    {
+     "rounds": [
+      12,
+      14
+     ],
+     "colour": "brown"
+    }
+   ]
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 7,
+    "az": 55
+   },
+   "dir": [
+    1,
+    0.8,
+    -0.1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 19,
+    "az": 42
+   },
+   "dir": [
+    0.2,
+    -0.9,
+    0.8
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "avoid": true,
+   "avoid_toward": [
+    0,
+    0,
+    1
+   ],
+   "contact": 0.6
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 4.5,
+    "az": 38
+   },
+   "dir": [
+    0.35,
+    -0.2,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 9,
+    "az": 180
+   },
+   "dir": [
+    0,
+    0.3,
+    -1
+   ],
+   "front": [
+    1,
+    0,
+    0
+   ],
+   "seam": "flat",
+   "attach": "end",
+   "bend_toward": [
+    0,
+    1,
+    0
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 15,
+    "az": 30
+   },
+   "size_mm": 10,
+   "mirror": true
+  },
+  {
+   "type": "felt",
+   "on": "head",
+   "at": {
+    "round": 19.5,
+    "az": 45
+   },
+   "size_mm": [
+    13,
+    13
+   ],
+   "colour": "red",
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     17.2,
+     -1
+    ],
+    [
+     17.2,
+     1
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.4
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     18.6,
+     -12
+    ],
+    [
+     19.2,
+     -6
+    ],
+    [
+     18.6,
+     0
+    ],
+    [
+     19.2,
+     6
+    ],
+    [
+     18.6,
+     12
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0
+  },
+  {
+   "type": "satin",
+   "on": "head",
+   "at": {
+    "round": 20.8,
+    "az": 0
+   },
+   "width_mm": 14,
+   "height_mm": 10,
+   "shape": "oval",
+   "colour": "pink",
+   "thickness_mm": 1.3
+  }
+ ]
+}

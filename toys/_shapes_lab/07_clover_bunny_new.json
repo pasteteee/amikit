@@ -1,0 +1,510 @@
+{
+ "name": "07_clover_bunny_new",
+ "title": "Clover Cub Bunny",
+ "title_ru": "Зайчонок Клевер",
+ "subject": "bunny",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "cream": "#efe3d1",
+  "sagelight": "#c4d1ac",
+  "sage": "#90a878",
+  "clover": "#4e7a42",
+  "pink": "#f0aaa8",
+  "nose": "#f2a8b0",
+  "brown": "#3a2a24"
+ },
+ "colour_names_ru": {
+  "sagelight": "светлый шалфей",
+  "sage": "шалфейный",
+  "clover": "травяной зелёный",
+  "nose": "розовый (вышивка)",
+  "cream": "кремовый",
+  "pink": "розовый",
+  "brown": "тёмно-коричневый (вышивка)"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "colour": "cream",
+   "stuff": "firm",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "inc 6 to 66 every 2",
+    "even 6",
+    "dec 6 to 54 every 2",
+    "dec 6 to 6"
+   ]
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 5",
+    "48",
+    "42",
+    "even 1",
+    "36",
+    "30"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "firm",
+   "name_ru": "тело",
+   "name_en": "body"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "18",
+    "even 8",
+    "15",
+    "12"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none",
+   "name_ru": "ушко",
+   "name_en": "ear",
+   "spoon": 0.3
+  },
+  {
+   "id": "inner_ear",
+   "name_ru": "внутренняя часть ушка",
+   "rounds": [
+    "ch 5",
+    "14",
+    "20"
+   ],
+   "colour": "sage",
+   "end": "open",
+   "stuff": "none",
+   "name_en": "inner ear"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none",
+   "name_en": "cheek"
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 3",
+    "12",
+    "even 2"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light",
+   "name_ru": "ручка",
+   "name_en": "arm"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 30",
+    "36",
+    "even 3",
+    "30",
+    "24"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "firm",
+   "name_ru": "ножка",
+   "name_en": "leg"
+  },
+  {
+   "id": "pad",
+   "name_ru": "подушечка стопы",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "sage",
+   "end": "open",
+   "stuff": "none",
+   "name_en": "foot pad"
+  },
+  {
+   "id": "bean",
+   "name_ru": "пальчик",
+   "rounds": [
+    "mr 5"
+   ],
+   "colour": "sage",
+   "end": "open",
+   "stuff": "none",
+   "name_en": "toe bean"
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 2",
+    "dec 6 to 6"
+   ],
+   "colour": "cream",
+   "stuff": "medium",
+   "name_ru": "хвостик-помпон",
+   "name_en": "pompom tail"
+  },
+  {
+   "id": "belly",
+   "name_ru": "пятно на животике",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42"
+   ],
+   "colour": "sagelight",
+   "end": "open",
+   "stuff": "none",
+   "name_en": "belly patch"
+  },
+  {
+   "id": "clover_leaf",
+   "name_en": "clover leaf",
+   "name_ru": "листик клевера",
+   "motif": {
+    "kind": "heart"
+   },
+   "colour": "clover"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 5.5,
+    "az": 85
+   },
+   "dir": [
+    0.45,
+    1,
+    -0.15
+   ],
+   "mirror": true,
+   "front": [
+    0.6,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "inner_ear",
+   "on": "ear",
+   "at": {
+    "round": 8,
+    "az": 0
+   },
+   "applique": true,
+   "mirror": true,
+   "along": "parent",
+   "inset": 1.2
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 17,
+    "az": 52
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "belly",
+   "on": "body",
+   "at": {
+    "round": 12,
+    "az": 0
+   },
+   "applique": true,
+   "lift": 0.8
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 18,
+    "az": 72
+   },
+   "dir": [
+    0.55,
+    -1,
+    0.35
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.6,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 70
+   },
+   "dir": [
+    1.1,
+    0.05,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "pad",
+   "on": "leg",
+   "at": {
+    "round": "start"
+   },
+   "applique": true,
+   "mirror": true,
+   "pad": 1.2
+  },
+  {
+   "part": "bean",
+   "name": "bean0",
+   "on": "leg",
+   "at": {
+    "round": 3.4,
+    "az": -45
+   },
+   "applique": true,
+   "mirror": true,
+   "pad": 1
+  },
+  {
+   "part": "bean",
+   "name": "bean1",
+   "on": "leg",
+   "at": {
+    "round": 3.8,
+    "az": 0
+   },
+   "applique": true,
+   "mirror": true,
+   "pad": 1
+  },
+  {
+   "part": "bean",
+   "name": "bean2",
+   "on": "leg",
+   "at": {
+    "round": 3.4,
+    "az": 45
+   },
+   "applique": true,
+   "mirror": true,
+   "pad": 1
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 6,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.1,
+    -1
+   ]
+  },
+  {
+   "part": "clover_leaf",
+   "name": "clover_0",
+   "on": "belly",
+   "at": {
+    "round": "start"
+   },
+   "applique": true,
+   "roll": 0,
+   "offset_mm": [
+    0,
+    9.5
+   ],
+   "lift": 0.8
+  },
+  {
+   "part": "clover_leaf",
+   "name": "clover_1",
+   "on": "belly",
+   "at": {
+    "round": "start"
+   },
+   "applique": true,
+   "roll": 120,
+   "offset_mm": [
+    -8.2,
+    -4.75
+   ],
+   "lift": 0.8
+  },
+  {
+   "part": "clover_leaf",
+   "name": "clover_2",
+   "on": "belly",
+   "at": {
+    "round": "start"
+   },
+   "applique": true,
+   "roll": -120,
+   "offset_mm": [
+    8.2,
+    -4.75
+   ],
+   "lift": 0.8
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 14,
+    "az": 32
+   },
+   "size_mm": 14,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "satin",
+   "on": "head",
+   "at": {
+    "round": 15.4,
+    "az": 0
+   },
+   "width_mm": 7,
+   "height_mm": 5,
+   "shape": "triangle",
+   "colour": "nose",
+   "thickness_mm": 1.4
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     16.0,
+     0
+    ],
+    [
+     17.0,
+     0
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     17.0,
+     0
+    ],
+    [
+     17.4,
+     -6
+    ],
+    [
+     17.0,
+     -11
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     17.0,
+     0
+    ],
+    [
+     17.4,
+     6
+    ],
+    [
+     17.0,
+     11
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "belly",
+   "points": [
+    [
+     0.3,
+     180
+    ],
+    [
+     3.5,
+     170
+    ],
+    [
+     5.4,
+     158
+    ]
+   ],
+   "colour": "clover",
+   "thickness_mm": 1.6
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "ae02_bear_rattle",
+  "title": "Bear head teether rattle",
+  "subject": "bear",
+  "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+  "colours": {"cream": "#f1ece0", "wood": "#d8b48a", "brown": "#6b3f2c", "black": "#1a1716"},
+  "colour_names_ru": {"wood": "светлое дерево (кольцо)"},
+  "parts": [
+    {"id": "head", "rounds": ["mr 6", "inc 6 to 42", "inc 6 to 54 every 2", "even 6", "dec 6 to 42 every 2", "dec 6 to 12"], "colour": "cream", "end": "open", "stuff": "firm"},
+    {"id": "muzzle", "rounds": ["ch 4", "inc 6 to 20", "even 2"], "colour": "cream", "end": "open", "stuff": "light"},
+    {"id": "ear", "rounds": ["mr 6", "inc 6 to 18", "even 3"], "colour": "cream", "end": "open", "stuff": "none", "flatten": 0.85},
+    {"id": "bow", "flat": {"width_st": 14, "rows": 6}, "colour": "cream", "pinch": 0.85},
+    {"id": "ring", "name_en": "teether ring (wooden in the original; here a crochet-covered ring)", "rounds": ["mr 6", "inc 6 to 12", "even 50"], "colour": "wood", "end": "open", "stuff": "firm",
+     "bend": {"deg": 320, "at": 27, "over": 50, "toward": [0, -1, 0]}}
+  ],
+  "assembly": [
+    {"part": "head", "axis": [0, -1, 0]},
+    {"part": "muzzle", "on": "head", "at": {"round": 16, "az": 0}, "dir": [0, -0.1, 1]},
+    {"part": "ear", "on": "head", "at": {"round": 6, "az": 70}, "dir": [0.8, 1, 0.05], "mirror": true},
+    {"part": "bow", "on": "head", "at": {"round": 19.5, "az": 0}, "lift": 3},
+    {"part": "ring", "on": "head", "at": {"round": "end"}, "dir": [-1, -0.15, 0]}
+  ],
+  "face": [
+    {"type": "satin", "on": "head", "at": {"round": 12.5, "az": 26}, "width_mm": 4, "height_mm": 5, "shape": "oval", "colour": "brown", "mirror": true},
+    {"type": "satin", "on": "muzzle", "at": {"round": 1.6, "az": 0}, "width_mm": 9, "height_mm": 6.5, "shape": "oval", "colour": "brown"},
+    {"type": "stitch", "on": "muzzle", "points": [[1.0, 180], [2.6, 180]], "colour": "brown", "thickness_mm": 1.0},
+    {"type": "stitch", "on": "muzzle", "points": [[2.6, 180], [3.0, 155]], "colour": "brown", "thickness_mm": 1.0, "mirror": true}
+  ]
+}

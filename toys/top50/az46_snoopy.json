@@ -1,0 +1,268 @@
+{
+ "name": "az46_snoopy",
+ "title": "Snoopy (sitting)",
+ "subject": "dog",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "white": "#f3f0e8",
+  "black": "#1e1d1f",
+  "red": "#d8261e"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 54 every 2",
+    "even 6",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "white",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "ch 6",
+    "inc 6 to 48",
+    "even 6",
+    "dec 6 to 42",
+    "even 3",
+    "dec 6 to 36",
+    "even 2",
+    "dec 6 to 30"
+   ],
+   "oval_axis": "front",
+   "colour": "white",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 30",
+    "inc 6 to 36 every 2",
+    "even 6",
+    "even 2"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "medium"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "24",
+    "even 9",
+    "21",
+    "even 3",
+    "18",
+    "even 2",
+    "15",
+    "even 1"
+   ],
+   "colour": "black",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.75,
+   "bend": {
+    "deg": 30,
+    "at": 6,
+    "over": 3,
+    "toward": [
+     0,
+     -1,
+     0.1
+    ]
+   }
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 3",
+    "15",
+    "12",
+    "even 4"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 3",
+    "18",
+    "15",
+    "even 2"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "firm"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 16,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.3,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 4,
+    "az": 66
+   },
+   "dir": [
+    0.6,
+    -1,
+    0.15
+   ],
+   "front": [
+    1,
+    0,
+    0.8
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 62
+   },
+   "dir": [
+    0.25,
+    -0.6,
+    0.8
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.6,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 6,
+    "az": 36
+   },
+   "dir": [
+    0.35,
+    -0.1,
+    1
+   ],
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     8,
+     12
+    ],
+    [
+     8.5,
+     26
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 2.2,
+   "mirror": true
+  },
+  {
+   "type": "safety_nose",
+   "on": "muzzle",
+   "at": {
+    "round": 2,
+    "az": 0
+   },
+   "size_mm": [
+    16,
+    12
+   ],
+   "shape": "oval"
+  },
+  {
+   "type": "strap",
+   "on": "body",
+   "points": [
+    [
+     19.5,
+     0
+    ],
+    [
+     19.5,
+     90
+    ],
+    [
+     19.5,
+     180
+    ],
+    [
+     19.5,
+     270
+    ],
+    [
+     19.5,
+     360
+    ]
+   ],
+   "colour": "red",
+   "thickness_mm": 4.0
+  }
+ ]
+}

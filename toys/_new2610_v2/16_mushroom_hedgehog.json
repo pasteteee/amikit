@@ -1,0 +1,1290 @@
+{
+ "name": "16_mushroom_hedgehog",
+ "title": "Mushroom Button Hedgehog",
+ "title_ru": "Ёжик Подосиновик",
+ "subject": "hedgehog",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "cinnamon": "#ab7d62",
+  "cream": "#ebd7c3",
+  "cocoa": "#4a2e26",
+  "terracotta": "#ad4a38",
+  "blush": "#e7a7ac",
+  "nose": "#3a231c",
+  "black": "#151313"
+ },
+ "colour_names_ru": {
+  "cinnamon": "корично-коричневый",
+  "cream": "сливочный",
+  "cocoa": "тёмное какао",
+  "terracotta": "терракотовый",
+  "blush": "розовый",
+  "nose": "тёмно-коричневый (нос)"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "голова и тело (одной деталью)",
+   "name_en": "head and body (one piece)",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 54 every 2",
+    "even 2",
+    "dec 6 to 42",
+    "inc 6 to 54",
+    "inc 6 to 60 every 2",
+    "even 4",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "cinnamon",
+   "stuff": "firm",
+   "colours": [
+    {
+     "shape": [
+      [
+       3,
+       100
+      ],
+      [
+       12,
+       88
+      ],
+      [
+       24,
+       85
+      ],
+      [
+       30,
+       75
+      ],
+      [
+       35,
+       70
+      ],
+      [
+       35,
+       290
+      ],
+      [
+       30,
+       285
+      ],
+      [
+       24,
+       275
+      ],
+      [
+       12,
+       272
+      ],
+      [
+       3,
+       260
+      ]
+     ],
+     "colour": "cocoa"
+    },
+    {
+     "shape": [
+      [
+       16.5,
+       0
+      ],
+      [
+       17,
+       -25
+      ],
+      [
+       18.5,
+       -42
+      ],
+      [
+       21,
+       -52
+      ],
+      [
+       24,
+       -50
+      ],
+      [
+       26.5,
+       -36
+      ],
+      [
+       27.5,
+       -14
+      ],
+      [
+       26,
+       0
+      ],
+      [
+       27.5,
+       14
+      ],
+      [
+       26.5,
+       36
+      ],
+      [
+       24,
+       50
+      ],
+      [
+       21,
+       52
+      ],
+      [
+       18.5,
+       42
+      ],
+      [
+       17,
+       25
+      ]
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "snout",
+   "name_ru": "носик-мордочка",
+   "name_en": "snout",
+   "rounds": [
+    "mr 6",
+    "10",
+    "even 1"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "belly",
+   "name_ru": "животик",
+   "name_en": "belly",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "ear",
+   "name_ru": "ушко",
+   "name_en": "ear",
+   "rounds": [
+    "mr 5",
+    "8",
+    "even 1",
+    "7"
+   ],
+   "colour": "cinnamon",
+   "end": "open",
+   "stuff": "none",
+   "dish": 0.5
+  },
+  {
+   "id": "arm",
+   "name_ru": "передняя лапка",
+   "name_en": "arm",
+   "rounds": [
+    "mr 6",
+    "10",
+    "even 2",
+    "8"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "foot",
+   "name_ru": "задняя лапка",
+   "name_en": "foot",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 1",
+    "12"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "dome",
+   "name_ru": "купол-колючки",
+   "name_en": "spine dome",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "inc 6 to 66 every 2",
+    "even 1"
+   ],
+   "colour": "cocoa",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "beret",
+   "name_ru": "шляпка-гриб",
+   "name_en": "mushroom beret",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "even 2",
+    "dec 6 to 36"
+   ],
+   "colour": "terracotta",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "stem",
+   "name_ru": "хвостик шляпки",
+   "name_en": "beret nub",
+   "rounds": [
+    "mr 6",
+    "even 1"
+   ],
+   "colour": "terracotta",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "spot",
+   "name_ru": "пятнышко",
+   "name_en": "spot",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 7"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "bobble",
+   "name_ru": "шишечка",
+   "name_en": "bobble",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "cocoa",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "dome",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 180
+   },
+   "dir": [
+    0,
+    0.1,
+    -1
+   ]
+  },
+  {
+   "part": "snout",
+   "on": "body",
+   "at": {
+    "round": 18.8,
+    "az": 0
+   },
+   "dir": [
+    0,
+    0.05,
+    1
+   ]
+  },
+  {
+   "part": "belly",
+   "on": "body",
+   "at": {
+    "round": 9,
+    "az": 0
+   },
+   "applique": true,
+   "pad": 1.0
+  },
+  {
+   "part": "ear",
+   "on": "body",
+   "at": {
+    "round": 25.5,
+    "az": 72
+   },
+   "dir": [
+    1,
+    0.75,
+    0.1
+   ],
+   "mirror": true,
+   "attach": "edge",
+   "face": [
+    0.25,
+    0.2,
+    1
+   ],
+   "sink": 8
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 14,
+    "az": 48
+   },
+   "dir": [
+    0.25,
+    -0.4,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "pinch_rounds": 1.0
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 30
+   },
+   "dir": [
+    0.2,
+    -0.15,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "beret",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "dir": [
+    0.35,
+    1,
+    0.1
+   ]
+  },
+  {
+   "part": "stem",
+   "on": "beret",
+   "at": {
+    "round": "start"
+   },
+   "dir": [
+    0.1,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "spot",
+   "name": "spot_a",
+   "on": "beret",
+   "at": {
+    "round": 4,
+    "az": 30
+   },
+   "applique": true
+  },
+  {
+   "part": "spot",
+   "name": "spot_b",
+   "on": "beret",
+   "at": {
+    "round": 4.5,
+    "az": -45
+   },
+   "applique": true
+  },
+  {
+   "part": "cheek",
+   "on": "body",
+   "at": {
+    "round": 18.1,
+    "az": 46
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_01",
+   "on": "dome",
+   "at": {
+    "round": 1.5,
+    "az": 0.0
+   },
+   "applique": true,
+   "pad": 12
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_02",
+   "on": "dome",
+   "at": {
+    "round": 1.5,
+    "az": 120.0
+   },
+   "applique": true,
+   "pad": 12
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_03",
+   "on": "dome",
+   "at": {
+    "round": 1.5,
+    "az": 240.0
+   },
+   "applique": true,
+   "pad": 12
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_04",
+   "on": "dome",
+   "at": {
+    "round": 4,
+    "az": 22.5
+   },
+   "applique": true,
+   "pad": 10
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_05",
+   "on": "dome",
+   "at": {
+    "round": 4,
+    "az": 67.5
+   },
+   "applique": true,
+   "pad": 10
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_06",
+   "on": "dome",
+   "at": {
+    "round": 4,
+    "az": 112.5
+   },
+   "applique": true,
+   "pad": 10
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_07",
+   "on": "dome",
+   "at": {
+    "round": 4,
+    "az": 157.5
+   },
+   "applique": true,
+   "pad": 10
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_08",
+   "on": "dome",
+   "at": {
+    "round": 4,
+    "az": 202.5
+   },
+   "applique": true,
+   "pad": 10
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_09",
+   "on": "dome",
+   "at": {
+    "round": 4,
+    "az": 247.5
+   },
+   "applique": true,
+   "pad": 10
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_10",
+   "on": "dome",
+   "at": {
+    "round": 4,
+    "az": 292.5
+   },
+   "applique": true,
+   "pad": 10
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_11",
+   "on": "dome",
+   "at": {
+    "round": 4,
+    "az": 337.5
+   },
+   "applique": true,
+   "pad": 10
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_12",
+   "on": "dome",
+   "at": {
+    "round": 7,
+    "az": 0.0
+   },
+   "applique": true,
+   "pad": 8
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_13",
+   "on": "dome",
+   "at": {
+    "round": 7,
+    "az": 27.7
+   },
+   "applique": true,
+   "pad": 8
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_14",
+   "on": "dome",
+   "at": {
+    "round": 7,
+    "az": 55.4
+   },
+   "applique": true,
+   "pad": 8
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_15",
+   "on": "dome",
+   "at": {
+    "round": 7,
+    "az": 83.1
+   },
+   "applique": true,
+   "pad": 8
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_16",
+   "on": "dome",
+   "at": {
+    "round": 7,
+    "az": 110.8
+   },
+   "applique": true,
+   "pad": 8
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_17",
+   "on": "dome",
+   "at": {
+    "round": 7,
+    "az": 138.5
+   },
+   "applique": true,
+   "pad": 8
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_18",
+   "on": "dome",
+   "at": {
+    "round": 7,
+    "az": 166.2
+   },
+   "applique": true,
+   "pad": 8
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_19",
+   "on": "dome",
+   "at": {
+    "round": 7,
+    "az": 193.8
+   },
+   "applique": true,
+   "pad": 8
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_20",
+   "on": "dome",
+   "at": {
+    "round": 7,
+    "az": 221.5
+   },
+   "applique": true,
+   "pad": 8
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_21",
+   "on": "dome",
+   "at": {
+    "round": 7,
+    "az": 249.2
+   },
+   "applique": true,
+   "pad": 8
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_22",
+   "on": "dome",
+   "at": {
+    "round": 7,
+    "az": 276.9
+   },
+   "applique": true,
+   "pad": 8
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_23",
+   "on": "dome",
+   "at": {
+    "round": 7,
+    "az": 304.6
+   },
+   "applique": true,
+   "pad": 8
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_24",
+   "on": "dome",
+   "at": {
+    "round": 7,
+    "az": 332.3
+   },
+   "applique": true,
+   "pad": 8
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_25",
+   "on": "dome",
+   "at": {
+    "round": 10,
+    "az": 10.6
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_26",
+   "on": "dome",
+   "at": {
+    "round": 10,
+    "az": 31.8
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_27",
+   "on": "dome",
+   "at": {
+    "round": 10,
+    "az": 52.9
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_28",
+   "on": "dome",
+   "at": {
+    "round": 10,
+    "az": 74.1
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_29",
+   "on": "dome",
+   "at": {
+    "round": 10,
+    "az": 95.3
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_30",
+   "on": "dome",
+   "at": {
+    "round": 10,
+    "az": 116.5
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_31",
+   "on": "dome",
+   "at": {
+    "round": 10,
+    "az": 137.6
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_32",
+   "on": "dome",
+   "at": {
+    "round": 10,
+    "az": 158.8
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_33",
+   "on": "dome",
+   "at": {
+    "round": 10,
+    "az": 180.0
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_34",
+   "on": "dome",
+   "at": {
+    "round": 10,
+    "az": 201.2
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_35",
+   "on": "dome",
+   "at": {
+    "round": 10,
+    "az": 222.4
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_36",
+   "on": "dome",
+   "at": {
+    "round": 10,
+    "az": 243.5
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_37",
+   "on": "dome",
+   "at": {
+    "round": 10,
+    "az": 264.7
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_38",
+   "on": "dome",
+   "at": {
+    "round": 10,
+    "az": 285.9
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_39",
+   "on": "dome",
+   "at": {
+    "round": 10,
+    "az": 307.1
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_40",
+   "on": "dome",
+   "at": {
+    "round": 10,
+    "az": 328.2
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_41",
+   "on": "dome",
+   "at": {
+    "round": 10,
+    "az": 349.4
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_42",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 0.0
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_43",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 17.1
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_44",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 34.3
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_45",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 51.4
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_46",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 68.6
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_47",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 85.7
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_48",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 102.9
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_49",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 120.0
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_50",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 137.1
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_51",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 154.3
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_52",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 171.4
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_53",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 188.6
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_54",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 205.7
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_55",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 222.9
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_56",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 240.0
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_57",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 257.1
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_58",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 274.3
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_59",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 291.4
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_60",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 308.6
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_61",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 325.7
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_62",
+   "on": "dome",
+   "at": {
+    "round": 12.5,
+    "az": 342.9
+   },
+   "applique": true,
+   "pad": 5.5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_63",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 113.3
+   },
+   "applique": true,
+   "pad": 5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_64",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 130.0
+   },
+   "applique": true,
+   "pad": 5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_65",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 146.7
+   },
+   "applique": true,
+   "pad": 5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_66",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 163.3
+   },
+   "applique": true,
+   "pad": 5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_67",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 180.0
+   },
+   "applique": true,
+   "pad": 5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_68",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 196.7
+   },
+   "applique": true,
+   "pad": 5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_69",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 213.3
+   },
+   "applique": true,
+   "pad": 5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_70",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 230.0
+   },
+   "applique": true,
+   "pad": 5
+  },
+  {
+   "part": "bobble",
+   "name": "bobble_71",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 246.7
+   },
+   "applique": true,
+   "pad": 5
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 19.3,
+    "az": 24
+   },
+   "size_mm": 11,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "safety_nose",
+   "on": "snout",
+   "at": {
+    "round": 1.0,
+    "az": 0
+   },
+   "size_mm": [
+    6,
+    5
+   ],
+   "shape": "oval",
+   "colour": "nose"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     17.6,
+     -8
+    ],
+    [
+     17.0,
+     -4
+    ],
+    [
+     16.9,
+     0
+    ],
+    [
+     17.0,
+     4
+    ],
+    [
+     17.6,
+     8
+    ]
+   ],
+   "colour": "nose",
+   "thickness_mm": 1.0
+  }
+ ]
+}

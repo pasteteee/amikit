@@ -1,0 +1,379 @@
+{
+ "name": "az37_pumpkin",
+ "title": "Gourdy pumpkin",
+ "subject": "doll",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "orange": "#f0902a",
+  "rib": "#c86a18",
+  "green": "#7fa040",
+  "leaf": "#86b048",
+  "stem": "#7a4a28",
+  "black": "#151515",
+  "white": "#f6f4f0"
+ },
+ "colour_names_ru": {
+  "rib": "\u0421\u201a\u0421\u2018\u0420\u0458\u0420\u0405\u0420\u0455-\u0420\u0455\u0421\u0402\u0420\u00b0\u0420\u0405\u0420\u00b6\u0420\u00b5\u0420\u0406\u0421\u2039\u0420\u2116",
+  "leaf": "\u0421\u0403\u0420\u0406\u0420\u00b5\u0421\u201a\u0420\u00bb\u0420\u0455-\u0420\u00b7\u0420\u00b5\u0420\u00bb\u0421\u2018\u0420\u0405\u0421\u2039\u0420\u2116",
+  "stem": "\u0420\u0454\u0420\u0455\u0421\u0402\u0420\u0451\u0421\u2021\u0420\u0405\u0420\u00b5\u0420\u0406\u0421\u2039\u0420\u2116"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 9"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "head",
+   "rounds": [
+    "ch 9",
+    "inc 6 to 48",
+    "inc 6 to 72 every 2",
+    "even 2",
+    "dec 6 to 48 every 2",
+    "dec 6 to 12"
+   ],
+   "colour": "orange",
+   "stuff": "firm"
+  },
+  {
+   "id": "stem",
+   "rounds": [
+    "mr 6",
+    "8",
+    "even 9"
+   ],
+   "colour": "stem",
+   "end": "open",
+   "stuff": "light",
+   "bend": {
+    "deg": 30,
+    "at": 6,
+    "over": 4
+   }
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "9",
+    "6",
+    "even 14"
+   ],
+   "colour": "green",
+   "end": "open",
+   "stuff": "light",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "az": [
+      -180,
+      180
+     ],
+     "colour": "orange"
+    }
+   ]
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "9",
+    "8",
+    "even 9"
+   ],
+   "colour": "green",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "vine",
+   "cord": {
+    "length_mm": 70,
+    "thickness_mm": 2.6,
+    "curl_deg": 220,
+    "slip_back": true,
+    "link_mm": 3
+   },
+   "colour": "green"
+  },
+  {
+   "id": "leaf",
+   "rounds": [
+    "ch 5",
+    "16",
+    "even 1"
+   ],
+   "colour": "leaf",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "eye_ring",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36"
+   ],
+   "colour": "black",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "eye_white",
+   "rounds": [
+    "ch 3",
+    "inc 6 to 18"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "start",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 6
+  },
+  {
+   "part": "stem",
+   "on": "head",
+   "at": {
+    "round": "end"
+   },
+   "dir": [
+    0.25,
+    1,
+    0
+   ],
+   "bend_toward": [
+    -1,
+    0,
+    0
+   ]
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 11,
+    "az": 85
+   },
+   "dir": [
+    0.7,
+    -1,
+    0.1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 3,
+    "az": 40
+   },
+   "dir": [
+    0.05,
+    -1,
+    0
+   ],
+   "mirror": true,
+   "attach": "end"
+  },
+  {
+   "part": "vine",
+   "on": "body",
+   "at": {
+    "round": 3,
+    "az": 160
+   },
+   "dir": [
+    -0.3,
+    -0.5,
+    -1
+   ],
+   "toward": [
+    -1,
+    0,
+    0
+   ]
+  },
+  {
+   "part": "leaf",
+   "on": "head",
+   "at": {
+    "round": 28,
+    "az": -50
+   },
+   "attach": "edge",
+   "dir": [
+    -0.6,
+    1,
+    0.1
+   ]
+  },
+  {
+   "part": "eye_ring",
+   "on": "head",
+   "at": {
+    "round": 17.5,
+    "az": 29
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "eye_white",
+   "on": "eye_ring",
+   "at": {
+    "round": "start"
+   },
+   "applique": true,
+   "mirror": true,
+   "roll": 90
+  }
+ ],
+ "face": [
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     10.5,
+     -20
+    ],
+    [
+     9.7,
+     -13
+    ],
+    [
+     10.7,
+     -7
+    ],
+    [
+     9.7,
+     0
+    ],
+    [
+     10.7,
+     7
+    ],
+    [
+     9.7,
+     13
+    ],
+    [
+     10.5,
+     20
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.5
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     4,
+     0
+    ],
+    [
+     35,
+     0
+    ]
+   ],
+   "colour": "rib",
+   "thickness_mm": 1.4
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     4,
+     50
+    ],
+    [
+     35,
+     50
+    ]
+   ],
+   "colour": "rib",
+   "thickness_mm": 1.4,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     4,
+     100
+    ],
+    [
+     35,
+     100
+    ]
+   ],
+   "colour": "rib",
+   "thickness_mm": 1.4,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     4,
+     150
+    ],
+    [
+     35,
+     150
+    ]
+   ],
+   "colour": "rib",
+   "thickness_mm": 1.4,
+   "mirror": true
+  }
+ ]
+}

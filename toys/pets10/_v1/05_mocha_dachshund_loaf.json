@@ -1,0 +1,37 @@
+{
+ "name": "05_mocha_dachshund_loaf",
+ "title": "Mocha Dachshund Loaf",
+ "title_ru": "Таксёнок Кофейная булочка",
+ "subject": "dog",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {"mocha": "#7b4b36", "caramel": "#c98b54", "cream": "#f3e2c3", "teal": "#2f8c93", "nose": "#1f1b1a", "blush": "#f2a0a6"},
+ "colour_names_ru": {"mocha": "кофейно-коричневый", "caramel": "карамельный", "cream": "молочный", "teal": "бирюзовый", "nose": "чёрный (носик)", "blush": "розовый (щёчки)"},
+ "parts": [
+  {"id": "body", "name_ru": "туловище", "name_en": "body", "rounds": ["mr 6", "inc 6 to 42", "even 24", "dec 6 to 6"], "colour": "mocha", "end": "closed", "stuff": "firm", "colours": [{"ellipse": {"center": [35, 180], "radii": [7, 60]}, "colour": "cream"}], "flatten": 0.22},
+  {"id": "head", "name_ru": "голова", "name_en": "head", "rounds": ["mr 6", "inc 6 to 48", "inc 6 to 66 every 2", "even 5", "dec 6 to 48 every 2", "dec 6 to 6"], "colour": "mocha", "stuff": "firm", "colours": [{"ellipse": {"center": [21.5, 0], "radii": [3.5, 22]}, "colour": "cream"}]},
+  {"id": "muzzle", "name_ru": "мордочка", "name_en": "muzzle", "rounds": ["ch 5", "16", "24", "even 4"], "colour": "cream", "end": "open", "stuff": "light"},
+  {"id": "ear", "name_ru": "ушко", "name_en": "ear", "rounds": ["mr 6", "12", "18", "24", "even 12", "21", "even 4", "18", "even 3", "15", "even 1"], "colour": "caramel", "end": "open", "stuff": "none", "spoon": 0.45},
+  {"id": "paw", "name_ru": "лапка", "name_en": "paw", "rounds": ["mr 6", "12", "15", "even 1", "12"], "colour": "cream", "end": "open", "stuff": "firm"},
+  {"id": "tail", "name_ru": "хвостик", "name_en": "tail", "rounds": ["mr 6", "9", "12", "even 8"], "colour": "mocha", "end": "open", "stuff": "light", "bend": {"deg": 50, "at": 8, "over": 4, "toward": [0, 1, 0]}, "colours": [{"rounds": [1, 3], "colour": "cream"}]},
+  {"id": "kerchief", "name_ru": "косынка", "name_en": "kerchief", "colour": "teal", "motif": {"kind": "triangle", "width": 15}},
+  {"id": "cheek", "name_ru": "щёчка", "name_en": "cheek", "rounds": ["mr 6", "12"], "colour": "blush", "end": "open", "stuff": "none"}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 0, 1]},
+  {"part": "head", "on": "body", "at": {"round": 28, "az": 0}, "attach": "end", "dir": [0, 1, 0.3], "sink": 10, "sink_dir": "axis"},
+  {"part": "muzzle", "on": "head", "at": {"round": 18, "az": 0}, "dir": [0, -0.15, 1]},
+  {"part": "ear", "on": "head", "at": {"round": 9.5, "az": 92}, "dir": [0.3, -1, -0.05], "mirror": true, "front": [0.8, 0, 0.6]},
+  {"part": "kerchief", "on": "body", "at": {"round": 36, "az": 0}, "applique": true, "roll": 180, "lift": 1.2, "drape": true},
+  {"part": "paw", "name": "front_paw", "on": "body", "at": {"round": 28, "az": 140}, "dir": [0.35, -1, 0.15], "mirror": true},
+  {"part": "paw", "name": "hind_paw", "on": "body", "at": {"round": 7, "az": 140}, "dir": [0.3, -1, -0.2], "mirror": true},
+  {"part": "tail", "on": "body", "at": {"round": 3, "az": 0}, "dir": [0, 1, -0.5]},
+  {"part": "cheek", "on": "head", "at": {"round": 17.5, "az": 45}, "applique": true, "mirror": true}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "head", "at": {"round": 14, "az": 26}, "size_mm": 14, "mirror": true, "highlight": true, "id": "eye"},
+  {"type": "safety_nose", "on": "muzzle", "at": {"round": 1.5, "az": 0}, "size_mm": [10, 7.5], "shape": "oval", "colour": "nose", "id": "nose"},
+  {"type": "stitch", "on": "muzzle", "points": [[2.0, 180], [3.2, 180]], "colour": "nose", "thickness_mm": 1.0},
+  {"type": "stitch", "on": "muzzle", "points": [[3.2, 180], [3.8, 155], [3.3, 130]], "colour": "nose", "thickness_mm": 1.0, "mirror": true},
+  {"type": "stitch", "on": "head", "points": [[9.5, 19], [9, 26], [9.5, 33]], "colour": "nose", "thickness_mm": 0.9, "mirror": true}
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "name": "45_pink_manta_pancake",
+ "title": "Pink Pancake Manta Ray",
+ "title_ru": "Скат Розовый блинчик",
+ "subject": "fish",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {"coral": "#f8707a", "cream": "#f4dcc4", "lilac": "#ae96c8", "pink": "#f6a0aa", "black": "#151313"},
+ "colour_names_ru": {"coral": "кораллово-розовый", "cream": "кремовый", "lilac": "сиреневый", "pink": "розовый", "black": "чёрный"},
+ "parts": [
+  {"id": "body", "rounds": ["mr 6", "inc 6 to 42", "inc 6 to 48 every 2", "even 9", "dec 6 to 36 every 2", "dec 6 to 6"], "colour": "coral", "stuff": "medium", "colours": [{"rounds": [1, 40], "az": [100, 260], "colour": "cream"}, {"ellipse": {"center": [24.5, 0], "radii": [2.5, 40]}, "colour": "cream"}], "name_ru": "Тело", "name_en": "Body", "flatten": 0.35},
+  {"id": "fin", "rounds": ["mr 6", "9", "12", "15", "18", "21", "24", "27", "30", "33", "36", "even 1"], "colour": "coral", "stuff": "medium", "flatten": 0.6, "colours": [{"rounds": [1, 12], "az": [100, 260], "colour": "cream"}], "name_ru": "Плавник", "name_en": "Wing fin", "end": "open"},
+  {"id": "lobe", "rounds": ["mr 6", "10", "even 4"], "colour": "cream", "end": "open", "stuff": "light", "bend": {"deg": 130, "at": 3, "over": 2, "toward": [0, -1, -0.3]}, "colours": [{"rounds": [1, 2], "colour": "coral"}], "name_ru": "Передняя долька", "name_en": "Cephalic lobe"},
+  {"id": "tail", "rounds": ["mr 6", "9", "even 10", "12"], "colour": "lilac", "end": "open", "stuff": "light", "name_ru": "Хвостик", "name_en": "Tail"},
+  {"id": "cheek", "rounds": ["mr 6", "12"], "colour": "pink", "end": "open", "stuff": "none", "name_ru": "Щёчка", "name_en": "Cheek"},
+  {"id": "heart", "motif": {"kind": "heart"}, "colour": "cream", "name_ru": "Сердечко", "name_en": "Heart"}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 0, 1]},
+  {"part": "fin", "on": "body", "at": {"round": 15, "az": 90}, "dir": [1, -0.1, -0.05], "front": [0, 1, 0], "mirror": true},
+  {"part": "lobe", "on": "body", "at": {"round": 24.5, "az": 112}, "dir": [0.6, -0.3, 1], "mirror": true},
+  {"part": "tail", "on": "body", "at": {"round": "start"}, "dir": [0, 0.5, -1]},
+  {"part": "cheek", "on": "body", "at": {"round": 24, "az": 72}, "applique": true, "mirror": true},
+  {"part": "heart", "on": "body", "at": {"round": 12, "az": 0}, "applique": true, "lift": 0.8}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "body", "at": {"round": 23.5, "az": 44}, "size_mm": 12, "mirror": true, "highlight": true},
+  {"type": "stitch", "on": "body", "points": [[25.3, -12], [26, -5], [26.2, 0], [26, 5], [25.3, 12]], "colour": "black", "thickness_mm": 1.1}
+ ]
+}

@@ -1,0 +1,243 @@
+{
+ "name": "ae10_kawaii",
+ "title": "Positive sheep (white)",
+ "subject": "sheep",
+ "yarn": {
+  "weight": "chunky",
+  "hook_mm": 4.0,
+  "stitch_mm": 5.5,
+  "round_mm": 5.0,
+  "thickness_mm": 2.8
+ },
+ "colours": {
+  "wool": "#f4f2ee",
+  "face": "#f1dcc6",
+  "card": "#fbfbfa",
+  "ink": "#222222",
+  "black": "#1a1817"
+ },
+ "colour_names_ru": {
+  "wool": "\u0431\u0435\u043b\u044b\u0439",
+  "face": "\u0431\u0435\u0436\u0435\u0432\u044b\u0439",
+  "card": "\u0431\u0435\u043b\u044b\u0439",
+  "ink": "\u0447\u0451\u0440\u043d\u044b\u0439"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "48",
+    "even 9",
+    "dec 6 to 36 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "wool",
+   "stuff": "firm"
+  },
+  {
+   "id": "face",
+   "rounds": [
+    "ch 3",
+    "inc 6 to 24",
+    "28"
+   ],
+   "colour": "face",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 2",
+    "15"
+   ],
+   "colour": "wool",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.8,
+   "colours": [
+    {
+     "rounds": [
+      1,
+      3
+     ],
+     "az": [
+      -80,
+      80
+     ],
+     "colour": "face"
+    }
+   ]
+  },
+  {
+   "id": "hand",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "even 2",
+    "dec 6 to 6"
+   ],
+   "colour": "face",
+   "stuff": "light"
+  },
+  {
+   "id": "foot",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "even 2"
+   ],
+   "colour": "face",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "card",
+   "flat": {
+    "width_st": 12,
+    "rows": 9
+   },
+   "colour": "card"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "face",
+   "on": "body",
+   "at": {
+    "round": 16.5,
+    "az": 0
+   },
+   "applique": true,
+   "pad": 3,
+   "inset": 0.8
+  },
+  {
+   "part": "ear",
+   "on": "body",
+   "at": {
+    "round": 19,
+    "az": 70
+   },
+   "dir": [
+    1,
+    0.7,
+    0.1
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "front": [
+    0,
+    1,
+    0.4
+   ]
+  },
+  {
+   "part": "card",
+   "on": "body",
+   "at": {
+    "round": 10.5,
+    "az": 0
+   },
+   "lift": 1.5,
+   "conform": true
+  },
+  {
+   "part": "hand",
+   "on": "body",
+   "at": {
+    "round": 11,
+    "az": 34
+   },
+   "dir": [
+    0.3,
+    0,
+    1
+   ],
+   "mirror": true,
+   "sink": 2
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 4,
+    "az": 26
+   },
+   "dir": [
+    0.2,
+    -0.6,
+    1
+   ],
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "face",
+   "at": {
+    "round": 3.2,
+    "az": 62
+   },
+   "size_mm": 5,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "face",
+   "points": [
+    [
+     1.6,
+     -120
+    ],
+    [
+     1.2,
+     -160
+    ],
+    [
+     1.4,
+     180
+    ],
+    [
+     1.2,
+     160
+    ],
+    [
+     1.6,
+     120
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 0.9
+  },
+  {
+   "type": "stitch",
+   "on": "face",
+   "points": [
+    [
+     0.3,
+     0
+    ],
+    [
+     1.3,
+     180
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 0.9
+  }
+ ]
+}

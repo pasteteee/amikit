@@ -1,0 +1,358 @@
+{
+ "name": "c2_marshmallow_bell",
+ "title": "Bell Kitten",
+ "title_ru": "Кошечка Зефирка",
+ "subject": "white kitten",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "white": "#fdfbf8",
+  "pinkear": "#ffb3c8",
+  "bow": "#ff7aa2",
+  "collar": "#c9b6ff",
+  "gold": "#ffd34d",
+  "nose": "#ff8fab",
+  "blush": "#ff9eb5",
+  "mouth": "#8a5a6a"
+ },
+ "colour_names_ru": {
+  "white": "белый",
+  "pinkear": "розовый",
+  "bow": "ярко-розовый",
+  "collar": "сиреневый",
+  "gold": "золотистый",
+  "nose": "розовый (носик)",
+  "blush": "розовый (щёчки)",
+  "mouth": "сливовый"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "тельце",
+   "name_en": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 54 every 2",
+    "even 12",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "white",
+   "stuff": "firm"
+  },
+  {
+   "id": "ear",
+   "name_ru": "ушко",
+   "name_en": "ear",
+   "colour": "white",
+   "preset": "ear",
+   "kind": "pointed",
+   "max": 19,
+   "inner": "pinkear"
+  },
+  {
+   "id": "collar",
+   "name_ru": "ошейник",
+   "name_en": "collar",
+   "rounds": [
+    "ring 54",
+    "even 1"
+   ],
+   "colour": "collar",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "bell",
+   "name_ru": "бубенчик",
+   "name_en": "bell",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 1",
+    "9",
+    "6"
+   ],
+   "colour": "gold",
+   "stuff": "firm"
+  },
+  {
+   "id": "bow",
+   "name_ru": "бантик",
+   "name_en": "bow",
+   "colour": "bow",
+   "flat": {
+    "width_st": 7,
+    "rows": 3
+   },
+   "pinch": 0.85
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвостик",
+   "name_en": "tail",
+   "rounds": [
+    "mr 6",
+    "9",
+    "even 10"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "light",
+   "bend": {
+    "deg": 70,
+    "at": 6,
+    "over": 3,
+    "toward": [
+     0.6,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "arm",
+   "name_ru": "лапка",
+   "name_en": "arm",
+   "rounds": [
+    "mr 6",
+    "9",
+    "even 2",
+    "8"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "foot",
+   "name_ru": "ножка",
+   "name_en": "foot",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 1",
+    "10"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.5
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "body",
+   "at": {
+    "round": 27.5,
+    "az": 42
+   },
+   "dir": [
+    0.5,
+    1,
+    0.12
+   ],
+   "mirror": true,
+   "sink": 1
+  },
+  {
+   "part": "collar",
+   "on": "body",
+   "at": {
+    "round": 15.5
+   },
+   "around": true
+  },
+  {
+   "part": "bell",
+   "on": "body",
+   "at": {
+    "round": 14,
+    "az": 0
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    -0.3,
+    1
+   ],
+   "sink": 3
+  },
+  {
+   "part": "bow",
+   "on": "body",
+   "at": {
+    "round": 25.5,
+    "az": -34
+   },
+   "conform": true,
+   "lift": 1.2
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 6,
+    "az": 165
+   },
+   "dir": [
+    0.3,
+    -0.1,
+    -1
+   ]
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 12.5,
+    "az": 52
+   },
+   "dir": [
+    -0.2,
+    -0.45,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 3,
+    "az": 30
+   },
+   "dir": [
+    0.3,
+    -0.35,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "cheek",
+   "on": "body",
+   "at": {
+    "round": 18,
+    "az": 42
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.0
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 20.5,
+    "az": 23
+   },
+   "size_mm": 14,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 18.7,
+    "az": 0
+   },
+   "width_mm": 6,
+   "height_mm": 4.5,
+   "shape": "triangle",
+   "colour": "nose",
+   "thickness_mm": 1.4,
+   "id": "nose"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     18.1,
+     0
+    ],
+    [
+     17.55,
+     0
+    ],
+    [
+     17.2,
+     -2
+    ],
+    [
+     17.05,
+     -5
+    ],
+    [
+     17.25,
+     -7.5
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 1.0,
+   "id": "mouth_r"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     18.1,
+     0
+    ],
+    [
+     17.55,
+     0
+    ],
+    [
+     17.2,
+     2
+    ],
+    [
+     17.05,
+     5
+    ],
+    [
+     17.25,
+     7.5
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 1.0,
+   "id": "mouth_l"
+  }
+ ]
+}

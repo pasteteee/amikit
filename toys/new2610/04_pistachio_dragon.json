@@ -1,0 +1,518 @@
+{
+ "name": "04_pistachio_dragon",
+ "title": "Pistachio Baby Dragon",
+ "title_ru": "Дракон Фисташка",
+ "subject": "dragon",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "pistachio": "#a6c08f",
+  "cream": "#f4ecda",
+  "apricot": "#efa97c",
+  "sage": "#7e9f6c",
+  "pink": "#f2a3ad",
+  "darkgreen": "#5f7f50",
+  "brown": "#4a2618",
+  "white": "#f6f4ef",
+  "black": "#141213"
+ },
+ "colour_names_ru": {
+  "pistachio": "фисташковый",
+  "cream": "молочный",
+  "apricot": "абрикосовый",
+  "sage": "шалфейно-зелёный (крылья)",
+  "pink": "розовый",
+  "darkgreen": "тёмно-зелёный (вышивка)",
+  "brown": "коричневый (вышивка)"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "туловище",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "blo 48",
+    "dec 6 to 42",
+    "even 2",
+    "dec 6 to 36",
+    "even 1",
+    "dec 6 to 30"
+   ],
+   "colour": "pistachio",
+   "end": "open",
+   "stuff": "firm",
+   "name_en": "body"
+  },
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "inc 6 to 66 every 2",
+    "even 4",
+    "dec 6 to 54 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "pistachio",
+   "end": "closed",
+   "stuff": "firm",
+   "name_en": "head"
+  },
+  {
+   "id": "muzzle",
+   "name_ru": "мордочка",
+   "rounds": [
+    "ch 6",
+    "inc 6 to 24",
+    "30",
+    "even 3"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "medium",
+   "name_en": "muzzle"
+  },
+  {
+   "id": "belly",
+   "name_ru": "животик",
+   "rounds": [
+    "ch 9",
+    "inc 6 to 36",
+    "42"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "none",
+   "name_en": "belly patch"
+  },
+  {
+   "id": "horn",
+   "name_ru": "рожок",
+   "rounds": [
+    "mr 5",
+    "8",
+    "11",
+    "14",
+    "even 1"
+   ],
+   "colour": "apricot",
+   "end": "open",
+   "stuff": "medium",
+   "name_en": "horn"
+  },
+  {
+   "id": "wing",
+   "name_ru": "крылышко",
+   "colour": "sage",
+   "name_en": "wing",
+   "motif": {
+    "kind": "half_circle",
+    "rows": 4,
+    "edging": {
+     "kind": "picot",
+     "every": 3
+    },
+    "sew": "base"
+   }
+  },
+  {
+   "id": "arm",
+   "name_ru": "лапка",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 2",
+    "12",
+    "even 2"
+   ],
+   "colour": "pistachio",
+   "end": "open",
+   "stuff": "light",
+   "name_en": "arm"
+  },
+  {
+   "id": "leg",
+   "name_ru": "ножка",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 30",
+    "even 3",
+    "24",
+    "even 1",
+    "18"
+   ],
+   "colour": "pistachio",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "colour": "cream"
+    }
+   ],
+   "name_en": "leg"
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвост",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "10",
+    "12",
+    "14",
+    "16",
+    "18",
+    "20",
+    "22",
+    "24",
+    "even 2"
+   ],
+   "colour": "pistachio",
+   "end": "open",
+   "stuff": "medium",
+   "name_en": "tail"
+  },
+  {
+   "id": "spike",
+   "name_ru": "шип",
+   "rounds": [
+    "mr 4",
+    "8",
+    "12",
+    "16",
+    "even 1"
+   ],
+   "colour": "apricot",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.85,
+   "name_en": "spike"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "rounds": [
+    "mr 7",
+    "14"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none",
+   "name_en": "cheek"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 3
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 20,
+    "az": 0
+   },
+   "dir": [
+    0,
+    0.05,
+    1
+   ]
+  },
+  {
+   "part": "belly",
+   "on": "body",
+   "at": {
+    "round": 9,
+    "az": 0
+   },
+   "applique": true,
+   "roll": 90,
+   "inset": 1.0
+  },
+  {
+   "part": "horn",
+   "on": "head",
+   "at": {
+    "round": 6,
+    "az": 52
+   },
+   "dir": [
+    0.5,
+    1,
+    0.05
+   ],
+   "mirror": true
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 17.5,
+    "az": 45
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 11,
+    "az": 62
+   },
+   "dir": [
+    0.2,
+    -1,
+    0.5
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 56
+   },
+   "dir": [
+    0.55,
+    -0.25,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 3.5,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.3,
+    -1
+   ],
+   "front": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "spike",
+   "name": "spike1",
+   "on": "tail",
+   "at": {
+    "round": 11,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    -0.3
+   ],
+   "seam": "flat",
+   "front": [
+    1,
+    0,
+    0
+   ]
+  },
+  {
+   "part": "spike",
+   "name": "spike2",
+   "on": "tail",
+   "at": {
+    "round": 7,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    -0.5
+   ],
+   "seam": "flat",
+   "front": [
+    1,
+    0,
+    0
+   ]
+  },
+  {
+   "part": "spike",
+   "name": "spike3",
+   "on": "tail",
+   "at": {
+    "round": 3.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    0.9,
+    -0.8
+   ],
+   "seam": "flat",
+   "front": [
+    1,
+    0,
+    0
+   ]
+  },
+  {
+   "part": "wing",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 100
+   },
+   "dir": [
+    1,
+    0.6,
+    -0.7
+   ],
+   "mirror": true,
+   "attach": "edge",
+   "face": [
+    0.7,
+    0,
+    1
+   ],
+   "sink": 1
+  }
+ ],
+ "face": [
+  {
+   "type": "satin",
+   "role": "eye",
+   "on": "head",
+   "at": {
+    "round": 14,
+    "az": 28
+   },
+   "width_mm": 12,
+   "height_mm": 13,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.2,
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 14,
+    "az": 28
+   },
+   "width_mm": 3.2,
+   "height_mm": 3.2,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 1.0,
+   "offset_mm": [
+    2.2,
+    2.8
+   ]
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 14,
+    "az": -28
+   },
+   "width_mm": 3.2,
+   "height_mm": 3.2,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 1.0,
+   "offset_mm": [
+    2.2,
+    2.8
+   ]
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     2.0,
+     48
+    ],
+    [
+     2.5,
+     48
+    ]
+   ],
+   "colour": "darkgreen",
+   "thickness_mm": 1.5,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     3.0,
+     140
+    ],
+    [
+     3.6,
+     160
+    ],
+    [
+     3.8,
+     180
+    ],
+    [
+     3.6,
+     200
+    ],
+    [
+     3.0,
+     220
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 1.3
+  }
+ ]
+}

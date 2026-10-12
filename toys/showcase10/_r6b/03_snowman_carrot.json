@@ -1,0 +1,361 @@
+{
+ "name": "03_snowman_carrot",
+ "title": "Snowy the Snowman",
+ "title_ru": "Снеговичок Снежок",
+ "subject": "snowman",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "snow": "#fbfdff",
+  "hat": "#3d4a6b",
+  "band": "#e8474c",
+  "carrot": "#ff8c42",
+  "coal": "#2b2b2b",
+  "twig": "#7b5232",
+  "scarf": "#e8474c",
+  "scarf2": "#ffffff",
+  "blush": "#ffa8bd"
+ },
+ "colour_names_ru": {
+  "snow": "белый",
+  "hat": "тёмно-синий",
+  "band": "красный",
+  "carrot": "оранжевый",
+  "coal": "чёрный",
+  "twig": "коричневый",
+  "scarf": "красный",
+  "scarf2": "белый",
+  "blush": "розовый (щёчки)"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "снеговичок",
+   "name_en": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 54 every 2",
+    "even 12",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "snow",
+   "stuff": "firm"
+  },
+  {
+   "id": "hat",
+   "name_ru": "цилиндр",
+   "name_en": "top hat",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 30",
+    "blo 30",
+    "even 5",
+    "inc 6 to 54"
+   ],
+   "colour": "hat",
+   "end": "open",
+   "stuff": "light",
+   "colours": [
+    {
+     "rounds": [
+      10,
+      11
+     ],
+     "colour": "band"
+    }
+   ]
+  },
+  {
+   "id": "scarf",
+   "name_ru": "шарф",
+   "name_en": "scarf",
+   "rounds": [
+    "ring 48",
+    "rib 48 x2"
+   ],
+   "colour": "scarf",
+   "end": "open",
+   "stuff": "none",
+   "colours": [
+    {
+     "rounds": [
+      2,
+      2
+     ],
+     "colour": "scarf2"
+    }
+   ]
+  },
+  {
+   "id": "scarf_tail",
+   "name_ru": "конец шарфа",
+   "name_en": "scarf end",
+   "colour": "scarf",
+   "flat": {
+    "width_st": 5,
+    "rows": 11
+   }
+  },
+  {
+   "id": "nose",
+   "name_ru": "морковка",
+   "name_en": "carrot nose",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "10"
+   ],
+   "colour": "carrot",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "arm",
+   "name_ru": "ручка-веточка",
+   "name_en": "twig arm",
+   "colour": "twig",
+   "cord": {
+    "length_mm": 34,
+    "thickness_mm": 3.0,
+    "curl_deg": 35,
+    "slip_back": true
+   }
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "hat",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0.1,
+    1,
+    -0.08
+   ],
+   "sink": 1
+  },
+  {
+   "part": "scarf",
+   "on": "body",
+   "at": {
+    "round": 16
+   },
+   "around": true,
+   "dir": [
+    0,
+    -1,
+    0
+   ]
+  },
+  {
+   "part": "scarf_tail",
+   "on": "body",
+   "at": {
+    "round": 11.5,
+    "az": 30
+   },
+   "conform": true,
+   "lift": 1.5
+  },
+  {
+   "part": "nose",
+   "on": "body",
+   "at": {
+    "round": 21,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.05,
+    1
+   ]
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 14,
+    "az": 88
+   },
+   "dir": [
+    1,
+    0.35,
+    0.1
+   ],
+   "mirror": true,
+   "toward": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "cheek",
+   "on": "body",
+   "at": {
+    "round": 20,
+    "az": 42
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.0
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 23,
+    "az": 21
+   },
+   "size_mm": 12,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 19.6,
+    "az": -12
+   },
+   "width_mm": 2.6,
+   "height_mm": 2.6,
+   "shape": "oval",
+   "colour": "coal",
+   "thickness_mm": 1.2,
+   "id": "mouth1"
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 19.0,
+    "az": -6
+   },
+   "width_mm": 2.6,
+   "height_mm": 2.6,
+   "shape": "oval",
+   "colour": "coal",
+   "thickness_mm": 1.2,
+   "id": "mouth2"
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 18.8,
+    "az": 0
+   },
+   "width_mm": 2.6,
+   "height_mm": 2.6,
+   "shape": "oval",
+   "colour": "coal",
+   "thickness_mm": 1.2,
+   "id": "mouth3"
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 19.0,
+    "az": 6
+   },
+   "width_mm": 2.6,
+   "height_mm": 2.6,
+   "shape": "oval",
+   "colour": "coal",
+   "thickness_mm": 1.2,
+   "id": "mouth4"
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 19.6,
+    "az": 12
+   },
+   "width_mm": 2.6,
+   "height_mm": 2.6,
+   "shape": "oval",
+   "colour": "coal",
+   "thickness_mm": 1.2,
+   "id": "mouth5"
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 11,
+    "az": 0
+   },
+   "width_mm": 4.5,
+   "height_mm": 4.5,
+   "shape": "oval",
+   "colour": "coal",
+   "thickness_mm": 1.2,
+   "id": "button1"
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 8,
+    "az": 0
+   },
+   "width_mm": 4.5,
+   "height_mm": 4.5,
+   "shape": "oval",
+   "colour": "coal",
+   "thickness_mm": 1.2,
+   "id": "button2"
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 0
+   },
+   "width_mm": 4.5,
+   "height_mm": 4.5,
+   "shape": "oval",
+   "colour": "coal",
+   "thickness_mm": 1.2,
+   "id": "button3"
+  }
+ ]
+}

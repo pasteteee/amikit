@@ -1,0 +1,364 @@
+{
+ "name": "01_ladybug_dot",
+ "title": "Dotty Ladybug",
+ "title_ru": "Божья коровка Точка",
+ "subject": "ladybug",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "red": "#ff5a5f",
+  "black": "#2b2b2b",
+  "daisy": "#ffffff",
+  "yellow": "#ffd84d",
+  "blush": "#ff9eb0",
+  "mouth": "#2b2b2b"
+ },
+ "colour_names_ru": {
+  "red": "красный",
+  "black": "чёрный",
+  "daisy": "белый",
+  "yellow": "жёлтый",
+  "blush": "розовый (щёчки)",
+  "mouth": "чёрный (ротик)"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "тельце",
+   "name_en": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "inc 6 to 60 every 2",
+    "even 9",
+    "dec 6 to 48 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "red",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "colour": "black"
+    }
+   ]
+  },
+  {
+   "id": "spot",
+   "name_ru": "пятнышко",
+   "name_en": "spot",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "black",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "antenna",
+   "name_ru": "усик",
+   "name_en": "antenna",
+   "colour": "black",
+   "cord": {
+    "length_mm": 28,
+    "thickness_mm": 2.8,
+    "curl_deg": 220,
+    "slip_back": true
+   }
+  },
+  {
+   "id": "foot",
+   "name_ru": "ножка",
+   "name_en": "foot",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 1",
+    "10"
+   ],
+   "colour": "black",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.5
+  },
+  {
+   "id": "daisy",
+   "name_ru": "ромашка",
+   "name_en": "daisy",
+   "colour": "daisy",
+   "motif": {
+    "kind": "lobed",
+    "lobes": 5,
+    "tall": "dc",
+    "stitches": 5
+   }
+  },
+  {
+   "id": "daisy_eye",
+   "name_ru": "серединка ромашки",
+   "name_en": "daisy centre",
+   "rounds": [
+    "mr 6"
+   ],
+   "colour": "yellow",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "spot",
+   "name": "spot1",
+   "on": "body",
+   "at": {
+    "round": 27,
+    "az": 70
+   },
+   "applique": true,
+   "lift": 0.8
+  },
+  {
+   "part": "spot",
+   "name": "spot2",
+   "on": "body",
+   "at": {
+    "round": 27,
+    "az": -70
+   },
+   "applique": true,
+   "lift": 0.8
+  },
+  {
+   "part": "spot",
+   "name": "spot3",
+   "on": "body",
+   "at": {
+    "round": 20,
+    "az": 118
+   },
+   "applique": true,
+   "lift": 0.8
+  },
+  {
+   "part": "spot",
+   "name": "spot4",
+   "on": "body",
+   "at": {
+    "round": 20,
+    "az": -118
+   },
+   "applique": true,
+   "lift": 0.8
+  },
+  {
+   "part": "spot",
+   "name": "spot5",
+   "on": "body",
+   "at": {
+    "round": 12,
+    "az": 140
+   },
+   "applique": true,
+   "lift": 0.8
+  },
+  {
+   "part": "spot",
+   "name": "spot6",
+   "on": "body",
+   "at": {
+    "round": 12,
+    "az": -140
+   },
+   "applique": true,
+   "lift": 0.8
+  },
+  {
+   "part": "spot",
+   "name": "spot7",
+   "on": "body",
+   "at": {
+    "round": 29,
+    "az": 140
+   },
+   "applique": true,
+   "lift": 0.8
+  },
+  {
+   "part": "spot",
+   "name": "spot8",
+   "on": "body",
+   "at": {
+    "round": 29,
+    "az": -140
+   },
+   "applique": true,
+   "lift": 0.8
+  },
+  {
+   "part": "antenna",
+   "on": "body",
+   "at": {
+    "round": 29,
+    "az": 28
+   },
+   "dir": [
+    0.35,
+    1,
+    0.15
+   ],
+   "mirror": true,
+   "toward": [
+    0.8,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 3.5,
+    "az": 30
+   },
+   "dir": [
+    0.3,
+    -0.35,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "daisy",
+   "on": "body",
+   "at": {
+    "round": 11,
+    "az": 0
+   },
+   "applique": true,
+   "lift": 1.2,
+   "pad": 1.0
+  },
+  {
+   "part": "daisy_eye",
+   "on": "body",
+   "at": {
+    "round": 11,
+    "az": 0
+   },
+   "applique": true,
+   "lift": 2.6
+  },
+  {
+   "part": "cheek",
+   "on": "body",
+   "at": {
+    "round": 17.5,
+    "az": 40
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.0
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 20,
+    "az": 22
+   },
+   "size_mm": 14,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     31,
+     180
+    ],
+    [
+     26,
+     180
+    ],
+    [
+     20,
+     180
+    ],
+    [
+     14,
+     180
+    ],
+    [
+     8,
+     180
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.8,
+   "id": "back_line"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     18.2,
+     -8
+    ],
+    [
+     17.81,
+     -4.0
+    ],
+    [
+     17.6,
+     0
+    ],
+    [
+     17.81,
+     4.0
+    ],
+    [
+     18.2,
+     8
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 1.2,
+   "id": "smile"
+  }
+ ]
+}

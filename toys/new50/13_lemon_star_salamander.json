@@ -1,0 +1,388 @@
+{
+ "name": "13_lemon_star_salamander",
+ "title": "Lemon Star Salamander",
+ "title_ru": "Саламандра Лимонная искорка",
+ "subject": "salamander",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "lemon": "#f6d65a",
+  "teal": "#2f8f9d",
+  "cream": "#f6ebcf",
+  "coral": "#f27866",
+  "black": "#141213"
+ },
+ "colour_names_ru": {
+  "lemon": "лимонный",
+  "teal": "бирюзово-синий",
+  "cream": "кремовый",
+  "coral": "коралловый"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "туловище с головой",
+   "name_en": "body with head",
+   "rounds": [
+    "ch 6",
+    "inc 6 to 42",
+    "even 3",
+    "48",
+    "even 4",
+    "54",
+    "even 14",
+    "dec 6 to 42 every 2",
+    "dec 6 to 30 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "lemon",
+   "stuff": "firm",
+   "flatten": 0.12,
+   "colours": [
+    {
+     "rounds": [
+      12,
+      38
+     ],
+     "az": [
+      140,
+      220
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвост",
+   "name_en": "tail",
+   "rounds": [
+    "mr 4",
+    "8",
+    "12",
+    "even 2",
+    "16",
+    "even 1",
+    "20",
+    "even 1",
+    "24",
+    "even 1",
+    "28",
+    "even 1",
+    "34",
+    "even 1",
+    "40",
+    "even 1"
+   ],
+   "colour": "lemon",
+   "end": "open",
+   "stuff": "medium",
+   "bend": {
+    "deg": 40,
+    "at": 8,
+    "over": 5,
+    "toward": [
+     1,
+     0.4,
+     0
+    ]
+   }
+  },
+  {
+   "id": "leg",
+   "name_ru": "лапка",
+   "name_en": "leg",
+   "rounds": [
+    "ch 5",
+    "18",
+    "22",
+    "even 2",
+    "16"
+   ],
+   "colour": "teal",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "spot",
+   "name_ru": "овальное пятно",
+   "name_en": "oval spot",
+   "rounds": [
+    "ch 7",
+    "20",
+    "26"
+   ],
+   "colour": "teal",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "fin",
+   "name_ru": "зубчик гребня",
+   "name_en": "tail fin",
+   "motif": {
+    "kind": "half_circle",
+    "rows": 3
+   },
+   "colour": "coral"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "coral",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 3,
+    "az": 40
+   },
+   "dir": [
+    0.15,
+    1,
+    -0.4
+   ],
+   "front": [
+    0,
+    0,
+    -1
+   ]
+  },
+  {
+   "part": "leg",
+   "name": "leg0",
+   "on": "body",
+   "at": {
+    "round": 8,
+    "az": 122
+   },
+   "dir": [
+    1,
+    -0.45,
+    -0.3
+   ],
+   "mirror": true
+  },
+  {
+   "part": "leg",
+   "name": "leg1",
+   "on": "body",
+   "at": {
+    "round": 27,
+    "az": 122
+   },
+   "dir": [
+    1,
+    -0.45,
+    0.3
+   ],
+   "mirror": true
+  },
+  {
+   "part": "spot",
+   "name": "spot0",
+   "on": "body",
+   "at": {
+    "round": 8,
+    "az": 0
+   },
+   "applique": true,
+   "pad": 1.2,
+   "lift": 0.8
+  },
+  {
+   "part": "spot",
+   "name": "spot1",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 0
+   },
+   "applique": true,
+   "pad": 1.2,
+   "lift": 0.8
+  },
+  {
+   "part": "spot",
+   "name": "spot2",
+   "on": "body",
+   "at": {
+    "round": 21,
+    "az": 0
+   },
+   "applique": true,
+   "pad": 1.2,
+   "lift": 0.8
+  },
+  {
+   "part": "cheek",
+   "on": "body",
+   "at": {
+    "round": 34.5,
+    "az": 95
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "fin",
+   "name": "fin0",
+   "on": "tail",
+   "at": {
+    "round": 2.0,
+    "az": 90
+   },
+   "attach": "edge",
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "sink": 2
+  },
+  {
+   "part": "fin",
+   "name": "fin1",
+   "on": "tail",
+   "at": {
+    "round": 4.6,
+    "az": 90
+   },
+   "attach": "edge",
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "sink": 2
+  },
+  {
+   "part": "fin",
+   "name": "fin2",
+   "on": "tail",
+   "at": {
+    "round": 7.2,
+    "az": 90
+   },
+   "attach": "edge",
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "sink": 2
+  },
+  {
+   "part": "fin",
+   "name": "fin3",
+   "on": "tail",
+   "at": {
+    "round": 9.8,
+    "az": 90
+   },
+   "attach": "edge",
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "sink": 2
+  },
+  {
+   "part": "fin",
+   "name": "fin4",
+   "on": "tail",
+   "at": {
+    "round": 12.4,
+    "az": 90
+   },
+   "attach": "edge",
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "sink": 2
+  },
+  {
+   "part": "fin",
+   "name": "fin5",
+   "on": "tail",
+   "at": {
+    "round": 15.0,
+    "az": 90
+   },
+   "attach": "edge",
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "sink": 2
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 35.5,
+    "az": 64
+   },
+   "size_mm": 12.5,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     38.4,
+     150
+    ],
+    [
+     38.0,
+     165
+    ],
+    [
+     37.9,
+     180
+    ],
+    [
+     38.0,
+     195
+    ],
+    [
+     38.4,
+     210
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.2
+  }
+ ]
+}

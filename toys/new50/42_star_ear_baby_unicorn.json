@@ -1,0 +1,547 @@
+{
+ "name": "42_star_ear_baby_unicorn",
+ "title": "Star Ear Baby Unicorn",
+ "title_ru": "Единорожек Звёздные ушки",
+ "subject": "unicorn",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "coral": "#f8765f",
+  "yellow": "#f9cf62",
+  "cream": "#f3e3d1",
+  "aqua": "#4fcfc4",
+  "lilac": "#b9a0dd",
+  "pink": "#f5a3b5",
+  "brown": "#5a3322",
+  "black": "#141213",
+  "white": "#f6f4ef"
+ },
+ "colour_names_ru": {
+  "coral": "коралловый",
+  "yellow": "солнечно-жёлтый",
+  "cream": "молочный",
+  "aqua": "бирюзовый",
+  "lilac": "сиреневый",
+  "pink": "розовый",
+  "brown": "коричневый"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "туловище",
+   "name_en": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "blo 42",
+    "even 3",
+    "dec 6 to 36",
+    "even 3",
+    "dec 6 to 30"
+   ],
+   "colour": "yellow",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "head",
+   "name_ru": "голова",
+   "name_en": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "inc 6 to 66 every 2",
+    "even 4",
+    "dec 6 to 54 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "coral",
+   "end": "closed",
+   "stuff": "firm"
+  },
+  {
+   "id": "muzzle",
+   "name_ru": "мордочка",
+   "name_en": "muzzle",
+   "rounds": [
+    "ch 3",
+    "inc 6 to 24",
+    "28",
+    "even 1"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "medium"
+  },
+  {
+   "id": "ear",
+   "preset": "ear",
+   "kind": "pointed",
+   "max": 26,
+   "name_ru": "ушко",
+   "name_en": "ear",
+   "colour": "coral",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "10",
+    "12",
+    "14",
+    "16",
+    "18",
+    "20",
+    "22",
+    "even 1"
+   ]
+  },
+  {
+   "id": "horn",
+   "name_ru": "рог",
+   "name_en": "horn",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "10",
+    "12",
+    "14",
+    "16",
+    "even 1"
+   ],
+   "colour": "lilac",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "mane",
+   "name_ru": "шишечка гривы",
+   "name_en": "mane bobble",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "aqua",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "arm",
+   "name_ru": "ручка",
+   "name_en": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "even 3",
+    "15",
+    "12",
+    "even 1"
+   ],
+   "colour": "coral",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "leg",
+   "name_ru": "ножка",
+   "name_en": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 30",
+    "even 4",
+    "24",
+    "even 1",
+    "18"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвост",
+   "name_en": "tail",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "even 7"
+   ],
+   "colour": "aqua",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 7",
+    "14"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "star",
+   "name_ru": "звёздочка",
+   "name_en": "star",
+   "motif": {
+    "kind": "star",
+    "points": 5,
+    "length": 3
+   },
+   "colour": "lilac"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 4
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 17.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.1,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 7,
+    "az": 62
+   },
+   "dir": [
+    0.85,
+    1,
+    0.05
+   ],
+   "mirror": true
+  },
+  {
+   "part": "horn",
+   "on": "head",
+   "at": {
+    "round": 4,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    0.35
+   ]
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 18.5,
+    "az": 55
+   },
+   "applique": true,
+   "mirror": true
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 80
+   },
+   "dir": [
+    0.8,
+    -1,
+    0.3
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 50
+   },
+   "dir": [
+    0.5,
+    -0.25,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.3,
+    -1
+   ]
+  },
+  {
+   "part": "mane",
+   "name": "mane1",
+   "on": "head",
+   "at": {
+    "round": 3,
+    "az": 180
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "mane",
+   "name": "mane2",
+   "on": "head",
+   "at": {
+    "round": 6,
+    "az": 180
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "mane",
+   "name": "mane3",
+   "on": "head",
+   "at": {
+    "round": 11,
+    "az": 180
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "mane",
+   "name": "mane4",
+   "on": "head",
+   "at": {
+    "round": 14,
+    "az": 180
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "mane",
+   "name": "mane5",
+   "on": "head",
+   "at": {
+    "round": 17,
+    "az": 180
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "mane",
+   "name": "mane6",
+   "on": "head",
+   "at": {
+    "round": 20,
+    "az": 180
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "mane",
+   "name": "mane7",
+   "on": "head",
+   "at": {
+    "round": 23,
+    "az": 180
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "mane",
+   "name": "mane8",
+   "on": "head",
+   "at": {
+    "round": 26,
+    "az": 180
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "mane",
+   "name": "mane_b1",
+   "on": "body",
+   "at": {
+    "round": 16,
+    "az": 180
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "mane",
+   "name": "mane_b2",
+   "on": "body",
+   "at": {
+    "round": 14,
+    "az": 180
+   },
+   "applique": true,
+   "pad": 6
+  },
+  {
+   "part": "star",
+   "on": "ear",
+   "at": {
+    "round": 6,
+    "az": 0
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 0.8
+  }
+ ],
+ "face": [
+  {
+   "type": "satin",
+   "role": "eye",
+   "on": "head",
+   "at": {
+    "round": 14.0,
+    "az": 37
+   },
+   "width_mm": 12,
+   "height_mm": 13,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.2,
+   "mirror": true,
+   "id": "nose"
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 14.0,
+    "az": 37
+   },
+   "width_mm": 3.2,
+   "height_mm": 3.2,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 1.0,
+   "offset_mm": [
+    2.2,
+    2.8
+   ],
+   "id": "nose2"
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 14.0,
+    "az": -37
+   },
+   "width_mm": 3.2,
+   "height_mm": 3.2,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 1.0,
+   "offset_mm": [
+    2.2,
+    2.8
+   ],
+   "id": "nose3"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.35,
+     40
+    ],
+    [
+     1.72,
+     40
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 1.5,
+   "mirror": true,
+   "id": "line"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     2.25,
+     140
+    ],
+    [
+     2.7,
+     160
+    ],
+    [
+     2.85,
+     180
+    ],
+    [
+     2.7,
+     200
+    ],
+    [
+     2.25,
+     220
+    ]
+   ],
+   "colour": "brown",
+   "thickness_mm": 1.3,
+   "id": "line2"
+  }
+ ]
+}

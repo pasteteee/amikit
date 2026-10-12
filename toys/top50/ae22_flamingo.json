@@ -1,0 +1,214 @@
+{
+ "name": "ae22_flamingo",
+ "title": "Tiny flamingo",
+ "subject": "bird",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "red": "#e8423e",
+  "pink": "#f6b0bc",
+  "black": "#151515",
+  "card": "#f8f8f8"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "even 8",
+    "dec 6 to 30",
+    "24",
+    "even 6",
+    "21"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "firm",
+   "name_en": "body and neck",
+   "name_ru": "\u0421\u201a\u0420\u00b5\u0420\u00bb\u0420\u0455 \u0421\u0403 \u0421\u20ac\u0420\u00b5\u0420\u00b5\u0420\u2116"
+  },
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "even 6",
+    "dec 6 to 18"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "beak",
+   "rounds": [
+    "mr 6",
+    "10",
+    "14",
+    "18",
+    "even 2",
+    "21",
+    "24"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "light",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      4
+     ],
+     "az": [
+      -180,
+      180
+     ],
+     "colour": "black"
+    }
+   ],
+   "bend": {
+    "deg": 45,
+    "at": 4,
+    "over": 2
+   }
+  },
+  {
+   "id": "wing",
+   "rounds": [
+    "mr 6",
+    "10",
+    "even 4"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "even 4",
+    "10",
+    "8",
+    "even 3"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.75
+  },
+  {
+   "id": "card",
+   "flat": {
+    "width_st": 14,
+    "rows": 10
+   },
+   "colour": "card"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 5
+  },
+  {
+   "part": "beak",
+   "on": "head",
+   "at": {
+    "round": 11.5,
+    "az": -28
+   },
+   "dir": [
+    -0.7,
+    -0.15,
+    0.8
+   ],
+   "bend_toward": [
+    0,
+    -1,
+    0
+   ]
+  },
+  {
+   "part": "wing",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 78
+   },
+   "dir": [
+    0.3,
+    -0.3,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 2,
+    "az": 22
+   },
+   "dir": [
+    0.1,
+    -0.1,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "front": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "card",
+   "on": "body",
+   "at": {
+    "round": 13,
+    "az": 0
+   },
+   "lift": 8
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 8.5,
+    "az": 30
+   },
+   "size_mm": 7,
+   "mirror": true
+  }
+ ]
+}

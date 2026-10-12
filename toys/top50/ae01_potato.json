@@ -1,0 +1,276 @@
+{
+ "name": "ae01_potato",
+ "title": "Positive crab",
+ "subject": "crab",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "red": "#d8232a",
+  "white": "#f4f0ec",
+  "card": "#f6f2ea",
+  "black": "#161414"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 44",
+    "even 12",
+    "dec 6 to 32",
+    "dec 6 to 8"
+   ],
+   "colour": "red",
+   "stuff": "firm"
+  },
+  {
+   "id": "eyestalk",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 3",
+    "dec 6 to 12",
+    "dec 3 to 9",
+    "even 2"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "colour": "red"
+    },
+    {
+     "rounds": [
+      7,
+      9
+     ],
+     "colour": "red"
+    }
+   ]
+  },
+  {
+   "id": "claw",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "21",
+    "even 3",
+    "dec 3 to 12",
+    "even 5"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "firm",
+   "bend": {
+    "deg": 40,
+    "at": 8,
+    "over": 3
+   }
+  },
+  {
+   "id": "pincer",
+   "rounds": [
+    "mr 4",
+    "6",
+    "9",
+    "12",
+    "even 3"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 4",
+    "6",
+    "even 4"
+   ],
+   "colour": "red",
+   "end": "open",
+   "stuff": "light",
+   "bend": {
+    "deg": 50,
+    "at": 3,
+    "over": 2,
+    "toward": [
+     0,
+     -1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "card",
+   "flat": {
+    "width_st": 12,
+    "rows": 9
+   },
+   "colour": "card"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "eyestalk",
+   "on": "body",
+   "at": {
+    "round": 21,
+    "az": 22
+   },
+   "dir": [
+    0.35,
+    1,
+    0.15
+   ],
+   "mirror": true
+  },
+  {
+   "part": "claw",
+   "on": "body",
+   "at": {
+    "round": 11,
+    "az": 85
+   },
+   "dir": [
+    1,
+    0.8,
+    0.25
+   ],
+   "mirror": true,
+   "bend_toward": [
+    0,
+    1,
+    0.2
+   ]
+  },
+  {
+   "part": "pincer",
+   "on": "claw",
+   "at": {
+    "round": 3,
+    "az": 90
+   },
+   "dir": [
+    0.8,
+    0.6,
+    0.2
+   ],
+   "mirror": true
+  },
+  {
+   "part": "leg",
+   "name": "leg1",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 100
+   },
+   "dir": [
+    1,
+    -0.2,
+    0.1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "leg",
+   "name": "leg2",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 125
+   },
+   "dir": [
+    1,
+    -0.2,
+    -0.4
+   ],
+   "mirror": true
+  },
+  {
+   "part": "leg",
+   "name": "leg3",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 150
+   },
+   "dir": [
+    0.7,
+    -0.2,
+    -0.9
+   ],
+   "mirror": true
+  },
+  {
+   "part": "card",
+   "on": "body",
+   "at": {
+    "round": 9.5,
+    "az": 0
+   },
+   "lift": 3
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "eyestalk",
+   "at": {
+    "round": 2.5,
+    "az": 0
+   },
+   "size_mm": 7,
+   "mirror": true
+  },
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 17.5,
+    "az": 16
+   },
+   "size_mm": 6,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     16.3,
+     -7
+    ],
+    [
+     15.6,
+     0
+    ],
+    [
+     16.3,
+     7
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.1
+  }
+ ]
+}

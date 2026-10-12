@@ -1,0 +1,223 @@
+{
+ "name": "turtle",
+ "title": "Little turtle keychain",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "teal": "#0f976c",
+  "lime": "#94d24a",
+  "cream": "#ebe1d1",
+  "black": "#141213"
+ },
+ "colour_names_ru": {
+  "teal": "изумрудный",
+  "lime": "салатовый",
+  "cream": "молочный"
+ },
+ "parts": [
+  {
+   "id": "shell",
+   "name_en": "shell (top and underside in one piece)",
+   "name_ru": "панцирь (верх и низ одной деталью)",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "even 4",
+    "48",
+    "54",
+    "even 1",
+    "blo 54",
+    "dec 6 to 6"
+   ],
+   "colour": "teal",
+   "end": "closed",
+   "stuff": "light",
+   "colours": [
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "colour": "lime"
+    },
+    {
+     "rounds": [
+      5,
+      11
+     ],
+     "az": [
+      -6,
+      6
+     ],
+     "colour": "lime"
+    },
+    {
+     "rounds": [
+      5,
+      11
+     ],
+     "az": [
+      54,
+      66
+     ],
+     "colour": "lime"
+    },
+    {
+     "rounds": [
+      5,
+      11
+     ],
+     "az": [
+      114,
+      126
+     ],
+     "colour": "lime"
+    },
+    {
+     "rounds": [
+      5,
+      11
+     ],
+     "az": [
+      174,
+      186
+     ],
+     "colour": "lime"
+    },
+    {
+     "rounds": [
+      5,
+      11
+     ],
+     "az": [
+      234,
+      246
+     ],
+     "colour": "lime"
+    },
+    {
+     "rounds": [
+      5,
+      11
+     ],
+     "az": [
+      294,
+      306
+     ],
+     "colour": "lime"
+    },
+    {
+     "rounds": [
+      12,
+      15
+     ],
+     "colour": "lime"
+    },
+    {
+     "rounds": [
+      16,
+      23
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 4",
+    "dec 6 to 18",
+    "even 1"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 1",
+    "12"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "shell",
+   "axis": [
+    0,
+    -1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "shell",
+   "at": {
+    "round": 16.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    0.15,
+    1
+   ]
+  },
+  {
+   "part": "leg",
+   "name": "front_leg",
+   "on": "shell",
+   "at": {
+    "round": 16.5,
+    "az": 52
+   },
+   "dir": [
+    1,
+    -0.45,
+    0.7
+   ],
+   "mirror": true
+  },
+  {
+   "part": "leg",
+   "name": "back_leg",
+   "on": "shell",
+   "at": {
+    "round": 16.5,
+    "az": 128
+   },
+   "dir": [
+    1,
+    -0.45,
+    -0.7
+   ],
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 4,
+    "az": 108
+   },
+   "size_mm": 7,
+   "mirror": true,
+   "highlight": true
+  }
+ ]
+}

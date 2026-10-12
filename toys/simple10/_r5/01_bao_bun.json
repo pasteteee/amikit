@@ -1,0 +1,370 @@
+{
+ "name": "01_bao_bun",
+ "title": "Sleepy Bao Bun in a Steamer",
+ "title_ru": "Бао-соня в пароварке",
+ "subject": "bun",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "dough": "#f6eedf",
+  "pleat": "#d2bd98",
+  "blush": "#f4a7a3",
+  "mouth": "#5b3a2e",
+  "bamboo": "#d8b878",
+  "bamboo2": "#b88d4c",
+  "dot": "#f07f95",
+  "black": "#1b1616"
+ },
+ "colour_names_ru": {
+  "dough": "молочный",
+  "pleat": "бежевый",
+  "blush": "розовый (щёчки)",
+  "mouth": "тёмно-коричневый",
+  "bamboo": "соломенный",
+  "bamboo2": "медово-коричневый",
+  "dot": "розовый",
+  "black": "чёрный"
+ },
+ "parts": [
+  {
+   "id": "steamer",
+   "name_ru": "пароварка",
+   "name_en": "bamboo steamer",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 66",
+    "blo 66",
+    "even 5"
+   ],
+   "colour": "bamboo",
+   "end": "open",
+   "stuff": "none",
+   "colours": [
+    {
+     "rounds": [
+      13,
+      13
+     ],
+     "colour": "bamboo2"
+    },
+    {
+     "rounds": [
+      16,
+      17
+     ],
+     "colour": "bamboo2"
+    }
+   ]
+  },
+  {
+   "id": "body",
+   "name_ru": "булочка",
+   "name_en": "bun",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "inc 6 to 60 every 2",
+    "even 4",
+    "blo 60",
+    "dec 6 to 6"
+   ],
+   "colour": "dough",
+   "stuff": "firm"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "steamer",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "body",
+   "on": "steamer",
+   "at": {
+    "round": "start"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 4
+  },
+  {
+   "part": "cheek",
+   "on": "body",
+   "at": {
+    "round": 13.5,
+    "az": 37
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.0
+  }
+ ],
+ "face": [
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     13.3,
+     -5
+    ],
+    [
+     13.8,
+     -2.5
+    ],
+    [
+     14.0,
+     0
+    ],
+    [
+     13.8,
+     2.5
+    ],
+    [
+     13.3,
+     5
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 1.1,
+   "id": "smile"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     1.4,
+     0
+    ],
+    [
+     3.5,
+     12
+    ],
+    [
+     6.5,
+     24
+    ]
+   ],
+   "colour": "pleat",
+   "thickness_mm": 2.4,
+   "id": "pleat1"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     1.4,
+     45
+    ],
+    [
+     3.5,
+     57
+    ],
+    [
+     6.5,
+     69
+    ]
+   ],
+   "colour": "pleat",
+   "thickness_mm": 2.4,
+   "id": "pleat2"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     1.4,
+     90
+    ],
+    [
+     3.5,
+     102
+    ],
+    [
+     6.5,
+     114
+    ]
+   ],
+   "colour": "pleat",
+   "thickness_mm": 2.4,
+   "id": "pleat3"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     1.4,
+     135
+    ],
+    [
+     3.5,
+     147
+    ],
+    [
+     6.5,
+     159
+    ]
+   ],
+   "colour": "pleat",
+   "thickness_mm": 2.4,
+   "id": "pleat4"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     1.4,
+     180
+    ],
+    [
+     3.5,
+     192
+    ],
+    [
+     6.5,
+     204
+    ]
+   ],
+   "colour": "pleat",
+   "thickness_mm": 2.4,
+   "id": "pleat5"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     1.4,
+     225
+    ],
+    [
+     3.5,
+     237
+    ],
+    [
+     6.5,
+     249
+    ]
+   ],
+   "colour": "pleat",
+   "thickness_mm": 2.4,
+   "id": "pleat6"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     1.4,
+     270
+    ],
+    [
+     3.5,
+     282
+    ],
+    [
+     6.5,
+     294
+    ]
+   ],
+   "colour": "pleat",
+   "thickness_mm": 2.4,
+   "id": "pleat7"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     1.4,
+     315
+    ],
+    [
+     3.5,
+     327
+    ],
+    [
+     6.5,
+     339
+    ]
+   ],
+   "colour": "pleat",
+   "thickness_mm": 2.4,
+   "id": "pleat8"
+  },
+  {
+   "type": "satin",
+   "on": "body",
+   "at": {
+    "round": 1.0,
+    "az": 0
+   },
+   "width_mm": 8,
+   "height_mm": 7,
+   "shape": "oval",
+   "colour": "dot",
+   "thickness_mm": 1.4,
+   "id": "dot"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     12.6,
+     15
+    ],
+    [
+     12.0,
+     18
+    ],
+    [
+     11.8,
+     21
+    ],
+    [
+     12.0,
+     24
+    ],
+    [
+     12.6,
+     27
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.8,
+   "mirror": true,
+   "id": "sleepy_eye"
+  }
+ ]
+}

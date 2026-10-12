@@ -1,0 +1,374 @@
+{
+ "name": "az22_eevee",
+ "title": "Standing Eevee",
+ "subject": "fox",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "brown": "#c68a4f",
+  "dark": "#6b3f22",
+  "cream": "#f2e2b6",
+  "red": "#d22a2e",
+  "pink": "#f2a3ad",
+  "black": "#1a1817"
+ },
+ "colour_names_ru": {
+  "dark": "\u0421\u201a\u0421\u2018\u0420\u0458\u0420\u0405\u0420\u0455-\u0420\u0454\u0420\u0455\u0421\u0402\u0420\u0451\u0421\u2021\u0420\u0405\u0420\u00b5\u0420\u0406\u0421\u2039\u0420\u2116",
+  "cream": "\u0420\u0454\u0421\u0402\u0420\u00b5\u0420\u0458\u0420\u0455\u0420\u0406\u0421\u2039\u0420\u2116",
+  "red": "\u0420\u0454\u0421\u0402\u0420\u00b0\u0421\u0403\u0420\u0405\u0421\u2039\u0420\u2116"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "even 10",
+    "dec 6 to 24",
+    "dec 6 to 6"
+   ],
+   "colour": "brown",
+   "stuff": "firm"
+  },
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 60 every 2",
+    "even 6",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "brown",
+   "stuff": "firm"
+  },
+  {
+   "id": "ruff",
+   "rounds": [
+    "ch 9",
+    "inc 6 to 48",
+    "54",
+    "even 3",
+    "dec 6 to 36",
+    "dec 6 to 12"
+   ],
+   "colour": "cream",
+   "end": "closed",
+   "stuff": "light",
+   "flatten": 0
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "10",
+    "12",
+    "14",
+    "16",
+    "18",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "30",
+    "even 5",
+    "26",
+    "22"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.9,
+   "colours": [
+    {
+     "shape": [
+      [
+       2,
+       0
+      ],
+      [
+       14,
+       -65
+      ],
+      [
+       18,
+       -60
+      ],
+      [
+       18,
+       60
+      ],
+      [
+       14,
+       65
+      ]
+     ],
+     "colour": "dark"
+    }
+   ]
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "blo 18",
+    "even 2",
+    "dec 3 to 15",
+    "even 6"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "inc 3 to 27",
+    "even 6",
+    "dec 3 to 18",
+    "even 3",
+    "dec 3 to 12",
+    "even 2"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "medium",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      6
+     ],
+     "colour": "cream"
+    }
+   ]
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    0,
+    1
+   ],
+   "pos": [
+    0,
+    40,
+    0
+   ]
+  },
+  {
+   "part": "leg",
+   "name": "front_leg",
+   "on": "body",
+   "at": {
+    "round": 14,
+    "az": 150
+   },
+   "dir": [
+    0.15,
+    -1,
+    0.05
+   ],
+   "mirror": true
+  },
+  {
+   "part": "leg",
+   "name": "back_leg",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 150
+   },
+   "dir": [
+    0.15,
+    -1,
+    -0.05
+   ],
+   "mirror": true
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": 14,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    0.1
+   ],
+   "sink": 4
+  },
+  {
+   "part": "ruff",
+   "on": "body",
+   "at": {
+    "round": 20.5,
+    "az": 180
+   },
+   "dir": [
+    0,
+    0.3,
+    1
+   ],
+   "sink": 14
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 7.5,
+    "az": 55
+   },
+   "dir": [
+    0.6,
+    1,
+    0
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 3,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    -0.6
+   ],
+   "seam": "flat"
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 16,
+    "az": 23
+   },
+   "size_mm": 12,
+   "aspect": 1.35,
+   "mirror": true
+  },
+  {
+   "type": "felt",
+   "on": "head",
+   "at": {
+    "round": 14.8,
+    "az": 21
+   },
+   "size_mm": [
+    3.5,
+    4
+   ],
+   "colour": "white",
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     11.5,
+     22
+    ],
+    [
+     12.2,
+     26
+    ]
+   ],
+   "colour": "dark",
+   "thickness_mm": 1.0,
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     19,
+     -2
+    ],
+    [
+     19,
+     2
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0
+  },
+  {
+   "type": "satin",
+   "on": "head",
+   "at": {
+    "round": 20.6,
+    "az": 0
+   },
+   "width_mm": 18,
+   "height_mm": 10,
+   "shape": "triangle",
+   "colour": "red",
+   "thickness_mm": 1.4
+  },
+  {
+   "type": "satin",
+   "on": "head",
+   "at": {
+    "round": 21.6,
+    "az": 0
+   },
+   "width_mm": 9,
+   "height_mm": 5,
+   "shape": "oval",
+   "colour": "pink",
+   "thickness_mm": 1.6
+  },
+  {
+   "type": "fringe",
+   "on": "head",
+   "points": [
+    [
+     4,
+     -25
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     4,
+     25
+    ]
+   ],
+   "count": 9,
+   "length_mm": 9,
+   "colours": [
+    "brown"
+   ],
+   "droop": 0.0,
+   "curl": 0,
+   "spread": 0.3,
+   "thickness_mm": 3.0
+  }
+ ]
+}

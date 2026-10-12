@@ -1,0 +1,67 @@
+{
+ "name": "05_mushroom_stump_fox",
+ "title": "Mushroom Stump Fox",
+ "title_ru": "Лисёнок Грибной пенёк",
+ "subject": "fox",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {
+  "terracotta": "#c9362a",
+  "cream": "#f4ead6",
+  "capor": "#f07a2a",
+  "blush": "#f29aa8",
+  "darkbrown": "#2e1c18"
+ },
+ "colour_names_ru": {
+  "terracotta": "терракотово-красный",
+  "cream": "молочный",
+  "capor": "оранжевый (шляпка)",
+  "blush": "розовый (щёчки)",
+  "darkbrown": "тёмно-коричневый (носик, рот)"
+ },
+ "parts": [
+  {"id": "body", "name_ru": "туловище", "name_en": "body",
+   "rounds": ["mr 6", "inc 6 to 48", "blo 48", "even 5", "dec 6 to 42", "even 2", "dec 6 to 36"],
+   "colour": "terracotta", "end": "open", "stuff": "firm",
+   "colours": [{"rounds": [3, 17], "az": [-55, 55], "colour": "cream"}, {"rounds": [9, 10], "colour": "cream"}]},
+  {"id": "head", "name_ru": "голова", "name_en": "head", "preset": "cute_head", "max": 72, "colour": "terracotta",
+   "colours": [{"shape": [[19.6, 0], [18.0, 20], [17.8, 60], [18.0, 110], [29, 110], [29, -110], [18.0, -110], [17.8, -60], [18.0, -20]],
+     "colour": "cream"}]},
+  {"id": "ear", "name_ru": "ушко", "name_en": "ear", "preset": "ear", "kind": "pointed", "max": 28, "inner": "cream",
+   "colour": "terracotta"},
+  {"id": "cap", "name_ru": "грибная шляпка", "name_en": "mushroom cap",
+   "rounds": ["mr 6", "inc 6 to 66", "inc 6 to 90 every 2", "even 1", "blo 90", "78", "66", "54", "42", "30", "18"],
+   "colour": "capor", "end": "closed", "stuff": "light"},
+  {"id": "spot", "name_ru": "пятнышко на шляпке", "name_en": "cap spot", "colour": "cream",
+   "motif": {"kind": "circle", "rounds": 3}},
+  {"id": "cheek", "name_ru": "щёчка", "name_en": "cheek", "rounds": ["mr 6", "12"], "colour": "blush", "end": "open",
+   "stuff": "none"},
+  {"id": "arm", "name_ru": "лапка", "name_en": "arm",
+   "rounds": ["mr 6", "12", "15", "even 2", "12", "even 3"], "colour": "terracotta", "end": "open", "stuff": "light"},
+  {"id": "leg", "name_ru": "ножка", "name_en": "foot",
+   "rounds": ["ch 4", "14", "18", "even 2", "14"], "colour": "terracotta", "end": "open", "stuff": "firm"},
+  {"id": "tail", "name_ru": "хвост", "name_en": "tail",
+   "rounds": ["mr 6", "12", "18", "24", "30", "even 6", "27", "24", "21", "18", "even 2"],
+   "colour": "terracotta", "end": "open", "stuff": "medium",
+   "colours": [{"rounds": [1, 5], "colour": "cream"}]}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 1, 0]},
+  {"part": "head", "on": "body", "at": {"round": "end"}, "attach": "end", "dir": [0, 1, 0], "sink": 5},
+  {"part": "cap", "on": "head", "at": {"round": "start"}, "attach": "end", "dir": [0, 1, -0.05], "sink": 9},
+  {"part": "spot", "name": "spot_f", "on": "cap", "at": {"round": 12, "az": 0}, "applique": true},
+  {"part": "spot", "name": "spot_l", "on": "cap", "at": {"round": 14, "az": 80}, "applique": true},
+  {"part": "spot", "name": "spot_r", "on": "cap", "at": {"round": 14, "az": -80}, "applique": true},
+  {"part": "ear", "on": "head", "at": {"round": 11, "az": 80}, "dir": [1, 0.9, 0.05], "front": [0.3, 0, 1], "mirror": true},
+  {"part": "cheek", "on": "head", "at": {"round": 20, "az": 46}, "applique": true, "mirror": true},
+  {"part": "arm", "on": "body", "at": {"round": 14, "az": 70}, "dir": [0.35, -1, 0.3], "mirror": true, "seam": "flat"},
+  {"part": "leg", "on": "body", "at": {"round": 4, "az": 30}, "dir": [0.25, -0.3, 1], "mirror": true, "seam": "flat"},
+  {"part": "tail", "on": "body", "at": {"round": 6, "az": -110}, "dir": [-1, 0.5, -0.1], "seam": "flat"}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "head", "at": {"round": 17.5, "az": 27}, "size_mm": 14, "mirror": true, "highlight": true},
+  {"type": "safety_nose", "on": "head", "at": {"round": 19.6, "az": 0}, "size_mm": [7, 5.5], "shape": "oval", "colour": "darkbrown"},
+  {"type": "stitch", "on": "head", "points": [[20.0, 0], [20.8, 0]], "colour": "darkbrown", "thickness_mm": 0.9},
+  {"type": "stitch", "on": "head", "points": [[20.8, 0], [21.3, 6], [20.8, 12]], "colour": "darkbrown", "thickness_mm": 0.9,
+   "mirror": true}
+ ]
+}

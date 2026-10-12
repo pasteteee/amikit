@@ -1,0 +1,227 @@
+{
+ "name": "ae12_fish",
+ "title": "Blue dolphin",
+ "subject": "dolphin",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "blue": "#8cc4ea",
+  "black": "#141416"
+ },
+ "colour_names_ru": {
+  "blue": "\u0433\u043e\u043b\u0443\u0431\u043e\u0439"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_en": "head and body",
+   "rounds": [
+    "mr 6",
+    "even 1",
+    "8",
+    "even 1",
+    "10",
+    "even 1",
+    "12",
+    "15",
+    "18",
+    "21",
+    "24",
+    "27",
+    "30",
+    "33",
+    "36",
+    "even 4",
+    "33",
+    "even 1",
+    "30",
+    "even 1",
+    "27",
+    "24",
+    "21",
+    "18",
+    "15"
+   ],
+   "colour": "blue",
+   "stuff": "firm",
+   "end": "open"
+  },
+  {
+   "id": "snout",
+   "rounds": [
+    "mr 6",
+    "9",
+    "12",
+    "even 1",
+    "15"
+   ],
+   "colour": "blue",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "dorsal",
+   "name_en": "dorsal fin",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "10",
+    "12",
+    "even 1"
+   ],
+   "colour": "blue",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.8,
+   "bend": {
+    "deg": 40,
+    "at": 3,
+    "over": 2
+   }
+  },
+  {
+   "id": "fin",
+   "name_en": "side fin",
+   "rounds": [
+    "mr 6",
+    "8",
+    "10",
+    "even 2",
+    "8"
+   ],
+   "colour": "blue",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.85
+  },
+  {
+   "id": "fluke",
+   "name_en": "tail fluke",
+   "rounds": [
+    "mr 4",
+    "6",
+    "8",
+    "10",
+    "12",
+    "even 1",
+    "10",
+    "8",
+    "6"
+   ],
+   "colour": "blue",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.85
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "snout",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    -0.25,
+    1
+   ]
+  },
+  {
+   "part": "dorsal",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 0
+   },
+   "dir": [
+    0,
+    1,
+    -0.4
+   ],
+   "front": [
+    1,
+    0,
+    0
+   ],
+   "seam": "flat",
+   "seam_line": [
+    0,
+    0,
+    1
+   ],
+   "bend_toward": [
+    0,
+    0,
+    -1
+   ]
+  },
+  {
+   "part": "fin",
+   "on": "body",
+   "at": {
+    "round": 19,
+    "az": 125
+   },
+   "dir": [
+    1,
+    -0.4,
+    -0.6
+   ],
+   "front": [
+    0,
+    1,
+    0
+   ],
+   "mirror": true,
+   "seam": "flat"
+  },
+  {
+   "part": "fluke",
+   "on": "body",
+   "at": {
+    "round": 2,
+    "az": 90
+   },
+   "dir": [
+    1,
+    0,
+    -0.6
+   ],
+   "front": [
+    0,
+    1,
+    0
+   ],
+   "mirror": true,
+   "seam": "flat"
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 21.5,
+    "az": 70
+   },
+   "size_mm": 6,
+   "mirror": true
+  }
+ ]
+}

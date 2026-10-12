@@ -1,0 +1,425 @@
+{
+ "name": "az47_cheer_bear",
+ "title": "Cheer Bear",
+ "subject": "bear",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "pink": "#f27fb0",
+  "white": "#f6f2f0",
+  "hotpink": "#e0287a",
+  "red": "#e5262b",
+  "yellow": "#f8d530",
+  "blue": "#6ec3e8",
+  "black": "#1c1a1a"
+ },
+ "colour_names_ru": {
+  "hotpink": "\u0421\u040f\u0421\u0402\u0420\u0454\u0420\u0455-\u0421\u0402\u0420\u0455\u0420\u00b7\u0420\u0455\u0420\u0406\u0421\u2039\u0420\u2116"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 54 every 2",
+    "even 5",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "pink",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 5",
+    "dec 6 to 48",
+    "even 2",
+    "dec 6 to 42",
+    "even 2",
+    "dec 6 to 36"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "belly",
+   "rounds": [
+    "ch 6",
+    "inc 6 to 48"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 5",
+    "inc 6 to 28",
+    "even 2"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 3"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.85
+  },
+  {
+   "id": "inner_ear",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 3",
+    "15",
+    "even 4",
+    "13",
+    "even 3"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "27",
+    "even 3",
+    "22",
+    "dec 3 to 16",
+    "even 3"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "firm"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 4
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 17,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.05,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 5.5,
+    "az": 62
+   },
+   "dir": [
+    0.7,
+    1,
+    0.1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "inner_ear",
+   "on": "ear",
+   "at": {
+    "round": 4.6,
+    "az": 0
+   },
+   "applique": true,
+   "mirror": true,
+   "inset": 1.2
+  },
+  {
+   "part": "belly",
+   "on": "body",
+   "at": {
+    "round": 13.5,
+    "az": 0
+   },
+   "applique": true,
+   "roll": 90
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 18,
+    "az": 76
+   },
+   "dir": [
+    0.1,
+    -1,
+    0.45
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 1.0,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 5,
+    "az": 32
+   },
+   "dir": [
+    0.2,
+    -0.1,
+    1
+   ],
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 13.5,
+    "az": 23
+   },
+   "size_mm": 12,
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "on": "muzzle",
+   "at": {
+    "round": 1.5,
+    "az": 0
+   },
+   "width_mm": 8,
+   "height_mm": 6,
+   "shape": "heart",
+   "colour": "hotpink"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     3.5,
+     130
+    ],
+    [
+     3.3,
+     160
+    ],
+    [
+     3.2,
+     180
+    ],
+    [
+     3.3,
+     200
+    ],
+    [
+     3.5,
+     230
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.2
+  },
+  {
+   "type": "strap",
+   "on": "body",
+   "points": [
+    [
+     9.5,
+     -50
+    ],
+    [
+     14.899999999999999,
+     -30.0
+    ],
+    [
+     17.6,
+     -15.0
+    ],
+    [
+     18.5,
+     0
+    ],
+    [
+     17.6,
+     15.0
+    ],
+    [
+     14.899999999999999,
+     30.0
+    ],
+    [
+     9.5,
+     50
+    ]
+   ],
+   "colour": "red",
+   "thickness_mm": 6
+  },
+  {
+   "type": "strap",
+   "on": "body",
+   "points": [
+    [
+     9.5,
+     -38
+    ],
+    [
+     13.7,
+     -22.8
+    ],
+    [
+     15.8,
+     -11.4
+    ],
+    [
+     16.5,
+     0
+    ],
+    [
+     15.8,
+     11.4
+    ],
+    [
+     13.7,
+     22.8
+    ],
+    [
+     9.5,
+     38
+    ]
+   ],
+   "colour": "yellow",
+   "thickness_mm": 6
+  },
+  {
+   "type": "strap",
+   "on": "body",
+   "points": [
+    [
+     9.5,
+     -26
+    ],
+    [
+     12.5,
+     -15.6
+    ],
+    [
+     14.0,
+     -7.8
+    ],
+    [
+     14.5,
+     0
+    ],
+    [
+     14.0,
+     7.8
+    ],
+    [
+     12.5,
+     15.6
+    ],
+    [
+     9.5,
+     26
+    ]
+   ],
+   "colour": "blue",
+   "thickness_mm": 6
+  },
+  {
+   "type": "satin",
+   "on": "leg_R",
+   "at": {
+    "round": 1.5,
+    "az": 0
+   },
+   "width_mm": 12,
+   "height_mm": 10,
+   "shape": "heart",
+   "colour": "hotpink"
+  },
+  {
+   "type": "fringe",
+   "on": "head",
+   "points": [
+    [
+     1,
+     0
+    ],
+    [
+     2.5,
+     0
+    ]
+   ],
+   "count": 10,
+   "length_mm": 18,
+   "colours": [
+    "pink"
+   ],
+   "droop": 0.1,
+   "spread": 0.4
+  }
+ ]
+}

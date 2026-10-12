@@ -1,0 +1,306 @@
+{
+ "name": "sloth",
+ "title": "Pocket sloth",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "beige": "#b49a84",
+  "white": "#efedee",
+  "brown": "#60332c",
+  "black": "#141213"
+ },
+ "colour_names_ru": {
+  "beige": "бежевый",
+  "brown": "тёмно-коричневый"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_en": "body and head (one piece)",
+   "name_ru": "тело с головой (одна деталь)",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 12",
+    "48",
+    "even 2",
+    "42",
+    "even 2",
+    "36",
+    "dec 6 to 6"
+   ],
+   "colour": "beige",
+   "end": "closed",
+   "stuff": "firm",
+   "colours": [
+    {
+     "shape": [
+      [
+       29.6,
+       0.0
+      ],
+      [
+       29.48,
+       14.9
+      ],
+      [
+       29.13,
+       29.2
+      ],
+      [
+       28.56,
+       42.4
+      ],
+      [
+       27.78,
+       53.9
+      ],
+      [
+       26.84,
+       63.4
+      ],
+      [
+       25.77,
+       70.5
+      ],
+      [
+       24.61,
+       91.2
+      ],
+      [
+       23.4,
+       93.0
+      ],
+      [
+       22.11,
+       91.2
+      ],
+      [
+       20.87,
+       85.9
+      ],
+      [
+       19.73,
+       77.3
+      ],
+      [
+       18.73,
+       65.8
+      ],
+      [
+       17.91,
+       51.7
+      ],
+      [
+       17.3,
+       35.6
+      ],
+      [
+       16.93,
+       18.1
+      ],
+      [
+       16.8,
+       0.0
+      ],
+      [
+       16.93,
+       -18.1
+      ],
+      [
+       17.3,
+       -35.6
+      ],
+      [
+       17.91,
+       -51.7
+      ],
+      [
+       18.73,
+       -65.8
+      ],
+      [
+       19.73,
+       -77.3
+      ],
+      [
+       20.87,
+       -85.9
+      ],
+      [
+       22.11,
+       -91.2
+      ],
+      [
+       23.4,
+       -93.0
+      ],
+      [
+       24.61,
+       -91.2
+      ],
+      [
+       25.77,
+       -70.5
+      ],
+      [
+       26.84,
+       -63.4
+      ],
+      [
+       27.78,
+       -53.9
+      ],
+      [
+       28.56,
+       -42.4
+      ],
+      [
+       29.13,
+       -29.2
+      ],
+      [
+       29.48,
+       -14.9
+      ]
+     ],
+     "colour": "white"
+    }
+   ]
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 2",
+    "13",
+    "12",
+    "even 2"
+   ],
+   "colour": "beige",
+   "end": "open",
+   "stuff": "light",
+   "bend": {
+    "deg": 50,
+    "at": 5,
+    "over": 3,
+    "toward": [
+     -1,
+     0,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "patch",
+   "name_en": "eye patch",
+   "name_ru": "пятно вокруг глаза",
+   "rounds": [
+    "ch 8",
+    "inc 6 to 28"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 11.5,
+    "az": 68
+   },
+   "dir": [
+    0.45,
+    -0.25,
+    0.85
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "avoid": true,
+   "contact": 0.6
+  },
+  {
+   "part": "patch",
+   "on": "body",
+   "at": {
+    "round": 21.6,
+    "az": 52
+   },
+   "applique": true,
+   "mirror": true,
+   "roll": -42
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 23.2,
+    "az": 42
+   },
+   "size_mm": 10,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "safety_nose",
+   "on": "body",
+   "at": {
+    "round": 24.5,
+    "az": 0
+   },
+   "size_mm": [
+    13.5,
+    10
+   ],
+   "shape": "triangle"
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     21.8,
+     -22
+    ],
+    [
+     21.0,
+     -11
+    ],
+    [
+     20.8,
+     0
+    ],
+    [
+     21.0,
+     11
+    ],
+    [
+     21.8,
+     22
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.3
+  }
+ ]
+}

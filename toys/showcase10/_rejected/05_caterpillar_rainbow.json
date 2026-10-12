@@ -1,0 +1,266 @@
+{
+ "name": "05_caterpillar_rainbow",
+ "title": "Rainbow Caterpillar",
+ "title_ru": "Гусеничка Радуга",
+ "subject": "caterpillar",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "green": "#b5e48c",
+  "peach": "#ffd6a5",
+  "lemon": "#fdffb6",
+  "sky": "#a0c4ff",
+  "pink": "#ffc6ff",
+  "antenna": "#5a4a6a",
+  "blush": "#ff9eb0",
+  "mouth": "#3a2a3a"
+ },
+ "colour_names_ru": {
+  "green": "салатовый",
+  "peach": "персиковый",
+  "lemon": "лимонный",
+  "sky": "голубой",
+  "pink": "розовый",
+  "antenna": "тёмно-сливовый",
+  "blush": "розовый (щёчки)",
+  "mouth": "тёмно-сливовый"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "name_ru": "головка",
+   "name_en": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "inc 6 to 54 every 2",
+    "even 8",
+    "dec 6 to 48 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "green",
+   "stuff": "firm"
+  },
+  {
+   "id": "seg1",
+   "name_ru": "шарик 1",
+   "name_en": "segment 1",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "even 4",
+    "dec 6 to 6"
+   ],
+   "colour": "peach",
+   "stuff": "firm"
+  },
+  {
+   "id": "seg2",
+   "name_ru": "шарик 2",
+   "name_en": "segment 2",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "even 4",
+    "dec 6 to 6"
+   ],
+   "colour": "lemon",
+   "stuff": "firm"
+  },
+  {
+   "id": "seg3",
+   "name_ru": "шарик 3",
+   "name_en": "segment 3",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 30",
+    "even 4",
+    "dec 6 to 6"
+   ],
+   "colour": "sky",
+   "stuff": "firm"
+  },
+  {
+   "id": "seg4",
+   "name_ru": "шарик 4",
+   "name_en": "segment 4",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 4",
+    "dec 6 to 6"
+   ],
+   "colour": "pink",
+   "stuff": "firm"
+  },
+  {
+   "id": "antenna",
+   "name_ru": "усик",
+   "name_en": "antenna",
+   "colour": "antenna",
+   "cord": {
+    "length_mm": 30,
+    "thickness_mm": 2.8,
+    "curl_deg": 230,
+    "slip_back": true
+   }
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "head",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "seg1",
+   "on": "head",
+   "at": {
+    "round": 9,
+    "az": 180
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    -0.3,
+    -1
+   ],
+   "sink": 9
+  },
+  {
+   "part": "seg2",
+   "on": "seg1",
+   "at": {
+    "round": "start"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    0.15,
+    -1
+   ],
+   "sink": 8
+  },
+  {
+   "part": "seg3",
+   "on": "seg2",
+   "at": {
+    "round": "start"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    -0.2,
+    -1
+   ],
+   "sink": 7
+  },
+  {
+   "part": "seg4",
+   "on": "seg3",
+   "at": {
+    "round": "start"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    0.35,
+    -1
+   ],
+   "sink": 6
+  },
+  {
+   "part": "antenna",
+   "on": "head",
+   "at": {
+    "round": 26,
+    "az": 25
+   },
+   "dir": [
+    0.35,
+    1,
+    0.15
+   ],
+   "mirror": true,
+   "toward": [
+    0.8,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "cheek",
+   "on": "head",
+   "at": {
+    "round": 14,
+    "az": 42
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.0
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 16,
+    "az": 22
+   },
+   "size_mm": 14,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "stitch",
+   "on": "head",
+   "points": [
+    [
+     14.2,
+     -8
+    ],
+    [
+     13.81,
+     -4.0
+    ],
+    [
+     13.6,
+     0
+    ],
+    [
+     13.81,
+     4.0
+    ],
+    [
+     14.2,
+     8
+    ]
+   ],
+   "colour": "mouth",
+   "thickness_mm": 1.1,
+   "id": "smile"
+  }
+ ]
+}

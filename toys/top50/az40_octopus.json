@@ -1,0 +1,28 @@
+{
+ "name": "az40_octopus",
+ "title": "Reversible octopus (pink side)",
+ "subject": "octopus",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {"pink": "#f2647a", "teal": "#3bb3b0", "black": "#151313"},
+ "colour_names_ru": {"teal": "бирюзовый"},
+ "parts": [
+  {"id": "body", "rounds": ["mr 6", "inc 6 to 42", "blo 42", "inc 6 to 60 every 2", "even 6", "dec 6 to 36 every 2", "dec 6 to 6"],
+   "colour": "pink", "end": "closed", "stuff": "firm",
+   "colours": [{"rounds": [1, 7], "colour": "teal"}]},
+  {"id": "leg", "rounds": ["mr 6", "inc 6 to 12", "18", "even 5", "15", "12", "even 2"],
+   "colour": "pink", "end": "open", "stuff": "light", "flatten": 0.35,
+   "colours": [{"rounds": [1, 13], "az": [100, 180], "colour": "teal"},
+               {"rounds": [1, 13], "az": [-180, -100], "colour": "teal"}]}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 1, 0]},
+  {"part": "leg", "name": "leg1", "on": "body", "at": {"round": 10, "az": 22}, "dir": [0.38, -0.35, 0.92], "mirror": true, "front": [0, 1, 0], "seam": "flat"},
+  {"part": "leg", "name": "leg2", "on": "body", "at": {"round": 10, "az": 67}, "dir": [0.92, -0.35, 0.38], "mirror": true, "front": [0, 1, 0], "seam": "flat"},
+  {"part": "leg", "name": "leg3", "on": "body", "at": {"round": 10, "az": 112}, "dir": [0.92, -0.35, -0.38], "mirror": true, "front": [0, 1, 0], "seam": "flat"},
+  {"part": "leg", "name": "leg4", "on": "body", "at": {"round": 10, "az": 157}, "dir": [0.38, -0.35, -0.92], "mirror": true, "front": [0, 1, 0], "seam": "flat"}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "body", "at": {"round": 19, "az": 22}, "size_mm": 12, "aspect": 1.25, "mirror": true},
+  {"type": "stitch", "on": "body", "points": [[15.6, -5], [15.1, 0], [15.6, 5]], "colour": "black", "thickness_mm": 1.2}
+ ]
+}

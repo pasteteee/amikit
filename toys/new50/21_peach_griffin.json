@@ -1,0 +1,45 @@
+{
+ "name": "21_peach_griffin",
+ "title": "Peach Puff Griffin",
+ "title_ru": "Грифон Персиковый пух",
+ "subject": "griffin",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {"peach": "#ef9a5c", "cream": "#f2e2c0", "sun": "#f5c22e", "teal": "#3cb4b0", "blush": "#f19a9a", "toe": "#c9a57e", "mouth": "#3a231c", "black": "#151313"},
+ "colour_names_ru": {"peach": "персиково-оранжевый", "cream": "сливочный", "sun": "солнечно-жёлтый", "teal": "бирюзовый", "blush": "розовый (щёчки)", "toe": "бежевый (вышивка пальчиков)", "mouth": "тёмно-коричневый (вышивка)", "black": "чёрный"},
+ "parts": [
+  {"id": "body", "name_ru": "тело", "name_en": "body", "rounds": ["mr 6", "inc 6 to 54", "inc 6 to 60 every 2", "even 7", "dec 6 to 48 every 2", "dec 6 to 42", "even 1"], "colour": "peach", "end": "open", "stuff": "firm"},
+  {"id": "head", "name_ru": "голова", "name_en": "head", "rounds": ["mr 6", "inc 6 to 48", "inc 6 to 60 every 2", "even 6", "dec 6 to 48 every 2", "dec 6 to 6"], "colour": "peach", "stuff": "firm"},
+  {"id": "beak", "name_ru": "клювик", "name_en": "beak", "rounds": ["mr 4", "7", "10", "13", "15", "even 1"], "colour": "cream", "end": "open", "stuff": "light", "bend": {"deg": 50, "at": 3, "over": 2, "toward": [0, -1, 0]}},
+  {"id": "crest", "name_ru": "хохолок (большое пёрышко)", "name_en": "crest feather (big)", "rounds": ["mr 6", "10", "12", "even 4", "10"], "colour": "peach", "end": "open", "stuff": "light", "flatten": 0.3},
+  {"id": "crest_small", "name_ru": "хохолок (малое пёрышко)", "name_en": "crest feather (small)", "rounds": ["mr 6", "10", "12", "even 2", "10"], "colour": "peach", "end": "open", "stuff": "light", "flatten": 0.3},
+  {"id": "belly", "name_ru": "животик", "name_en": "belly patch", "rounds": ["ch 7", "inc 6 x4"], "colour": "teal", "end": "open", "stuff": "none"},
+  {"id": "cheek", "name_ru": "щёчка", "name_en": "cheek", "rounds": ["mr 6", "12"], "colour": "blush", "end": "open", "stuff": "none"},
+  {"id": "front_leg", "name_ru": "передняя лапка", "name_en": "front leg", "rounds": ["mr 6", "12", "18", "even 3", "15", "12", "even 4"], "colour": "peach", "end": "open", "stuff": "medium", "colours": [{"rounds": [1, 6], "colour": "cream"}]},
+  {"id": "haunch", "name_ru": "бедро", "name_en": "haunch", "rounds": ["mr 6", "inc 6 to 36"], "colour": "peach", "end": "open", "stuff": "none"},
+  {"id": "foot", "name_ru": "задняя лапка", "name_en": "hind foot", "rounds": ["ch 6", "18", "24", "even 3", "20", "16"], "colour": "cream", "end": "open", "stuff": "medium"},
+  {"id": "wing", "name_ru": "крылышко", "name_en": "wing", "colour": "sun", "motif": {"kind": "half_circle", "rows": 9, "edging": {"kind": "shell", "k": 5, "every": 4}}},
+  {"id": "tail", "name_ru": "хвост", "name_en": "tail", "rounds": ["mr 8", "even 14"], "colour": "peach", "end": "open", "stuff": "light"},
+  {"id": "tail_tip", "name_ru": "кисточка хвоста (шарик)", "name_en": "tail tip ball", "rounds": ["mr 6", "12", "even 2", "9", "6"], "colour": "sun", "stuff": "firm"}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 1, 0]},
+  {"part": "head", "on": "body", "at": {"round": "end"}, "attach": "end", "dir": [0, 1, 0], "sink": 14},
+  {"part": "beak", "on": "head", "at": {"round": 17.5, "az": 0}, "dir": [0, -0.45, 1]},
+  {"part": "crest", "on": "head", "at": {"round": 2, "az": -40}, "dir": [-0.3, 1, 0.05], "front": [0, 0, 1]},
+  {"part": "crest_small", "on": "head", "at": {"round": 2.5, "az": 60}, "dir": [0.7, 1, 0], "front": [0, 0, 1]},
+  {"part": "cheek", "on": "head", "at": {"round": 18, "az": 46}, "applique": true, "mirror": true},
+  {"part": "belly", "on": "body", "at": {"round": 12.5, "az": 0}, "applique": true, "roll": 90, "pad": 1.0},
+  {"part": "haunch", "on": "body", "at": {"round": 8, "az": 88}, "applique": true, "pad": 10, "mirror": true},
+  {"part": "front_leg", "on": "body", "at": {"round": 13, "az": 36}, "dir": [0.1, -0.75, 0.65], "mirror": true},
+  {"part": "foot", "on": "body", "at": {"round": 4, "az": 78}, "dir": [0.65, -0.4, 1], "mirror": true},
+  {"part": "wing", "on": "body", "at": {"round": 21, "az": 125}, "dir": [1, 0.8, -0.45], "mirror": true, "attach": "edge", "face": [0.5, 0, -1], "sink": 1},
+  {"part": "tail", "on": "body", "at": {"round": 3, "az": 170}, "dir": [0.25, 0.15, -1]},
+  {"part": "tail_tip", "on": "tail", "at": {"round": "start"}, "attach": "end", "sink": 3}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "head", "at": {"round": 16, "az": 30}, "size_mm": 15, "mirror": true, "highlight": true},
+  {"type": "stitch", "on": "head", "mirror": true, "points": [[18.6, 8], [19.2, 12], [18.8, 16]], "colour": "mouth", "thickness_mm": 1.0},
+  {"type": "stitch", "on": "front_leg", "mirror": true, "points": [[1.2, -18], [5.4, -18]], "colour": "toe", "thickness_mm": 1.2},
+  {"type": "stitch", "on": "front_leg", "mirror": true, "points": [[1.2, 18], [5.4, 18]], "colour": "toe", "thickness_mm": 1.2}
+ ]
+}

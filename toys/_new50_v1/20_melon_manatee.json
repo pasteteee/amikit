@@ -1,0 +1,29 @@
+{
+ "name": "20_melon_manatee",
+ "title": "Melon Hug Manatee",
+ "title_ru": "Ламантин Дынька",
+ "subject": "manatee",
+ "yarn": {"weight": "DK", "hook_mm": 2.5, "stitch_mm": 4.0, "round_mm": 3.6, "thickness_mm": 1.9},
+ "colours": {"melon": "#9fc394", "cream": "#f1e8cc", "butter": "#f3eaa6", "peach": "#ef9e86", "blush": "#ec8a8a", "mouth": "#4a2a22", "black": "#151313"},
+ "colour_names_ru": {"melon": "светло-зелёный (дынный)", "cream": "сливочный", "butter": "бледно-жёлтый", "peach": "персиковый", "blush": "розовый (щёчки)", "mouth": "тёмно-коричневый (вышивка)", "black": "чёрный"},
+ "parts": [
+  {"id": "body", "name_ru": "тело", "name_en": "body", "rounds": ["mr 6", "inc 6 to 54", "blo 54", "inc 6 to 60", "even 11", "dec 6 to 48 every 2", "dec 6 to 36 every 2", "dec 6 to 6"], "colour": "melon", "stuff": "firm"},
+  {"id": "lobe", "name_ru": "доля мордочки", "name_en": "muzzle lobe", "rounds": ["mr 6", "12", "18", "24", "even 3"], "colour": "cream", "end": "open", "stuff": "medium"},
+  {"id": "belly", "name_ru": "животик", "name_en": "belly patch", "rounds": ["ch 9", "inc 6 x4"], "colour": "butter", "end": "open", "stuff": "none"},
+  {"id": "cheek", "name_ru": "щёчка", "name_en": "cheek", "rounds": ["mr 6", "12"], "colour": "blush", "end": "open", "stuff": "none"},
+  {"id": "flipper", "name_ru": "плавник", "name_en": "flipper", "rounds": ["mr 6", "10", "14", "16", "even 5", "14", "12", "10"], "colour": "peach", "end": "open", "stuff": "light", "flatten": 0.8},
+  {"id": "tail", "name_ru": "хвост-лопатка", "name_en": "tail paddle", "rounds": ["mr 6", "12", "18", "24", "30", "36", "even 2", "30", "24", "even 3", "18"], "colour": "melon", "end": "open", "stuff": "light", "flatten": 0.75}
+ ],
+ "assembly": [
+  {"part": "body", "axis": [0, 1, 0.22]},
+  {"part": "belly", "on": "body", "at": {"round": 13, "az": 0}, "applique": true, "pad": 1.0},
+  {"part": "lobe", "on": "body", "at": {"round": 22.5, "az": 14}, "dir": [0.2, -0.2, 1], "mirror": true},
+  {"part": "cheek", "on": "body", "at": {"round": 22.5, "az": 46}, "applique": true, "mirror": true},
+  {"part": "flipper", "on": "body", "at": {"round": 16.5, "az": 84}, "dir": [0.75, -1, -0.15], "mirror": true, "seam": "flat", "pinch_rounds": 1.0, "front": [1, 0, 0.7]},
+  {"part": "tail", "on": "body", "at": {"round": 5, "az": 180}, "dir": [0, -0.3, -1], "seam": "flat", "pinch_rounds": 1.0}
+ ],
+ "face": [
+  {"type": "safety_eye", "on": "body", "at": {"round": 25, "az": 35}, "size_mm": 11, "mirror": true, "highlight": true},
+  {"type": "stitch", "on": "lobe", "mirror": true, "points": [[3.2, -150], [3.6, -120], [3.4, -95]], "colour": "mouth", "thickness_mm": 1.0}
+ ]
+}

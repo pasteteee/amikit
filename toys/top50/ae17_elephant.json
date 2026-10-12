@@ -1,0 +1,182 @@
+{
+ "name": "ae17_elephant",
+ "title": "Positive elephant",
+ "subject": "elephant",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "navy": "#4a5c9c",
+  "grey": "#b4b4b6",
+  "pink": "#f0a0b0",
+  "black": "#141416"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_en": "head and body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 60 every 2",
+    "even 9",
+    "dec 6 to 54",
+    "even 3",
+    "dec 6 to 48",
+    "even 2",
+    "dec 6 to 42",
+    "dec 6 to 6"
+   ],
+   "colour": "navy",
+   "stuff": "firm"
+  },
+  {
+   "id": "trunk",
+   "rounds": [
+    "mr 6",
+    "even 1",
+    "9",
+    "even 1",
+    "12",
+    "even 1",
+    "15",
+    "18",
+    "21",
+    "24"
+   ],
+   "colour": "grey",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 38"
+   ],
+   "colour": "grey",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "even 4",
+    "10"
+   ],
+   "colour": "navy",
+   "end": "open",
+   "stuff": "light"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "trunk",
+   "on": "body",
+   "at": {
+    "round": 25,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.9,
+    0.7
+   ],
+   "attach": "end"
+  },
+  {
+   "part": "ear",
+   "on": "body",
+   "at": {
+    "round": 31,
+    "az": 80
+   },
+   "attach": "edge",
+   "dir": [
+    1,
+    -0.6,
+    0.1
+   ],
+   "face": [
+    0.2,
+    0,
+    1
+   ],
+   "mirror": true,
+   "cup": 6
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 14,
+    "az": 62
+   },
+   "dir": [
+    0.5,
+    -0.3,
+    1
+   ],
+   "mirror": true,
+   "seam": "flat"
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "body",
+   "at": {
+    "round": 28,
+    "az": 20
+   },
+   "size_mm": 8,
+   "mirror": true
+  },
+  {
+   "type": "blush",
+   "on": "body",
+   "at": {
+    "round": 25.5,
+    "az": 30
+   },
+   "size_mm": 7,
+   "colour": "pink",
+   "mirror": true
+  },
+  {
+   "type": "stitch",
+   "on": "body",
+   "points": [
+    [
+     30.5,
+     14
+    ],
+    [
+     30.8,
+     20
+    ],
+    [
+     30.5,
+     26
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0,
+   "mirror": true
+  }
+ ]
+}

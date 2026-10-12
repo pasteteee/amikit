@@ -1,0 +1,462 @@
+{
+ "name": "az03_skye",
+ "title": "Sitting cockapoo pup with pink vest (Skye-style)",
+ "subject": "dog",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "fawn": "#f0c690",
+  "gold": "#f2b45a",
+  "orange": "#ee9a3c",
+  "cream": "#f7eedf",
+  "pink": "#e23d7c",
+  "lightpink": "#f4a3bf",
+  "patch": "#e9a352",
+  "iris": "#d0347c",
+  "badge": "#d8d4e8",
+  "black": "#1c1a1b"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "inc 6 to 60 every 2",
+    "even 5",
+    "dec 6 to 48 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "fawn",
+   "stuff": "firm",
+   "colours": [
+    {
+     "ellipse": {
+      "center": [
+       15.3,
+       28
+      ],
+      "radii": [
+       3.6,
+       15
+      ]
+     },
+     "colour": "patch"
+    },
+    {
+     "ellipse": {
+      "center": [
+       15.3,
+       -28
+      ],
+      "radii": [
+       3.6,
+       15
+      ]
+     },
+     "colour": "patch"
+    }
+   ]
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 38",
+    "even 4",
+    "dec 6 to 32",
+    "even 3",
+    "dec 4 to 24",
+    "even 2"
+   ],
+   "oval_axis": "front",
+   "colour": "fawn",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      9,
+      17
+     ],
+     "colour": "pink"
+    },
+    {
+     "rounds": [
+      9,
+      17
+     ],
+     "az": [
+      -2,
+      2
+     ],
+     "colour": "lightpink"
+    }
+   ]
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 5",
+    "inc 6 to 22",
+    "even 3"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "24",
+    "30",
+    "even 7",
+    "27",
+    "even 3",
+    "24",
+    "even 2",
+    "21"
+   ],
+   "colour": "gold",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.85,
+   "colours": [
+    {
+     "rounds": [
+      3,
+      13
+     ],
+     "az": [
+      -70,
+      70
+     ],
+     "colour": "orange"
+    }
+   ],
+   "bend": {
+    "deg": 30,
+    "at": 12,
+    "over": 4,
+    "toward": [
+     0.3,
+     -1,
+     0.1
+    ]
+   }
+  },
+  {
+   "id": "front_leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 2",
+    "dec 3 to 12",
+    "even 6"
+   ],
+   "end": "open",
+   "stuff": "firm",
+   "colour": "fawn",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      5
+     ],
+     "colour": "cream"
+    }
+   ]
+  },
+  {
+   "id": "haunch",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 30"
+   ],
+   "colour": "fawn",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "hind_foot",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 24",
+    "even 3",
+    "dec 3 to 18"
+   ],
+   "colour": "cream",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "goggle_strap",
+   "colour": "lightpink",
+   "rounds": [
+    "ch 3",
+    "even 14"
+   ],
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.95
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 6
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 19,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.05,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 8,
+    "az": 82
+   },
+   "dir": [
+    0.75,
+    -1,
+    0.15
+   ],
+   "mirror": true,
+   "seam": "flat",
+   "seam_line": [
+    0,
+    1,
+    0.2
+   ]
+  },
+  {
+   "part": "front_leg",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 30
+   },
+   "dir": [
+    0,
+    -1,
+    0.3
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 1.0,
+   "seam": "flat",
+   "max_turn": 10,
+   "seam_line": [
+    1,
+    0,
+    0
+   ],
+   "pinch": 0.6
+  },
+  {
+   "part": "haunch",
+   "on": "body",
+   "at": {
+    "round": 6,
+    "az": 95
+   },
+   "applique": true,
+   "pad": 6,
+   "mirror": true
+  },
+  {
+   "part": "hind_foot",
+   "on": "body",
+   "at": {
+    "round": 4.5,
+    "az": 62
+   },
+   "dir": [
+    0.8,
+    -0.3,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "goggle_strap",
+   "on": "head",
+   "at": {
+    "round": 18.5,
+    "az": 68
+   },
+   "dir": [
+    0.15,
+    -1,
+    0.2
+   ],
+   "mirror": true,
+   "seam": "flat"
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 14.5,
+    "az": 27
+   },
+   "size_mm": 10,
+   "iris": "iris",
+   "pupil": 0.55,
+   "mirror": true
+  },
+  {
+   "type": "safety_nose",
+   "on": "muzzle",
+   "at": {
+    "round": 1.8,
+    "az": 0
+   },
+   "size_mm": [
+    11,
+    8
+   ],
+   "shape": "oval"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.6,
+     180
+    ],
+    [
+     3.4,
+     180
+    ]
+   ],
+   "colour": "orange",
+   "thickness_mm": 1.0
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     3.4,
+     180
+    ],
+    [
+     3.8,
+     155
+    ],
+    [
+     3.4,
+     130
+    ]
+   ],
+   "colour": "orange",
+   "thickness_mm": 1.0,
+   "mirror": true
+  },
+  {
+   "type": "strap",
+   "on": "head",
+   "points": [
+    [
+     17,
+     72
+    ],
+    [
+     11,
+     70
+    ],
+    [
+     6,
+     55
+    ],
+    [
+     2.5,
+     0
+    ]
+   ],
+   "colour": "lightpink",
+   "thickness_mm": 4.5,
+   "mirror": true
+  },
+  {
+   "type": "fringe",
+   "on": "head",
+   "points": [
+    [
+     2,
+     180
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     3,
+     0
+    ]
+   ],
+   "count": 16,
+   "length_mm": 14,
+   "colours": [
+    "gold"
+   ],
+   "droop": 0.6,
+   "curl": 0.3,
+   "spread": 0.5
+  },
+  {
+   "type": "felt",
+   "on": "body",
+   "at": {
+    "round": 14,
+    "az": 0
+   },
+   "size_mm": [
+    9,
+    10
+   ],
+   "colour": "badge"
+  }
+ ]
+}

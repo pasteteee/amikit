@@ -1,0 +1,419 @@
+{
+ "name": "f_alpaca_blanket",
+ "title": "Alpaca in a Scarf",
+ "title_ru": "Альпака Пушинка",
+ "subject": "alpaca",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "wool": "#fbf3e6",
+  "hoof": "#8a6a55",
+  "inner": "#ffc6d0",
+  "muzzle": "#fffaf3",
+  "black": "#3a2a2a",
+  "pink": "#ffb3c6",
+  "mint": "#a8e6cf",
+  "lemon": "#ffe08a",
+  "lilac": "#c9b6ff",
+  "blush": "#ff9eb0"
+ },
+ "colour_names_ru": {
+  "wool": "молочный",
+  "hoof": "коричневый",
+  "inner": "розовый (ушки)",
+  "muzzle": "белый",
+  "black": "тёмно-коричневый",
+  "pink": "розовый",
+  "mint": "мятный",
+  "lemon": "лимонный",
+  "lilac": "сиреневый",
+  "blush": "розовый (щёчки)"
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name_ru": "тельце",
+   "name_en": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 48",
+    "popcorns every 2",
+    "popcorns every 2 from 1",
+    "popcorns every 2",
+    "popcorns every 2 from 1",
+    "popcorns every 2",
+    "popcorns every 2 from 1",
+    "popcorns every 2",
+    "popcorns every 2 from 1",
+    "popcorns every 2",
+    "popcorns every 2 from 1",
+    "popcorns every 2",
+    "popcorns every 2 from 1",
+    "dec 6 to 6"
+   ],
+   "colour": "wool",
+   "stuff": "firm"
+  },
+  {
+   "id": "neck",
+   "name_ru": "голова с шеей",
+   "name_en": "head and neck",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "even 5",
+    "30",
+    "24",
+    "even 8",
+    "30"
+   ],
+   "colour": "wool",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "muzzle",
+   "name_ru": "мордочка",
+   "name_en": "muzzle",
+   "rounds": [
+    "ch 5",
+    "16",
+    "22",
+    "even 3"
+   ],
+   "colour": "muzzle",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "fluff",
+   "name_ru": "чёлка",
+   "name_en": "top fluff",
+   "rounds": [
+    "mr 6",
+    "12",
+    "popcorns every 2",
+    "12",
+    "6"
+   ],
+   "colour": "wool",
+   "stuff": "firm"
+  },
+  {
+   "id": "ear",
+   "name_ru": "ушко",
+   "name_en": "ear",
+   "colour": "wool",
+   "preset": "ear",
+   "kind": "long",
+   "max": 10,
+   "inner": "inner",
+   "length": 2
+  },
+  {
+   "id": "leg",
+   "name_ru": "ножка",
+   "name_en": "leg",
+   "rounds": [
+    "mr 6",
+    "12",
+    "blo 12",
+    "even 6"
+   ],
+   "colour": "wool",
+   "end": "open",
+   "stuff": "firm",
+   "colours": [
+    {
+     "rounds": [
+      1,
+      3
+     ],
+     "colour": "hoof"
+    }
+   ]
+  },
+  {
+   "id": "tail",
+   "name_ru": "хвостик",
+   "name_en": "tail",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 2",
+    "9"
+   ],
+   "colour": "wool",
+   "stuff": "firm",
+   "end": "open"
+  },
+  {
+   "id": "cheek",
+   "name_ru": "щёчка",
+   "name_en": "cheek",
+   "rounds": [
+    "mr 6",
+    "12"
+   ],
+   "colour": "blush",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "scarf",
+   "name_ru": "шарфик",
+   "name_en": "scarf",
+   "rounds": [
+    "ring 24",
+    "rib 24 x3"
+   ],
+   "colour": "pink",
+   "end": "open",
+   "stuff": "none",
+   "colours": [
+    {
+     "rounds": [
+      2,
+      2
+     ],
+     "colour": "mint"
+    },
+    {
+     "rounds": [
+      4,
+      4
+     ],
+     "colour": "lemon"
+    }
+   ]
+  },
+  {
+   "id": "scarf_end",
+   "name_ru": "конец шарфика",
+   "name_en": "scarf end",
+   "flat": {
+    "width_st": 4,
+    "rows": 9
+   },
+   "colour": "pink"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "neck",
+   "on": "body",
+   "at": {
+    "round": 19,
+    "az": 0
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0.25
+   ],
+   "sink": 12
+  },
+  {
+   "part": "muzzle",
+   "on": "neck",
+   "at": {
+    "round": 11,
+    "az": 0
+   },
+   "dir": [
+    0,
+    -0.2,
+    1
+   ]
+  },
+  {
+   "part": "fluff",
+   "on": "neck",
+   "at": {
+    "round": "start"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0.2
+   ],
+   "sink": 6
+  },
+  {
+   "part": "ear",
+   "on": "neck",
+   "at": {
+    "round": 4,
+    "az": 62
+   },
+   "dir": [
+    0.6,
+    1,
+    0
+   ],
+   "mirror": true
+  },
+  {
+   "part": "leg",
+   "name": "front_leg",
+   "on": "body",
+   "at": {
+    "round": 17,
+    "az": 145
+   },
+   "dir": [
+    0.15,
+    -1,
+    0
+   ],
+   "mirror": true
+  },
+  {
+   "part": "leg",
+   "name": "hind_leg",
+   "on": "body",
+   "at": {
+    "round": 8,
+    "az": 145
+   },
+   "dir": [
+    0.15,
+    -1,
+    0
+   ],
+   "mirror": true
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 2,
+    "az": 0
+   },
+   "dir": [
+    0,
+    0.4,
+    -1
+   ],
+   "sink": 3
+  },
+  {
+   "part": "cheek",
+   "on": "neck",
+   "at": {
+    "round": 10.5,
+    "az": 46
+   },
+   "applique": true,
+   "mirror": true,
+   "lift": 1.0
+  },
+  {
+   "part": "scarf",
+   "on": "neck",
+   "at": {
+    "round": 17
+   },
+   "around": true,
+   "dir": [
+    0,
+    -1,
+    0
+   ]
+  },
+  {
+   "part": "scarf_end",
+   "on": "neck",
+   "at": {
+    "round": 19,
+    "az": 35
+   },
+   "conform": true,
+   "lift": 1.5
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "neck",
+   "at": {
+    "round": 8.5,
+    "az": 30
+   },
+   "size_mm": 12,
+   "mirror": true,
+   "highlight": true,
+   "id": "eye"
+  },
+  {
+   "type": "satin",
+   "on": "muzzle",
+   "at": {
+    "round": 1.4,
+    "az": 40
+   },
+   "width_mm": 2.6,
+   "height_mm": 3.6,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.2,
+   "mirror": true,
+   "rotate": 25,
+   "id": "nostril"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     1.6,
+     180
+    ],
+    [
+     2.4,
+     180
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0,
+   "id": "line"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     2.4,
+     180
+    ],
+    [
+     2.8,
+     165
+    ],
+    [
+     2.7,
+     150
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.0,
+   "mirror": true,
+   "id": "smile"
+  }
+ ]
+}

@@ -1,0 +1,321 @@
+{
+ "name": "teddy",
+ "title": "Teddy bear",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "brown": "#ba713e",
+  "tan": "#e7cca7",
+  "red": "#e04840",
+  "black": "#2d2b2a",
+  "blush": "#e98a7c"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "inc 6 to 48 every 2",
+    "even 4",
+    "dec 6 to 36 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "brown",
+   "stuff": "firm"
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 36",
+    "even 4",
+    "dec 6 to 30",
+    "even 2",
+    "dec 6 to 24",
+    "even 2",
+    "dec 6 to 18"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "muzzle",
+   "rounds": [
+    "ch 4",
+    "inc 6 to 20",
+    "even 2"
+   ],
+   "colour": "tan",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "ear",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 3"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.85
+  },
+  {
+   "id": "inner_ear",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12"
+   ],
+   "colour": "tan",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "arm",
+   "rounds": [
+    "mr 6",
+    "12",
+    "15",
+    "even 3",
+    "12",
+    "even 4",
+    "10"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "light"
+  },
+  {
+   "id": "leg",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 18",
+    "even 3",
+    "15",
+    "12",
+    "even 2"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "bow",
+   "flat": {
+    "width_st": 8,
+    "rows": 5
+   },
+   "colour": "red",
+   "pinch": 0.85
+  },
+  {
+   "id": "tail",
+   "rounds": [
+    "mr 6",
+    "12",
+    "even 1",
+    "10"
+   ],
+   "colour": "brown",
+   "end": "open",
+   "stuff": "light"
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 4
+  },
+  {
+   "part": "muzzle",
+   "on": "head",
+   "at": {
+    "round": 13.5,
+    "az": 0
+   },
+   "dir": [
+    0,
+    0.05,
+    1
+   ]
+  },
+  {
+   "part": "ear",
+   "on": "head",
+   "at": {
+    "round": 5.5,
+    "az": 68
+   },
+   "dir": [
+    0.75,
+    1,
+    0.1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "inner_ear",
+   "on": "ear",
+   "at": {
+    "round": 4.6,
+    "az": 0
+   },
+   "applique": true,
+   "mirror": true,
+   "inset": 1.2
+  },
+  {
+   "part": "arm",
+   "on": "body",
+   "at": {
+    "round": 15,
+    "az": 80
+   },
+   "dir": [
+    0.15,
+    -1,
+    0.35
+   ],
+   "mirror": true,
+   "avoid": true,
+   "contact": 0.6,
+   "seam": "flat"
+  },
+  {
+   "part": "leg",
+   "on": "body",
+   "at": {
+    "round": 6,
+    "az": 34
+   },
+   "dir": [
+    0.2,
+    -0.1,
+    1
+   ],
+   "mirror": true
+  },
+  {
+   "part": "bow",
+   "on": "body",
+   "at": {
+    "round": 16,
+    "az": 0
+   },
+   "lift": 1.5
+  },
+  {
+   "part": "tail",
+   "on": "body",
+   "at": {
+    "round": 6,
+    "az": 180
+   },
+   "dir": [
+    0,
+    -0.2,
+    -1
+   ]
+  }
+ ],
+ "face": [
+  {
+   "type": "safety_eye",
+   "on": "head",
+   "at": {
+    "round": 12,
+    "az": 27
+   },
+   "size_mm": 10,
+   "mirror": true,
+   "highlight": true
+  },
+  {
+   "type": "safety_nose",
+   "on": "muzzle",
+   "at": {
+    "round": 1.6,
+    "az": 0
+   },
+   "size_mm": [
+    9,
+    6.5
+   ],
+   "shape": "oval"
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     0.9,
+     180
+    ],
+    [
+     2.1,
+     180
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.1
+  },
+  {
+   "type": "stitch",
+   "on": "muzzle",
+   "points": [
+    [
+     2.7,
+     128
+    ],
+    [
+     2.2,
+     180
+    ],
+    [
+     2.7,
+     232
+    ]
+   ],
+   "colour": "black",
+   "thickness_mm": 1.1
+  },
+  {
+   "type": "blush",
+   "on": "head",
+   "at": {
+    "round": 15.0,
+    "az": 40
+   },
+   "size_mm": 9,
+   "colour": "blush",
+   "mirror": true,
+   "strength": 0.5
+  }
+ ]
+}

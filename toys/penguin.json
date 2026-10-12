@@ -1,0 +1,368 @@
+{
+ "name": "penguin",
+ "title": "Chibi penguin",
+ "yarn": {
+  "weight": "DK",
+  "hook_mm": 2.5,
+  "stitch_mm": 4.0,
+  "round_mm": 3.6,
+  "thickness_mm": 1.9
+ },
+ "colours": {
+  "navy": "#283659",
+  "white": "#f1efea",
+  "orange": "#f39a45",
+  "pink": "#f0a0a8",
+  "black": "#121213"
+ },
+ "parts": [
+  {
+   "id": "head",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 42",
+    "inc 6 to 60 every 2",
+    "even 5",
+    "dec 6 to 42 every 2",
+    "dec 6 to 6"
+   ],
+   "colour": "navy",
+   "stuff": "firm",
+   "colours": [
+    {
+     "shape": [
+      [
+       17.5,
+       0
+      ],
+      [
+       15,
+       7
+      ],
+      [
+       13.5,
+       11
+      ],
+      [
+       12.4,
+       18
+      ],
+      [
+       11.6,
+       26
+      ],
+      [
+       11.3,
+       34
+      ],
+      [
+       11.7,
+       43
+      ],
+      [
+       12.8,
+       54
+      ],
+      [
+       14.6,
+       65
+      ],
+      [
+       16.5,
+       72
+      ],
+      [
+       19,
+       74
+      ],
+      [
+       22,
+       66
+      ],
+      [
+       24.5,
+       50
+      ],
+      [
+       26,
+       30
+      ],
+      [
+       26.5,
+       0
+      ],
+      [
+       26,
+       -30
+      ],
+      [
+       24.5,
+       -50
+      ],
+      [
+       22,
+       -66
+      ],
+      [
+       19,
+       -74
+      ],
+      [
+       16.5,
+       -72
+      ],
+      [
+       14.6,
+       -65
+      ],
+      [
+       12.8,
+       -54
+      ],
+      [
+       11.7,
+       -43
+      ],
+      [
+       11.3,
+       -34
+      ],
+      [
+       11.6,
+       -26
+      ],
+      [
+       12.4,
+       -18
+      ],
+      [
+       13.5,
+       -11
+      ],
+      [
+       15,
+       -7
+      ]
+     ],
+     "colour": "white"
+    }
+   ]
+  },
+  {
+   "id": "body",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 54",
+    "even 6",
+    "dec 6 to 48",
+    "even 2",
+    "dec 6 to 42",
+    "even 1",
+    "dec 6 to 36"
+   ],
+   "colour": "navy",
+   "end": "open",
+   "stuff": "firm"
+  },
+  {
+   "id": "belly",
+   "rounds": [
+    "ch 7",
+    "inc 6 to 56"
+   ],
+   "colour": "white",
+   "end": "open",
+   "stuff": "none"
+  },
+  {
+   "id": "beak",
+   "rounds": [
+    "mr 4",
+    "inc 2 to 12",
+    "even 1"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "light",
+   "squash": 0.4
+  },
+  {
+   "id": "flipper",
+   "rounds": [
+    "mr 6",
+    "12",
+    "18",
+    "even 3",
+    "15",
+    "even 3",
+    "12"
+   ],
+   "colour": "navy",
+   "end": "open",
+   "stuff": "light",
+   "flatten": 0.35
+  },
+  {
+   "id": "foot",
+   "rounds": [
+    "mr 6",
+    "inc 6 to 12",
+    "15",
+    "even 3"
+   ],
+   "colour": "orange",
+   "end": "open",
+   "stuff": "none",
+   "flatten": 0.85
+  }
+ ],
+ "assembly": [
+  {
+   "part": "body",
+   "axis": [
+    0,
+    1,
+    0
+   ]
+  },
+  {
+   "part": "head",
+   "on": "body",
+   "at": {
+    "round": "end"
+   },
+   "attach": "end",
+   "dir": [
+    0,
+    1,
+    0
+   ],
+   "sink": 3
+  },
+  {
+   "part": "belly",
+   "on": "body",
+   "at": {
+    "round": 12.5,
+    "az": 0
+   },
+   "applique": true,
+   "roll": 90
+  },
+  {
+   "part": "beak",
+   "on": "head",
+   "at": {
+    "round": 18,
+    "az": 0
+   },
+   "dir": [
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "part": "flipper",
+   "on": "body",
+   "at": {
+    "round": 18,
+    "az": 86
+   },
+   "dir": [
+    0.7,
+    -1,
+    0.05
+   ],
+   "mirror": true,
+   "front": [
+    1,
+    0,
+    0
+   ],
+   "avoid": true,
+   "contact": 0.6
+  },
+  {
+   "part": "foot",
+   "on": "body",
+   "at": {
+    "round": 4.5,
+    "az": 32
+   },
+   "dir": [
+    0.6,
+    -0.15,
+    1
+   ],
+   "mirror": true
+  }
+ ],
+ "face": [
+  {
+   "type": "satin",
+   "role": "eye",
+   "on": "head",
+   "at": {
+    "round": 17.5,
+    "az": 25
+   },
+   "width_mm": 8,
+   "height_mm": 10.5,
+   "shape": "oval",
+   "colour": "black",
+   "thickness_mm": 1.1,
+   "mirror": true
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 17.5,
+    "az": 25
+   },
+   "width_mm": 2.8,
+   "height_mm": 2.8,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 0.9,
+   "offset_mm": [
+    -1.6,
+    2.1
+   ]
+  },
+  {
+   "type": "satin",
+   "role": "glint",
+   "on": "head",
+   "at": {
+    "round": 17.5,
+    "az": -25
+   },
+   "width_mm": 2.8,
+   "height_mm": 2.8,
+   "shape": "oval",
+   "colour": "white",
+   "thickness_mm": 0.9,
+   "lift_mm": 0.9,
+   "offset_mm": [
+    -1.6,
+    2.1
+   ]
+  },
+  {
+   "type": "blush",
+   "on": "head",
+   "at": {
+    "round": 19,
+    "az": 40
+   },
+   "size_mm": 9,
+   "colour": "pink",
+   "mirror": true,
+   "strength": 0.6
+  }
+ ]
+}
