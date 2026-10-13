@@ -25,10 +25,11 @@ llm = ["anthropic>=1.0"]
 [tool.setuptools]
 # The repository root IS the package: the lab imports it as amigurumi-lab/amikit (`python -m amikit.x` from
 # amigurumi-lab/), so the code stays where it is. Installed: code + docs (SPEC.md is read at run time) + the
-# editor UI; toy specs (toys/) and test data stay in the repository.
+# design skill (skill/: SKILL.md, recipes, review, designer card, helper scripts) + the editor UI; toy specs
+# (toys/) and test data stay local.
 package-dir = { "amikit" = "." }
 packages = ["amikit"]
 include-package-data = false
 
 [tool.setuptools.package-data]
-amikit = ["*.md", "editor/*.html", "editor/*.js", "editor/*.css"]
+amikit = ["*.md", "editor/*.html", "editor/*.js", "editor/*.css", "skill/*.md", "skill/scripts/*.py"]

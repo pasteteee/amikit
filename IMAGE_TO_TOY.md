@@ -1,5 +1,9 @@
 # Brief: from a picture to an amigurumi toy (agent workflow)
 
+> Superseded by [`skill/SKILL.md`](skill/SKILL.md), the full, evidence-backed workflow with
+> [`skill/recipes.md`](skill/recipes.md), [`skill/review.md`](skill/review.md) and helper scripts. Read that first.
+> This page is kept as the short version.
+
 You get one or more pictures of a toy, a pet or a drawing. You produce `amikit/toys/<name>.json` (see `SPEC.md`):
 a toy that a crocheter can make, that looks like the picture, and that is cute. The engine derives the 3D look and
 the written pattern from your spec; you only decide construction and numbers.

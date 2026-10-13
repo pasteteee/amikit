@@ -9,3 +9,5 @@ __pycache__/
 # designers' patterns and photos for test_reverse (third-party, learn-only): kept locally, never committed;
 # without them test_designer_patterns_build is skipped
 /reverse_tests/
+# toy specs (the designs, incl. collections and lab versions): local only, never committed (2026-10-13)
+/toys/
