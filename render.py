@@ -34,7 +34,7 @@ _FS = """
 #version 330
 uniform vec3 cam; uniform vec3 key_dir; uniform vec3 fill_dir; uniform vec3 rim_dir;
 uniform sampler2D shadow_map; uniform float shadow_texel; uniform float exposure; uniform vec3 bg_col; uniform float floor_fade;
-uniform float transparent;
+uniform float transparent; uniform vec2 floor_c; uniform float shadow_r; uniform float frame_px;
 in vec3 v_pos; in vec3 v_nrm; in vec3 v_col; in float v_ao; in float v_h; in float v_mat; in vec4 v_ls;
 in vec3 v_nb; in vec2 v_uv; in float v_amp;
 out vec4 frag;
@@ -42,13 +42,16 @@ STITCH_GLSL
 vec3 to_lin(vec3 c){ return pow(c, vec3(2.2)); }
 float shadow(){
   vec3 p = v_ls.xyz / v_ls.w * 0.5 + 0.5;
-  if(p.x<0.0||p.x>1.0||p.y<0.0||p.y>1.0) return 1.0;
+  if(p.x<0.0||p.x>1.0||p.y<0.0||p.y>1.0||p.z>1.0) return 1.0;
+  // fade to lit towards the map's border: past it nothing is known, and a hard cut there draws a straight
+  // edge across the floor (the toy itself never reaches the border)
+  float edge = 1.0 - smoothstep(0.8, 0.98, max(abs(p.x*2.0-1.0), abs(p.y*2.0-1.0)));
   float s=0.0; float n=0.0;
   for(int i=-3;i<=3;i++) for(int j=-3;j<=3;j++){
     float d = texture(shadow_map, p.xy + vec2(i,j)*shadow_texel*1.6).r;
     s += (p.z - 0.0015 <= d) ? 1.0 : 0.0; n += 1.0;
   }
-  return s/n;
+  return mix(1.0, s/n, edge);
 }
 void main(){
   vec3 N = normalize(v_nrm);
@@ -117,7 +120,12 @@ void main(){
     if(transparent > 0.5){
       // transparent preview: the floor is only its contact shadow, a warm dark veil over whatever is behind
       // the faint AO far out on the floor would read as a grey veil: keep only the shadow proper
-      float a = clamp(((1.0 - lit) - 0.05) * (1.0 - fade) * 1.25, 0.0, 0.85);
+      // and it falls off radially to nothing well inside the floor and the frame, so a tile never shows its edge
+      float fall = 1.0 - smoothstep(shadow_r*0.45, shadow_r, length(v_pos.xz - floor_c));
+      // and to nothing at the frame's border too (a tall toy's frame cuts the floor in front of it)
+      vec2 fc = min(gl_FragCoord.xy, vec2(frame_px) - gl_FragCoord.xy);
+      fall *= smoothstep(0.0, frame_px*0.08, min(fc.x, fc.y));
+      float a = clamp(((1.0 - lit) - 0.05) * fall * 1.25, 0.0, 0.85);
       frag = vec4(0.17, 0.11, 0.09, a);
       return;
     }
@@ -187,6 +195,19 @@ def perspective(fov_deg, aspect, near, far):
     return M
 
 
+def _box_blur(a, w, passes=3):
+    """Near-gaussian blur of a 2-D array (`passes` box filters of odd width `w`, edges clamped). Smooths the
+    floor's per-vertex AO: a few dozen hard per-direction occlusions otherwise draw radial streaks into the contact
+    shadow. On the floor's grid (dense under the toy) it softens more the further out, like a real penumbra."""
+    h = w // 2
+    for _ in range(passes):
+        for ax in (0, 1):
+            pad = [(0, 0), (0, 0)]; pad[ax] = (h + 1, h)
+            c = np.cumsum(np.pad(a, pad, mode="edge"), axis=ax)
+            a = (np.take(c, range(w, c.shape[ax]), axis=ax) - np.take(c, range(0, c.shape[ax] - w), axis=ax)) / w
+    return a
+
+
 def ortho(half, near, far):
     M = np.eye(4)
     M[0, 0] = M[1, 1] = 1 / half
@@ -227,12 +248,17 @@ class Renderer:
         self.center = (lo + hi) / 2
         self.radius = float(np.linalg.norm(hi - lo) / 2)
         n_obj = len(V)
+        self._floor_ng = 0
         if floor:
             ext = self.radius * 6
-            g = np.linspace(-ext, ext, 161)
+            # dense under the toy, where the contact shadow (per-vertex AO) lives, sparse out to the horizon
+            ng = 241
+            t = np.linspace(-1, 1, ng)
+            g = ext * np.sign(t) * t ** 2
             GX, GZ = np.meshgrid(g + self.center[0], g + self.center[2], indexing="ij")
             gv = np.stack([GX, np.zeros_like(GX) - 0.05, GZ], -1).reshape(-1, 3)
-            ii = np.arange(161 * 161).reshape(161, 161)
+            ii = np.arange(ng * ng).reshape(ng, ng)
+            self._floor_ng = ng
             gf = np.concatenate([np.stack([ii[:-1, :-1], ii[:-1, 1:], ii[1:, 1:]], -1).reshape(-1, 3),
                                  np.stack([ii[:-1, :-1], ii[1:, 1:], ii[1:, :-1]], -1).reshape(-1, 3)])
             NB.append(np.tile([0, 1.0, 0], (len(gv), 1))); UV.append(np.zeros((len(gv), 2))); AMP.append(np.zeros(len(gv)))
@@ -254,6 +280,9 @@ class Renderer:
         self.n_obj = n_obj
         self.F_obj = np.concatenate(F[:len(parts)]).astype("i4")
         self.AO = self._bake_ao(ao_dirs).astype("f4")
+        if self._floor_ng:
+            ng = self._floor_ng
+            self.AO[n_obj:] = _box_blur(self.AO[n_obj:].reshape(ng, ng), 9).ravel()
         self._upload()
 
     def release(self):
@@ -321,7 +350,10 @@ class Renderer:
             x = np.clip(((ndc[:, 0] * 0.5 + 0.5) * res).astype(int), 0, res - 1)
             y = np.clip(((ndc[:, 1] * 0.5 + 0.5) * res).astype(int), 0, res - 1)
             z = ndc[:, 2] * 0.5 + 0.5
-            vis = (z - 0.0008 <= depth[y, x]).astype(float)
+            # outside this depth view nothing of the toy is in the way (clamping to the edge pixel would read
+            # the toy's own border depth there: blocky false occlusion over the far floor, cut by straight edges)
+            out = (np.abs(ndc[:, 0]) > 1) | (np.abs(ndc[:, 1]) > 1)
+            vis = ((z - 0.0008 <= depth[y, x]) | out).astype(float)
             num += w * vis; den += w
         ao = np.where(den > 0, num / np.maximum(den, 1e-9), 1.0)
         return np.clip(ao, 0, 1) ** 0.8
@@ -374,6 +406,8 @@ class Renderer:
         p["shadow_map"].value = 0; p["shadow_texel"].value = 1.0 / res
         p["bg_col"].value = tuple(bgc); p["exposure"].value = float(self.exposure); p["floor_fade"].value = float(self.radius * 3.2)
         p["transparent"].value = 1.0 if transparent else 0.0
+        p["floor_c"].value = (float(self.center[0]), float(self.center[2])); p["shadow_r"].value = float(self.radius * 1.5)
+        p["frame_px"].value = float(S)
         self.vao.render(moderngl.TRIANGLES)
         if transparent:
             img = np.frombuffer(fbo.read(components=4), dtype=np.uint8).reshape(S, S, 4)[::-1]

@@ -17,12 +17,16 @@ from .render import VIEWS, Renderer
 from .toy import Toy
 
 
-def crop_alpha(im: Image.Image, pad: float = 0.06, threshold: int = 10) -> Image.Image:
-    """Square crop around everything visible (alpha > threshold), `pad` of the side added around it."""
-    a = im.getchannel("A").point(lambda v: 255 if v > threshold else 0)
+def crop_alpha(im: Image.Image, pad: float = 0.06, threshold: int = 3) -> Image.Image:
+    """Square crop around everything visible (alpha > threshold), `pad` of the side added around it. Near-zero
+    alpha (<= threshold, invisible on any tile) is cleared first, so the canvas never cuts a faint veil into a
+    straight edge."""
+    im = im.convert("RGBA")
+    a = im.getchannel("A").point(lambda v: v if v > threshold else 0)
     box = a.getbbox()
     if not box:
         return im
+    im.putalpha(a)
     x0, y0, x1, y1 = box
     side = max(x1 - x0, y1 - y0)
     side = int(side * (1 + 2 * pad))
