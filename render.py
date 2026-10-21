@@ -337,7 +337,7 @@ class Renderer:
         dirs = np.stack([np.sin(phi) * np.cos(th), np.cos(phi), np.sin(phi) * np.sin(th)], -1)
         P = self.V.astype(float) + self.N.astype(float) * 0.35
         Nn = self.N.astype(float)
-        is_floor = self.M > 3.5
+        Ph = np.hstack([P, np.ones((len(P), 1))])
         num = np.zeros(len(P)); den = np.zeros(len(P))
         for d in dirs:
             w = np.clip(Nn @ d, 0, None)
@@ -345,8 +345,11 @@ class Renderer:
                 den += w           # the floor blocks everything below the horizon
                 continue
             mvp, depth = self._depth_view(d, res)
-            ph = np.hstack([P, np.ones((len(P), 1))]) @ mvp.T
-            ndc = ph[:, :3] / ph[:, 3:4]
+            # only the vertices that face this direction count (w = 0 adds nothing to num or den)
+            sel = np.flatnonzero(w > 0)
+            w = w[sel]
+            # the depth projection is orthographic: w of the clip coordinates is 1, no perspective divide
+            ndc = Ph[sel] @ mvp.T
             x = np.clip(((ndc[:, 0] * 0.5 + 0.5) * res).astype(int), 0, res - 1)
             y = np.clip(((ndc[:, 1] * 0.5 + 0.5) * res).astype(int), 0, res - 1)
             z = ndc[:, 2] * 0.5 + 0.5
@@ -354,7 +357,7 @@ class Renderer:
             # the toy's own border depth there: blocky false occlusion over the far floor, cut by straight edges)
             out = (np.abs(ndc[:, 0]) > 1) | (np.abs(ndc[:, 1]) > 1)
             vis = ((z - 0.0008 <= depth[y, x]) | out).astype(float)
-            num += w * vis; den += w
+            num[sel] += w * vis; den[sel] += w
         ao = np.where(den > 0, num / np.maximum(den, 1e-9), 1.0)
         return np.clip(ao, 0, 1) ** 0.8
 

@@ -17,6 +17,7 @@ from scipy.optimize import minimize
 PRESSURE = {"firm": 0.050, "medium": 0.032, "light": 0.016, "none": 0.0015}
 K_LOCK = 40.0          # quartic stiffening of yarn past the elastic range
 K_BEND = 0.4          # meridian bending (thick fabric rounds off corners)
+_FD_EPS = 1e-8        # finite-difference step of scipy's L-BFGS-B (its `eps` option)
 
 
 def _strain_energy(s):
@@ -76,32 +77,48 @@ def solve(counts, w, h, closed=True, stuffing="firm", oval_len=0.0, loops=None, 
         z = np.concatenate([[0.0], z])
         return r, z
 
-    def energy(x):
-        r, z = unpack(x)
+    nr = int(free_r.sum())
+
+    def energy_batch(X):
+        """The stuffing energy of every row of X at once (the rows are candidate [free radii, heights])."""
+        B = X.shape[0]
+        r = np.tile(r_rest, (B, 1))
+        r[:, free_r] = X[:, :nr]
+        z = np.concatenate([np.zeros((B, 1)), X[:, nr:]], axis=1)
         r = np.maximum(r, 0.0)
-        drr, dzz = np.diff(r), np.diff(z)
+        drr, dzz = np.diff(r, axis=1), np.diff(z, axis=1)
         seg = np.sqrt(drr ** 2 + dzz ** 2 + 1e-12)
         s_m = (seg - seg_len) / seg_len
         band_c = 0.5 * (fab_c[1:] + fab_c[:-1])
-        e = np.sum(band_c * seg_len * _strain_energy(s_m)) * 0.3
+        e = np.sum(band_c * seg_len * _strain_energy(s_m), axis=1) * 0.3
         per = 2 * np.pi * r + 2 * L
         s_c = np.where(c_rest_b > 1e-9, (per - c_rest_b) / np.maximum(c_rest_b, 1e-9), 0.0)
-        e += np.sum(fab_c * h * _strain_energy(s_c))
-        # bending: turning angle between consecutive meridian segments
+        e += np.sum(fab_c * h * _strain_energy(s_c), axis=1)
         tx, ty = drr / seg, dzz / seg
-        cross = tx[:-1] * ty[1:] - ty[:-1] * tx[1:]
-        dot = tx[:-1] * tx[1:] + ty[:-1] * ty[1:]
+        cross = tx[:, :-1] * ty[:, 1:] - ty[:, :-1] * tx[:, 1:]
+        dot = tx[:, :-1] * tx[:, 1:] + ty[:, :-1] * ty[:, 1:]
         ang = np.arctan2(cross, dot)
-        e += K_BEND * np.sum(fab_c[1:-1] * bend_w[1:-1] * ang ** 2) * h / h
-        # pressure: volume of stadium-revolution solid
+        e += K_BEND * np.sum(fab_c[1:-1] * bend_w[1:-1] * ang ** 2, axis=1) * h / h
         area = np.pi * r ** 2 + 2 * L * r
-        vol = np.sum(dzz * (area[1:] + area[:-1] + np.sqrt(area[1:] * area[:-1] + 1e-12)) / 3.0)
+        vol = np.sum(dzz * (area[:, 1:] + area[:, :-1] + np.sqrt(area[:, 1:] * area[:, :-1] + 1e-12)) / 3.0, axis=1)
         e -= p * vol / w
         return e
 
+    def fun_jac(x):
+        # minimize(jac=None) differences with an absolute step of 1e-8 (L-BFGS-B's `eps`); the same forward
+        # differences here, but the n + 1 energies come from one vectorised call instead of n + 1 Python calls
+        n = len(x)
+        X = np.tile(x, (n + 1, 1))
+        idx = np.arange(n)
+        X[idx + 1, idx] = x + _FD_EPS
+        dx = X[idx + 1, idx] - x
+        f = energy_batch(X)
+        return float(f[0]), (f[1:] - f[0]) / dx
+
     x0 = np.concatenate([r_rest[free_r], z0[1:]])
-    bounds = [(0.0, None)] * int(free_r.sum()) + [(None, None)] * M
-    res = minimize(energy, x0, method="L-BFGS-B", bounds=bounds, options={"maxiter": 3000, "maxfun": 200000})
+    bounds = [(0.0, None)] * nr + [(None, None)] * M
+    res = minimize(fun_jac, x0, jac=True, method="L-BFGS-B", bounds=bounds,
+                   options={"maxiter": 3000, "maxfun": 200000})
     r, z = unpack(res.x)
     return np.maximum(r, 0.0), z, {"converged": bool(res.success), "energy": float(res.fun), "r_rest": r_rest}
 

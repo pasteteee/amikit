@@ -10,7 +10,10 @@ so a spec change can be judged by numbers as well as by eye.
 """
 from __future__ import annotations
 import argparse
+import hashlib
 import json
+import threading
+from collections import OrderedDict
 
 import numpy as np
 from PIL import Image, ImageDraw
@@ -47,7 +50,33 @@ def _backdrop(a):
     return full.reshape(h, w, 3), float(np.median(res[keep]))
 
 
+_MASKS: "OrderedDict[tuple, np.ndarray]" = OrderedDict()
+_MASKS_MAX = 24
+_MASKS_LOCK = threading.Lock()
+
+
 def toy_mask(im):
+    """The toy's silhouette on a plain backdrop (see _toy_mask). Remembered by the picture's content: a concept's
+    pictures are measured again at every build of a job (every look, every autofit, every ranked seed), and the
+    flood fill on a 768 px picture costs more than the whole render it is compared with."""
+    if im.mode not in ("RGB", "RGBA", "L", "LA"):
+        return _toy_mask(im)                     # palette pictures: the bytes alone do not say what the colours are
+    key = (im.size, im.mode, hashlib.md5(im.tobytes()).digest())
+    with _MASKS_LOCK:
+        hit = _MASKS.get(key)
+        if hit is not None:
+            _MASKS.move_to_end(key)
+    if hit is None:
+        hit = _toy_mask(im)
+        hit.setflags(write=False)
+        with _MASKS_LOCK:
+            _MASKS[key] = hit
+            while len(_MASKS) > _MASKS_MAX:
+                _MASKS.popitem(last=False)
+    return hit.copy()
+
+
+def _toy_mask(im):
     """The toy's silhouette on a plain backdrop.
 
     A real alpha channel is used when present. Otherwise the backdrop (a fitted colour plane) is flooded from the

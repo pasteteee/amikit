@@ -7,7 +7,10 @@ See SPEC.md for the full format.
 """
 from __future__ import annotations
 import copy
+import hashlib
 import json
+import threading
+from collections import OrderedDict
 import numpy as np
 from scipy.spatial import cKDTree
 
@@ -174,6 +177,23 @@ def _inner_mask(inst, i, n, az, th, z):
     lo, hi = float(y[face].min()), float(y[face].max())
     c, w = (lo + hi) / 2, (hi - lo) / 2
     return front & (np.abs(y - c) <= float(z.get("width", 0.62)) * w)
+
+
+def _copy_parts(parts):
+    """Meshes that can be edited without touching the originals (arrays copied; pieces and k-d trees shared)."""
+    out = []
+    for m in parts:
+        c = {}
+        for k, v in m.items():
+            c[k] = v.copy() if isinstance(v, np.ndarray) else (copy.deepcopy(v) if isinstance(v, dict) else v)
+        out.append(c)
+    return out
+
+
+def _workers(n):
+    """cKDTree.query threads: big batches (a draped piece's whole grid, an applique's mesh) are split over the
+    cores - the nearest neighbours are the same, only found sooner."""
+    return -1 if n >= 4096 else 1
 
 
 class Instance:
@@ -407,14 +427,14 @@ class Instance:
 
     def signed_distance(self, X):
         tree, P, N, _ = self.kd()
-        d, i = tree.query(X)
+        d, i = tree.query(X, workers=_workers(len(X)))
         return np.einsum("ij,ij->i", X - P[i], N[i]), P[i], N[i]
 
     def penetration(self, X):
         """Depth of points inside this piece (<= 0 inside, +inf where the point is clearly outside or the
         nearest-surface test is unreliable: far away, or not behind the surface along its normal)."""
         tree, P, N, _ = self.kd()
-        d, i = tree.query(X)
+        d, i = tree.query(X, workers=_workers(len(X)))
         v = X - P[i]
         sd = np.einsum("ij,ij->i", v, N[i])
         behind = sd < -0.6 * np.maximum(d, 1e-9)
@@ -466,6 +486,55 @@ class Toy:
         self._assemble()
         self._rest_soft_pieces()
         self._check_keys()
+        self._flags0 = list(self.flags)
+
+    # a few recent toys (and their built meshes), for callers that build the same spec several times ------------
+    _LRU: "OrderedDict[str, tuple]" = OrderedDict()
+    _LRU_MAX = 3
+    _LRU_LOCK = threading.Lock()
+
+    @classmethod
+    def cached(cls, spec: dict) -> "Toy":
+        """Toy(spec), remembered by the spec's content: the designer loop looks at, judges, measures and packages
+        the same spec several times and every Toy() re-places every piece. The result is a private view: its own
+        `flags` and `spec`, so callers may extend those; the placed pieces are shared and are not to be changed.
+        Its build() is remembered too."""
+        key = hashlib.md5(json.dumps(spec, sort_keys=True, default=repr).encode("utf8")).hexdigest()
+        with cls._LRU_LOCK:
+            hit = cls._LRU.get(key)
+            if hit is not None:
+                cls._LRU.move_to_end(key)
+        if hit is None:
+            hit = (cls(spec), {})
+            with cls._LRU_LOCK:
+                cls._LRU[key] = hit
+                while len(cls._LRU) > cls._LRU_MAX:
+                    cls._LRU.popitem(last=False)
+        proto, builds = hit
+        t = copy.copy(proto)
+        t.flags = list(proto._flags0)
+        t.spec = copy.deepcopy(proto.spec)
+        t._builds = builds
+        return t
+
+    def build(self, ku=6, kv=5, relief=1.0):
+        """The meshes of every piece. On a toy from Toy.cached() they are made once per (ku, kv, relief) and
+        handed out as copies (a caller may edit the arrays); the flags and eye dimples a build adds are replayed."""
+        builds = getattr(self, "_builds", None)
+        if builds is None:
+            return self._build(ku, kv, relief)
+        key = (ku, kv, relief)
+        hit = builds.get(key)
+        if hit is None:
+            n0 = len(self.flags)
+            parts = self._build(ku, kv, relief)
+            builds[key] = (parts, self.flags[n0:], list(self.dimples), self.ground_shift)
+            return _copy_parts(parts)
+        parts, flags, dimples, shift = hit
+        self.flags.extend(flags)
+        self.dimples = list(dimples)
+        self.ground_shift = shift
+        return _copy_parts(parts)
 
     KNOWN = {
         "toy": {"name", "title", "title_ru", "yarn", "colours", "colour_names_ru", "parts", "assembly", "face", "notes", "version",
@@ -1591,7 +1660,7 @@ class Toy:
         return out
 
     # mesh ------------------------------------------------------------------------------------------------
-    def build(self, ku=6, kv=5, relief=1.0):
+    def _build(self, ku, kv, relief):
         self.dimples = []
         parts = []
         for name, inst in self.inst.items():
@@ -1667,12 +1736,19 @@ class Toy:
         if len(yarn) < 2:
             return
         trees = [cKDTree(m["V"][::3]) for m in yarn]
+        # a vertex further than 4 mm from a piece's bounding box has no neighbour of it within 4 mm: only the
+        # vertices inside the (grown) box are queried; the distances that are used are the same
+        boxes = [(m["V"][::3].min(axis=0) - 4.0, m["V"][::3].max(axis=0) + 4.0) for m in yarn]
         for i, m in enumerate(yarn):
-            dmin = np.full(len(m["V"]), np.inf)
+            V = m["V"]
+            dmin = np.full(len(V), np.inf)
             for j, t in enumerate(trees):
                 if i != j:
-                    d, _ = t.query(m["V"], distance_upper_bound=4.0)
-                    dmin = np.minimum(dmin, d)
+                    lo, hi = boxes[j]
+                    idx = np.flatnonzero(np.all((V >= lo) & (V <= hi), axis=1))
+                    if len(idx):
+                        d, _ = t.query(V[idx], distance_upper_bound=4.0)
+                        dmin[idx] = np.minimum(dmin[idx], d)
             f = 1.0 - 0.2 * np.exp(-(np.minimum(dmin, 50) / 1.4) ** 2)
             m["C"] = m["C"] * f[:, None]
 
