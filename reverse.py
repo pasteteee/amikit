@@ -1788,6 +1788,7 @@ def _our_assembly(spec, doc, by_name, log):
                     e["seam_line"] = ex["seam_line"]
                 if st.get("join"):
                     e["join"] = "crochet"
+                    e["join_fit"] = False         # the written position is where it was crocheted in
                 if "bend" in ex:
                     part["_bend_vec"] = None
                     e["bend_toward"] = ex["bend"]

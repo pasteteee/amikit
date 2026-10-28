@@ -552,7 +552,7 @@ class Toy:
                   "pad", "lift", "roll", "front", "avoid", "contact", "max_turn", "conform", "conform_span",
                   "conform_parent", "axis", "pos", "face", "cup", "toward", "bend_toward", "notes", "seam", "seam_line",
                   "pinch", "pinch_rounds", "avoid_toward", "offset_mm", "along", "inset", "seat", "drape",
-                  "around", "anchor", "shift", "fall", "sink_dir", "rim_arc", "wear", "join"},
+                  "around", "anchor", "shift", "fall", "sink_dir", "rim_arc", "wear", "join", "join_fit"},
         "face": {"id", "type", "on", "at", "mirror", "size_mm", "aspect", "sink", "iris", "pupil", "colour", "shape",
                  "highlight", "offset_mm", "lift_mm", "role",
                  "colours", "count", "length_mm", "droop", "curl", "spread", "seed", "doubled", "link_mm",
@@ -843,6 +843,8 @@ class Toy:
                 f = li.R[:, 0]                   # and its front reference (the press side of the seam)
                 e["front"] = [float(-f[0]), float(f[1]), float(f[2])]
                 e.pop("roll", None)              # (already in the left copy's built front)
+        if reach and e.get("join_fit", True) and at.get("round") not in ("end", "start"):
+            j, az_t = self._join_fit(e, pdef, parent, at, j)
         jn = plan_near(parent, j, az_t, (pdef.counts[-1] + 1) // 2, taken,
                        pair=bool(e.get("mirror")) and not e.get("_mirror"), reach=reach)
         if jn is None:
@@ -1548,6 +1550,40 @@ class Toy:
             vec = vec * self._arc_weight(inst, ths, arc)[:, None]
         inst.corrections.append((t_rim - span, span, ths, vec))
         inst.invalidate()
+
+    def _join_fit(self, e, pdef, parent, at, j):
+        """Where to crochet a piece in so it looks as designed. Joined along a round, a piece can only hinge about
+        that round: a leg meant to point forward from the side of a body would point sideways where it was sewn.
+        So the join slides along the round (and up to a round up or down) to the place where the piece, hinged
+        there, puts its free end and its middle closest to where the sewn design has them. Returns (round, az)."""
+        az0 = float(at.get("az", 0.0))
+        P0, n0 = parent.point(float(at["round"]), az0)
+        d0 = _norm(np.asarray(e.get("dir", n0), float)) if e.get("dir_mode", "world") != "normal" else n0
+        L = float(pdef.zb.max() - pdef.zb.min())
+        tip0, mid0 = P0 + L * d0, P0 + 0.5 * L * d0
+        best = None
+        for jj in (j - 1, j, j + 1):
+            if jj < 2 or jj > parent.p.N:
+                continue
+            n = parent.p.counts[jj - 1]
+            step = 360.0 / n
+            for kk in range(-int(60 / step) - 1, int(60 / step) + 2):
+                az = az0 + kk * step / 2
+                P, nP = parent.point(jj, az)
+                th = parent.theta(az); t = float(jj) - 0.5
+                T = _norm(parent.base(np.array([t]), np.array([th + 0.01]))[0]
+                          - parent.base(np.array([t]), np.array([th - 0.01]))[0])
+                dd = d0 - (d0 @ T) * T
+                if np.linalg.norm(dd) < 0.2 or float(_norm(dd) @ nP) < -0.2:
+                    continue                 # (would point into the parent)
+                dd = _norm(dd)
+                cost = (float(np.linalg.norm(P + L * dd - tip0)) + float(np.linalg.norm(P + 0.5 * L * dd - mid0))
+                        + 0.5 * float(np.linalg.norm(P - P0)))      # (the base itself should not wander far)
+                if best is None or cost < best[0]:
+                    best = (cost, jj, az)
+        if best is None:
+            return j, az0
+        return best[1], best[2]
 
     def _join_conform(self, inst, parent, e, span):
         """A crocheted-in edge lies on the stitches that hold it: the pressed rim is laid along the joined run of the
