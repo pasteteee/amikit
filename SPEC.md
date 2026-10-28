@@ -187,6 +187,28 @@ Common English names (brown, tan, pink, sage, ...) are translated in the Russian
 - `conform` (default true for open pieces) / `conform_span` (rounds blended onto the parent, 1.6) /
   `conform_parent` (an open parent rim follows a child pressed onto it, e.g. a body's neck onto the head).
 
+### No-sew: pieces crocheted into the parent's rounds — toy key `construction`, entry key `join`
+
+`"construction": "nosew"` on the toy crochets every open ear, arm, leg, tail, wing, paw, fin, horn... into its
+parent instead of sewing it on (`amikit/nosew.py`; by the part id's words, see `nosew.JOIN_WORDS`). Per entry:
+`"join": "crochet"` joins that piece, `"join": "sew"` keeps it sewn. A joined piece is open, sewn by its opening
+(`attach: end`), on a parent worked in plain rounds that is not one of a mirrored pair, at a round (not a pole);
+muzzles, appliques, worn pieces, collars, closed pieces and edge-sewn discs stay sewn (the build says why).
+- The piece is made first; its opening (c stitches) is laid in two layers, and in parent round j (the round
+  nearest `at.round`) ⌈c/2⌉ consecutive stitches are worked through both layers of the edge and the parent's
+  stitch together — one new stitch per pair; increases / decreases of the round stay where they are (a run may
+  begin or end inside an increase, and may pass the round-start marker into the first stitches of round j+1).
+- The run is centred nearest the entry's `az`; `at` becomes that run's centre (whole stitches), the right copy of a
+  pair is the mirror image of the left copy's run (within half a stitch: the spiral drift) and its built
+  direction mirrored. The seam is a fully pinched flat seam along the round (`seam_line` = the round there), the
+  piece hinges about it (its axis square to the round), and the pressed edge is laid on the run end to end.
+- The pattern lists the piece before its parent, says "leave it open, cut the yarn short", and in round j of the
+  parent: after how many stitches, which of the round's own ops go through the edge (`<!-- join ... -->`); the
+  assembly step says it is already crocheted in (`<!-- join crochet -->`; `reverse.py` reads it back).
+- `python -m amikit.nosew <spec> <out>` builds the toy sewn and no-sew: `nosew.json` (stitch checks, the edge's
+  distance from its stitches, length and centre errors, change from the sewn design, the pattern round trip),
+  `compare.png` (sewn above, no-sew below).
+
 ### Pieces that are not worked in rounds
 
 - **Chain cord** (`ch N`, sl st back): `{"id": "tail", "cord": {"length_mm": 60, "thickness_mm": 2.6,

@@ -280,9 +280,14 @@ def _dominant(v):
 
 TOK = {
     "ru": {"sc": "сбн", "inc": "пр", "dec": "уб", "inc3": "3 сбн в 1 п.", "same": "1 сбн в ту же п.",
-           "pop": "попкорн"},
+           "pop": "попкорн",
+           # (a joined run that starts or ends inside an increase: no-sew, amikit/nosew.py)
+           "inc_a": "1-я п. прибавки", "inc_b": "2-я п. прибавки", "inc3_a": "1-я из 3 сбн в 1 п.",
+           "inc3_b": "2-я из 3 сбн в 1 п.", "inc3_c": "3-я из 3 сбн в 1 п."},
     "en": {"sc": "sc", "inc": "inc", "dec": "dec", "inc3": "3 sc in next st", "same": "1 sc in same st",
-           "pop": "popcorn"},
+           "pop": "popcorn",
+           "inc_a": "1st sc of an inc", "inc_b": "2nd sc of an inc", "inc3_a": "1st of 3 sc in next st",
+           "inc3_b": "2nd of 3 sc in next st", "inc3_c": "3rd of 3 sc in next st"},
 }
 
 
@@ -864,6 +869,34 @@ def pattern_model(toy):
     for pid in toy.defs:
         if pid not in order:
             order.append(pid)
+    # no-sew: a piece crocheted into its parent's round is made before the parent
+    joins_on = {}                 # parent part id -> {round: [join, ...]}
+    joined_of = {}                # child part id -> [{"parent", "round"}], and how many of its entries are joined
+    for e in toy.entries:
+        jn = e.get("_join")
+        if not jn or e["name"] not in insts:
+            continue
+        ppid = insts[jn["parent"]].p.id
+        joins_on.setdefault(ppid, {}).setdefault(jn["round"], []).append(
+            {"name": e["name"], "part": e["part"], "side": side_of(toy, e["name"]), "st_start": jn["st_start"],
+             "k": jn["k"], "pairs": jn["pairs"], "opening": jn.get("opening"), "ops": list(jn["ops"]),
+             "ops_next": list(jn.get("ops_next") or []), "n": jn["n"], "wrap": jn["wrap"],
+             "dir": _dominant(-insts[e["name"]].R[:, 2])})
+        lst = joined_of.setdefault(e["part"], [])
+        if {"parent": ppid, "round": jn["round"]} not in lst:
+            lst.append({"parent": ppid, "round": jn["round"]})
+    for cp in joined_of:
+        pps = [j["parent"] for j in joined_of[cp]]
+        if cp in order and all(pp in order for pp in pps):
+            order.remove(cp)
+            order.insert(min(order.index(pp) for pp in pps), cp)
+    n_inst = {}
+    for nm, inst_ in insts.items():
+        n_inst[inst_.p.id] = n_inst.get(inst_.p.id, 0) + 1
+    n_joined = {}
+    for e in toy.entries:
+        if e.get("_join") and e["name"] in insts:
+            n_joined[e["part"]] = n_joined.get(e["part"], 0) + 1
 
     # face items per host part (to say when to insert them)
     face = _face_items(toy)
@@ -916,6 +949,8 @@ def pattern_model(toy):
                   "groups": [[u, k] for u, k in group_ops(ops)],
                   "colour_runs": [[c, sum(PRODUCE[t] for t in toks)] for c, toks in segs],
                   "segments": [[c, toks] for c, toks in segs], "change_to": change}
+            if i in joins_on.get(pid, {}):
+                rd["joins"] = sorted(joins_on[pid][i], key=lambda x: x["st_start"])
             if i == 1:
                 rd["start"] = r.start
                 rd["chain"] = r.chain
@@ -1005,6 +1040,7 @@ def pattern_model(toy):
             "size_mm": size,
             "check": check(pdef.rounds) if motif is None else pdef.check(),
             **({"motif": motif} if motif else {}),
+            **({"joined_into": joined_of[pid]} if n_joined.get(pid) and n_joined[pid] == n_inst.get(pid) else {}),
         })
 
     # assembly -----------------------------------------------------------------------------------------------
@@ -1209,6 +1245,9 @@ def pattern_model(toy):
                 st["rim_arc"] = {"az": [a0, a1], "stitches": int(inside.sum()), "faces": _dominant(c_)}
             if st["seam_flat"] or st["squash"] > 0 or st["flatten"] >= 0.5:
                 st["seam"] = _seam_info(inst, parent, e)
+            if e.get("_join"):
+                jn = e["_join"]
+                st["join"] = {"round": jn["round"], "st_start": jn["st_start"], "k": jn["k"], "n": jn["n"]}
         else:
             st["kind"] = "closed_end" if attach == "end" else "by_start"
             P, _, T = inst.samples(per_round=3, per_stitch=1.0)
@@ -1889,7 +1928,8 @@ def _round_lines(part, lang, breaks=()):
         j = k
         while (j + 1 < len(rows) and rows[j + 1][key] == r[key] and rows[j + 1]["loop"] == r["loop"]
                and rows[j + 1]["change_to"] is None and rows[j + 1]["n"] == r["n"]
-               and rows[j + 1].get("turned") == r.get("turned") and rows[j]["round"] not in breaks):
+               and rows[j + 1].get("turned") == r.get("turned") and rows[j]["round"] not in breaks
+               and not r.get("joins") and not rows[j + 1].get("joins")):
             j += 1
         a, b = r["round"], rows[j]["round"]
         op = part.get("opening")
@@ -1926,8 +1966,52 @@ def _round_lines(part, lang, breaks=()):
             tail = (f" — {_rounds_ru(b - a + 1)}" if lang == "ru" else
                     f" — {b - a + 1} {'rows' if r.get('turned') else 'rounds'}")
         lines.append(f"{lab}: {pre}{r[key]} ({r['n']}){tail}")
+        if r.get("joins"):
+            lines += _join_lines(r, part, lang)
         k = j + 1
     return lines
+
+
+def _join_lines(r, part, lang):
+    """No-sew: the pieces crocheted into this round - after how many stitches, how many stitches go through both
+    layers of the piece's flattened edge, and the round's own ops there (they stay as written). The exact data rides
+    in a comment for the reverse reader."""
+    ru = lang == "ru"
+    out = []
+    host_ru = part_name(part["id"], "ru", "gen")
+    host_en = part_name(part["id"], "en")
+    for jn in r["joins"]:
+        q = qualifier(jn["name"], jn["part"], lang, side=jn["side"])
+        nm_ru = ru_decline((q + " " if q else "") + part_name(jn["part"], "ru"), "acc")
+        nm_en = (q + " " if q else "") + part_name(jn["part"], "en")
+        s, k, n = jn["st_start"], jn["k"], jn["n"]
+        c = jn.get("opening", 2 * jn["pairs"])
+        pairs, back = c // 2, c - c // 2
+        ops = fmt_tokens(jn["ops"], lang)
+        b = int(jn.get("wrap") or 0)
+        nx = fmt_tokens(jn.get("ops_next") or [], lang)
+        wrap_ru = (f" Провязывание переходит через маркер: в этом ряду через край идут последние {k - b} п., а "
+                   f"остальные {b} п. — первые петли следующего ряда ({nx}).") if b else ""
+        wrap_en = (f" The run passes the round-start marker: the last {k - b} st of this round go through the edge and "
+                   f"the other {b} st are the first stitches of the next round ({nx}).") if b else ""
+        hid = f"<!-- join {jn['name']} R{r['round']} st {s} k {k} -->"
+        first_ru = "в самом начале ряда" if s == 0 else f"провяжите ряд по схеме, пока не получится {s} п.;"
+        first_en = ("at the very start of the round" if s == 0 else
+                    f"work the round as written until {s} st {'is' if s == 1 else 'are'} made;")
+        if ru:
+            out.append(f"   Привяжите {nm_ru} в этом ряду (без шитья): {first_ru} приложите сплющенный край детали к работе ({pairs} п. передней стенки против "
+                       f"{back} п. задней; деталь смотрит {DIR_RU[jn['dir']]}) и следующие петли ряда ({ops} = {k - b} п.) "
+                       f"вяжите, захватывая обе стенки края детали вместе с петлёй {host_ru}: каждая новая петля — "
+                       f"через одну пару петель края. Дальше по схеме.{wrap_ru}{hid}")
+        else:
+            out.append(f"   Join the {nm_en} in this round (no sewing): {first_en} "
+                       f"hold the piece's edge, folded into two layers, against the work ({pairs} st of its front "
+                       f"layer against "
+                       f"{back} of its back layer, the piece pointing {DIR_EN[jn['dir']]}) and work the next stitches "
+                       f"of the round ({ops} = {k - b} st) through both layers of its edge and the {host_en} stitch "
+                       f"together: each new stitch goes through one pair of edge stitches. Finish the round as "
+                       f"written.{wrap_en}{hid}")
+    return out
 
 
 AXIS_RU = {"x": "поперёк, из стороны в сторону", "y": "вертикально, сверху вниз", "z": "спереди назад"}
@@ -2485,6 +2569,35 @@ def _finish_notes(part, lang):
                    "пришивания." if ru else
                    f"Fasten off. Hold a front and a plain circle wrong sides together and sc around through both "
                    f"layers: {n_last} sc. Do not stuff. Leave a long tail (~30 cm) for sewing.")
+    elif part.get("joined_into"):
+        # no-sew: the piece is crocheted into its parent's round, nothing to sew
+        ji = part["joined_into"]
+        where_ru = "; ".join(f"в {j['round']}-м ряду детали «{part_name(j['parent'], 'ru')}»" for j in ji)
+        where_en = "; ".join(f"round {j['round']} of the {part_name(j['parent'], 'en')}" for j in ji)
+        out.append(f"Закрепите нить и обрежьте коротко, отверстие оставьте: деталь не пришивается — её край "
+                   f"провязывается вместе с петлями основы ({where_ru}), поэтому свяжите её заранее." if ru else
+                   f"Fasten off and cut the yarn short; leave it open: this piece is not sewn - its edge is crocheted "
+                   f"in ({where_en}), so make it before that round.")
+        # (the reverse reader takes "flat" / "close the opening" words as constructions: the edge is "laid in two
+        # layers" here, the pressing is said exactly as for a sewn piece)
+        if part["stuff"] != "none" and not part["applique"]:
+            out.append(f"Набейте {STUFF_RU[part['stuff']]} до ≈ 1 см от края — край должен лечь в две стенки." if ru
+                       else f"Stuff {STUFF_EN[part['stuff']]} to about 1 cm below the edge - the edge must still lie "
+                       "in two layers.")
+        else:
+            out.append("Не набивайте." if ru else "Do not stuff.")
+        if part.get("spoon", 0) > 0 or part.get("dish", 0) > 0:
+            out.append(_press_text(part, lang))
+        elif part["flatten"] >= 0.5:
+            out.append(f"Сплющите деталь{th_ru}.<!-- flattened {pct} % -->" if ru else
+                       f"Press the piece flat{th_en}.<!-- flattened {pct} % -->")
+        elif part["flatten"] > 0:
+            out.append(f"Слегка сплющите деталь (в сечении — овал; сплющена на {pct} %)." if ru else
+                       f"Press the piece slightly flat (oval cross-section; flattened {pct} %).")
+        out.append(f"Край отверстия сложите в две стенки: {n_last // 2} п. передней против {n_last - n_last // 2} п. "
+                   "задней." if ru else
+                   f"Lay the edge of the opening in two layers: {n_last // 2} st of the front layer against "
+                   f"{n_last - n_last // 2} st of the back layer.")
     else:
         if ru:
             out.append("Закрепите нить, оставив длинный конец (~30–40 см) для пришивания.")
@@ -2731,12 +2844,16 @@ def _assembly(model, lang):
             if two and pair_on:
                 s += (f" (описано для {pn(parent, 'gen')} на левом боку игрушки; на {pn(parent, 'acc')} справа "
                       "пришейте зеркально)")
+            elif two and st.get("join"):
+                s += " (описана деталь на левом боку игрушки, вторая привязана зеркально)"
             elif two:
                 s += " (описана деталь на левом боку игрушки, вторую пришейте зеркально)"
             s += ". "
         else:
             s = f"{n}. **{title} → {par_nom}**{cnt_en}. Centre: {at}"
-            if two:
+            if two and st.get("join"):
+                s += " (the one on the toy's left is described; the other is joined as its mirror image)"
+            elif two:
                 s += " (the one on the toy's left is described; sew the other as its mirror image)"
             s += ". "
         if st["kind"] == "by_edge" and st.get("dish"):
@@ -2792,7 +2909,18 @@ def _assembly(model, lang):
                 if sm["along_round"] is not None:
                     rel = ((", вдоль ряда" if sm["along_round"] else ", поперёк рядов") if ru else
                            (", along the round" if sm["along_round"] else ", across the rounds"))
-                if ru:
+                jn = st.get("join")
+                if jn and ru:
+                    s += (f"Сплющите отверстие ({n_op // 2} п. на {n_op - n_op // 2} п.) — деталь уже привязана в "
+                          f"{jn['round']}-м ряду {gen} (шить не нужно): {jn['k']} п. этого ряда после {jn['st_start']}-й "
+                          f"провязаны через обе стенки её края; шов идёт {line}{rel}: "
+                          f"{_foot_text(fp, lang, of_ru)}.<!-- join crochet -->")
+                elif jn:
+                    s += (f"Flatten the opening ({n_op // 2} st against {n_op - n_op // 2} st) - it is already crocheted "
+                          f"into round {jn['round']} of the {gen} (no sewing): {jn['k']} st of that round after stitch "
+                          f"{jn['st_start']} went through both layers of its edge; the seam runs {line}{rel}: "
+                          f"{_foot_text(fp, lang, of_en)}.<!-- join crochet -->")
+                elif ru:
                     s += (f"Сплющите отверстие ({n_op // 2} п. на {n_op - n_op // 2} п.) и пришейте прямой линией "
                           f"{line}{rel}: {_foot_text(fp, lang, of_ru)}.")
                 else:
@@ -2805,7 +2933,9 @@ def _assembly(model, lang):
                 s += (f"Пришейте по кругу отверстия ({st['opening']} п.); шов занимает "
                       f"{_foot_text(fp, lang, of_ru)}." if ru else
                       f"Sew around the opening ({st['opening']} st); the seam covers {_foot_text(fp, lang, of_en)}.")
-            if st.get("spoon"):
+            if st.get("spoon") and st.get("join"):
+                s += (" Ложечка — вогнутой стороной вперёд." if ru else " Keep the spoon hollow side forward.")
+            elif st.get("spoon"):
                 s += (" Держите ложечку вогнутой стороной вперёд; край отверстия ложится дугой по изгибу "
                       f"{_parent_text(st, lang, pn, 'gen')}, оба слоя пришиваются." if ru else
                       " Keep the spoon hollow side forward; the opening lies in a curve following the "

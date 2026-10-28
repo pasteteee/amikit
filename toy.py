@@ -450,6 +450,12 @@ class Toy:
     def __init__(self, spec: dict):
         from .presets import expand as expand_presets
         spec = expand_presets(spec)             # opt-in construction presets -> plain keys (no-op without them)
+        self.nosew_kept = []
+        if spec.get("construction") == "nosew":
+            # no-sew: ears, limbs and tails are crocheted into the parent's rounds (amikit/nosew.py)
+            from .nosew import convert
+            spec = convert(spec)
+            self.nosew_kept = spec.pop("_nosew_kept", [])
         self.spec = copy.deepcopy(spec)
         self.yarn = {**DEFAULT_YARN, **spec.get("yarn", {})}
         self.colours = {k: hex_rgb(v) for k, v in spec.get("colours", {}).items()}
@@ -538,7 +544,7 @@ class Toy:
 
     KNOWN = {
         "toy": {"name", "title", "title_ru", "yarn", "colours", "colour_names_ru", "parts", "assembly", "face", "notes", "version",
-                "subject"},
+                "subject", "construction"},
         "part": {"id", "rounds", "colour", "colours", "end", "stuff", "flatten", "squash", "bend", "oval_axis",
                  "cord", "flat", "pinch", "notes", "name_ru", "name_en", "spoon", "dish", "motif", "split",
                  "opening"},
@@ -546,7 +552,7 @@ class Toy:
                   "pad", "lift", "roll", "front", "avoid", "contact", "max_turn", "conform", "conform_span",
                   "conform_parent", "axis", "pos", "face", "cup", "toward", "bend_toward", "notes", "seam", "seam_line",
                   "pinch", "pinch_rounds", "avoid_toward", "offset_mm", "along", "inset", "seat", "drape",
-                  "around", "anchor", "shift", "fall", "sink_dir", "rim_arc", "wear"},
+                  "around", "anchor", "shift", "fall", "sink_dir", "rim_arc", "wear", "join"},
         "face": {"id", "type", "on", "at", "mirror", "size_mm", "aspect", "sink", "iris", "pupil", "colour", "shape",
                  "highlight", "offset_mm", "lift_mm", "role",
                  "colours", "count", "length_mm", "droop", "curl", "spread", "seed", "doubled", "link_mm",
@@ -703,6 +709,8 @@ class Toy:
                               f"(placed at the nearest end)")
             at = dict(at, round=min(max(float(rq), 1.0), float(parent.p.N)))
             e["at"] = at                      # the pattern states the round actually used
+        if e.get("join") == "crochet":
+            at = self._join(e, inst, parent, at)
         P, nP = parent.point(at.get("round", "end"), at.get("az", 0.0))
         if e.get("applique"):
             # a flat piece sewn on all round: lies on the parent's surface, centred at the point
@@ -784,6 +792,88 @@ class Toy:
             parent.invalidate()
         self.inst[inst.name] = inst
 
+    def _join(self, e, inst, parent, at):
+        """`join: "crochet"` (no-sew): the piece's flattened opening is worked into a round of the parent - k
+        stitches of that round go through both layers of its edge (amikit/nosew.py). The placement snaps to the
+        stitches that hold it: `at` = the middle of the joined run in the join round, the seam a fully pinched flat
+        seam along that round, and the piece hinges about it (its axis square to the round there)."""
+        from .nosew import plan_near, join_round, structural, run_stitches
+        pdef = inst.p
+        part = next((p for p in self.spec["parts"] if p["id"] == e["part"]), {})
+        ppart = next((p for p in self.spec["parts"] if p["id"] == parent.p.id), None)
+        mirrored = set()
+        for a, b in self.pairs.values():
+            mirrored |= {a, b}
+        why = structural(dict(e, on=parent.name), part, ppart, mirrored)
+        if why is None and (parent.mirror or parent.name in mirrored):
+            why = "the parent is one of a mirrored pair"
+        if why is None and parent.p.N < 2:
+            why = "the parent has one round"
+        if why is not None:
+            self.flags.append(f"{e['name']}: cannot be crocheted in ({why}); sewn")
+            e["join"] = "sew"
+            return at
+        j = join_round(parent, at.get("round", "end"))
+        if not hasattr(self, "_join_taken"):
+            self._join_taken = {}                # parent name -> {round: stitches used by joins}
+        taken = self._join_taken.setdefault(parent.name, {})
+        old = e.get("_join")
+        if old:                                  # placed again (a pair made symmetric): free its own stitches
+            for r_, ss in run_stitches(old).items():
+                taken.get(r_, set()).difference_update(ss)
+        az_t = float(at.get("az", 0.0))
+        reach = 1
+        left = next((x for x in self.entries if x.get("name") == e.get("_pair_left")), None)
+        if left is not None and left.get("join") == "sew":
+            # the left copy could not be crocheted in: the pair stays sewn (mirror images)
+            e["join"] = "sew"
+            return at
+        if left is not None and (left.get("_join") or {}).get("parent") == parent.name:
+            reach = 0
+            # the right copy of a pair: the mirror image of the left copy's run (same round, centre at -az), so the
+            # two pieces are as symmetric as whole stitches allow (the spiral drift leaves at most half a stitch)
+            j = left["_join"]["round"]
+            az_t = -float(left["_join"]["az"])
+            li = self.inst.get(left["name"])
+            if li is not None and "dir_mode" not in e:
+                # its direction is the left copy's as built (hinged on its own seam), mirrored: what the written
+                # pattern says ("the other is its mirror image"), so a rebuild from the pattern is the same toy
+                v = -li.R[:, 2]
+                e["dir"] = [float(-v[0]), float(v[1]), float(v[2])]
+                f = li.R[:, 0]                   # and its front reference (the press side of the seam)
+                e["front"] = [float(-f[0]), float(f[1]), float(f[2])]
+                e.pop("roll", None)              # (already in the left copy's built front)
+        jn = plan_near(parent, j, az_t, (pdef.counts[-1] + 1) // 2, taken,
+                       pair=bool(e.get("mirror")) and not e.get("_mirror"), reach=reach)
+        if jn is None:
+            # no free run of plain stitches near that round (pieces crowded on a small round, a popcorn round)
+            self.flags.append(f"{e['name']}: cannot be crocheted in near round {j} of {parent.name} "
+                              f"({(pdef.counts[-1] + 1) // 2} free stitches needed); sewn")
+            e["join"] = "sew"
+            e.pop("_join", None)
+            return at
+        j = jn["round"]
+        for r_, ss in run_stitches(jn).items():
+            taken.setdefault(r_, set()).update(ss)
+        moved = abs(float(at.get("round", j)) - j) if at.get("round") not in ("end", "start") else 0.0
+        at = {"round": j, "az": jn["az"]}
+        e["at"] = at
+        jn["parent"] = parent.name
+        jn["opening"] = int(pdef.counts[-1])
+        jn["moved_rounds"] = round(moved, 2)
+        if old:                                  # (how far the first placement snapped)
+            jn["snap_st"] = max(jn["snap_st"], old.get("snap_st", 0.0))
+            jn["moved_rounds"] = max(jn["moved_rounds"], old.get("moved_rounds", 0.0))
+        # the round's direction at the join (the seam line) and the outward normal
+        th = parent.theta(jn["az"]); t = float(j) - 0.5
+        T = parent.base(np.array([t]), np.array([th + 0.01]))[0] - parent.base(np.array([t]), np.array([th - 0.01]))[0]
+        jn["T"] = [float(x) for x in _norm(T)]
+        e["_join"] = jn
+        e["seam"] = "flat"
+        e["seam_line"] = list(jn["T"])
+        e.setdefault("pinch", 1.0)
+        return at
+
     def _place_worn(self, inst, parent, P, nP, e):
         """`wear: true`: an open piece put ON its parent like a hat - a hair cap, a hood, a beanie, a helmet, a
         shell. Its magic ring is centred over `at`; it is pulled down along its own axis (`dir`: from its start
@@ -853,7 +943,9 @@ class Toy:
             self._seat_rim(inst, parent, nP, e.get("seat", "mid"), arc=arc)
             if sink:
                 inst.origin = inst.origin + mv * sink
-            if e.get("conform", True):
+            if e.get("_join"):
+                self._join_conform(inst, parent, e, e.get("conform_span", 1.6))
+            elif e.get("conform", True):
                 self._conform(inst, parent, float(pdef.N), e.get("conform_span", 1.6), arc=arc)
         else:
             if sink is None:
@@ -973,6 +1065,13 @@ class Toy:
     def _frame(self, inst, d, e):
         """Orient an instance extending along d from its seam; roll; bend direction in its own frame."""
         attach = e.get("attach", "end")
+        jn = e.get("_join")
+        if jn is not None:
+            # crocheted in along a round: the piece can only hinge about that line, so its axis is square to it
+            T = np.asarray(jn["T"], float)
+            dd = d - (d @ T) * T
+            if np.linalg.norm(dd) > 0.2:
+                d = _norm(dd)
         inst.set_frame(-d if attach == "end" else d, e.get("front"))
         if e.get("roll"):
             a = np.radians(e["roll"])
@@ -1448,6 +1547,35 @@ class Toy:
         if arc:
             vec = vec * self._arc_weight(inst, ths, arc)[:, None]
         inst.corrections.append((t_rim - span, span, ths, vec))
+        inst.invalidate()
+
+    def _join_conform(self, inst, parent, e, span):
+        """A crocheted-in edge lies on the stitches that hold it: the pressed rim is laid along the joined run of the
+        parent round, end to end (the fabric near the edge stretches or gathers to the run's length, as it does when
+        k parent stitches go through k pairs), its two layers kept apart, tucked just under the parent's yarn."""
+        from .nosew import stitch_theta
+        jn = e["_join"]
+        j, n, s, k = jn["round"], jn["n"], jn["st_start"], jn["k"]
+        ws = s - 0.5 + np.linspace(0.0, float(k), 4 * k + 1)
+        tj = np.full(len(ws), float(j) - 0.5)
+        thj = stitch_theta(j, n, ws)
+        run = parent.base(tj, thj)
+        run_n = parent.base_normal(tj, thj)
+        arc = np.concatenate([[0.0], np.cumsum(np.linalg.norm(np.diff(run, axis=0), axis=1))])
+        arc = arc / max(float(arc[-1]), 1e-9)
+        ths = np.linspace(0, 2 * np.pi, 192, endpoint=False)
+        t_rim = float(inst.p.N)
+        rim = inst.base(np.full_like(ths, t_rim), ths, with_corr=True)
+        u = _norm(run[-1] - run[0])
+        c = rim.mean(0)
+        proj = (rim - c) @ u
+        f = (proj - proj.min()) / max(float(np.ptp(proj)), 1e-9)
+        tgt = np.stack([np.interp(f, arc, run[:, i]) for i in range(3)], -1)
+        N = _norm(np.stack([np.interp(f, arc, run_n[:, i]) for i in range(3)], -1))
+        off = (rim - c) - proj[:, None] * u                   # across the seam: the two layers
+        off = off - np.einsum("ij,ij->i", off, N)[:, None] * N
+        tgt = tgt + off - 0.25 * inst.p.w * N
+        inst.corrections.append((t_rim - span, span, ths, tgt - rim))
         inst.invalidate()
 
     def _avoid(self, inst, parent, P, nP, d, e):

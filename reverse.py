@@ -1353,6 +1353,8 @@ def parse_our_assembly(lines, by_name, parts):
             st["along"] = "parent"
         if "Drape it over the curve" in rest:
             st["drape"] = True
+        if "<!-- join crochet -->" in rest:
+            st["join"] = "crochet"            # no-sew: crocheted into the parent's round (amikit/nosew.py)
         if "sew it on by its straight side (the row ends that have no decreases)" in rest:
             st["sew"] = "side"
         mfv = re.search(r"facing \(([-\d., ]+)\)", rest)
@@ -1784,6 +1786,8 @@ def _our_assembly(spec, doc, by_name, log):
                                      "pinch_rounds", "rim_arc"))
                 if "seam_line" in ex and e.get("seam") == "flat":
                     e["seam_line"] = ex["seam_line"]
+                if st.get("join"):
+                    e["join"] = "crochet"
                 if "bend" in ex:
                     part["_bend_vec"] = None
                     e["bend_toward"] = ex["bend"]
