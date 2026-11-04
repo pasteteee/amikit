@@ -2,7 +2,7 @@
 // Produces, for any time t (evaluated sequentially), the yarn centreline with material coordinate,
 // the hook pose, the fabric transform, camera and caption state.
 import { add, sub, mul, madd, dot, cross, len, dist, norm, lerp, mix, clamp, smooth, smoothstep, slerpV, perp, quatFromBasis, quatSlerp, quatToBasis } from './vec.mjs';
-import { catmull, resampleN, wrapArc, resampleAttr, laplace, closestOnSeg, polyLength, limitCurvature } from './curve.mjs';
+import { catmull, resampleN, wrapArc, resampleAttr, laplace, closestOnSeg, polyLength, limitCurvature, separateYarn } from './curve.mjs';
 import { HOOK, hookFrame, hookPoint, pushOutOfHook } from './hook.mjs';
 import { Fabric, RY, RY_FAB, SW, RING_OPEN, RING_CLOSED, canonicalCtrl, ringCtrl, tailRoot } from './fabric.mjs';
 
@@ -692,11 +692,40 @@ export class Sim {
     let [P, S] = resampleAttr(outP, sArr, 0.32);
     const [, FF] = resampleAttr(outP, fabFlag, 0.32);
     P = laplace(P, 2, 0.35);
+    // Material-point inertia: every bit of working yarn (same material coordinate s) starts from where it
+    // was in the previous frame and is pulled toward its new taut position, so the yarn is dragged along
+    // by the hook and the finger instead of jumping to a new shape.
+    const spd = act.type === 'stitch' ? (act.speed || 1) : 1;
+    const lag = 0.42 * clamp((3 - spd) / 2);
+    if (this._prev && lag > 0) {
+      const { P: pP, S: pS } = this._prev;
+      let j = 0;
+      for (let i = 0; i < P.length; i++) {
+        if (FF[i] > 0.5) continue;
+        const s = S[i];
+        if (s <= pS[0] || s >= pS[pS.length - 1]) continue;
+        while (j > 0 && pS[j] > s) j--;
+        while (j < pS.length - 2 && pS[j + 1] < s) j++;
+        const q = lerp(pP[j], pP[j + 1], (s - pS[j]) / ((pS[j + 1] - pS[j]) || 1e-9));
+        if (dist(q, P[i]) > 6) continue; // material re-parameterised (piece settled): don't smear
+        P[i] = lerp(P[i], q, lag);
+      }
+    }
     P = limitCurvature(P, 0.32, RY * 0.95, 12);
     const F = hookFrame(this.hook);
     for (let it = 0; it < 2; it++) { pushOutOfHook(F, P, RY); P = limitCurvature(laplace(P, 1, 0.2), 0.32, RY * 0.95, 4); }
     pushOutOfHook(F, P, RY);
+    // yarn is solid: resolve yarn-yarn interpenetration (fabric yarn stiff, working yarn free), keeping
+    // the hook contact and the bend limit in the loop
+    const radC = FF.map((f) => mix(RY, RY_FAB, f));
+    const mob = FF.map((f) => (f > 0.5 ? 0.15 : 1));
+    for (let it = 0; it < 4; it++) {
+      separateYarn(P, radC, mob, 0.32, 3, RY * 3.4);
+      P = limitCurvature(laplace(P, 1, 0.12), 0.32, RY * 0.95, 3);
+      pushOutOfHook(F, P, RY);
+    }
     const R = tubeRadii(P, FF);
+    this._prev = { P: P.map((p) => p.slice()), S: S.slice() };
     const onHook = Object.values(this.loops).filter((L) => !L.released && !(L.mode === 'fixed' && L.x > -1.2)).length;
     return { t: this.t, pts: P, s: S, r: R, hook: { tip: this.hook.tip, a: F.a, d: F.d }, act, ring: fab.ring, phase: this.phName, phaseU: this.phU, onHook };
   }

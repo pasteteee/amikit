@@ -165,3 +165,54 @@ export function limitCurvature(pts, spacing, rMin, iters = 8, pinned = null) {
   }
   return p;
 }
+
+/**
+ * Yarn–yarn contact: the strand is a solid tube, so no two non-neighbouring centreline points may be
+ * closer than the sum of their radii. Spatial-hash projection (Jacobi-style per pass); `mob[i]` in [0,1]
+ * says how easily a point moves (settled fabric yarn is stiff, working yarn is free).
+ */
+export function separateYarn(pts, rad, mob, spacing, iters = 4, skipArc = 3.0) {
+  const n = pts.length;
+  const skip = Math.max(2, Math.ceil(skipArc / spacing));
+  let rmax = 0; for (let i = 0; i < n; i++) rmax = Math.max(rmax, rad[i]);
+  const cell = 2 * rmax;
+  const dx = new Float64Array(n * 3), cnt = new Float64Array(n);
+  for (let it = 0; it < iters; it++) {
+    const grid = new Map();
+    const key = (x, y, z) => (x * 73856093) ^ (y * 19349663) ^ (z * 83492791);
+    for (let i = 0; i < n; i++) {
+      const p = pts[i];
+      const k = key(Math.floor(p[0] / cell), Math.floor(p[1] / cell), Math.floor(p[2] / cell));
+      let b = grid.get(k); if (!b) grid.set(k, (b = [])); b.push(i);
+    }
+    dx.fill(0); cnt.fill(0);
+    let moved = 0;
+    for (let i = 0; i < n; i++) {
+      const p = pts[i];
+      const cx = Math.floor(p[0] / cell), cy = Math.floor(p[1] / cell), cz = Math.floor(p[2] / cell);
+      for (let ax = -1; ax <= 1; ax++) for (let ay = -1; ay <= 1; ay++) for (let az = -1; az <= 1; az++) {
+        const b = grid.get(key(cx + ax, cy + ay, cz + az)); if (!b) continue;
+        for (const j of b) {
+          if (j <= i + skip - 1 && j >= i - skip + 1) continue;
+          if (j < i) continue;
+          const q = pts[j];
+          const ex = q[0] - p[0], ey = q[1] - p[1], ez = q[2] - p[2];
+          const d = Math.hypot(ex, ey, ez), need = (rad[i] + rad[j]) * 0.96;
+          if (d >= need || d < 1e-9) continue;
+          const wi = mob[i], wj = mob[j], w = wi + wj;
+          if (w < 1e-6) continue;
+          const c = (need - d) / d;
+          dx[i * 3] -= ex * c * wi / w; dx[i * 3 + 1] -= ey * c * wi / w; dx[i * 3 + 2] -= ez * c * wi / w;
+          dx[j * 3] += ex * c * wj / w; dx[j * 3 + 1] += ey * c * wj / w; dx[j * 3 + 2] += ez * c * wj / w;
+          cnt[i]++; cnt[j]++; moved++;
+        }
+      }
+    }
+    if (!moved) break;
+    for (let i = 0; i < n; i++) if (cnt[i]) {
+      const s = 0.8 / Math.sqrt(cnt[i]);
+      pts[i] = [pts[i][0] + dx[i * 3] * s, pts[i][1] + dx[i * 3 + 1] * s, pts[i][2] + dx[i * 3 + 2] * s];
+    }
+  }
+  return pts;
+}

@@ -4,7 +4,8 @@ import { add, sub, mul, lerp, mix, smooth, clamp, norm } from './vec.mjs';
 
 // Detailed stitches cut between angles phase by phase; fast stitches alternate wider angles.
 const DETAIL_SHOTS = {
-  insert: 'pov', yo1: 'back', pullup: 'back', raise: 'pov', yo2: 'macro', through1: 'macro', through2: 'pov', ret: 'pov',
+  // one continuous angle for each continuous hand move (no cut in the middle of a catch)
+  insert: 'back', yo1: 'back', pullup: 'back', raise: 'pov', yo2: 'pov', through1: 'pov', through2: 'pov', ret: 'mid',
   insertFL1: 'macro', insertFL2: 'macro',
 };
 
@@ -37,7 +38,7 @@ export function buildShort(opts) {
     const a = { type: 'stitch', i, speed: 1 };
     if (s.kind === 'ch') {
       a.speed = 0.8; a.slow = { yo1: 1.3, pullup: 1.3 };
-      a.phaseShots = DETAIL_SHOTS;
+      a.phaseShots = { insert: 'pov', yo1: 'pov', pullup: 'pov', raise: 'macro', yo2: 'macro', through1: 'macro', through2: 'pov', ret: 'pov' };
       a.phaseCaps = {
         insert: 'Крючок — в кольцо, спереди назад.',
         yo1: 'Накид: зев крючка сам подхватывает нить.',
@@ -62,7 +63,7 @@ export function buildShort(opts) {
       ai = push(a); STEP(ai, `Р1: ${nR1} сбн в кольцо`);
     } else if (k === 1 && s.j === 1) {
       a.speed = 1.05;
-      a.phaseShots = { insert: 'pov', yo1: 'back', pullup: 'pov', raise: 'pov', yo2: 'macro', through1: 'pov', through2: 'pov', ret: 'mid' };
+      a.phaseShots = { insert: 'pov', yo1: 'pov', pullup: 'pov', raise: 'pov', yo2: 'macro', through1: 'macro', through2: 'macro', ret: 'mid' };
       ai = push(a);
       caps.push({ ai, text: 'Второй — так же: в кольцо, накид, вытянуть, накид, через 2.' });
     } else if (k === 1) {
@@ -73,8 +74,8 @@ export function buildShort(opts) {
     } else if (s.kind === 'inc' && incShown < 2) {
       a.speed = incShown === 0 ? 0.85 : 1.0;
       a.phaseShots = incShown === 0
-        ? { insert: 'macro', yo1: 'back', pullup: 'pov', raise: 'pov', yo2: 'macro', through1: 'pov', through2: 'pov', ret: 'pov' }
-        : { insert: 'macro', yo1: 'pov', pullup: 'pov', raise: 'pov', yo2: 'pov', through1: 'pov', through2: 'mid', ret: 'mid' };
+        ? { insert: 'pov', yo1: 'pov', pullup: 'pov', raise: 'macro', yo2: 'macro', through1: 'macro', through2: 'macro', ret: 'pov' }
+        : { insert: 'top', yo1: 'top', pullup: 'top', raise: 'top', yo2: 'pov', through1: 'pov', through2: 'pov', ret: 'mid' };
       a.slow = incShown === 0 ? { insert: 1.4 } : { insert: 1.4, ret: 1.6 };
       ai = push(a);
       if (incShown === 0) { STEP(ai, `Р${k}: прибавки`); caps.push({ ai, text: 'Прибавка = 2 сбн в одну петлю. Первый — в петлю ряда ниже…' }); }
