@@ -200,7 +200,7 @@ export function separateYarn(pts, rad, mob, spacing, iters = 4, skipArc = 3.0) {
           const d = Math.hypot(ex, ey, ez), need = (rad[i] + rad[j]) * 0.96;
           if (d >= need || d < 1e-9) continue;
           const wi = mob[i], wj = mob[j], w = wi + wj;
-          if (w < 1e-6) continue;
+          if (w < 0.5) continue; // settled fabric against settled fabric: its relaxed shape already accounts for contact
           const c = (need - d) / d;
           dx[i * 3] -= ex * c * wi / w; dx[i * 3 + 1] -= ey * c * wi / w; dx[i * 3 + 2] -= ez * c * wi / w;
           dx[j * 3] += ex * c * wj / w; dx[j * 3 + 1] += ey * c * wj / w; dx[j * 3 + 2] += ez * c * wj / w;
