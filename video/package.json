@@ -1,0 +1,16 @@
+{
+  "name": "amikit-video",
+  "version": "1.0.0",
+  "description": "Crochet tutorial video engine (Shorts)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.170.0"
+  },
+  "private": true,
+  "type": "commonjs"
+}
