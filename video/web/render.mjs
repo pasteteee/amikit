@@ -234,10 +234,12 @@ window.init = async (scenario, opts = {}) => {
   frame = -1;
   return { duration: sim.duration, frames: Math.ceil(sim.duration * sim.fps) };
 };
-window.renderFrame = (f, draw = true) => {
+window.renderFrame = (f, draw = true, yarn = null) => {
   let st;
   while (frame < f) { frame++; st = sim.step(frame / sim.fps); if (follower) st = follower.step(st, 1 / sim.fps); }
   if (!draw) return null;
+  // physical yarn from the Newton layer (newton/hybrid.py): positions, material coordinate (fixed per bit), radius
+  if (yarn) st = { ...st, pts: yarn.pts, s: yarn.pts.map((_, i) => (i + 0.5) * (yarn.seg || 1)), r: yarn.r };
   buildTube(st.pts, st.s, st.r);
   poseHook(st.hook);
   const short = scn.style === 'short2';

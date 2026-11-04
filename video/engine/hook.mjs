@@ -4,8 +4,8 @@
 import { add, sub, mul, madd, dot, cross, norm, smoothstep } from './vec.mjs';
 
 export const HOOK = {
-  rShaft: 1.25, // 2.5 mm hook
-  rNeck: 0.6, // remaining spine thickness at the throat
+  rShaft: 1.0, // 2.0 mm hook (slim, so the loops stay visible)
+  rNeck: 0.45, // remaining spine thickness at the throat
   xThroat: -2.05, // where yarn sits in the throat
   throatHalf: 1.0,
   thumbStart: -46, thumbEnd: -70,
