@@ -10,7 +10,7 @@ const R_SHAFT_LOOP = HOOK.rShaft + RY * 0.92;
 const R_THROAT = HOOK.rNeck + RY * 0.95;
 const X_W = -8.2; // working loop position on the shaft
 const X_L1 = -4.6; // second loop position
-const G_HIGH = [-15, 27, -16]; // left index finger (yarn guide), world, relative to work point
+const G_HIGH = [-13, 19, -24]; // left index finger (yarn guide), world, relative to work point
 
 // Base phase durations (seconds at speed 1)
 const PH_SC = [
@@ -106,7 +106,7 @@ export class Sim {
     this.ai = -1; this.pi = -1;
     this.G = G_HIGH.slice();
     this.loops = {}; // active loops by role: W, L1, L2
-    this.lam = { c1: 0, c2: 0 };
+    this.cont = {}; // geometric contact state of the current stitch (catches, holes)
     this.doneUpTo = 0; // number of strand pieces (ring=0, P0=1, T0=2, ...) that are fabric
     this.morphs = {}; // piece index -> {from, t0, dur}
     this.cur = 0; // current stitch index (fabric alignment)
@@ -181,8 +181,9 @@ export class Sim {
     if (act.type === 'stitch') {
       const ph = act.phases[Math.max(0, this.pi)];
       const u = clamp((t - ph.t0) / ph.dur);
+      this.phName = ph.name; this.phU = u;
       this.updatePhase(act, ph, u);
-    } else this.updateAction(act, clamp((t - act.t0) / act.dur));
+    } else { this.phName = act.type; this.phU = clamp((t - act.t0) / act.dur); this.updateAction(act, this.phU); }
     this.updateTail(dt);
     return this.snapshot(act);
   }
@@ -224,11 +225,29 @@ export class Sim {
         break;
       }
       case 'yo1': {
-        // pivot the hook in the hole so the throat comes up behind the work to the yarn
-        let aC = norm([-0.25, 0.55, -0.8]);
-        const dC = norm([0, 0.45, 0.9]);
-        let lC = 4.6;
-        this.catch1 = { a: aC, l: lC, d: dC };
+        // The hook goes to the yarn (never the other way round): aim the throat a little past the
+        // working yarn line behind the work, keeping the shaft pivoting in the hole.
+        // The working loop rides on the shaft, so the yarn line moves with the hook. Search the pivot
+        // (hook stays in the hole) that brings the throat just inside the yarn line behind the work.
+        const wW = this.fabricNormal(K);
+        const a0 = norm(this.hook.a);
+        const e1 = norm(perp(sub(this.G, K.H), a0)), e2 = cross(a0, e1);
+        let best = null;
+        for (let th = 0; th <= 75; th += 2.5) for (let ps = -90; ps <= 90; ps += 7.5) for (const l of [4.2, 5.0, 5.8]) {
+          const T = th * Math.PI / 180, P = ps * Math.PI / 180;
+          const a = norm(add(mul(a0, Math.cos(T)), mul(add(mul(e1, Math.cos(P)), mul(e2, Math.sin(P))), Math.sin(T))));
+          const C = madd(K.H, a, l + HOOK.xThroat);
+          if (dot(sub(C, K.H), wW) > -0.8) continue;
+          const Wc = madd(K.H, a, l + X_W);
+          const Wx = madd(Wc, norm(perp(sub(this.G, Wc), a)), R_SHAFT_LOOP);
+          const [q] = closestOnSeg(C, Wx, this.G);
+          const cost = Math.abs(dist(q, C) - 1.9) * 3 + th * 0.01 + Math.abs(l - 4.6) * 0.1;
+          if (!best || cost < best.cost) best = { cost, a, l, C, q };
+        }
+        const a = best.a, d = norm(perp(sub(best.q, best.C), a));
+        const C = best.C;
+        this.catch1 = { a, l: dist(C, K.H) - HOOK.xThroat, d };
+        this.catchCost = best.cost;
         break;
       }
       case 'pullup': break;
@@ -238,12 +257,13 @@ export class Sim {
       }
       case 'yo2': {
         // reach over the top edge to the yarn rising from the back of the hole to the finger
-        const Y = this.yarnPointAbove(K.Hb2, this.G, K.E, 2.0);
+        const [A, B] = this.workingSegment(K);
+        const Y = this.yarnPointAbove(A, B, K.E, 2.0);
         const a2 = norm([-0.55, -0.62, -0.56]);
-        const d2 = norm(perp([0.1, 0.6, -0.8], a2));
-        const throatC = madd(Y, d2, -R_THROAT * 0.95);
+        const C0 = hookPoint(hookFrame(this.hook), HOOK.xThroat);
+        const d2 = norm(perp(sub(Y, C0), a2));
+        const throatC = madd(Y, d2, -1.9);
         this.target = { tip: madd(throatC, a2, -HOOK.xThroat), a: a2, d: d2 };
-        this.yarnY2 = Y;
         break;
       }
       case 'through1': {
@@ -314,31 +334,22 @@ export class Sim {
       }
       case 'yo1': {
         const c = this.catch1;
-        // pivot (hook in the hole) and turn the throat up toward the yarn
-        const e = clamp(u / 0.7);
+        // pivot (hook in the hole) and turn the throat up to the yarn; the finger holds still
+        const e = clamp(u / 0.8);
         this.hook = pivotPose(K.H, norm([-0.36, -0.32, -0.88]), c.a, 4.2, c.l, [0, -1, 0.35], c.d, e);
-        // left index finger lowers the yarn slightly onto the hook
-        const catchPt = hookPoint(hookFrame(this.hook), HOOK.xThroat, R_THROAT * 0.9);
-        if (!this.gYo) {
-          // aim so that the yarn from the edge contact passes through the throat at the end of the pivot
-          const F = hookFrame(pivotPose(K.H, c.a, c.a, c.l, c.l, c.d, c.d, 1));
-          const Yc = hookPoint(F, HOOK.xThroat, R_THROAT * 0.9);
-          const from = K.E1;
-          this.gYo = madd(Yc, norm(sub(Yc, from)), 40);
-          this.gYo = lerp(this.gYo, G_HIGH, 0.0);
-        }
-        this.G = lerp(this.G0, this.gYo, smooth(clamp(u / 0.75)));
-        this.lam.c1 = smoothstep(0.62, 0.95, u);
-        if (!this.loops.L1) this.loops.L1 = { role: 'L1', piece: this.pieceIndex('P', s.i), x: HOOK.xThroat, mode: 'throat' };
-        void catchPt;
+        this.tryCatch('L1', this.pieceIndex('P', s.i), u >= 0.999);
         break;
       }
       case 'pullup': {
         const c = this.catch1;
-        this.lam.c1 = 1;
+        this.tryCatch('L1', this.pieceIndex('P', s.i), true);
         this.hook = pivotPose(K.H, c.a, norm([-0.42, -0.25, -0.87]), c.l, -2.9, c.d, [0, -1, 0.4], u);
-        this.G = lerp(this.G0, G_HIGH, smooth(u));
-        this.gYo = null;
+        // the throat (with the yarn) comes back through the hole: from now on both legs pass through it
+        if (!this.cont.hole) {
+          const thr = hookPoint(hookFrame(this.hook), HOOK.xThroat);
+          const ahead = s.kind === 'dec' ? u > 0.12 : dot(sub(thr, K.H), this.fabricNormal(K)) > 0;
+          if (ahead || u > 0.6) this.cont.hole = { t0: this.t, dur: 0.22 / Math.max(0.6, act.speed || 1) };
+        }
         break;
       }
       case 'raise': {
@@ -348,13 +359,12 @@ export class Sim {
         break;
       }
       case 'yo2': {
-        this.hook = poseLerp(this.ph0, this.target, clamp(u / 0.8), [0, 2.0, 0.5]);
-        this.lam.c2 = smoothstep(0.7, 0.98, u);
-        if (!this.loops.L2) this.loops.L2 = { role: 'L2', piece: this.pieceIndex('T', s.i), x: HOOK.xThroat, mode: 'throat' };
+        this.hook = poseLerp(this.ph0, this.target, clamp(u / 0.85), [0, 2.0, 0.5]);
+        this.tryCatch('L2', this.pieceIndex('T', s.i), u >= 0.999);
         break;
       }
       case 'through1': {
-        this.lam.c2 = 1;
+        this.tryCatch('L2', this.pieceIndex('T', s.i), true);
         this.hook = poseLerp(this.ph0, this.target, u, [0, 1.2, 0.5]);
         break;
       }
@@ -389,6 +399,45 @@ export class Sim {
     }
   }
 
+  /** Fabric outward normal (w) of the current stitch, in world space. */
+  fabricNormal(K) {
+    const f = this.fab.frame(this.st);
+    const X = this.xf;
+    return norm(sub(X.to(add(f.T, f.w)), X.to(f.T)));
+  }
+  fabricUp() {
+    const f = this.fab.frame(this.st);
+    const X = this.xf;
+    return norm(sub(X.to(add(f.T, f.v)), X.to(f.T)));
+  }
+  /** The straight run of working yarn the hook has to catch: from the last contact to the finger. */
+  workingSegment(K) {
+    const F = hookFrame(this.hook);
+    const nodes = this.buildActive();
+    const last = nodes[nodes.length - 1];
+    let A;
+    if (!last) A = K.E;
+    else if (last.kind === 'pt') A = last.p;
+    else A = madd(last.c, norm(perp(sub(this.G, last.c), last.axis)), last.R);
+    void F;
+    return [A, this.G];
+  }
+  /** Throat catches the yarn only when it actually reaches it (distance to the yarn line <= contact radius). */
+  tryCatch(role, piece, force) {
+    if (this.loops[role]) return;
+    const F = hookFrame(this.hook);
+    const C = hookPoint(F, HOOK.xThroat);
+    const [A, B] = this.workingSegment(this.K);
+    const [q] = closestOnSeg(C, A, B);
+    // the yarn rests against the hook (shaft radius + yarn) and the open throat faces it: it drops into the groove
+    const facing = dot(F.d, norm(perp(sub(q, C), F.a))) > 0.55;
+    const near = dist(q, C) <= HOOK.rShaft + RY + 0.25;
+    if ((near && facing) || force) {
+      this.loops[role] = { role, piece, x: HOOK.xThroat, mode: 'throat' };
+      this.cont[role] = { t0: this.t, forced: !(near && facing), d: dist(q, C) };
+    }
+  }
+
   releaseLoop(role) {
     const L = this.loops[role];
     L.released = true;
@@ -405,7 +454,7 @@ export class Sim {
     for (const r of ['W', 'L1']) if (this.loops[r]) this.releaseLoop(r);
     const L2 = this.loops.L2;
     if (L2) { L2.role = 'W'; this.loops.W = L2; delete this.loops.L2; }
-    this.lam.c1 = 0; this.lam.c2 = 0;
+    this.cont = {};
     this.cur = act.i;
     if (this.retNext != null) this.align = this.alignB;
   }
@@ -513,45 +562,58 @@ export class Sim {
       const prev = this.fab.stitches[s.i - (s.kind === 'inc' && s.sub === 1 ? 1 : 1)];
       const ps = this.fab.stitches[W.piece % 2 === 0 ? (W.piece - 2) / 2 : 0];
       void prev;
-      nodes.push({ kind: 'pt', p: X.to(this.fab.pt(ps, 0.18, 0.55, -1.15)), piece: W.piece, pres: 1 });
-      nodes.push({ kind: 'pt', p: X.to(this.fab.pt(ps, 0.22, 0.98, -0.9)), piece: W.piece, pres: 1 });
+      nodes.push({ kind: 'pt', p: X.to(this.fab.pt(ps, 0.18, 0.55, -1.15)), piece: W.piece, pres: 1, anchor: true });
+      nodes.push({ kind: 'pt', p: X.to(this.fab.pt(ps, 0.22, 0.98, -0.9)), piece: W.piece, pres: 1, anchor: true });
       nodes.push(wrapNode(W));
     }
     const L1 = this.loops.L1;
     if (L1) {
       const P1 = L1.piece;
-      const c1 = this.lam.c1;
-      // hole presence: once the throat has come through the hole to the front
-      const thr = hookPoint(F, HOOK.xThroat);
-      const H = K.H;
-      const fw = this.st.kind === 'dec' ? 1 : smoothstep(-1.4, 0.6, thr[2] - H[2]);
-      const hp = L1.released ? 1 : fw;
+      // both legs pass through the hole once the throat has carried the yarn through it; the hole
+      // contacts start on the straight yarn line and settle into the hole (no popping)
+      const H = this.cont.hole;
+      const hp = L1.released ? 1 : H ? smooth((this.t - H.t0) / H.dur) : -1;
+      const hole = (p) => (hp >= 0 ? { kind: 'pt', p, piece: P1, pres: hp, hole: true } : null);
       if (s.kind === 'dec') {
         const Pl = this.fab.stitches[s.parents[0]], Pr = this.fab.stitches[s.parents[1]];
         const FL1 = X.to(this.fab.pt(Pl, 0.55, 1.0, 1.5)), FL2 = X.to(this.fab.pt(Pr, 0.55, 1.0, 1.5));
-        nodes.push({ kind: 'pt', p: K.E1, piece: P1, pres: c1 });
-        nodes.push({ kind: 'pt', p: FL2, piece: P1, pres: c1 * hp });
-        nodes.push(wrapNode(L1)); nodes[nodes.length - 1].pres = c1;
-        nodes.push({ kind: 'pt', p: FL1, piece: P1, pres: hp });
+        nodes.push(hole(FL2));
+        nodes.push(wrapNode(L1));
+        nodes.push(hole(FL1));
       } else {
-        nodes.push({ kind: 'pt', p: K.E1, piece: P1, pres: c1 });
-        nodes.push({ kind: 'pt', p: K.Bk1, piece: P1, pres: c1 });
-        nodes.push({ kind: 'pt', p: K.Hb1, piece: P1, pres: c1 * hp });
-        nodes.push({ kind: 'pt', p: K.Hf1, piece: P1, pres: c1 * hp });
-        const wn = wrapNode(L1); wn.pres = c1; nodes.push(wn);
-        nodes.push({ kind: 'pt', p: K.Hf2, piece: P1, pres: hp });
-        nodes.push({ kind: 'pt', p: K.Hb2, piece: P1, pres: hp });
+        nodes.push(hole(K.Hb1), hole(K.Hf1));
+        nodes.push(wrapNode(L1));
+        nodes.push(hole(K.Hf2), hole(K.Hb2));
       }
     }
     const L2 = this.loops.L2;
-    if (L2) {
-      const c2 = this.lam.c2;
-      nodes.push({ kind: 'pt', p: K.U1, piece: L2.piece, pres: c2 });
-      nodes.push({ kind: 'pt', p: K.U2, piece: L2.piece, pres: c2 });
-      const wn = wrapNode(L2); wn.pres = c2; nodes.push(wn);
-    }
+    if (L2) nodes.push(wrapNode(L2));
     void pres;
     return nodes.filter(Boolean);
+  }
+
+  /** Taut yarn crossing the work below its top edge rests on the edge (stateless, so a contact
+   *  appears exactly when the straight yarn touches the edge and never pops). */
+  addEdges(nodes, G) {
+    if (!this.st || !this.K || !nodes.length) return nodes;
+    const K = this.K, wW = this.fabricNormal(K), up = this.fabricUp();
+    const h0 = RY_FAB * 1.3;
+    const cen = (n) => (n.kind === 'pt' ? n.p : n.c);
+    const out = [];
+    const all = [...nodes, { kind: 'pt', p: G, piece: 9999, end: true }];
+    for (let k = 0; k < all.length - 1; k++) {
+      const n0 = all[k], n1 = all[k + 1];
+      out.push(n0);
+      if (n0.anchor || (n0.hole && n1.hole)) continue;
+      const P = cen(n0), Q = cen(n1);
+      const cP = dot(sub(P, K.H), wW), cQ = dot(sub(Q, K.H), wW);
+      if (!((cP > 0.2 && cQ < -0.2) || (cP < -0.2 && cQ > 0.2))) continue;
+      const Xc = lerp(P, Q, cP / (cP - cQ));
+      const hE = dot(sub(Xc, K.E), up);
+      if (hE >= h0) continue;
+      out.push({ kind: 'pt', p: madd(Xc, up, h0 - hE), piece: n1.end ? (n0.piece ?? 9999) : n1.piece, pres: 1, edge: true });
+    }
+    return out;
   }
 
   expandNodes(start, nodes, end) {
@@ -605,8 +667,8 @@ export class Sim {
     }
     // active part
     const start = outP[outP.length - 1];
-    const nodes = this.buildActive();
     const G = this.G;
+    const nodes = this.addEdges(this.buildActive(), G);
     const ex = this.expandNodes(start, nodes, G);
     ex.forEach((pp, k) => {
       const pc = nodes[k].piece;
@@ -635,6 +697,7 @@ export class Sim {
     for (let it = 0; it < 2; it++) { pushOutOfHook(F, P, RY); P = limitCurvature(laplace(P, 1, 0.2), 0.32, RY * 0.95, 4); }
     pushOutOfHook(F, P, RY);
     const R = tubeRadii(P, FF);
-    return { t: this.t, pts: P, s: S, r: R, hook: { tip: this.hook.tip, a: F.a, d: F.d }, act, ring: fab.ring };
+    const onHook = Object.values(this.loops).filter((L) => !L.released && !(L.mode === 'fixed' && L.x > -1.2)).length;
+    return { t: this.t, pts: P, s: S, r: R, hook: { tip: this.hook.tip, a: F.a, d: F.d }, act, ring: fab.ring, phase: this.phName, phaseU: this.phU, onHook };
   }
 }

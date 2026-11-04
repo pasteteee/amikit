@@ -19,8 +19,12 @@ node debug_fabric.cjs /tmp/f.jpg '[[0,0,55,39]]'   # look at the relaxed fabric 
   (`G`). Every frame the strand is rebuilt and its *material coordinate* (arc length
   from a fixed point) drives the ply texture, so the yarn visibly feeds in from the
   finger and slides through loops when they tighten. Nothing is created out of thin
-  air: a new loop is born at zero size on the straight working yarn
-  (`presence` blending) and only grows as the hook pulls it.
+  air: the finger holds still and the **hook goes to the yarn**. A loop exists only
+  after the throat geometrically reaches the working yarn (the yarn lies against the
+  hook and the open throat faces it, `tryCatch`); the catch pose is found by searching
+  hook pivots in the hole. Hole and edge contacts appear exactly when the straight yarn
+  reaches them (edges are stateless taut-string contacts, holes slide in from the
+  straight line), so there is no time-based "fade-in" of yarn anywhere.
 * **Taut-string contacts.** Yarn under tension is a shortest path between contacts:
   loops on the hook are exact taut wraps around the shaft / throat groove
   (`curve.mjs: wrapArc`), plus contacts at the fabric edge and through the stitch hole.
@@ -33,6 +37,24 @@ node debug_fabric.cjs /tmp/f.jpg '[[0,0,55,39]]'   # look at the relaxed fabric 
   closes the magic ring (ring yarn flows into the tail, length conserved).
 * **Hand-like motion:** minimum-jerk easing, the hook pivots in the hole for a yarn
   over, the work is rotated so the next stitch comes to the hook (as a crocheter does).
+
+## Shorts v2 (`style: 'short2'`)
+
+```bash
+node make_cheek.mjs /tmp/cheek.json                 # penguin-chick cheek: MR, sc, inc
+./make_video.sh /tmp/cheek.json cheek_silent.mp4 4
+node sfx_events.mjs /tmp/cheek.json /tmp/ev.json    # stitch clicks + step whooshes
+python3 audio/soundtrack.py /tmp/ev.json /tmp/a.wav # procedural lo-fi + foley (numpy)
+ffmpeg -i cheek_silent.mp4 -i /tmp/a.wav -c:v copy -af loudnorm=I=-15:TP=-1.5 -c:a aac -shortest cheek.mp4
+```
+
+`engine/short.mjs` builds a step plan (ШАГ n/N, phase-by-phase captions) and directs
+five angles: over-the-shoulder `pov`, `back` (behind the work, to see the catch),
+`macro` (follows the throat), `mid`/`top` (counting), orbit `reveal`.
+`web/overlay2.mjs` draws the progress bar, step chip, outlined Nunito captions in the
+safe zone, round/stitch counter with fast-forward speed, loops-on-hook dots, a pulsing
+ring on the throat during a yarn over and an arrow while pulling through, and the
+result-first intro/outro card with the toy picture.
 
 ## Files
 

@@ -5,6 +5,8 @@ import { Sim } from '/engine/sim.mjs';
 import { surfaceRadius, HOOK } from '/engine/hook.mjs';
 import { RY } from '/engine/fabric.mjs';
 import { cameraAt, captionAt, badgeAt } from '/engine/director.mjs';
+import { shortCamera, shortOverlay } from '/engine/short.mjs';
+import { drawShortOverlay, loadShortAssets } from '/web/overlay2.mjs';
 import { fillTube } from '/engine/tube.mjs';
 
 const W = 1080, H = 1920;
@@ -31,16 +33,18 @@ scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
 scene.environmentIntensity = 0.55;
 
 // soft studio backdrop (gradient sphere)
-{
+const skyMat = new THREE.MeshBasicMaterial({ side: THREE.BackSide, depthWrite: false });
+function setBackdrop(stops) {
   const c = document.createElement('canvas'); c.width = 16; c.height = 512;
   const g = c.getContext('2d');
   const gr = g.createLinearGradient(0, 0, 0, 512);
-  gr.addColorStop(0, '#f6efe6'); gr.addColorStop(0.55, '#ead9c6'); gr.addColorStop(1, '#cdb49b');
+  stops.forEach(([p, col]) => gr.addColorStop(p, col));
   g.fillStyle = gr; g.fillRect(0, 0, 16, 512);
   const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
-  const sky = new THREE.Mesh(new THREE.SphereGeometry(900, 32, 16), new THREE.MeshBasicMaterial({ map: tex, side: THREE.BackSide, depthWrite: false }));
-  scene.add(sky);
+  skyMat.map = tex; skyMat.needsUpdate = true;
 }
+setBackdrop([[0, '#f6efe6'], [0.55, '#ead9c6'], [1, '#cdb49b']]);
+scene.add(new THREE.Mesh(new THREE.SphereGeometry(900, 32, 16), skyMat));
 
 const camera = new THREE.PerspectiveCamera(28, W / H, 2, 3000);
 
@@ -128,6 +132,8 @@ const dot3 = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
 const cross3 = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
 const norm3 = (a) => { const l = Math.hypot(a[0], a[1], a[2]) || 1; return [a[0] / l, a[1] / l, a[2] / l]; };
 
+const hookMetal = new THREE.MeshPhysicalMaterial({ color: '#c7a2d6', metalness: 0.85, roughness: 0.28, clearcoat: 0.6, clearcoatRoughness: 0.2 });
+const hookHandle = new THREE.MeshPhysicalMaterial({ color: '#4f8f86', roughness: 0.6, metalness: 0, sheen: 0.3 });
 // ---------- hook mesh (hook-local: +x toward tip, +y throat side)
 function hookMesh() {
   const group = new THREE.Group();
@@ -157,8 +163,7 @@ function hookMesh() {
     const m = new THREE.Mesh(g, mat); m.castShadow = true; m.receiveShadow = true;
     group.add(m);
   };
-  const metal = new THREE.MeshPhysicalMaterial({ color: '#c7a2d6', metalness: 0.85, roughness: 0.28, clearcoat: 0.6, clearcoatRoughness: 0.2 });
-  const handle = new THREE.MeshPhysicalMaterial({ color: '#4f8f86', roughness: 0.6, metalness: 0, sheen: 0.3 });
+  const metal = hookMetal, handle = hookHandle;
   make(HOOK.handleStart + 0.5, 0.0, 420, metal);
   make(-200, HOOK.handleStart + 0.6, 30, handle);
   return group;
@@ -212,10 +217,16 @@ function drawOverlay(state) {
 }
 
 // ---------- driver
-let sim = null, scn = null, frame = -1;
+let sim = null, scn = null, frame = -1, opts2 = {};
 window.init = async (scenario, opts = {}) => {
-  scn = scenario;
+  scn = scenario; opts2 = { ...opts, meta: scenario.meta };
   if (opts.colour) yarnMat.color = new THREE.Color(opts.colour);
+  if (opts.sheen) yarnMat.sheenColor = new THREE.Color(opts.sheen);
+  if (opts.hookColour) hookMetal.color = new THREE.Color(opts.hookColour);
+  if (opts.handleColour) hookHandle.color = new THREE.Color(opts.handleColour);
+  if (opts.backdrop) setBackdrop(opts.backdrop);
+  if (opts.exposure) gl.toneMappingExposure = opts.exposure;
+  if (scenario.style === 'short2') await loadShortAssets(opts);
   sim = new Sim(scn);
   frame = -1;
   return { duration: sim.duration, frames: Math.ceil(sim.duration * sim.fps) };
@@ -226,14 +237,23 @@ window.renderFrame = (f, draw = true) => {
   if (!draw) return null;
   buildTube(st.pts, st.s, st.r);
   poseHook(st.hook);
-  const c = cameraAt(sim, frame / sim.fps);
+  const short = scn.style === 'short2';
+  const c = short ? shortCamera(sim, frame / sim.fps, st) : cameraAt(sim, frame / sim.fps);
   camera.position.set(...c.pos); camera.fov = c.fov; camera.updateProjectionMatrix(); camera.lookAt(...c.look);
   key.target.position.set(...c.look);
   key.position.set(c.look[0] - 40, c.look[1] + 70, c.look[2] + 90);
   gl.render(scene, camera);
   ctx.clearRect(0, 0, out.width, out.height);
   ctx.drawImage(gl.domElement, 0, 0);
-  drawOverlay({ cap: captionAt(sim, frame / sim.fps), badge: badgeAt(sim, frame / sim.fps), title: null });
+  if (short) {
+    const ov = shortOverlay(sim, frame / sim.fps, st);
+    const proj = (p) => { const v = new THREE.Vector3(...p).project(camera); return [(v.x + 1) / 2 * W, (1 - v.y) / 2 * H]; };
+    const h = st.hook;
+    ov.throat = proj([h.tip[0] + h.a[0] * HOOK.xThroat, h.tip[1] + h.a[1] * HOOK.xThroat, h.tip[2] + h.a[2] * HOOK.xThroat]);
+    ov.pullTo = proj([h.tip[0] - h.a[0] * 9, h.tip[1] - h.a[1] * 9, h.tip[2] - h.a[2] * 9]);
+    ov.t = frame / sim.fps;
+    drawShortOverlay(ctx, scale, ov, opts2);
+  } else drawOverlay({ cap: captionAt(sim, frame / sim.fps), badge: badgeAt(sim, frame / sim.fps), title: null });
   return out.toDataURL('image/jpeg', 0.92);
 };
 window.renderStatic = (st, c) => {
