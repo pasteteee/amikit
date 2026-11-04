@@ -65,8 +65,8 @@ export class YarnFollower {
         const w = (q.ff > 0.5 ? this.wFab : this.wWork) * speed;
         const c = 2 * this.zeta * w;
         for (let m = 0; m < 3; m++) {
-          const a = w * w * (q.T[m] - q.x[m]) - c * q.v[m];
-          q.v[m] += a * hs;
+          // implicit (backward Euler) damped spring: stable at any speed-up
+          q.v[m] = (q.v[m] + hs * w * w * (q.T[m] - q.x[m])) / (1 + hs * c + hs * hs * w * w);
           q.x[m] += q.v[m] * hs;
         }
       }
