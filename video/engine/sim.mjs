@@ -697,7 +697,8 @@ export class Sim {
     // by the hook and the finger instead of jumping to a new shape.
     const spd = act.type === 'stitch' ? (act.speed || 1) : 1;
     const lag = 0.42 * clamp((3 - spd) / 2);
-    if (this._prev && lag > 0) {
+    const follow = !!this.scn?.meta?.follow; // a persistent follower adds inertia + contact downstream
+    if (!follow && this._prev && lag > 0) {
       const { P: pP, S: pS } = this._prev;
       let j = 0;
       for (let i = 0; i < P.length; i++) {
@@ -719,7 +720,7 @@ export class Sim {
     // the hook contact and the bend limit in the loop
     const radC = FF.map((f) => mix(RY, RY_FAB, f));
     const mob = FF.map((f) => (f > 0.5 ? 0.15 : 1));
-    for (let it = 0; it < 4; it++) {
+    for (let it = 0; it < (follow ? 0 : 4); it++) {
       separateYarn(P, radC, mob, 0.32, 3, RY * 3.4);
       P = limitCurvature(laplace(P, 1, 0.12), 0.32, RY * 0.95, 3);
       pushOutOfHook(F, P, RY);
@@ -727,6 +728,6 @@ export class Sim {
     const R = tubeRadii(P, FF);
     this._prev = { P: P.map((p) => p.slice()), S: S.slice() };
     const onHook = Object.values(this.loops).filter((L) => !L.released && !(L.mode === 'fixed' && L.x > -1.2)).length;
-    return { t: this.t, pts: P, s: S, r: R, hook: { tip: this.hook.tip, a: F.a, d: F.d }, act, ring: fab.ring, phase: this.phName, phaseU: this.phU, onHook };
+    return { t: this.t, pts: P, s: S, r: R, ff: FF, hook: { tip: this.hook.tip, a: F.a, d: F.d }, act, ring: fab.ring, phase: this.phName, phaseU: this.phU, onHook };
   }
 }

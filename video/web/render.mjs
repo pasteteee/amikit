@@ -2,6 +2,8 @@
 import * as THREE from 'three';
 import { RoomEnvironment } from '/node_modules/three/examples/jsm/environments/RoomEnvironment.js';
 import { Sim } from '/engine/sim.mjs';
+import { YarnFollower } from '/engine/follow.mjs';
+let follower = null;
 import { surfaceRadius, HOOK } from '/engine/hook.mjs';
 import { RY } from '/engine/fabric.mjs';
 import { cameraAt, captionAt, badgeAt } from '/engine/director.mjs';
@@ -228,12 +230,13 @@ window.init = async (scenario, opts = {}) => {
   if (opts.exposure) gl.toneMappingExposure = opts.exposure;
   if (scenario.style === 'short2') await loadShortAssets(opts);
   sim = new Sim(scn);
+  follower = scn.meta?.follow ? new YarnFollower(scn.meta.follow === true ? {} : scn.meta.follow) : null;
   frame = -1;
   return { duration: sim.duration, frames: Math.ceil(sim.duration * sim.fps) };
 };
 window.renderFrame = (f, draw = true) => {
   let st;
-  while (frame < f) { frame++; st = sim.step(frame / sim.fps); }
+  while (frame < f) { frame++; st = sim.step(frame / sim.fps); if (follower) st = follower.step(st, 1 / sim.fps); }
   if (!draw) return null;
   buildTube(st.pts, st.s, st.r);
   poseHook(st.hook);
@@ -256,12 +259,19 @@ window.renderFrame = (f, draw = true) => {
   } else drawOverlay({ cap: captionAt(sim, frame / sim.fps), badge: badgeAt(sim, frame / sim.fps), title: null });
   return out.toDataURL('image/jpeg', 0.92);
 };
+window.setLook = (opts) => {
+  if (opts.colour) yarnMat.color = new THREE.Color(opts.colour);
+  if (opts.sheen) yarnMat.sheenColor = new THREE.Color(opts.sheen);
+  if (opts.hookColour) hookMetal.color = new THREE.Color(opts.hookColour);
+  if (opts.handleColour) hookHandle.color = new THREE.Color(opts.handleColour);
+  if (opts.backdrop) setBackdrop(opts.backdrop);
+};
 window.renderStatic = (st, c) => {
   if (st.three) {
     const curve = new THREE.CatmullRomCurve3(st.pts.map((p) => new THREE.Vector3(...p)));
     const m = new THREE.Mesh(new THREE.TubeGeometry(curve, st.pts.length * 2, 0.7, 10), yarnMat); scene.add(m); yarnMesh.visible = false;
   } else buildTube(st.pts, st.s, st.r);
-  if (st.hook) poseHook(st.hook); else hook.visible = false;
+  if (st.hook) { hook.visible = true; poseHook(st.hook); } else hook.visible = false;
   camera.position.set(...c.pos); camera.fov = c.fov || 28; camera.updateProjectionMatrix(); camera.lookAt(...c.look);
   key.target.position.set(...c.look); key.position.set(c.look[0] - 40, c.look[1] + 70, c.look[2] + 90);
   gl.render(scene, camera);
