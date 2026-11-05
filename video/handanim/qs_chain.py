@@ -176,10 +176,16 @@ def caught_curve(n, sign):
     return np.stack([x, r * np.cos(ph), r * np.sin(ph)], axis=1)
 
 
-def seated_curve(n, sign, w):
-    """Caught yarn -> loop round the shaft (w: 0..1), opening toward the legs (away from the throat)."""
-    span = 95 + (172 - 95) * w
-    ph = np.radians(np.linspace(-span, span, n)) * sign
+def seated_curve(n, sign, w, phiG=None):
+    """Caught yarn -> loop round the shaft (w: 0..1). The first end (toward the work) leaves at the bottom; the
+    other end leaves on the side facing the finger, so the working yarn goes straight off the loop."""
+    U = np.linspace(-95, 95, n) * sign
+    if phiG is None:
+        F = np.linspace(-172, 172, n) * sign
+    else:
+        g = math.degrees(phiG)
+        F = np.linspace(-180.0, g, n) if g > 0 else np.linspace(180.0, g, n)
+    ph = np.radians(U + (F - U) * w)
     x = np.full(n, XTH + (-6.0 - XTH) * w)
     r = np.maximum(surf(XTH, ph) + R + 0.03 + (RS - RNECK) * w * 0, surf(x, ph) + R + 0.05)
     return np.stack([x, r * np.cos(ph), r * np.sin(ph)], axis=1)
@@ -223,7 +229,9 @@ class Yarn:
             return a['L0'] + (U - a['L0']) * ease(u)
         if mode == 'hold':
             return caught_curve(a['n0'], a['sign'])
-        C = seated_curve(64, a['sign'], 1.0 if mode == 'ring' else ease(u))  # 'seat' / 'ring'
+        Lg = self.H.local(self.G[None])[0]; phiG = math.atan2(Lg[2], Lg[1])
+        phiG = math.copysign(min(abs(phiG), math.radians(150)), phiG)
+        C = seated_curve(64, a['sign'], 1.0 if mode == 'ring' else ease(u), phiG)  # 'seat' / 'ring'
         n = max(4, int(round(curve_len(C) / H_SP)) + 1)
         return resample_n(C, n)
 
@@ -343,8 +351,8 @@ def key(t_list):
 
 
 # hook poses for one chain stitch (world mm)
-TURN = Pose([1.0, -0.2, -0.6], [-1, 0.0, 0.0], [0, -0.6, -0.8])   # throat turned down-back, back at the loop
-PULL = Pose([10.5, -0.6, -0.6], [-1, 0.0, 0.0], [0, -0.6, -0.8])   # pulled back through the loop
+TURN = Pose([1.0, -0.2, -0.6], [-1, 0.0, 0.0], [0, -0.85, 0.5])   # throat turned down-back, back at the loop
+PULL = Pose([10.5, -0.6, -0.6], [-1, 0.0, 0.0], [0, -0.85, 0.5])   # pulled back through the loop
 UP = Pose([10.5, 1.8, -0.5], [-1, 0.0, 0.0], [0, 1.0, 0.0])         # throat up: the new loop is on the hook
 
 
