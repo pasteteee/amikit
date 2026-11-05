@@ -4,8 +4,8 @@
 import { add, sub, mul, madd, dot, cross, norm, smoothstep } from './vec.mjs';
 
 export const HOOK = {
-  rShaft: 1.25, // 2.5 mm hook (matches the Newton simulation hook)
-  rNeck: 0.6, // remaining spine thickness at the throat
+  rShaft: 1.06, // ~2.1 mm hook (matches the Newton simulation hook, HS 0.85)
+  rNeck: 0.51, // remaining spine thickness at the throat
   xThroat: -2.05, // where yarn sits in the throat
   throatHalf: 1.0,
   thumbStart: -46, thumbEnd: -70,
