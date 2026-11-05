@@ -23,7 +23,7 @@ for (let k = 0; k <= 40; k++) {
 const tailEnd = [X0 + 0.7, -26, 1.2];
 const path = [tailEnd, Pf, ...loop, Pb, E];
 const pts = resample(path, 0.55);
-const sim = new PhysYarn(pts, { eye: { p: E }, mu: +(process.env.MU || 0.35), drag: +(process.env.DRAG || 18) });
+const sim = new PhysYarn(pts, { eye: { p: E }, mu: +(process.env.MU || 0.35), drag: +(process.env.DRAG || 18), takeUp: +(process.env.TAKEUP ?? 0.002), feedT: +(process.env.FEEDT || 0.03) });
 if (process.env.RHOOK) sim.rHook = +process.env.RHOOK;
 // the pinch: the yarn between y = -6.5 and -4 (both legs of the slip knot) is held by thumb and middle finger
 pts.forEach((p, i) => { if (p[1] < -4 && p[1] > -6.5 && Math.abs(p[0] - X0 - PX) < 1.5) sim.pin.set(i, p.slice()); });
