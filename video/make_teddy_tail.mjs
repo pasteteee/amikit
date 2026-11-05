@@ -10,7 +10,7 @@ const scn = buildShort({
   outroText: 'Оставьте хвост нити, чтобы пришить.',
 });
 scn.meta.render = {
-  colour: '#ba713e', sheen: '#f0c9a0', hookColour: '#7fd6c8', handleColour: '#4b2a5e', exposure: 0.95,
+  colour: '#9a5a2e', sheen: '#e0b080', hookColour: '#7fd6c8', handleColour: '#4b2a5e', exposure: 0.95,
   backdrop: [[0, '#fbf3ea'], [0.5, '#f4e4d4'], [1, '#e6cbb4']],
   toyImage: '/web/assets/teddy.jpg',
 };

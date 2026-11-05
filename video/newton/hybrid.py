@@ -185,6 +185,8 @@ def yarn_forces(T0: wp.array[wp.vec3], T1: wp.array[wp.vec3], kk: wp.array[float
 K_FAB = float(os.environ.get("K_FAB", 4.0))
 K_HOOK = float(os.environ.get("K_HOOK", 3.0))
 K_TAIL = float(os.environ.get("K_TAIL", 3.0))
+K_WEAK = float(os.environ.get("K_WEAK", 0.0))
+MISS = float(os.environ.get("MISS", 6.0))
 DAMP = float(os.environ.get("DAMP", 2.0 * 0.9 * math.sqrt(MASS)))  # critical-ish: c*sqrt(k) = 2 zeta sqrt(k m)
 TENSION = float(os.environ.get("TENSION", 4e-3))
 DRAG = float(os.environ.get("DRAG", 0.02))
@@ -217,10 +219,10 @@ for f in range(f_from, NF - 1):
     track_u, miss = track(A, xq, track_u)
     beyond_finger = track_u >= A["U"][-1] - 0.5
     ffu = np.interp(track_u, A["U"], A["FF"]); hku = np.interp(track_u, A["U"], A["HK"])
-    want = np.where(ffu > 0.5, K_FAB, np.where(hku > 0.5, K_HOOK, 0.0))
+    want = np.where(ffu > 0.5, K_FAB, np.where(hku > 0.5, K_HOOK, K_WEAK))  # K_WEAK: the hands keep the rest of the yarn in place
     want[:3] = K_TAIL  # the other hand holds the tail end
     want[beyond_finger] = 0.0
-    want[miss > 6.0] = 0.0  # lost its place (target jumped away): leave it to physics rather than yank it
+    want[miss > MISS] = 0.0  # lost its place (target jumped away): leave it to physics rather than yank it
     a_ = 1 - math.exp(-1.0 / FPS / SOFT)
     k_now += (want - k_now) * a_
     k_now[want == 0] *= 0.6  # letting go is quicker than taking hold
