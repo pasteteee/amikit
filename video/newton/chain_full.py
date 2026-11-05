@@ -129,6 +129,28 @@ s0, s1, ctrl = model.state(), model.state(), model.control()
 SUB = int(os.environ.get("SUB", 16))
 dt = 1.0 / FPS / SUB
 DAMP = float(os.environ.get('DAMP', 0.0))  # air drag on the yarn (1/s)
+INV_M0 = model.body_inv_mass.numpy().copy(); INV_I0 = model.body_inv_inertia.numpy().copy()
+PINNED = set()
+HELD = []
+DROPQ = dict(q0=None, t0=0.0)
+DROP = float(os.environ.get("DROP", 0.0))  # the other hand draws the finished stitch down out of the hook path (mm)
+
+
+def set_pins(ids):
+    # the other hand pinches the yarn at the base of the loop on the hook: those bodies stop moving
+    ids = set(int(i) for i in ids if 0 <= i < n_body_yarn)
+    if ids == PINNED: return
+    im = INV_M0.copy(); ii = INV_I0.copy()
+    for i in ids: im[i] = 0.0; ii[i] = 0.0
+    model.body_inv_mass.assign(im); model.body_inv_inertia.assign(ii)
+    for st in (s0, s1):
+        qd = st.body_qd.numpy(); qd[list(ids)] = 0.0; st.body_qd.assign(qd)
+    solver._refresh_kinematic_state()
+    PINNED.clear(); PINNED.update(ids)
+    print("pins", sorted(ids), flush=True)
+
+
+PINAT = os.environ.get("PINAT", "reach"); PB = int(os.environ.get("PB", 3)); PA = int(os.environ.get("PA", 2))
 TENSION = float(sys.argv[4]) if len(sys.argv) > 4 else 2.0e-4  # pull on the free end (model units)
 
 
@@ -143,6 +165,7 @@ moves = [(0.5, lambda st: HOME, None)]
 
 
 REACHES = [0]
+OFF = [0.0]  # x shift of the work: each stitch hangs a bit further along
 LOOP = [n_tail, n_tail + m]  # material range of the loop that is on the hook now
 
 
@@ -180,6 +203,7 @@ for k in range(n_st):
     def reach(st):
         # pivot the hook about the loop on it so the shaft swings under the working yarn (yarn over)
         c = yarn_pts_mm(st); update_loop(st); Lc = c[LOOP[0]:LOOP[1]].mean(axis=0); E = c[LOOP[1]]
+        if os.environ.get("ADV"): OFF[0] = max(OFF[0], float(Lc[0]) - X0 - 1.5)  # the chain grows: follow the loop that is on the hook now
         A0 = cur["to"]; u = norm(G - E); f = float(os.environ.get("PIV", 0.7))
         a2 = norm((1 - f) * A0["a"] + f * u)
         Ltip = float(np.dot(A0["tip"] - Lc, A0["a"]))
@@ -195,7 +219,7 @@ for k in range(n_st):
     # 2) move toward the yarn until it lies in the throat
     moves.append((0.4, lambda st: P(cur["to"]["tip"] + cur["to"]["d"] * (cur["reach_off"] - float(os.environ.get("SEAT", 0.95))), cur["to"]["a"], cur["to"]["d"]), "catch"))
     # 3) rotate the throat down (yarn wraps over the hook) and come back toward the loop axis
-    moves.append((0.8, lambda st: P([0.0, 0.6, -0.4], [-1, 0, 0], [0, -0.5, -0.85]), "turn"))
+    moves.append((0.8, lambda st: P([OFF[0], 0.6, -0.4], [-1, 0, 0], [0, -0.5, -0.85]), "turn"))
     # 4) pull back through the loop on the hook
     def pull(st):
         c = yarn_pts_mm(st); xl = c[LOOP[0]:LOOP[1]][:, 0].max()
@@ -205,7 +229,7 @@ for k in range(n_st):
     # 5) turn the throat back up with the gate still closed: the new loop now hangs round the hook body
     moves.append((0.5, lambda st: P(cur["to"]["tip"], [-1, 0, 0], [0, 0.8, -0.6]), "rotate"))
     # 6) open the gate and slide forward so the new loop sits on the shaft
-    moves.append((0.9, lambda st: P([0.0, 0.0, 0.0], [-1, 0, 0], [0, 0.3, -1]), "home"))
+    moves.append((0.9, lambda st, k=k: P([OFF[0] + float(os.environ.get("ADV", 0)) * (k + 1), 0.0, 0.0], [-1, 0, 0], [0, 0.3, -1]), "home"))
 moves.append((0.5, lambda st: HOME, None))
 T_total = min(sum(m_[0] for m_ in moves), t_limit)
 
@@ -234,6 +258,20 @@ def pose_at(t, state):
         cur["i"] += 1
         cur["to"] = moves[cur["i"]][1](state)
         tag = moves[cur["i"]][2]
+        if PB or PA:
+            if tag == "reach": set_pins(HELD + list(range(LOOP[0] - PB, LOOP[0])) + (list(range(LOOP[1], LOOP[1] + PA)) if PINAT == "reach" else []))
+            if tag == PINAT and PINAT != "reach": set_pins(HELD + list(range(LOOP[0] - PB, LOOP[0])) + list(range(LOOP[1], LOOP[1] + PA)))
+            if tag == os.environ.get("UNPIN", "home"): set_pins(HELD + list(range(LOOP[0] - PB, LOOP[0])))
+        if tag == "rotate" and os.environ.get("HOLD"):
+            # the stitch just made (the old loop, now round the base of the pulled-through yarn) is held by the other hand
+            c_ = yarn_pts_mm(state); pf = cur["frm"]; rel = c_ - pf["tip"]; lx = rel @ pf["a"]
+            rho = np.linalg.norm(rel - np.outer(lx, pf["a"]), axis=1)
+            th = np.where((lx > -4.5) & (lx < 1.5) & (rho < 3.5))[0]
+            th = th[th >= LOOP[0]]
+            if len(th):
+                bmin = int(th.min()) - int(os.environ.get("HOLD"))
+                HELD[:] = list(range(n_tail - 3, bmin)); set_pins(HELD)
+                DROPQ["q0"] = state.body_q.numpy()[HELD].copy(); DROPQ["t0"] = t
         if tag == "turn" and not os.environ.get("NOGATE"):
             gate_state["closed"] = throat_count(state, cur["frm"]) > 0
             print("gate closed" if gate_state["closed"] else "gate: nothing in the throat", flush=True)
@@ -270,9 +308,9 @@ def set_body(b: int, xf: wp.transform, v: wp.spatial_vector, body_q: wp.array[wp
 
 
 @wp.kernel
-def damp_yarn(n: int, k: float, body_qd: wp.array[wp.spatial_vector]):
+def damp_yarn(n: int, k: float, mask: wp.array[float], body_qd: wp.array[wp.spatial_vector]):
     i = wp.tid()
-    if i < n:
+    if i < n and mask[i] > 0.0:
         body_qd[i] = body_qd[i] * k
 
 
@@ -289,7 +327,13 @@ t = 0.0
 prev_x = pose_xform(HOME)
 t_start = time.time()
 nF = int(T_total * FPS) + 1
+damp_mask = wp.array(np.ones(n_body_yarn, dtype=np.float32), dtype=float)
+DFREE = float(os.environ.get("DFREE", 0.0))  # no air drag within this distance of the hook (it must not fight the hook's grip)
 for f in range(nF):
+    if DAMP > 0 and DFREE > 0:
+        c_ = yarn_pts_mm(s0); pp = pose_at(f / FPS, s0); rel = c_ - pp["tip"]; ax_ = np.clip(rel @ (-pp["a"]), 0, 40)
+        dist = np.linalg.norm(rel + np.outer(ax_, pp["a"]), axis=1)
+        damp_mask.assign((dist > DFREE).astype(np.float32))
     for sub in range(SUB):
         t = (f * SUB + sub) * dt
         p = HOME if os.environ.get('STATIC') else pose_at(t, s0)
@@ -300,12 +344,19 @@ for f in range(nF):
             gx = x[:3] if gate_state["closed"] else np.array([0.0, 50.0, 0.0])
             wp.launch(set_body, dim=1, inputs=[gate, wp.transform(wp.vec3(*gx), wp.quat(*x[3:])), wp.spatial_vector(*(vel if gate_state["closed"] else np.zeros(6))), st.body_q, st.body_qd])
         prev_x = x
+        if DROP > 0 and DROPQ["q0"] is not None and t - DROPQ["t0"] < 1.3:
+            w = ease(min(1.0, (t - DROPQ["t0"]) / 1.2)); w1 = ease(min(1.0, (t + dt - DROPQ["t0"]) / 1.2))
+            for st in (s0, s1):
+                q = st.body_q.numpy(); qd = st.body_qd.numpy()
+                q[HELD] = DROPQ["q0"]; q[HELD, 1] -= DROP * w * S
+                qd[HELD] = 0.0; qd[HELD, 1] = -DROP * (w1 - w) * S / dt
+                st.body_q.assign(q); st.body_qd.assign(qd)
         s0.clear_forces()
         wp.launch(set_force, dim=1, inputs=[last, wp.vec3(*(dirOut * TENSION)), s0.body_f])
         pipe.collide(s0, contacts)
         solver.step(s0, s1, ctrl, contacts, dt)
         s0, s1 = s1, s0
-        if DAMP > 0: wp.launch(damp_yarn, dim=n_body_yarn, inputs=[n_body_yarn, math.exp(-DAMP * dt), s0.body_qd])
+        if DAMP > 0: wp.launch(damp_yarn, dim=n_body_yarn, inputs=[n_body_yarn, math.exp(-DAMP * dt), damp_mask, s0.body_qd])
     c = yarn_pts_mm(s0)
     if not np.isfinite(c).all():
         print("NaN at frame", f); break
