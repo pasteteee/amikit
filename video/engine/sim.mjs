@@ -502,7 +502,7 @@ export class Sim {
     for (let it = 0; it < sub_; it++) {
       for (let k = 1; k < N; k++) {
         const p = T.p[k], q = T.q[k];
-        const v = mul(sub(p, q), 0.985);
+        const v = mul(sub(p, q), this.scn?.meta?.tailKeep ?? 0.985); // velocity kept per substep: lower = calmer tail
         T.q[k] = p.slice();
         T.p[k] = add(add(p, v), mul(g, h * h));
       }
