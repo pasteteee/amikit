@@ -134,7 +134,7 @@ def resample(P, h=H_SP, keep_last=True):
 
 
 def self_collide(P, w=None, iters=1):
-    d0 = 2 * R
+    d0 = 2 * R * 1.1  # a little margin: the tension always wins back a bit
     for _ in range(iters):
         pairs = cKDTree(P).query_pairs(d0, output_type='ndarray')
         if len(pairs) == 0: return P
@@ -176,19 +176,21 @@ def caught_curve(n, sign):
     return np.stack([x, r * np.cos(ph), r * np.sin(ph)], axis=1)
 
 
-def seated_curve(n, sign, w, phiG=None):
-    """Caught yarn -> loop round the shaft (w: 0..1). The first end (toward the work) leaves at the bottom; the
-    other end leaves on the side facing the finger, so the working yarn goes straight off the loop."""
-    U = np.linspace(-95, 95, n) * sign
-    if phiG is None:
-        F = np.linspace(-172, 172, n) * sign
-    else:
-        g = math.degrees(phiG)
-        F = np.linspace(-180.0, g, n) if g > 0 else np.linspace(180.0, g, n)
-    ph = np.radians(U + (F - U) * w)
+def seated_curve(n, sign, w, c0=0.0, c1=0.0, th=0.0):
+    """Caught yarn -> loop round the shaft (w: 0..1), in world-fixed angles: the U in the throat (centred on the
+    throat's world angle c0) becomes a ring hanging over the shaft (centred on c1, its legs down to the work).
+    th: the hook's present roll; the loop does not turn with the hook once it is out of the throat."""
+    U = np.linspace(-95, 95, n) * sign + c0
+    F = np.linspace(-160, 160, n) * sign + c1
+    ph = np.radians(U + (F - U) * w - th)
     x = np.full(n, XTH + (-6.0 - XTH) * w)
-    r = np.maximum(surf(XTH, ph) + R + 0.03 + (RS - RNECK) * w * 0, surf(x, ph) + R + 0.05)
+    r = np.maximum(surf(XTH, ph) + R + 0.03, surf(x, ph) + R + 0.05)
     return np.stack([x, r * np.cos(ph), r * np.sin(ph)], axis=1)
+
+
+def roll(H):
+    """World angle of the throat round the shaft (degrees, 0 = up, 90 = away from the viewer)."""
+    return math.degrees(math.atan2(-H.d[2], H.d[1]))
 
 
 def curve_len(C):
@@ -201,26 +203,50 @@ def resample_n(C, n):
     return np.stack([np.interp(u, s, C[:, k]) for k in range(3)], axis=1)
 
 
+def resample_free(P, fixed):
+    """Resample the free spans between the fixed (authored) pieces; the fixed pieces keep their points."""
+    out = []; idx = []; a = 0
+    for (i0, i1) in fixed:
+        F = resample(P[a:i0 + 1]) if i0 > a else P[a:a + 1]
+        if out: F = F[1:]
+        out.append(F); n0 = sum(len(o) for o in out) - 1
+        out.append(P[i0 + 1:i1 + 1]); idx.append((n0, n0 + i1 - i0)); a = i1
+    F = resample(P[a:]); out.append(F[1:] if out else F)
+    return np.vstack(out), idx
+
+
+def link_ring(n, sign, rho=None):
+    """A finished link (hook-free): a flat ring round a vertical axis, open toward +x (the handle side); its first end
+    is where the loop's first leg was, both ends lead down to the link below."""
+    span = math.radians(320)
+    if rho is None: rho = (n - 1) * H_SP / span
+    ps = np.radians(20) + np.linspace(0, span, n)
+    if sign < 0: ps = -ps
+    return np.outer(rho * np.cos(ps), [1.0, 0, 0]) + np.outer(rho * np.sin(ps), LINK_B)
+
+
+LINK_TILT = math.radians(55)   # links face the viewer this much (0: flat rings round a vertical axis)
+LINK_B = np.array([0.0, -math.sin(LINK_TILT), math.cos(LINK_TILT)])
+LINK_N = np.array([0.0, math.cos(LINK_TILT), math.sin(LINK_TILT)])
+
+
 class Yarn:
-    """att: the caught yarn, carried by the hook as a piece of the strand (indices i0..i1) whose hook-local shape
-    is authored; the rest of the strand is solved."""
+    """The strand from the finished work (anchor) to the finger eyelet G. Two pieces of it can be authored:
+    att (the loop / caught yarn carried by the hook, hook-local shape) and link (the old loop closing into a chain
+    link, held by the other hand). Everything else is solved as a taut string."""
     def __init__(self, P, anchor, G):
         self.P = resample(np.asarray(P, float)); self.anchor = np.asarray(anchor, float); self.G = np.asarray(G, float)
-        self.att = None; self.H = None
-        self.frozen = np.zeros((0, 3))  # finished work held by the other hand: rigid, from the tail end up to anchor
+        self.att = None; self.H = None; self.link = None; self.old = None
+        self.frozen = np.zeros((0, 3))
 
     def freeze(self, f):
-        """Everything up to sim index f becomes finished work (held by the hand)."""
         self.frozen = np.vstack([self.frozen, self.P[:f]])
         self.P = self.P[f:].copy(); self.anchor = self.P[0].copy()
-        if self.att is not None: self.att['i0'] -= f; self.att['i1'] -= f
+        for a in (self.att, self.link):
+            if a is not None: a['i0'] -= f; a['i1'] -= f
 
-    def move_work(self, delta, rot_axis=None, ang=0.0):
-        F = self.frozen + delta; a = self.anchor + delta
-        if ang:
-            k = norm(rot_axis); V = F - a; c, s_ = math.cos(ang), math.sin(ang)
-            F = a + V * c + np.cross(k, V) * s_ + np.outer(V @ k, k) * (1 - c)
-        self.frozen = F; self.anchor = a; self.P[0] = self.anchor
+    def move_work(self, delta):
+        self.frozen = self.frozen + delta; self.anchor = self.anchor + delta; self.P[0] = self.anchor
 
     def target(self, mode, u):
         a = self.att
@@ -228,14 +254,22 @@ class Yarn:
             n = a['n0']; U = caught_curve(n, a['sign'])
             return a['L0'] + (U - a['L0']) * ease(u)
         if mode == 'hold':
+            a['c0'] = roll(self.H)
             return caught_curve(a['n0'], a['sign'])
-        Lg = self.H.local(self.G[None])[0]; phiG = math.atan2(Lg[2], Lg[1])
-        phiG = math.copysign(min(abs(phiG), math.radians(150)), phiG)
-        C = seated_curve(64, a['sign'], 1.0 if mode == 'ring' else ease(u), phiG)  # 'seat' / 'ring'
+        # the loop turns with the hook (it was turned throat-up while still in the throat)
+        C = seated_curve(64, a['sign'], 1.0 if mode == 'ring' else ease(u))  # 'seat' / 'ring'
         n = max(4, int(round(curve_len(C) / H_SP)) + 1)
         return resample_n(C, n)
 
-    def step(self, H, mode=None, u=0.0, iters=ITERS, tau=TAU, stick=False, slip=False, hand=None):
+    def link_target(self):
+        k = self.link; e = ease(k['u'])
+        c = k['c0'] + (k['c1'] - k['c0']) * e
+        return c + k['C0'] + (k['A'] - k['C0']) * e
+
+    def pieces(self):
+        return sorted([(p['i0'], p['i1']) for p in (self.att, self.link) if p is not None])
+
+    def step(self, H, mode=None, u=0.0, iters=ITERS, tau=TAU, stick=False, slip=False):
         P = self.P
         held_loop = None
         if slip and self.H is not None:
@@ -244,15 +278,19 @@ class Yarn:
             held_loop = (Lh[:, 0] < 0.8) & (Lh[:, 0] > -12) & (rrh < RS + R + 2.8)
             if self.att is not None: held_loop[self.att['i0']:self.att['i1'] + 1] = False
             X0 = P[held_loop].copy(); ax = self.H.a.copy()
+        on = None
         if stick and self.H is not None:
-            # a loop on the shaft does not slide along it by itself (friction; the finger keeps it there)
             L0 = self.H.local(P); rr0 = np.hypot(L0[:, 1], L0[:, 2])
             on = (L0[:, 0] < -3.6) & (rr0 < RS + R + 0.35)
+            # only the loop that was on the hook sticks (the working yarn slides over the shaft freely)
+            keep = np.zeros(len(P), bool)
+            if self.old is not None: keep[max(0, self.old['i0'] - 3):self.old['i1'] + 4] = True
+            on &= keep
             x0 = L0[on, 0]
-        else:
-            on = None
         self.H = H
         if mode is None or (mode == 'catch' and self.att is not None and self.att.get('kind') == 'ring'):
+            if self.att is not None:
+                self.old = dict(i0=self.att['i0'], i1=self.att['i1'], sign=self.att['sign'])
             self.att = None  # the loop on the hook is let go: it is just yarn round the shaft now
         if mode == 'ring' and self.att is not None:
             self.att['kind'] = 'ring'
@@ -261,8 +299,10 @@ class Yarn:
             K = int(round(2.7 / H_SP))
             dd = np.linalg.norm(P - tb, axis=1)
             lo = K + 2
-            if getattr(self, 'catch_hint', None) is not None: lo = max(lo, self.catch_hint - 25)
-            c = lo + int(np.argmin(dd[lo:len(P) - K - 2]))
+            hi = len(P) - K - 2
+            if getattr(self, 'catch_hint', None) is not None:
+                lo = max(lo, self.catch_hint - 8); hi = min(hi, self.catch_hint + 9)
+            c = lo + int(np.argmin(dd[lo:hi]))
             i0, i1 = c - K, c + K
             Lc = H.local(P[i0:i1 + 1])
             sign = 1.0 if np.arctan2(Lc[0, 2], Lc[0, 1]) < np.arctan2(Lc[-1, 2], Lc[-1, 1]) else -1.0
@@ -271,47 +311,47 @@ class Yarn:
             P[0] = self.anchor; P[-1] = self.G
             P = tension(P, tau)
             P = hook_push(H, P)
-            w = None
-            if self.att is not None:
-                w = np.ones(len(P)); w[self.att['i0']:self.att['i1'] + 1] = 1e-6
-            nf = min(len(self.frozen), 90)
+            w = np.ones(len(P))
+            for (i0, i1) in self.pieces(): w[i0:i1 + 1] = 1e-6
+            nf = min(len(self.frozen), 120)
             if nf:
                 Q = np.vstack([self.frozen[len(self.frozen) - nf:], P])
-                wq = np.concatenate([np.full(nf, 1e-6), np.ones(len(P)) if w is None else w])
+                wq = np.concatenate([np.full(nf, 1e-6), w])
                 P = self_collide(Q, wq, iters=4)[nf:]
             else:
                 P = self_collide(P, w, iters=4)
             P = hook_push(H, P)
-            if hand is not None and getattr(self, 'hand_rng', None) is not None:
-                j0, j1 = self.hand_rng
-                if 0 < j0 < j1 < len(P):
-                    dh = 0.15 * (hand - P[j0:j1 + 1].mean(axis=0)); P[j0:j1 + 1] += dh * min(1.0, 0.3 / max(np.linalg.norm(dh), 1e-9))
-            if held_loop is not None and held_loop.any():
+            if held_loop is not None and held_loop.any() and len(held_loop) == len(P):
                 dX = P[held_loop] - X0
                 P[held_loop] = X0 + dX - np.outer(dX @ ax, ax)
             if on is not None and on.any() and len(P) == len(on):
                 L = H.local(P[on]); L[:, 0] = x0; P[on] = H.world(L)
+            if self.link is not None:
+                k = self.link; T = self.link_target(); P[k['i0']:k['i1'] + 1] = T
             if self.att is not None:
                 T = H.world(self.target(mode, u))
                 i0, i1 = self.att['i0'], self.att['i1']
-                P = np.vstack([P[:i0], T, P[i1 + 1:]])
-                self.att['i1'] = i0 + len(T) - 1
-                on = None  # point count changed
-                if held_loop is not None and len(held_loop) != len(P):
-                    held_loop = np.concatenate([held_loop[:i0], np.zeros(len(T), bool), held_loop[i1 + 1:]]) if len(held_loop[:i0]) + len(T) + len(held_loop[i1 + 1:]) == len(P) else None
+                if len(T) != i1 - i0 + 1:
+                    P = np.vstack([P[:i0], T, P[i1 + 1:]]); self.att['i1'] = i0 + len(T) - 1
+                    on = None; held_loop = None
+                else:
+                    P[i0:i1 + 1] = T
             P[0] = self.anchor; P[-1] = self.G
-        if held_loop is not None and self.att is not None and len(held_loop) == len(P):
-            idx = np.where(held_loop[:max(0, self.att['i0'] - 8)])[0]
-            if len(idx) > 5: self.hand_rng = (int(idx.min()), int(idx.max()))
-        if self.att is None:
-            self.P = hook_push(H, resample(P))
-        else:
-            i0, i1 = self.att['i0'], self.att['i1']
-            A = resample(P[:i0 + 1]); B = resample(P[i1:])
-            self.att['i0'] = len(A) - 1; self.att['i1'] = len(A) - 1 + (i1 - i0)
-            self.P = np.vstack([A[:-1], P[i0:i1 + 1], B[1:]])
-            k = np.ones(len(self.P), bool); k[self.att['i0']:self.att['i1'] + 1] = False
-            Q = hook_push(H, self.P.copy()); self.P[k] = Q[k]
+        fx = self.pieces()
+        P2, idx = resample_free(P, fx)
+        for (i0, i1), (j0, j1) in zip(fx, idx):
+            for a in (self.att, self.link):
+                if a is not None and a['i0'] == i0: a['i0'], a['i1'] = j0, j1
+        if self.old is not None and fx:
+            # the old loop's indices move with the free span it is in
+            sh = 0
+            for (i0, i1), (j0, j1) in zip(fx, idx):
+                if i1 < self.old['i0']: sh = j1 - i1
+            self.old['i0'] += sh; self.old['i1'] += sh
+        k = np.ones(len(P2), bool)
+        for (j0, j1) in idx: k[j0:j1 + 1] = False
+        Q = hook_push(H, P2.copy()); P2[k] = Q[k]
+        self.P = P2
         return self.P
 
 
@@ -319,51 +359,52 @@ class Yarn:
 HOME = Pose([0, 0, 0], [-1, 0, 0], [0, 1, 0])
 XL = 6.0
 G0 = np.array([9.0, 13.0, -9.0])          # finger eyelet at rest: up-behind the hook (the loop stays put)
-# the finger turns the working yarn so it runs back-left behind the hook head (where the throat can take it)
-GK = dict(low=np.array([7.0, -12.0, -12.0]), rest=G0, mid=np.array([-6.0, 12.0, -22.0]), left=np.array([-30.0, 3.0, -20.0]))
-PINCH0 = np.array([XL + 0.4, -12.0, 0.6])  # the other hand pinches the tail under the work
+GK = dict(low=np.array([7.0, -12.0, -12.0]), rest=G0, mid=np.array([4.0, 15.0, -10.0]), left=np.array([0.5, 14.0, -9.0]))
+LDROP = 6.5      # the newest link sits this far under the shaft (held there by the other hand)
+PITCH = 4.0      # chain links are this far apart
+RHO = 2.9        # link ring (centreline) radius: holds the two legs of the next loop
 TAIL = 22.0
-RLINK = 3.6  # a finished link stays this open (centreline radius), friction stops it closing further
-
-
-def initial_yarn_tail():
-    return resample(np.array([PINCH0 + [0, -TAIL, 0.2], PINCH0]))[:-1]
+C_LINK = HOME.pt(-XL) + np.array([0.0, -LDROP, 0.0])
 
 
 def initial_yarn():
-    """Tail up from the pinch, one full wrap round the shaft at XL, then off to the finger."""
-    c = HOME.pt(-XL)
-    pts = [PINCH0, PINCH0 + [0, 4, 0.3]]
-    rho = RS + R + 0.6
-    for k in range(55):
-        th = math.radians(370 - 485 * k / 54)  # up the back, over, down the front, under, and up the back again
-        pts.append(c + np.array([1.4 - 2.8 * k / 54, -rho * math.cos(th), rho * math.sin(th)]))
-    last = pts[-1]
-    pts.append(last + norm(G0 - last) * 3)
-    pts.append(G0)
-    Y = Yarn(np.array(pts), PINCH0, G0)
-    Y.frozen = initial_yarn_tail()
+    """A slip knot: tail up to ring0 (a finished link under the hook), from its end under it and up through it to the
+    loop on the hook, round the shaft, down through ring0 again, round under its back and up to the finger."""
+    c0 = C_LINK
+    n0 = int(round(RHO * math.radians(320) / H_SP)) + 1
+    ring0 = c0 + link_ring(n0, 1.0, RHO)
+    tail = resample(np.array([ring0[0] + [0, -TAIL, 0], ring0[0] + [0, -2.0, 0]]))
+    frozen = np.vstack([tail, resample(np.vstack([tail[-1], ring0[0]]))[1:-1], ring0])
+    loop = HOME.world(resample_n(seated_curve(64, 1.0, 1.0), 40))
+    e = ring0[-1]
+    pts = [e, e - LINK_N * 1.6 + [-0.5, 0, 0], c0 - LINK_N * 2.4 + [0.6, 0, 0], c0 + [0.4, -0.4, 0.4], loop[0] + [0, -1.2, 0.2]]
+    pts += list(loop)
+    back = c0 + RHO * (math.cos(math.radians(-72)) * np.array([1.0, 0, 0]) + math.sin(math.radians(-72)) * LINK_B)
+    pts += [loop[-1] + [0, -1.2, -0.2], c0 + [-0.4, -0.4, -0.4], c0 - LINK_N * 2.6, back - LINK_N * 2.4,
+            back + norm(back - c0) * 2.4, back + [0, 4, -2.0], G0]
+    Y = Yarn(resample(np.array(pts)), e, G0)
+    Y.frozen = frozen
+    # the loop on the hook is carried as an authored ring
+    d = np.linalg.norm(Y.P - loop[0], axis=1); i0 = int(np.argmin(d))
+    d = np.linalg.norm(Y.P - loop[-1], axis=1); i1 = int(np.argmin(d))
+    Y.H = HOME
+    Y.att = dict(i0=i0, i1=i1, n0=i1 - i0 + 1, L0=None, sign=1.0, kind='ring')
     return Y
-
-
-def key(t_list):
-    return t_list
 
 
 # hook poses for one chain stitch (world mm)
 TURN = Pose([1.0, -0.2, -0.6], [-1, 0.0, 0.0], [0, -0.85, 0.5])   # throat turned down-back, back at the loop
-PULL = Pose([10.5, -0.6, -0.6], [-1, 0.0, 0.0], [0, -0.85, 0.5])   # pulled back through the loop
-UP = Pose([10.5, 1.8, -0.5], [-1, 0.0, 0.0], [0, 1.0, 0.0])         # throat up: the new loop is on the hook
+PULL = Pose([15.0, -0.6, -0.6], [-1, 0.0, 0.0], [0, -0.85, 0.5])   # pulled back through the loop
+UP = Pose([15.0, 1.8, -0.5], [-1, 0.0, 0.0], [0, 1.0, 0.0])         # throat up: the new loop is on the hook
 
 
 def catch_pose(Y, back=0.0):
     """Throat facing back, its groove on the working yarn where it passes behind the head (back>0: still in front)."""
     xw = HOME.pt(XTH)[0]
     P = Y.P
-    # the working yarn: after the last point that touches the loop on the hook
-    L = HOME.local(P); on = np.where((np.hypot(L[:, 1], L[:, 2]) < RS + R + 0.6) & (L[:, 0] < -3))[0]
-    start = on.max() + 1 if len(on) else len(P) // 2
-    k0 = start + int(np.argmin(np.abs(P[start:, 0] - xw) + 50 * (P[start:, 2] > -1.5)))
+    start = Y.att['i1'] + 1 if Y.att is not None else len(P) // 2
+    start += int(np.argmin(P[start:, 1]))  # past the turn under the last link: the working yarn
+    k0 = start + int(np.argmin(np.abs(P[start:, 0] - xw) + 50 * (P[start:, 2] > -1.5) + 50 * (np.abs(P[start:, 1]) > 3.0)))
     Y.catch_hint = k0
     target = P[k0] + np.array([0, 0, back])
     a = np.array([-1.0, 0, 0]); d = np.array([0, 0.25, -1.0]); d = norm(d)
@@ -378,35 +419,47 @@ def path(keys, u):
     return 0.5 * ((2 * p1) + (-p0 + p2) * w + (2 * p0 - 5 * p1 + 4 * p2 - p3) * w * w + (-p0 + 3 * p1 - 3 * p2 + p3) * w ** 3)
 
 
+def start_link(Y):
+    """The old loop (now round the new loop's legs) becomes a link: from its present shape it is drawn into a flat ring
+    under the hook by the other hand."""
+    o = Y.old
+    n = int(round(RHO * math.radians(320) / H_SP)) + 1
+    mid = (o['i0'] + o['i1']) // 2
+    i0 = max(1, mid - n // 2); i1 = i0 + n - 1
+    if Y.att is not None and i1 > Y.att['i0'] - 3:
+        i1 = Y.att['i0'] - 3; i0 = max(1, i1 - n + 1)
+    n = i1 - i0 + 1
+    C = Y.P[i0:i1 + 1].copy(); c0 = C.mean(axis=0)
+    Y.link = dict(i0=i0, i1=i1, C0=C - c0, A=link_ring(n, o['sign'], RHO), c0=c0, c1=C_LINK.copy(), u=0.0)
+
+
 def run(n_st, skip, out_path):
     Y = initial_yarn()
-    for _ in range(60): Y.step(HOME, iters=20)
+    for _ in range(60): Y.step(HOME, mode='ring', iters=20)
     frames = []
-    drop_per = 3.6
     t = 0.0
     for st in range(n_st):
-        pinch_start = Y.anchor.copy()
         poses = dict(home=HOME, turn=TURN, pull=PULL, up=UP)
-        # (hook from, hook to, finger path, seconds, throat holds, loop sticks to the shaft)
-        rm = 'ring' if Y.att is not None else None
-        link_frozen = False
-        seq = [('home', 'home', ['rest'], 0.4, rm, True),
-               ('home', 'home', ['rest', 'mid', 'left'], 1.0, rm, True),      # the yarn is brought behind the head
-               ('home', 'near', ['left'], 0.6, rm, True),                     # throat turns back, toward it
+        # (hook from, hook to, finger path, seconds, throat mode, loop sticks to the shaft)
+        seq = [('home', 'home', ['rest'], 0.4, 'ring', True),
+               ('home', 'home', ['rest', 'mid', 'left'], 1.0, 'ring', True),  # the yarn is brought behind the head
+               ('home', 'near', ['left'], 0.6, 'ring', True),                 # throat turns back, toward it
                ('near', 'catch', ['left'], 0.4, 'catch', True),               # and takes it (yarn over)
                ('catch', 'turn', ['left'], 0.6, 'hold', True),                # throat turns down with the yarn
                ('turn', 'pull', ['left'], 1.3, 'hold', False),                # pulled through the loop on the hook
-               ('pull', 'up', ['left', 'mid'], 0.8, 'hold', False),           # throat up: it is the new loop
+               ('pull', 'up', ['left', 'mid'], 1.2, 'hold', False),           # throat up: it is the new loop
                ('up', 'home', ['mid', 'rest'], 1.1, 'seat', False),           # the hook goes into the new loop
-               ('home', 'home', ['rest'], 0.1, 'ring', True)]
-        for (p0, p1, gk, dur, hold, stick) in seq:
-            if p0 == 'pull':  # the other hand draws the work down: the old loop closes under the hook
-                moved = 0.0; work_shift = np.array([0.0, -4.0, 0.0])
-            if p0 == 'up':  # the work follows the new loop as the hook goes home
-                work_shift = np.array([-3.0, -1.0, 0.0]); moved = 0.0
+               ('home', 'home', ['rest'], 0.3, 'ring', True)]
+        T_LINK = 1.2 + 1.1; tl = 0.0
+        for (p0, p1, gk, dur, mode, stick) in seq:
             if p1 == 'near':
                 Y.G = path(gk, 1.0)
                 poses['catch'] = catch_pose(Y); poses['near'] = catch_pose(Y, back=2.2)
+            if p0 == 'pull' and Y.old is not None:
+                start_link(Y)
+            if p0 == 'home' and p1 == 'home' and Y.link is not None:
+                Y.freeze(Y.link['i1'] + 1); Y.link = None; Y.old = None
+            moved = 0.0
             A, B = poses[p0], poses[p1]
             nfr = int(round(dur * FPS))
             for k in range(nfr):
@@ -414,23 +467,15 @@ def run(n_st, skip, out_path):
                     u = (k + (sbs + 1) / SUB) / nfr
                     H = A.lerp(B, ease(u))
                     Y.G = path(gk, ease(u))
-                    if p0 in ('pull', 'up'):
-                        Y.move_work(work_shift * (ease(u) - moved)); moved = ease(u)
-                    if p0 in ('pull',): hx = XTH
-                    elif p0 == 'up': hx = XTH + (-6.0 - XTH) * ease(u)
-                    else: hx = -6.0
-                    hand = H.pt(hx) + np.array([0.0, -4.4, 0.0]) if p0 not in ('turn',) else None
-                    Y.step(H, mode=hold, u=u, stick=stick, slip=(p0 == 'turn'), hand=hand)
-                    if p0 in ('pull', 'up') and not link_frozen and getattr(Y, 'hand_rng', None):
-                        j0, j1 = Y.hand_rng
-                        Lk = Y.P[j0:j1 + 1]; rad = np.linalg.norm(Lk - Lk.mean(axis=0), axis=1).max()
-                        if rad < RLINK and j1 + 2 < Y.att['i0']:
-                            # the new link has closed round the legs; friction keeps it like that: it is finished work
-                            Y.freeze(j1 + 1); Y.hand_rng = None; link_frozen = True
+                    if p0 == 'turn':  # the other hand lowers the work by one link while the hook pulls through
+                        Y.move_work(np.array([0.0, -PITCH, 0.0]) * (ease(u) - moved)); moved = ease(u)
+                    if Y.link is not None and p0 in ('pull', 'up'):
+                        tl += dur / nfr / SUB; Y.link['u'] = min(1.0, tl / T_LINK)
+                    Y.step(H, mode=mode, u=u, stick=stick, slip=(p0 == 'turn'))
                 t += 1 / FPS
                 if st >= skip:
                     frames.append(frame_json(Y, H, t, st))
-        print("stitch", st, "points", len(Y.P), flush=True)
+        print("stitch", st, "points", len(Y.P), "frozen", len(Y.frozen), flush=True)
     cam = dict(pos=[18, 4, 46], look=[5, -3, -2], fov=36)
     json.dump(dict(fps=FPS, r=R, frames=frames, cam=cam, G=G0.tolist()), open(out_path, "w"))
     print("frames", len(frames))
@@ -440,7 +485,11 @@ def frame_json(Y, H, t, st):
     beyond = Y.G + norm(Y.G - Y.P[-8]) * np.array([[5.0], [12.0]])
     P = np.vstack([Y.frozen, Y.P, beyond])
     s = np.concatenate([[0], np.cumsum(np.linalg.norm(np.diff(P, axis=0), axis=1))])
-    return dict(t=round(t, 3), stitch=st, pts=P.round(3).tolist(), s=s.round(3).tolist(), hook=H.js())
+    nf = len(Y.frozen)
+    att = None if Y.att is None else [Y.att['i0'] + nf, Y.att['i1'] + nf]
+    link = None if Y.link is None else [Y.link['i0'] + nf, Y.link['i1'] + nf]
+    return dict(t=round(t, 3), stitch=st, pts=P.round(3).tolist(), s=s.round(3).tolist(), hook=H.js(), att=att,
+                link=link, nfrozen=nf)
 
 
 if __name__ == "__main__":

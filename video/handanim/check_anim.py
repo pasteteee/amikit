@@ -1,10 +1,13 @@
 """Frame-by-frame checks for a yarn animation JSON ({fps, r, frames:[{pts, s, hook}]}).
 
-  jump   : the same bit of yarn (same material coordinate s) moves more per frame than the hook could push it
-           (hook speed at that point + 0.5 mm), i.e. yarn that teleports or "lives its own life";
-  far    : yarn more than 6 mm from the hook moving faster than 0.35 mm/frame (nothing touches it, so it must
-           be (nearly) still: only the slow lowering of the work by the other hand is allowed);
-  self   : two bits of yarn more than 4 mm apart along the strand closer than 0.9 yarn diameters (interpenetration);
+  jump   : the same bit of yarn (same material coordinate s) moves sideways more per frame than the hook could
+           push it (hook speed + 0.5 mm near the hook, 0.5 mm elsewhere), or slides along itself faster than
+           the hook can pull it (2x hook speed + 1 mm): yarn that teleports;
+  far    : yarn more than 6 mm from the hook whose sideways motion differs from that of the yarn 3 mm either
+           side of it by more than 0.35 mm/frame: a free span may swing as a whole when its ends move (the
+           hook pulls, the finger moves), but a bit of it must not move on its own ("lives its own life");
+  self   : two bits of yarn more than 4 mm apart along the strand closer than SELF yarn diameters
+           (interpenetration; yarn is soft, --self sets the allowed squash, default 0.9);
   hook   : yarn centreline inside the hook body (the renderer would show yarn through the hook).
 Usage: python check_anim.py <anim.json> [--every N]
 """
@@ -28,6 +31,9 @@ def hook_dist(H, P):
     return pen, radial
 
 
+SELF = float(sys.argv[sys.argv.index("--self") + 1]) if "--self" in sys.argv else 0.9
+
+
 def main():
     d = json.load(open(sys.argv[1])); fr = d["frames"]; r = d["r"]
     every = int(sys.argv[sys.argv.index("--every") + 1]) if "--every" in sys.argv else 1
@@ -46,7 +52,7 @@ def main():
         DD = np.linalg.norm(Q[:, None] - Q[None], axis=2)
         far_along = np.abs(Sq[:, None] - Sq[None]) > 4.0
         dm = np.where(far_along, DD, 9).min()
-        if dm < 2 * r * 0.9:
+        if dm < 2 * r * SELF:
             counts["self"] += 1
             if dm < worst["self"][0]:
                 a_, b_ = np.unravel_index(np.argmin(np.where(far_along, DD, 9)), DD.shape)
@@ -55,20 +61,24 @@ def main():
             P0, S0, H0 = prev
             s_common = S[(S <= S0[-1])]
             A = at_s(P0, S0, s_common); B = P[: len(s_common)]
-            mv = np.linalg.norm(B - A, axis=1)
             hv = np.linalg.norm(H.tip - H0.tip) + 2.0 * np.linalg.norm(H.a - H0.a) * 10
             _, rad0 = hook_dist(H0, A)
             near = rad0 < 3.0
+            tg = np.gradient(B, axis=0); tg /= np.linalg.norm(tg, axis=1, keepdims=True) + 1e-9
+            dv = B - A; along = np.abs((dv * tg).sum(1)); side = np.linalg.norm(dv - tg * (dv * tg).sum(1, keepdims=True), axis=1)
             lim = np.where(near, hv + 0.5, 0.5)
+            mv = np.maximum(side - lim, along - (2 * hv + 1.0)) + lim
             bad = mv > lim
             if bad.any():
                 counts["jump"] += 1
                 k = int(np.argmax(mv - lim))
                 if mv[k] - lim[k] > worst["jump"][0]: worst["jump"] = (mv[k] - lim[k], (i, round(s_common[k], 1), round(mv[k], 2)))
-            # sliding along itself (fed from the finger) is real yarn motion: only sideways motion counts here
-            tg = np.gradient(B, axis=0); tg /= np.linalg.norm(tg, axis=1, keepdims=True) + 1e-9
-            dv = B - A; side = np.linalg.norm(dv - tg * (dv * tg).sum(1, keepdims=True), axis=1)
-            mv = np.where(rad0 > 6.0, side, mv)
+            # a free span may swing as a whole: only motion that differs from its neighbours' counts
+            sv = dv - tg * (dv * tg).sum(1, keepdims=True)
+            ds = np.median(np.diff(s_common)) if len(s_common) > 2 else 0.36
+            k = max(1, int(round(3.0 / max(ds, 1e-3))))
+            lo = np.clip(np.arange(len(sv)) - k, 0, len(sv) - 1); hi = np.clip(np.arange(len(sv)) + k, 0, len(sv) - 1)
+            mv = np.linalg.norm(sv - 0.5 * (sv[lo] + sv[hi]), axis=1)
             far = (rad0 > 6.0) & (mv > 0.35)
             if far.any():
                 counts["far"] += 1
