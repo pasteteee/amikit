@@ -562,7 +562,7 @@ def start_link(Y):
 CATCH = {}
 THREAD = os.environ.get('THREAD', '1') == '1'
 LW_TARGET = float(os.environ.get('LW', '14.5'))
-FLOW = os.environ.get('FLOW', '1') == '1'
+FLOW = os.environ.get('FLOW', '0') == '1'
 CONN_FREE = os.environ.get('CONN_FREE', '1') == '1'
 
 
