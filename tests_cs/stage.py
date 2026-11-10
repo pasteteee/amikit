@@ -191,7 +191,10 @@ if stage == 'D':
         kpin = sim.K
         # the hook rises in front of the rim with its two loops, throat up
         sim.let_go()
-        sim.move_to(None, frame(-sim.R[:, 0], er), speed=20)
+        # a little way back towards the ring to slacken the new loop, then the throat turns up
+        ax = -sim.R[:, 0].copy(); t_c = sim.t.copy()
+        sim.move_to(t_c + ax * 4.0, speed=20)
+        sim.move_to(None, frame(ax, er), speed=20)
         sim.move_to(er * (top + slot[1]) + EY * 0.0, frame(a, er), speed=20)
         sim.wait_taut()
         # the hand that holds the work pinches the yarn where the new loop comes out of the ring
