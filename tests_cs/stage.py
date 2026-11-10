@@ -2,7 +2,7 @@
 state the previous one saved."""
 import sys, math, pickle, time, numpy as np
 sys.path.insert(0, '.'); sys.path.insert(0, 'tests_cs')
-from crochetsim.sim import Sim
+from crochetsim.ksim import KSim
 from crochetsim.scene import magic_ring
 from crochetsim.hook import frame
 from crochetsim.crocheter import Crocheter, unit
@@ -22,7 +22,7 @@ def load(name):
     return pickle.load(open(SC + name + '.pkl', 'rb'))
 def report(sim, tag, i0=0, nfr=8, cams=None, size=(400, 400)):
     cams = cams or CAMS
-    print(tag, 'n', sim.n, 'nsub', sim.nsub, 'worst', {k: round(float(v), 4) for k, v in sim.worst.items()}, 'bad', len(sim.log), 'why', sim.why, 'cap', sim.cap, 'nsplit', sim.nsplit)
+    print(tag, 'n', sim.n, 'nsub', sim.nsub, 'worst', {k: float('%.2g' % v) for k, v in sim.worst.items()}, 'bad', len(sim.log), 'cap', sim.cap, 'nsplit', sim.nsplit, 'newton/sub %.1f' % (sim.nnewton / max(1, sim.nsub)))
     sheet(sim, SC + 'st_' + tag + '.png', cams, nfr=nfr, i0=i0, size=size)
 
 stage = sys.argv[1]
@@ -31,15 +31,14 @@ if stage == 'A':
     th = math.radians(38)
     F = np.array([-17.0, 36.0, 38.0])
     X0, mk = magic_ring(h, r, rho=rho, feeder=F)
-    sim = Sim(X0, h, r, feeder=F, hook_R=frame([0, 1, 0], [0, 0, 1]), hook_t=[3, -30, 2])
-    sim.feed[3] = np.linalg.norm(X0[-1] - F) + 1e-9
+    sim = KSim(X0[:-1], h, r, feeder=F, hook_R=frame([0, 1, 0], [0, 0, 1]), hook_t=[3, -30, 2])
     sim.mk = mk
     ang = np.degrees(np.arctan2(X0[:, 2], X0[:, 0])) % 360
     ringn = np.arange(mk['ring0'], mk['ring1'])
     sim.pin(0)
     sim.pin(np.arange(mk['ring0'] - 3, mk['ring0'] + 3)); sim.pin(np.arange(mk['ring1'] - 3, mk['ring1'] + 4))
     sim.pin(ringn[(ang[ringn] > 110) & (ang[ringn] < 345)])
-    sim.settle(50); sim.frames.clear()
+    sim.wait_taut(); print('settled', sim.asleep, sim.worst); sim.frames.clear(); sim.time = 0; sim._next_frame_t = 0
     cr = Crocheter(sim)
     er, et = ER(th), ET(th)
     O = er * (rho - 3.3)

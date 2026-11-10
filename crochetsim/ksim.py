@@ -44,6 +44,8 @@ class KSim:
         self.asleep = False
         self.rest_eps = 2e-4
         self.trace = False
+        self.max_split = 4
+        self.nsplit = 0
         self.flags = np.zeros(nmax, np.int32)
 
     # ------------------------------------------------------------ helpers
@@ -76,7 +78,9 @@ class KSim:
         return not self.asleep
 
     # --------------------------------------------------------------- step
-    def _substep(self, Rn, tn, Fn=None):
+    def _substep(self, Rn, tn, Fn=None, depth=0):
+        """One small step of the tools; the yarn follows.  A step the solver cannot finish
+        cleanly is undone and taken again in two halves."""
         moved = (Rn is not self.R) or (tn is not self.t) or bool(self.grip) or Fn is not None
         if moved:
             self.asleep = False
@@ -84,6 +88,8 @@ class KSim:
             return
         n = self.n
         Xp = self.X[:n].copy()
+        F_old = None if self.F is None else self.F.copy()
+        cap_old = self.cap.copy()
         if Fn is not None:
             self.F = np.asarray(Fn, float)
         for nd, stp in self.grip.items():
@@ -104,6 +110,21 @@ class KSim:
             self.X[:n] = Xp
             self.asleep = True
             return
+        if (not st["conv"]) and st["viol"] > 2e-3 and depth < self.max_split and moved:
+            self.X[:n] = Xp
+            self.F = F_old
+            self.cap[:] = cap_old
+            self.sol.forget()
+            self.nsplit += 1
+            Rm = mat_from_quat(slerp(quat_from_mat(self.R), quat_from_mat(Rn), 0.5)) if Rn is not self.R else Rn
+            tm = 0.5 * (self.t + tn) if tn is not self.t else tn
+            Fm = None if Fn is None else 0.5 * (F_old + Fn)
+            g0 = self.grip
+            self.grip = {k: 0.5 * v for k, v in g0.items()}
+            self._substep(Rm, tm, Fm, depth + 1)
+            self._substep(Rn, tn, Fn, depth + 1)
+            self.grip = g0
+            return
         transport_directors(Xp, self.X, self.D, n)
         self.R = Rn
         self.t = tn
@@ -112,7 +133,7 @@ class KSim:
         for k in ("stretch", "hookpen", "selfpen", "viol", "disp"):
             if st[k] > w[k]:
                 w[k] = st[k]
-        if not st["conv"] or st["disp"] > 0.3 or st["viol"] > 1e-3:
+        if st["disp"] > 0.3 or st["viol"] > 2e-3:
             self.log.append((self.nsub, self.time, st["nit"], st["conv"], st["viol"], st["disp"], st["hookpen"],
                              st["selfpen"], st["stretch"]))
         if self.trace:

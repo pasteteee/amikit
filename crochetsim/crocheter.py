@@ -43,7 +43,7 @@ class Crocheter:
 
     def strand_dir(self, k):
         s = self.s
-        return unit(s.feed[:3] - s.X[k])
+        return unit(s.F - s.X[k])
 
     # ---------------------------------------------------------- planning
     def plan_catch(self, G, sdir, free_dir, through=None, a=None):

@@ -41,8 +41,23 @@ def _row3(r, d, gx, gy, gz, rows, cols, vals, nnz):
 
 
 @njit(cache=True)
+def _decide(sl, C, ctol, act, lam, flip):
+    """Is this one-sided condition active?  One that was active stays while it pushes; one
+    that was not becomes active when violated.  A condition that keeps flipping inside one step
+    is held active for the rest of the step (it then pulls back by a hair, which is harmless)."""
+    if act[sl] >= 1:
+        if lam[sl] > 0.0:
+            return True
+        if flip[sl] >= 2:
+            return True
+        flip[sl] += 1
+        return False
+    return C < -ctol
+
+
+@njit(cache=True)
 def assemble(X, dof, n, N, h, Rn, tn, hp, hp2, cap, par, pairs, npairs, act, lam, first,
-             rows, cols, vals, Cv, slot, out):
+             rows, cols, vals, Cv, slot, out, flip):
     """Evaluate all conditions at X, pick the active ones and write their Jacobian rows.
     Slots: [0,n-1) stretch, [n-1,2n-1) hook/node, [2n-1,3n-2) hook/mid, [3n-2,4n-2) bend,
     4n-2 throat, 4n-1+k yarn pair k.   out = [m, nnz, max violation, hookpen, selfpen, capdist]"""
@@ -135,7 +150,7 @@ def assemble(X, dof, n, N, h, Rn, tn, hp, hp2, cap, par, pairs, npairs, act, lam
                 viol = -C
             if -C > hookpen:
                 hookpen = -C
-            on = (lam[sl] > 0.0) if act[sl] >= 1 else (C < -ctol)
+            on = _decide(sl, C, ctol, act, lam, flip)
             if not on:
                 act[sl] = 0
                 lam[sl] = 0.0
@@ -158,8 +173,8 @@ def assemble(X, dof, n, N, h, Rn, tn, hp, hp2, cap, par, pairs, npairs, act, lam
         sl = 3 * N + i
         da = dof[i - 1]
         db = dof[i + 1]
-        if da < 0 and db < 0:
-            continue
+        if da < 0 or db < 0 or dof[i] < 0:
+            continue          # where fingers hold the yarn it may leave them at any angle
         ux = X[i + 1, 0] - X[i - 1, 0]
         uy = X[i + 1, 1] - X[i - 1, 1]
         uz = X[i + 1, 2] - X[i - 1, 2]
@@ -167,7 +182,7 @@ def assemble(X, dof, n, N, h, Rn, tn, hp, hp2, cap, par, pairs, npairs, act, lam
         C = dl - dmin
         if C < -viol:
             viol = -C
-        on = (lam[sl] > 0.0) if act[sl] >= 1 else (C < -ctol)
+        on = _decide(sl, C, ctol, act, lam, flip)
         if not on:
             act[sl] = 0
             lam[sl] = 0.0
@@ -211,7 +226,7 @@ def assemble(X, dof, n, N, h, Rn, tn, hp, hp2, cap, par, pairs, npairs, act, lam
         C = cap_eps - dist
         if C < -viol:
             viol = -C
-        on = (lam[sl] > 0.0) if act[sl] >= 1 else (C < -ctol)
+        on = _decide(sl, C, ctol, act, lam, flip)
         if on and dist > 1e-9 and (dof[bk] >= 0 or dof[bk + 1] >= 0):
             px = X[bk, 0] + bs * (X[bk + 1, 0] - X[bk, 0])
             py = X[bk, 1] + bs * (X[bk + 1, 1] - X[bk, 1])
@@ -241,11 +256,16 @@ def assemble(X, dof, n, N, h, Rn, tn, hp, hp2, cap, par, pairs, npairs, act, lam
         dz = X[i, 2] + s * (X[i + 1, 2] - X[i, 2]) - X[j, 2] - t * (X[j + 1, 2] - X[j, 2])
         d = math.sqrt(dx * dx + dy * dy + dz * dz)
         C = d - 2.0 * rcy
+        # a touch at the far end of a segment belongs to the next segment (count it once)
+        if (s >= 1.0 and i + 1 < n - 1) or (t >= 1.0 and j + 1 < n - 1):
+            act[sl] = 0
+            lam[sl] = 0.0
+            continue
         if C < -viol:
             viol = -C
         if -C > selfpen:
             selfpen = -C
-        on = (lam[sl] > 0.0) if act[sl] >= 1 else (C < -ctol) or (first and C < touch)
+        on = _decide(sl, C, ctol, act, lam, flip) or (first and C < touch)
         if not on or d < 1e-9:
             act[sl] = 0
             lam[sl] = 0.0
@@ -313,6 +333,14 @@ def contact_curvature(P, lamc, Rn, tn, hq_flag, hp, hp2, out):
 
 
 @njit(cache=True)
+def _closest_many(X, pi, pj, out):
+    for k in range(pi.shape[0]):
+        s, t = _closest_seg_seg(X[pi[k]], X[pi[k] + 1], X[pj[k]], X[pj[k] + 1])
+        out[k, 0] = s
+        out[k, 1] = t
+
+
+@njit(cache=True)
 def transport_directors(Xp, X, Dv, n):
     """Material frame: carry each segment's director with the minimal rotation."""
     for i in range(n - 1):
@@ -367,7 +395,7 @@ class KSolver:
         self.beta = 0.5            # resistance to curvature change (viscous, relative to drag)
         self.m_last = 60.0         # the node in the yarn hand is heavy: the hand draws slowly
         self.eps = 1e-7
-        self.maxit = 30
+        self.maxit = 24
         self.tol_d = 5e-5
         self.tol_c = 1e-5
         self.maxstep = 0.3 * r
@@ -376,6 +404,7 @@ class KSolver:
         self.nxt = np.zeros(nmax, np.int32)
         M = 4 * nmax + 1 + nmax * 40
         self.act = np.zeros(M, np.uint8)
+        self.flip = np.zeros(M, np.uint8)
         self.lam = np.zeros(M)
         self.rows = np.zeros(M * 12, np.int32)
         self.cols = np.zeros(M * 12, np.int32)
@@ -385,6 +414,8 @@ class KSolver:
         self.out = np.zeros(6)
         self._Hkey = None
         self.N = nmax
+        self.wneg = -50.0
+        self.neg_pairs = False
         self._n_prev = -1
         self.tau = np.zeros(nmax)      # tension in each segment (kept from step to step)
         self.debug = False
@@ -461,7 +492,7 @@ class KSolver:
             Kc = np.zeros((len(idx), 3, 3))
             contact_curvature(P, lam[a0 + idx], Rn, tn, flag, hp, hp2, Kc)
             w, V = np.linalg.eigh(Kc)
-            w = np.clip(w, 0.0, 50.0)
+            w = np.clip(w, self.wneg, 50.0)
             Kc = (V * w[:, None, :]) @ np.swapaxes(V, 1, 2)
             if kind == 0:
                 combos = ((dof[idx], dof[idx], 1.0),)
@@ -478,6 +509,40 @@ class KSolver:
                 ii.append(r3.reshape(-1))
                 jj.append(c3.reshape(-1))
                 vv.append(sg * Kc[ok].reshape(-1))
+        if self.neg_pairs:
+            # two round yarns pressed together / a bend at its tightest: these contacts make
+            # sideways motion easier (negative curvature)
+            def add_rel(nodes, wts, lamv, dvec):
+                dist = np.linalg.norm(dvec, axis=1) + 1e-30
+                nn = dvec / dist[:, None]
+                P3 = (-lamv / dist)[:, None, None] * (np.eye(3)[None] - nn[:, :, None] * nn[:, None, :])
+                for a in range(len(nodes)):
+                    for b in range(len(nodes)):
+                        p = dof[nodes[a]]
+                        q = dof[nodes[b]]
+                        ok = (p >= 0) & (q >= 0)
+                        if not ok.any():
+                            continue
+                        r3 = (3 * p[ok])[:, None, None] + np.arange(3)[None, :, None] + np.zeros((1, 1, 3), np.int64)
+                        c3 = (3 * q[ok])[:, None, None] + np.arange(3)[None, None, :] + np.zeros((1, 3, 1), np.int64)
+                        ii.append(r3.reshape(-1))
+                        jj.append(c3.reshape(-1))
+                        vv.append(((wts[a] * wts[b])[ok][:, None, None] * P3[ok]).reshape(-1))
+            npairs = self._npairs
+            kk = np.where((act[4 * N + 1:4 * N + 1 + npairs] >= 1) & (lam[4 * N + 1:4 * N + 1 + npairs] > 0))[0]
+            if len(kk):
+                pi = self.pairs[kk, 0].astype(np.int64)
+                pj = self.pairs[kk, 1].astype(np.int64)
+                st_ = np.zeros((len(kk), 2))
+                _closest_many(X, pi, pj, st_)
+                s_ = st_[:, 0]
+                t_ = st_[:, 1]
+                dvec = X[pi] + s_[:, None] * (X[pi + 1] - X[pi]) - X[pj] - t_[:, None] * (X[pj + 1] - X[pj])
+                add_rel([pi, pi + 1, pj, pj + 1], [1 - s_, s_, -(1 - t_), -t_], lam[4 * N + 1 + kk], dvec)
+            bi = np.where((act[3 * N + 1:3 * N + n - 1] >= 1) & (lam[3 * N + 1:3 * N + n - 1] > 0))[0] + 1
+            if len(bi):
+                one = np.ones(len(bi))
+                add_rel([bi - 1, bi + 1], [-one, one], lam[3 * N + bi], X[bi + 1] - X[bi - 1])
         # the throat holding the strand
         if cap[0] > 0.5 and act[4 * N] >= 1 and lam[4 * N] > 0:
             q = Rn @ np.array([hp[11], hp[12], 0.0]) + tn
@@ -502,6 +567,10 @@ class KSolver:
             return sp.csc_matrix((3 * nf, 3 * nf))
         return sp.csc_matrix((np.concatenate(vv), (np.concatenate(ii), np.concatenate(jj))), shape=(3 * nf, 3 * nf))
 
+    def forget(self):
+        """Drop the remembered active set (after a step was undone)."""
+        self._n_prev = -1
+
     def step(self, X, Xp, W, n, Rn, tn, hp, hp2, cap, force_node, force):
         """Advance X[:n] (in place) for the hook pose (Rn, tn).  Xp is the shape before the
         step (pinned nodes may already have been moved in X by their grippers)."""
@@ -513,6 +582,7 @@ class KSolver:
         H = self._hessian(n, dof, nf, W)
         reach = 2.0 * self.par[1] + h + 0.5
         npairs = build_pairs(X, W, n, h, reach, self.nskip, self.pairs, self.head, self.nxt, 0, n)
+        self._npairs = npairs
         N = self.N
         act = self.act
         lam = self.lam
@@ -521,6 +591,7 @@ class KSolver:
             lam[:4 * N + 1] = 0.0
             self._n_prev = n
         act[4 * N + 1:4 * N + 1 + npairs] = 0
+        self.flip[:4 * N + 1 + npairs] = 0
         lam[4 * N + 1:4 * N + 1 + npairs] = 0.0
         f = np.zeros(3 * nf)
         if force_node >= 0 and dof[force_node] >= 0:
@@ -528,14 +599,17 @@ class KSolver:
         Xf_prev = Xp[free].reshape(-1)
         out = self.out
         nit = 0
+        relax = 1.0
+        dn_prev = 1e30
+        lmax = 0.0
         dmax = 0.0
         conv = False
         for it in range(self.maxit):
             assemble(X, dof, n, self.N, h, Rn, tn, hp, hp2, cap, self.par, self.pairs, npairs, act, lam, it == 0,
-                     self.rows, self.cols, self.vals, self.Cv, self.slot, out)
+                     self.rows, self.cols, self.vals, self.Cv, self.slot, out, self.flip)
             m = int(out[0])
             nnz = int(out[1])
-            if it > 0 and dmax < self.tol_d and out[2] < self.tol_c:
+            if it > 0 and dmax < self.tol_d and out[2] < max(self.tol_c, 3.0 * self.eps * lmax):
                 conv = True
                 break
             nit += 1
@@ -546,12 +620,20 @@ class KSolver:
             sol = spla.splu(K).solve(np.concatenate([g, self.Cv[:m]]))
             d = sol[:3 * nf]
             lm = sol[3 * nf:]
+            lmax = np.abs(lm).max() if m else 0.0
             dn = np.abs(d).max() if nf else 0.0
             sc = 1.0
             if dn > self.maxstep:
                 sc = self.maxstep / dn
+            # Newton hopping to and fro over a sharp edge of the hook: take shorter steps
+            if it >= 2 and dn > (1.0 - 0.4 * relax) * dn_prev:
+                relax = max(0.5 * relax, 0.125)
+            elif dn < (1.0 - 0.75 * relax) * dn_prev:
+                relax = min(1.0, 2.0 * relax)
+            dn_prev = dn
+            sc *= relax
             X[free] += sc * d.reshape(-1, 3)
-            dmax = dn * sc if sc == 1.0 else 1.0
+            dmax = dn if sc == 1.0 else max(dn, 1.0)
             sl = self.slot[:m]
             if self.debug:
                 print('   it %d m %d viol %.2e dn %.2e sc %.2f neg %d minlam %.2e maxlam %.2e hpen %.3f spen %.3f' % (
@@ -564,7 +646,7 @@ class KSolver:
             self.tau[sl[eq]] = np.maximum(-lm[eq], 0.0)
             lam[sl[eq]] = 1.0
         assemble(X, dof, n, self.N, h, Rn, tn, hp, hp2, cap, self.par, self.pairs, npairs, act, lam, False,
-                 self.rows, self.cols, self.vals, self.Cv, self.slot, out)
+                 self.rows, self.cols, self.vals, self.Cv, self.slot, out, self.flip)
         m = int(out[0])
         sl = self.slot[:m]
         Cm = self.Cv[:m]
