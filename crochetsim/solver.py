@@ -30,6 +30,9 @@ from numba import njit
 from .hook import hook_sdf, hook_sdf_grad
 
 # indices into prm
+LINE_T = 9.0
+CONV = 2e-4
+S_NIT = 7
 P_ITERS, P_MU_YY, P_MU_HOOK, P_BEND_ALPHA, P_DMIN, P_RC_YARN, P_RC_HOOK, P_CAP_EPS, P_NSKIP, P_MARGIN, P_TOL, \
     P_MAXCORR = range(12)
 # indices into stats
@@ -40,7 +43,7 @@ def default_params(h, r):
     rho_min = 1.25 * r
     th = h / rho_min
     p = np.zeros(16)
-    p[P_ITERS] = 10
+    p[P_ITERS] = 60
     p[P_MU_YY] = 0.45
     p[P_MU_HOOK] = 0.18
     p[P_BEND_ALPHA] = 6.0
@@ -53,8 +56,8 @@ def default_params(h, r):
     p[P_TOL] = 1e-7
     p[P_MAXCORR] = 0.3 * r
     p[12] = 1.0      # yarn held in the throat slides along itself in the chain solve
-    p[13] = 0.12     # friction yarn/steel inside the chain solve
-    p[14] = 0.40     # friction yarn/yarn inside the chain solve
+    p[13] = 0.0     # friction yarn/steel inside the chain solve
+    p[14] = 0.0     # friction yarn/yarn inside the chain solve
     p[15] = 0.3      # how near a surface must be to count as a wall, mm
     return p
 
@@ -365,7 +368,7 @@ def _stretch_direct(X, W, n, h, feed, a, b, c, d, lam, tol, U, Pm, pressed, cn, 
             tl_ = math.sqrt(tx * tx + ty * ty + tz * tz)
             if cmu[i, k2] > mu_:
                 mu_ = cmu[i, k2]
-            if tl_ > 0.25:
+            if tl_ > LINE_T:
                 tx /= tl_
                 ty /= tl_
                 tz /= tl_
@@ -562,8 +565,18 @@ def substep(X, Xp, W, n, h, r, Rp, tp, Rn, tn, hp, prm, cap, feed, grip,
     xm = np.zeros(3)
     xmp = np.zeros(3)
 
+    Xi = np.empty((n, 3))
+    conv = prm[P_TOL] * 0.0 + CONV
+    nit = 0
     for it in range(iters):
-        last = it == iters - 1
+        last = True
+        nit += 1
+        hookpen = 0.0
+        selfpen = 0.0
+        for i in range(n):
+            Xi[i, 0] = X[i, 0]
+            Xi[i, 1] = X[i, 1]
+            Xi[i, 2] = X[i, 2]
         # ---------------------------------------------------------- capture
         if cap[0] > 0.5:
             qx = Rn[0, 0] * hp[11] + Rn[0, 1] * hp[12] + tn[0]
@@ -880,6 +893,14 @@ def substep(X, Xp, W, n, h, r, Rp, tp, Rn, tn, hp, prm, cap, feed, grip,
             f1 = _stretch_direct(X, W, n, h, feed, ta, tb, tc, td, tl, tol, U, Pm, pressed, cn, cg, cmu, ccnt,
                                  capt, Ps, fmu)
             fed += f1
+        if it >= 2:
+            dm = 0.0
+            for i in range(n):
+                dd = abs(X[i, 0] - Xi[i, 0]) + abs(X[i, 1] - Xi[i, 1]) + abs(X[i, 2] - Xi[i, 2])
+                if dd > dm:
+                    dm = dd
+            if dm < conv:
+                break
 
     # ------------------------------------------------------------- wrap up
     maxd = 0.0
@@ -948,6 +969,7 @@ def substep(X, Xp, W, n, h, r, Rp, tp, Rn, tn, hp, prm, cap, feed, grip,
     stats[S_SELFPEN] = selfpen
     stats[S_CAPDIST] = capdist
     stats[S_FED] = fed
+    stats[S_NIT] = nit
     return npairs
 
 

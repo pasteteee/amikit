@@ -10,7 +10,7 @@ xs = np.arange(-40, 59.21, h)
 X0 = np.stack([xs, np.zeros_like(xs), np.zeros_like(xs)], 1)
 sim = Sim(X0, h, r, feeder=[60.0, 0, 0], hook_R=frame([0, 1, 0], [0, 0, 1]), hook_t=[0, -12, -0.3])
 sim.pin(0)
-sim.T0 = float(sys.argv[2]); sim.prm[12] = float(sys.argv[3]); sim.T_hold = float(sys.argv[4])
+sim.T0 = float(sys.argv[2]); sim.prm[13] = float(sys.argv[5]) if len(sys.argv) > 5 else sim.prm[13]; sim.prm[14] = sim.prm[13] if len(sys.argv) > 5 else sim.prm[14]; sim.prm[12] = float(sys.argv[3]); sim.T_hold = float(sys.argv[4])
 orig = sim._solve
 tr = []
 def solve(Rn, tn):

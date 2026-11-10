@@ -77,6 +77,8 @@ class Sim:
         self.why = [0, 0, 0, 0]
         self.last_lamF = 0.0
         self.nsub = 0
+        self.asleep = False
+        self.rest_eps = 0.01
         self.fed_total = 0.0
 
     # ------------------------------------------------------------ helpers
@@ -118,8 +120,27 @@ class Sim:
         """One substep = the tools move (the yarn follows, paying out freely at the feeder),
         then the hand that holds the working yarn tries to draw a little yarn back in."""
         moved_tool = (Rn is not self.R) or (tn is not self.t) or self.grip[0, 0] >= 0
+        if moved_tool:
+            self.asleep = False
+        elif self.asleep:
+            return
         self.feed[4] = self.T_hold
+        if not moved_tool:
+            n0 = self.n
+            Xs = self.X[:n0].copy()
+            Ds = self.D[:n0].copy()
+            fs = self.feed.copy()
+            cs = self.cap.copy()
         self._solve(Rn, tn)
+        if not moved_tool and not self.strand_active and self.stats[S.S_MAXDISP] < self.rest_eps:
+            # tools stand, the hand rests and nothing but solver noise is left: static friction
+            # holds the yarn exactly where it is until a tool moves again
+            self.X[:n0] = Xs
+            self.D[:n0] = Ds
+            self.feed[:] = fs
+            self.cap[:] = cs
+            self.asleep = True
+            return
         self.R = Rn
         self.t = tn
         self.nsub += 1
@@ -170,12 +191,17 @@ class Sim:
         why = -1
         if lam > self.T0:                              # more pull than the hand gives
             why = 0
-        elif self.feed[7] > 0.03 * lam + 1e-6:         # the solve did not settle: already taut
+        elif self.feed[7] > 0.03 * lam + 1e-6 or st[S.S_NIT] >= self.prm[S.P_ITERS]:   # did not settle: taut
             why = 1
         elif pen > max(self.pen_prev, 0.01) + 0.003:   # it would squeeze yarn into something
             why = 2
         elif st[S.S_STRETCH] > 0.01 or st[S.S_MAXDISP] > 0.3:   # not a clean small move
             why = 3
+        else:
+            # the yarn must really have come in: no length may hide as stretch
+            seg = np.linalg.norm(self.X[1:n] - self.X[:n - 1], axis=1) - self.h
+            if seg[seg > 0].sum() > 0.25 * self.take_cur:
+                why = 3
         if why >= 0:
             self.why[why] += 1
             self.X[:n] = Xsave
