@@ -78,7 +78,7 @@ class Crocheter:
 
         def grab(sim):
             if sim.cap[0] < 0.5:
-                sim.try_capture(lo=lo, tol=0.4)
+                sim.try_capture(lo=max(0, self.strand_anchor() - 2) if lo is None else lo, tol=0.4)
             return sim.cap[0] > 0.5 and stop_at_capture
         s.move_to(retract_to, plan["R"], speed=speed, until=grab)
         if s.cap[0] < 0.5:

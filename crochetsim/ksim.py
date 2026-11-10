@@ -6,6 +6,10 @@ from .hook import default_hook, quat_from_mat, mat_from_quat, slerp, rot_angle
 from .ksolver import KSolver, transport_directors
 
 
+class Jam(RuntimeError):
+    pass
+
+
 class KSim:
     def __init__(self, X0, h, r, feeder=None, hook_R=None, hook_t=None, fps=30, nmax=None):
         n = len(X0)
@@ -44,7 +48,10 @@ class KSim:
         self.asleep = False
         self.rest_eps = 2e-4
         self.trace = False
+        self.rest_fail = 0
+        self.verbose = 0
         self.max_split = 4
+        self.tau_max = 400.0
         self.nsplit = 0
         self.flags = np.zeros(nmax, np.int32)
 
@@ -84,6 +91,7 @@ class KSim:
         moved = (Rn is not self.R) or (tn is not self.t) or bool(self.grip) or Fn is not None
         if moved:
             self.asleep = False
+            self.rest_fail = 0
         elif self.asleep:
             return
         n = self.n
@@ -105,11 +113,22 @@ class KSim:
         st = self.sol.step(self.X, Xp, self.W, n, Rn, tn, self.hp, self.hp_solid, self.cap, fn, force)
         self.nnewton += st["nit"]
         self.flags = self.sol.flags
-        if not moved and st["disp"] < self.rest_eps:
-            # tools stand and nothing but solver noise is left: the yarn stays exactly where it is
-            self.X[:n] = Xp
-            self.asleep = True
-            return
+        if not moved:
+            if st["disp"] < self.rest_eps:
+                # tools stand and nothing but solver noise is left: the yarn stays exactly where it is
+                self.X[:n] = Xp
+                self.asleep = True
+                return
+            if not st["conv"] and st["viol"] > 1e-4:
+                # with the tools standing only a clean, finished solution may move the yarn
+                self.X[:n] = Xp
+                self.cap[:] = cap_old
+                self.sol.forget()
+                self.rest_fail += 1
+                if self.rest_fail >= 3:
+                    self.asleep = True
+                return
+            self.rest_fail = 0
         if (not st["conv"]) and st["viol"] > 2e-3 and depth < self.max_split and moved:
             self.X[:n] = Xp
             self.F = F_old
@@ -139,8 +158,14 @@ class KSim:
         if self.trace:
             print("sub %d nit %d conv %s viol %.2e disp %.4f hpen %.4f spen %.4f m %d n %d" % (
                 self.nsub, st["nit"], st["conv"], st["viol"], st["disp"], st["hookpen"], st["selfpen"], st["m"], n))
+        if self.verbose and self.nsub % self.verbose == 0:
+            print("  .. nsub %d t %.2f n %d newton %.1f/sub split %d bad %d viol %.1e tau %.1f" % (
+                self.nsub, self.time, self.n, self.nnewton / self.nsub, self.nsplit, len(self.log), st["viol"],
+                self.sol.tau[:self.n].max()), flush=True)
         if self.F is not None:
             self._feeder_bookkeeping()
+        if self.sol.tau[:self.n].max() > getattr(self, "tau_max", 400.0):
+            raise Jam("yarn is jammed: tension %.0f at t=%.2f" % (self.sol.tau[:self.n].max(), self.time))
 
     def _feeder_bookkeeping(self):
         """Yarn enters and leaves the scene at the yarn hand."""
