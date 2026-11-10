@@ -87,8 +87,8 @@ def assemble(X, dof, n, N, h, Rn, tn, hp, hp2, cap, par, pairs, npairs, act, lam
         ux /= dl
         uy /= dl
         uz /= dl
-        if abs(C) > viol:
-            viol = abs(C)
+        if abs(C) - par[8] > viol:
+            viol = abs(C) - par[8]
         nnz = _row3(m, da, -ux, -uy, -uz, rows, cols, vals, nnz)
         nnz = _row3(m, db, ux, uy, uz, rows, cols, vals, nnz)
         Cv[m] = C
@@ -133,8 +133,10 @@ def assemble(X, dof, n, N, h, Rn, tn, hp, hp2, cap, par, pairs, npairs, act, lam
                 continue
             # a throat that holds yarn is full: other yarn slides over it as over the shaft
             hq = hp
-            if capon and abs(i - cap[1]) > 7.0:
-                hq = hp2
+            if par[6] <= i < par[7]:
+                hq = hp2[16:]          # a loop held back by the finger on the hook
+            elif capon and abs(i - cap[1]) > 7.0:
+                hq = hp2[:16]
             d = hook_sdf(l0, l1, l2, hq)
             if pass_ == 0:
                 C = d - rch
@@ -180,8 +182,8 @@ def assemble(X, dof, n, N, h, Rn, tn, hp, hp2, cap, par, pairs, npairs, act, lam
         uz = X[i + 1, 2] - X[i - 1, 2]
         dl = math.sqrt(ux * ux + uy * uy + uz * uz) + 1e-30
         C = dl - dmin
-        if C < -viol:
-            viol = -C
+        if C + par[9] < -viol:
+            viol = -C - par[9]
         on = _decide(sl, C, ctol, act, lam, flip)
         if not on:
             act[sl] = 0
@@ -303,7 +305,11 @@ def contact_curvature(P, lamc, Rn, tn, hq_flag, hp, hp2, out):
         l[0] = Rn[0, 0] * rx + Rn[1, 0] * ry + Rn[2, 0] * rz
         l[1] = Rn[0, 1] * rx + Rn[1, 1] * ry + Rn[2, 1] * rz
         l[2] = Rn[0, 2] * rx + Rn[1, 2] * ry + Rn[2, 2] * rz
-        hq = hp2 if hq_flag[k] == 1 else hp
+        hq = hp
+        if hq_flag[k] == 1:
+            hq = hp2[:16]
+        elif hq_flag[k] == 2:
+            hq = hp2[16:]
         for a in range(3):
             for sgn in range(2):
                 q0 = l[0]
@@ -390,11 +396,13 @@ class KSolver:
         self.h = h
         self.r = r
         rho_min = 1.25 * r
-        self.par = np.array([0.93 * r, 0.93 * r, 2 * h * math.cos(h / rho_min / 2), 0.15, 1e-6, 2e-6])
+        self.par = np.array([0.93 * r, 0.93 * r, 2 * h * math.cos(h / rho_min / 2), 0.15, 1e-6, 2e-6, 0.0, 0.0, 0.0, 0.0])
         self.nskip = max(4, int(math.ceil(2.6 * r / h)) + 1)
         self.beta = 0.5            # resistance to curvature change (viscous, relative to drag)
         self.m_last = 60.0         # the node in the yarn hand is heavy: the hand draws slowly
         self.eps = 1e-7
+        self.eps_s = 1e-4              # stretch give of the yarn, mm per unit of tension
+        self.eps_b = 1e-3              # give of the tightest bend
         self.maxit = 24
         self.tol_d = 5e-5
         self.tol_c = 1e-5
@@ -489,6 +497,7 @@ class KSolver:
                 continue
             P = X[idx] if kind == 0 else 0.5 * (X[idx] + X[idx + 1])
             flag = ((cap[0] > 0.5) & (np.abs(idx - cap[1]) > 7.0)).astype(np.int64)
+            flag[(idx >= self.par[6]) & (idx < self.par[7])] = 2
             Kc = np.zeros((len(idx), 3, 3))
             contact_curvature(P, lam[a0 + idx], Rn, tn, flag, hp, hp2, Kc)
             w, V = np.linalg.eigh(Kc)
@@ -616,11 +625,19 @@ class KSolver:
             J = sp.csc_matrix((self.vals[:nnz], (self.rows[:nnz], self.cols[:nnz])), shape=(m, 3 * nf))
             g = f - H @ (X[free].reshape(-1) - Xf_prev)
             Hg = H + self._geometric(X, n, dof, nf, force_node, force, Rn, tn, hp, hp2, cap)
-            K = sp.bmat([[Hg, -J.T], [-J, -self.eps * sp.identity(m)]], format="csc")
+            sl = self.slot[:m]
+            epsv = np.full(m, self.eps)
+            epsv[sl < self.N] = self.eps_s
+            isb = (sl >= 3 * self.N) & (sl < 4 * self.N)
+            epsv[isb] = self.eps_b
+            K = sp.bmat([[Hg, -J.T], [-J, -sp.diags(epsv)]], format="csc")
             sol = spla.splu(K).solve(np.concatenate([g, self.Cv[:m]]))
             d = sol[:3 * nf]
             lm = sol[3 * nf:]
             lmax = np.abs(lm).max() if m else 0.0
+            self.par[8] = 1.05 * self.eps_s * (np.abs(lm[sl < self.N]).max() if (sl < self.N).any() else 0.0)
+            self.par[9] = 1.05 * self.eps_b * (np.abs(lm[isb]).max() if isb.any() else 0.0)
+            lmax = np.abs(lm[(sl >= self.N) & ~isb]).max() if ((sl >= self.N) & ~isb).any() else 0.0
             dn = np.abs(d).max() if nf else 0.0
             sc = 1.0
             if dn > self.maxstep:

@@ -5,7 +5,10 @@ throat opens to, +Z = X x Y.  Units are millimetres.
 
 hp = [R_shaft, r_tip, x_tip_c, x_cone_end, L,
       slot_ax, slot_ay, slot_ra, slot_bx, slot_by, slot_rb,
-      pocket_x, pocket_y, edge_round]
+      pocket_x, pocket_y, edge_round, finger_x, finger_R]
+
+finger_x/finger_R describe the finger of the hook hand resting on the shaft in front of the
+loops it holds back (a collar; 0 = no finger).  Only the loops being held feel it.
 """
 import math
 import numpy as np
@@ -19,7 +22,7 @@ def default_hook(R=1.5, yarn_r=1.0):
     bx, by = ax + 3.0, ay + 2.4
     return np.array([R, r_tip, r_tip, 5.6, 150.0,
                      ax, ay, ra, bx, by, ra * 1.45,
-                     ax, ay, 0.5], dtype=np.float64)
+                     ax, ay, 0.5, 0.0, 0.0], dtype=np.float64)
 
 
 @njit(cache=True)
@@ -55,7 +58,13 @@ def hook_sdf(px, py, pz, hp):
     a_ = body
     b_ = -slot
     hh_ = max(k - abs(a_ - b_), 0.0) / k
-    return max(a_, b_) + hh_ * hh_ * k * 0.25
+    d = max(a_, b_) + hh_ * hh_ * k * 0.25
+    if hp[15] > 0.0:
+        cx = abs(px - hp[14]) - 0.2
+        cr = rad - (hp[15] - 0.3)
+        c = min(max(cx, cr), 0.0) + math.sqrt(max(cx, 0.0) ** 2 + max(cr, 0.0) ** 2) - 0.3
+        d = min(d, c)
+    return d
 
 
 @njit(cache=True)

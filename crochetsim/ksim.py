@@ -26,6 +26,9 @@ class KSim:
         self.hp_solid = self.hp.copy()
         self.hp_solid[6] += 1000.0
         self.hp_solid[9] += 1000.0
+        self.hp_finger = self.hp_solid.copy()
+        self.hp_finger[14] = 9.6
+        self.hp_finger[15] = 4.2
         self.R = np.eye(3) if hook_R is None else np.array(hook_R, float)
         self.t = np.array([0.0, -200.0, 0.0]) if hook_t is None else np.array(hook_t, float)
         self.cap = np.zeros(2)
@@ -51,7 +54,7 @@ class KSim:
         self.rest_fail = 0
         self.verbose = 0
         self.max_split = 4
-        self.tau_max = 400.0
+        self.tau_max = 3000.0
         self.nsplit = 0
         self.flags = np.zeros(nmax, np.int32)
 
@@ -110,7 +113,7 @@ class KSim:
             if du > 1e-9:
                 fn = n - 1
                 force = self.T0 * u / du
-        st = self.sol.step(self.X, Xp, self.W, n, Rn, tn, self.hp, self.hp_solid, self.cap, fn, force)
+        st = self.sol.step(self.X, Xp, self.W, n, Rn, tn, self.hp, np.concatenate([self.hp_solid, self.hp_finger]), self.cap, fn, force)
         self.nnewton += st["nit"]
         self.flags = self.sol.flags
         if not moved:
@@ -164,7 +167,7 @@ class KSim:
                 self.sol.tau[:self.n].max()), flush=True)
         if self.F is not None:
             self._feeder_bookkeeping()
-        if self.sol.tau[:self.n].max() > getattr(self, "tau_max", 400.0):
+        if self.sol.tau[:self.n].max() > 3000.0:
             raise Jam("yarn is jammed: tension %.0f at t=%.2f" % (self.sol.tau[:self.n].max(), self.time))
 
     def _feeder_bookkeeping(self):
@@ -274,6 +277,15 @@ class KSim:
                 break
         self.grip = {}
         return ok
+
+    def finger(self, lo=0, hi=0):
+        """The hook hand's finger holds back the loops made of nodes lo..hi-1 (no arguments: lifts)."""
+        self.sol.par[6] = lo
+        self.sol.par[7] = hi
+        self.asleep = False
+
+    def hook_local(self, P):
+        return (np.asarray(P) - self.t) @ self.R
 
     def try_capture(self, lo=0, hi=None, tol=1.3):
         """Let the throat take the strand that lies in it. Returns the distance, or None."""

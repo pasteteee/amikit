@@ -34,6 +34,14 @@ class Crocheter:
             c -= 1
         return c
 
+    def work_anchor(self):
+        """Index of the node where the working strand leaves the work (last yarn-yarn contact)."""
+        s = self.s
+        c = s.n - 1
+        while c > 0 and (s.flags[c] & 2) == 0 and s.W[c] > 0:
+            c -= 1
+        return c
+
     def strand_point(self, g, c=None):
         """Node on the free strand about g mm from where it leaves the work."""
         s = self.s
