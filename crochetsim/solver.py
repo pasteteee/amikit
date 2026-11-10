@@ -58,7 +58,7 @@ def default_params(h, r):
     p[12] = 1.0      # yarn held in the throat slides along itself in the chain solve
     p[13] = 0.0     # friction yarn/steel inside the chain solve
     p[14] = 0.0     # friction yarn/yarn inside the chain solve
-    p[15] = 0.3      # how near a surface must be to count as a wall, mm
+    p[15] = 0.1      # how near a surface must be to count as a wall, mm
     return p
 
 
@@ -505,7 +505,7 @@ def _add_wall(i, nx, ny, nz, gap, mu, cn, cg, cmu, ccnt):
 
 @njit(cache=True)
 def substep(X, Xp, W, n, h, r, Rp, tp, Rn, tn, hp, prm, cap, feed, grip,
-            lamh, lamht, pairs, plam, plamt, lamb, flags, Dv, head, nxt, stats, ta, tb, tc, td, tl, U, Pm, pressed, cn, cg, cmu, ccnt, capt, Ps, fmu):
+            lamh, lamht, pairs, plam, plamt, lamb, flags, Dv, head, nxt, stats, ta, tb, tc, td, tl, U, Pm, pressed, cn, cg, cmu, ccnt, capt, Ps, fmu, hp2):
     iters = int(prm[P_ITERS])
     mu = prm[P_MU_YY]
     muh = prm[P_MU_HOOK]
@@ -652,10 +652,14 @@ def substep(X, Xp, W, n, h, r, Rp, tp, Rn, tn, hp, prm, cap, feed, grip,
                 pl[2] = Rn[0, 2] * rx + Rn[1, 2] * ry + Rn[2, 2] * rz
                 if pl[1] * pl[1] + pl[2] * pl[2] > rad_reach * rad_reach:
                     continue
-                d = hook_sdf(pl[0], pl[1], pl[2], hp)
+                # a throat that holds yarn is full: other yarn slides over it as over the shaft
+                hq = hp
+                if cap[0] > 0.5 and abs(i - cap[1]) > 7.0:
+                    hq = hp2
+                d = hook_sdf(pl[0], pl[1], pl[2], hq)
                 if d >= rch + wall_reach:
                     continue
-                d, g0, g1, g2 = hook_sdf_grad(pl[0], pl[1], pl[2], hp)
+                d, g0, g1, g2 = hook_sdf_grad(pl[0], pl[1], pl[2], hq)
                 nx = Rn[0, 0] * g0 + Rn[0, 1] * g1 + Rn[0, 2] * g2
                 ny = Rn[1, 0] * g0 + Rn[1, 1] * g1 + Rn[1, 2] * g2
                 nz = Rn[2, 0] * g0 + Rn[2, 1] * g1 + Rn[2, 2] * g2

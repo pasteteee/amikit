@@ -19,6 +19,9 @@ class Sim:
         self.W = np.ones(nmax)
         self.hp = default_hook(yarn_r=r) if hook is None else hook
         self.prm = S.default_params(h, r)
+        self.hp_solid = self.hp.copy()
+        self.hp_solid[6] += 1000.0
+        self.hp_solid[9] += 1000.0
         self.R = np.eye(3) if hook_R is None else np.array(hook_R, float)
         self.t = np.array([0.0, -200.0, 0.0]) if hook_t is None else np.array(hook_t, float)
         self.cap = np.zeros(2)
@@ -77,6 +80,8 @@ class Sim:
         self.why = [0, 0, 0, 0]
         self.last_lamF = 0.0
         self.nsub = 0
+        self.max_split = 0
+        self.nsplit = 0
         self.asleep = False
         self.rest_eps = 0.01
         self.fed_total = 0.0
@@ -114,25 +119,28 @@ class Sim:
     def _solve(self, Rn, tn):
         S.substep(self.X, self.Xp, self.W, self.n, self.h, self.r, self.R, self.t, Rn, tn, self.hp, self.prm,
                   self.cap, self.feed, self.grip, self.lamh, self.lamht, self.pairs, self.plam, self.plamt,
-                  self.lamb, self.flags, self.D, self.head, self.nxt, self.stats, *self.tri, self.U, self.Pm, self.pressed, self.cn, self.cg, self.cmu, self.ccnt, self.capt, self.Ps, self.fmu)
+                  self.lamb, self.flags, self.D, self.head, self.nxt, self.stats, *self.tri, self.U, self.Pm, self.pressed, self.cn, self.cg, self.cmu, self.ccnt, self.capt, self.Ps, self.fmu, self.hp_solid)
 
-    def _substep(self, Rn, tn):
+    def _substep(self, Rn, tn, Fn=None, depth=0):
         """One substep = the tools move (the yarn follows, paying out freely at the feeder),
-        then the hand that holds the working yarn tries to draw a little yarn back in."""
-        moved_tool = (Rn is not self.R) or (tn is not self.t) or self.grip[0, 0] >= 0
+        then the hand that holds the working yarn tries to draw a little yarn back in.
+        A tool step that the yarn cannot follow cleanly is taken again in two halves."""
+        moved_tool = (Rn is not self.R) or (tn is not self.t) or self.grip[0, 0] >= 0 or Fn is not None
         if moved_tool:
             self.asleep = False
         elif self.asleep:
             return
         self.feed[4] = self.T_hold
-        if not moved_tool:
-            n0 = self.n
-            Xs = self.X[:n0].copy()
-            Ds = self.D[:n0].copy()
-            fs = self.feed.copy()
-            cs = self.cap.copy()
+        n0 = self.n
+        Xs = self.X[:n0].copy()
+        Ds = self.D[:n0].copy()
+        fs = self.feed.copy()
+        cs = self.cap.copy()
+        if Fn is not None:
+            self.feed[:3] = Fn
         self._solve(Rn, tn)
-        if not moved_tool and not self.strand_active and self.stats[S.S_MAXDISP] < self.rest_eps:
+        st = self.stats
+        if not moved_tool and not self.strand_active and st[S.S_MAXDISP] < self.rest_eps:
             # tools stand, the hand rests and nothing but solver noise is left: static friction
             # holds the yarn exactly where it is until a tool moves again
             self.X[:n0] = Xs
@@ -140,6 +148,22 @@ class Sim:
             self.feed[:] = fs
             self.cap[:] = cs
             self.asleep = True
+            return
+        if moved_tool and depth < self.max_split and (st[S.S_STRETCH] > 0.01 or st[S.S_MAXDISP] > 0.2
+                                                      or max(st[S.S_HOOKPEN], st[S.S_SELFPEN]) > 0.08):
+            self.X[:n0] = Xs
+            self.D[:n0] = Ds
+            self.feed[:] = fs
+            self.cap[:] = cs
+            self.nsplit += 1
+            Rm = mat_from_quat(slerp(quat_from_mat(self.R), quat_from_mat(Rn), 0.5)) if Rn is not self.R else Rn
+            tm = 0.5 * (self.t + tn) if tn is not self.t else tn
+            Fm = None if Fn is None else 0.5 * (fs[:3] + Fn)
+            gs = self.grip[:, 1:].copy()
+            self.grip[:, 1:] = 0.5 * gs
+            self._substep(Rm, tm, Fm, depth + 1)
+            self._substep(Rn, tn, Fn, depth + 1)
+            self.grip[:, 1:] = gs
             return
         self.R = Rn
         self.t = tn
@@ -191,16 +215,19 @@ class Sim:
         why = -1
         if lam > self.T0:                              # more pull than the hand gives
             why = 0
-        elif self.feed[7] > 0.03 * lam + 1e-6 or st[S.S_NIT] >= self.prm[S.P_ITERS]:   # did not settle: taut
+        elif self.feed[7] > 0.03 * lam + 1e-6:         # the solve did not settle: already taut
             why = 1
         elif pen > max(self.pen_prev, 0.01) + 0.003:   # it would squeeze yarn into something
             why = 2
-        elif st[S.S_STRETCH] > 0.01 or st[S.S_MAXDISP] > 0.3:   # not a clean small move
+        elif st[S.S_MAXDISP] > 0.3:                    # not a clean small move
             why = 3
         else:
-            # the yarn must really have come in: no length may hide as stretch
-            seg = np.linalg.norm(self.X[1:n] - self.X[:n - 1], axis=1) - self.h
-            if seg[seg > 0].sum() > 0.25 * self.take_cur:
+            # the yarn must really have come in: if the hand, merely holding, has to give it
+            # back, the strand was taut already and the try only squeezed it
+            self.feed[4] = self.T_hold
+            le = self.feed[3]
+            self._solve(self.R, self.t)
+            if self.feed[3] - le > 0.3 * self.take_cur or self.stats[S.S_MAXDISP] > 0.3:
                 why = 3
         if why >= 0:
             self.why[why] += 1
@@ -256,16 +283,21 @@ class Sim:
             self.record()
             self._next_frame_t += 1.0 / self.fps
 
-    def move_to(self, t1, R1=None, speed=30.0, until=None, lever=25.0):
-        """Move the hook rigidly to tip position t1 / orientation R1.
+    def move_to(self, t1=None, R1=None, speed=30.0, until=None, lever=25.0, feeder=None):
+        """Move the hook rigidly to tip position t1 / orientation R1 (and, with ``feeder``, the
+        hand that holds the working yarn to a new place at the same time).
         ``until(sim)`` may stop the move early (returns True)."""
         t0 = self.t.copy()
         R0 = self.R.copy()
-        t1 = np.asarray(t1, float)
+        t1 = t0 if t1 is None else np.asarray(t1, float)
         if R1 is None:
             R1 = R0
         ang = rot_angle(R0, R1)
         travel = np.linalg.norm(t1 - t0) + ang * lever
+        F0 = self.feed[:3].copy()
+        if feeder is not None:
+            feeder = np.asarray(feeder, float)
+            travel = max(travel, np.linalg.norm(feeder - F0))
         if travel < 1e-9:
             return True
         ns = max(1, int(math.ceil(travel / self.dmax)))
@@ -277,7 +309,7 @@ class Sim:
             u = u * u * (3 - 2 * u) if ns > 40 else u      # ease in/out on long moves
             Rn = mat_from_quat(slerp(q0, q1, u)) if ang > 1e-9 else R0
             tn = t0 + (t1 - t0) * u
-            self._substep(Rn, tn)
+            self._substep(Rn, tn, None if feeder is None else F0 + (feeder - F0) * u)
             self._tick(dt)
             if until is not None and until(self):
                 return False
@@ -288,6 +320,16 @@ class Sim:
         nfr = max(1, int(round(seconds * self.fps)))
         for _ in range(nfr):
             for _ in range(substeps_per_frame if not self.strand_active else 12):
+                self._substep(self.R, self.t)
+            self._tick(1.0 / self.fps)
+
+    def wait_taut(self, max_seconds=3.0):
+        """The tools stand while the yarn hand takes up the slack of the working strand."""
+        nfr = max(1, int(round(max_seconds * self.fps)))
+        for _ in range(nfr):
+            if not self.strand_active or self.asleep:
+                break
+            for _ in range(12):
                 self._substep(self.R, self.t)
             self._tick(1.0 / self.fps)
 

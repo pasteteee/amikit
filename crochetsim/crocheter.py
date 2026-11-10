@@ -69,7 +69,7 @@ class Crocheter:
         return dict(a=a, n=n, R=R, Gp=Gp, start=Gp + a * self.x_start, over=Gp + a * self.x_over)
 
     # --------------------------------------------------------- execution
-    def push_and_catch(self, plan, lo, retract_to, speed=None):
+    def push_and_catch(self, plan, lo, retract_to, speed=None, stop_at_capture=False):
         """Push along the axis to plan['over'], pull back towards ``retract_to`` (tip position on
         the same axis); the throat takes the strand on the way."""
         s = self.s
@@ -79,7 +79,7 @@ class Crocheter:
         def grab(sim):
             if sim.cap[0] < 0.5:
                 sim.try_capture(lo=lo, tol=0.4)
-            return False
+            return sim.cap[0] > 0.5 and stop_at_capture
         s.move_to(retract_to, plan["R"], speed=speed, until=grab)
         if s.cap[0] < 0.5:
             raise CatchFailed("the throat did not take the strand")
