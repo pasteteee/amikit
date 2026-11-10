@@ -85,7 +85,7 @@ if stage == 'B':
     i_pull = len(sim.frames); print('pulled time', sim.time)
     for c in temp: sim.pin(c, False)
     # the yarn hand comes down behind the work and draws the stitch tight
-    sim.move_to(er * top - EY * 9.0, speed=10, feeder=er * (rho + 3.0) + EY * 22)
+    sim.move_to(er * top - EY * 10.5, speed=10, feeder=er * (rho + 3.0) + EY * 22)
     sim.wait_taut()
     sim.hold(0.2)
     # the hand that holds the work keeps the finished stitch where it is on the ring
@@ -109,17 +109,17 @@ if stage == 'C':
     unit = lambda v: v / np.linalg.norm(v)
     try:
         kpin = sim.K; K = sim.X[kpin].copy()
-        T = er * 3.2 + EY * 1.0                 # just through the ring, under the next place
-        # the hook comes from the front and from above, in the plane of the next place, clear of the last stitch
-        a = unit(EY - er)
-        C0 = T - a * ((K - T) @ -a)             # the place on the shaft nearest to the knot of the last stitch
+        T = er * 4.0                            # the place in the ring where the hook goes through
+        a = EY.copy()
+        C0 = T + a * ((K - T) @ a)              # the place on the shaft nearest to the knot of the last stitch
         u = unit(C0 - K)
         # the strand is laid across behind the ring, beside the way of the hook (on the side w)
-        sp = sim.F - K; sp = unit(sp - (sp @ a) * a)
-        w = np.cross(a, sp)
+        w = np.cross(a, u)
         if w @ er < 0:
             w = -w
-        Gn = T + a * 3.5 + w * 2.9
+        Gn = T + a * 4.5 + w * 3.3
+        sim.move_to(feeder=Gn + unit(Gn - K) * 18.0, speed=40)
+        sim.wait_taut()
         for _ in range(5):      # the yarn hand lays the strand across the place where the hook comes out
             kk = kpin + int(np.argmin(np.linalg.norm(sim.X[kpin:sim.n] - Gn, axis=1)))
             e = Gn - sim.X[kk]
@@ -138,14 +138,14 @@ if stage == 'C':
         # the hook slips forward under its loop: the loop leaves the throat along the slot and is on the shaft
         sim.release()
         sim.move_to(C0 + a * (1.7 + slot[0]), speed=26)
-        sim.move_to(T + a * 9.0, speed=26)
+        sim.move_to(T + a * 10.0, speed=26)
         xl = sim.hook_local(sim.X[loop[0]:loop[1]])
         near = np.hypot(xl[:, 1], xl[:, 2]) < 4.5
         print('loop on shaft at', xl[near, 0].min() if near.any() else None, xl[near, 0].max() if near.any() else None)
         save(sim, 'Cpre')
         # the throat turns to the strand and the yarn hand lays the strand over the hook
         sim.move_to(None, frame(a, w), speed=26)
-        sim.move_to(feeder=sim.F - w * 5.0 * np.linalg.norm(sim.F - K) / max(np.linalg.norm(Gn - K), 2.0), speed=26)
+        sim.move_to(feeder=sim.F - w * 6.0 * np.linalg.norm(sim.F - K) / max(np.linalg.norm(Gn - K), 2.0), speed=26)
         sim.wait_taut()
         Xs = sim.X[kpin + 2:sim.n]
         xl = sim.hook_local(Xs)
@@ -155,11 +155,101 @@ if stage == 'C':
         def grab(sm):
             if sm.cap[0] < 0.5:
                 sm.try_capture(lo=kpin + 2, tol=0.4)
-            return False
+            return sm.cap[0] > 0.5
         sim.move_to(T - a * 5.5, speed=26, until=grab)
-        print('cap', sim.cap)
+        print('cap', sim.cap, 'tip', sim.t)
+        if sim.cap[0] < 0.5:
+            raise RuntimeError('the throat did not take the strand')
+        save(sim, 'Ccap')
+        # the yarn hand goes straight behind the hook, so the yarn runs freely through the throat
+        sim.move_to(feeder=T + a * 22.0 + w * 3.0, speed=40)
+        # the throat turns away from the last stitch; a finger of the hook hand rests on the old loop
+        sim.move_to(None, frame(a, u), speed=26)
+        lo = loop[0]
+        xl = sim.hook_local(sim.X[lo:kpin]); near = np.where(np.hypot(xl[:, 1], xl[:, 2]) < 3.6)[0]
+        nd = lo + int(near[len(near) // 2]); print('finger on node', nd, 'at', xl[nd - lo])
+        sim.hold_on_hook(nd)
+        # the hook comes back out of the ring with the new loop, its handle swinging towards the last stitch
+        tilt = math.radians(35)
+        a2 = a * math.cos(tilt) + u * math.sin(tilt)
+        sim.move_to(T + a2 * 1.6 - EY * 2.0, frame(a2, u), speed=20)
         sim.wait_taut()
+        sim.th1 = th
     except Exception as e:
         print('FAILED', e)
     report(sim, 'C', i0, nfr=12, cams=[Camera([-30, -45, 50], [9, 0, 9], fov=22)], size=(480, 480)); save(sim, 'C')
+if stage == 'D':
+    sim = load(sys.argv[2] if len(sys.argv) > 2 else 'C'); cr = Crocheter(sim); sim.verbose = 250
+    th = sim.th1; er, et = ER(th), ET(th)
+    i0 = len(sim.frames)
+    unit = lambda v: v / np.linalg.norm(v)
+    top = rho + 3.7
+    a = EY.copy(); w = et.copy()
+    hp = sim.hp
+    slot = np.array([hp[8] - hp[5], hp[9] - hp[6]]) * 1.2
+    try:
+        kpin = sim.K
+        # the hook rises in front of the rim with its two loops, throat up
+        sim.let_go()
+        sim.move_to(None, frame(-sim.R[:, 0], er), speed=20)
+        sim.move_to(er * (top + slot[1]) + EY * 0.0, frame(a, er), speed=20)
+        sim.wait_taut()
+        # the hand that holds the work pinches the yarn where the new loop comes out of the ring
+        X = sim.X; k0 = int(sim.cap[1]) + 2
+        base = [i for i in range(k0, sim.n - 1) if X[i, 1] * X[i + 1, 1] <= 0 and math.hypot(X[i, 0], X[i, 2]) < rho]
+        base = base[0] if base else cr.work_anchor()
+        sim.pin(base); B = sim.X[base].copy(); print('pinch', base, B, 'cap', sim.cap)
+        # the yarn hand lifts the strand behind the rim, beside the way of the hook
+        Gn = er * top + EY * 8.0 + w * 3.3
+        sim.move_to(feeder=Gn + unit(Gn - B) * 18.0, speed=40)
+        sim.wait_taut()
+        for _ in range(5):
+            kk = base + int(np.argmin(np.linalg.norm(sim.X[base:sim.n] - Gn, axis=1)))
+            e = Gn - sim.X[kk]
+            print('aim: strand misses by', np.linalg.norm(e))
+            if np.linalg.norm(e) < 0.4:
+                break
+            sim.move_to(feeder=sim.F + e * np.linalg.norm(sim.F - B) / max(np.linalg.norm(sim.X[kk] - B), 2.0), speed=26)
+            sim.wait_taut()
+        # the hook slips forward under the new loop (it joins the old one on the shaft) and on past the strand
+        sim.release()
+        sim.move_to(er * top + EY * slot[0], speed=26)
+        sim.move_to(er * top + EY * 13.5, speed=26)
+        save(sim, 'Dpre')
+        sim.move_to(None, frame(a, w), speed=26)
+        sim.move_to(feeder=sim.F - w * 6.0 * np.linalg.norm(sim.F - B) / max(np.linalg.norm(Gn - B), 2.0), speed=26)
+        sim.wait_taut()
+        xl = sim.hook_local(sim.X[base + 2:sim.n])
+        ks = int(np.argmin(np.hypot(xl[:, 1], xl[:, 2])))
+        print('strand on hook at', xl[ks])
+        def grab(sm):
+            if sm.cap[0] < 0.5:
+                sm.try_capture(lo=base + 2, tol=0.4)
+            return sm.cap[0] > 0.5
+        sim.move_to(er * top + EY * 4.0, speed=26, until=grab)
+        print('cap', sim.cap, 'tip', sim.t)
+        if sim.cap[0] < 0.5:
+            raise RuntimeError('the throat did not take the strand')
+        save(sim, 'Dcap')
+        sim.move_to(feeder=er * top + EY * 30.0 + w * 3.0, speed=40)
+        # throat down, finger off: the hook draws the strand through both loops
+        sim.move_to(None, frame(a, -er), speed=26)
+        sim.let_go()
+        sim.move_to(er * top - EY * 10.5, speed=26)
+        print('pulled through', sim.time)
+        save(sim, 'Dpull')
+        # the work is let go for a moment and the yarn hand draws the stitch tight
+        sim.pin(base, False); sim.pin(kpin, False)
+        sim.move_to(feeder=er * (rho + 3.0) + EY * 22, speed=20)
+        sim.wait_taut()
+        sim.hold(0.2)
+        X = sim.X
+        c = cr.work_anchor(); K = sim.X[c].copy()
+        for i in range(kpin, c):
+            if X[i, 1] * X[i + 1, 1] <= 0 and math.hypot(X[i, 0], X[i, 2]) < rho:
+                sim.pin(i); print('hold', i, X[i])
+        sim.pin(c); sim.K = c; sim.th = th; print('K', c, K)
+    except Exception as e:
+        print('FAILED', e)
+    report(sim, 'D', i0, nfr=16, cams=[Camera([-30, -45, 50], [6, 0, 9], fov=24)], size=(480, 480)); save(sim, 'D')
 print('time %.1f' % (time.time() - t0))

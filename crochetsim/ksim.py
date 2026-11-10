@@ -105,6 +105,8 @@ class KSim:
             self.F = np.asarray(Fn, float)
         for nd, stp in self.grip.items():
             self.X[nd] += stp
+        for nd, lp in getattr(self, 'held', {}).items():
+            self.X[nd] = Rn @ lp + tn
         fn = -1
         force = np.zeros(3)
         if self.F is not None and self.W[n - 1] > 0:
@@ -283,6 +285,18 @@ class KSim:
         self.sol.par[6] = lo
         self.sol.par[7] = hi
         self.asleep = False
+
+    def hold_on_hook(self, node):
+        """The finger of the hook hand presses this node of a loop to the shaft: it travels with the hook."""
+        if not hasattr(self, 'held'):
+            self.held = {}
+        self.held[int(node)] = self.hook_local(self.X[node])
+        self.pin(node)
+
+    def let_go(self):
+        for nd in getattr(self, 'held', {}):
+            self.pin(nd, False)
+        self.held = {}
 
     def hook_local(self, P):
         return (np.asarray(P) - self.t) @ self.R
